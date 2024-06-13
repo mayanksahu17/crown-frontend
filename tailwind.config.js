@@ -1,10 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: "class",
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens: {
       sm: "576px",
@@ -38,9 +35,12 @@ export default {
         colorLinenRuffle: "#EFEAE3",
         colorViolet: "#321CA4",
         colorGreen: "#39FF14",
+        bgblue: "#000000",
+        textred: "#B9A164",
+        textwhite: "#FFFFFF",
+        themeColor: "#D5AA6D",
       },
     },
   },
   plugins: [],
-}
-
+};
