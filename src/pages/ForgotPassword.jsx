@@ -67,68 +67,6 @@ export default function ForgotPassword() {
   };
 
   return (
-    // <div className="overflow-y-hidden w-full flex flex-col md:flex-row  py-20">
-    //   <div className="w-full md:w-1/2 px-4 md:px-8 md:my-28">
-    //     <div className="mx-auto ">
-    //       <h1 className="mb-4 text-xl md:text-3xl font-semibold text-white">
-    //         Forgot Password?
-    //       </h1>
-
-    //       <p className="mb-4 text-xs md:text-sm font-normal text-textred">
-    //         Enter the user ID you used when you joined, and we'll send you
-    //         instructions to reset your password.
-    //       </p>
-
-    //       <div className="flex flex-col mb-4 w-full">
-    //         <label className="block text-textwhite">User ID</label>
-    //         <input
-    //           type="text"
-    //           name="userId"
-    //           value={formData.userId}
-    //           onChange={(e) => handleChange("userId", e.target.value)}
-    //           className="w-full bg-transparent px-2.5 py-2 border rounded-md border-solid border-white mt-1 !ml-0 text-white"
-    //         />
-    //       </div>
-
-    // {formData.isOTPSent && (
-    //   <div className="flex flex-col mb-4 w-full">
-    //     <label className="block text-textwhite">Enter OTP</label>
-    //     <input
-    //       type="text"
-    //       name="otp"
-    //       value={formData.otp}
-    //       onChange={(e) => handleChange("otp", e.target.value)}
-    //       className="w-full bg-transparent px-2.5 py-2 border rounded-md border-solid border-white mt-1 !ml-0 text-white"
-    //     />
-    //   </div>
-    // )}
-
-    // {formData.isOTPSent && (
-    //   <div className="flex flex-col mb-4 space-y-4 w-full">
-    //     <label className="block text-textwhite">Enter New Password</label>
-    //     <input
-    //       type="password"
-    //       value={formData.password}
-    //       onChange={(e) => handleChange("password", e.target.value)}
-    //       className="w-full bg-transparent px-2.5 py-2 border rounded-md border-solid border-white mt-1 !ml-0 text-white"
-    //     />
-    //     <label className="block text-textwhite">
-    //       Confirm New Password
-    //     </label>
-    //     <input
-    //       type="password"
-    //       value={formData.confirmPassword}
-    //       onChange={(e) =>
-    //         handleChange("confirmPassword", e.target.value)
-    //       }
-    //       className="w-full bg-transparent px-2.5 py-2 border rounded-md border-solid border-white mt-1 !ml-0 text-white"
-    //     />
-    //   </div>
-    // )}
-
-    //     </div>
-    //   </div>
-    // </div>
     <div
       className="w-full flex justify-center items-center min-h-screen py-4 lg:py-10"
       style={{
@@ -186,29 +124,12 @@ export default function ForgotPassword() {
 
           {formData.isOTPSent && (
             <div className="flex flex-col mb-4 space-y-4 w-full">
-              {/* <label className="block text-textwhite">Enter New Password</label>
-              <input
-                type="password"
-                value={formData.password}
-                onChange={(e) => handleChange("password", e.target.value)}
-                className="w-full bg-transparent px-2.5 py-2 border rounded-md border-solid border-white mt-1 !ml-0 text-white"
-              /> */}
               <PasswordInput
                 label={"Enter New Password"}
                 value={formData.password}
                 onChange={(e) => handleChange("password", e.target.value)}
               />
-              {/* <label className="block text-textwhite">
-                Confirm New Password
-              </label>
-              <input
-                type="password"
-                value={formData.confirmPassword}
-                onChange={(e) =>
-                  handleChange("confirmPassword", e.target.value)
-                }
-                className="w-full bg-transparent px-2.5 py-2 border rounded-md border-solid border-white mt-1 !ml-0 text-white"
-              /> */}
+
               <PasswordInput
                 label={"Confirm New Password"}
                 value={formData.confirmPassword}

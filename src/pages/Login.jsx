@@ -207,7 +207,7 @@ const Login = () => {
             <div className="flex items-center justify-end">
               <p
                 className="text-sm text-textred font-medium underline cursor-pointer"
-                onClick={() => handleNavigate("/forgot-password")}
+                onClick={() => handleNavigate("/reset-password")}
               >
                 Forgot Password ?
               </p>

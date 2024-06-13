@@ -38,6 +38,7 @@ import {
 } from "./pages";
 import { UserBinaryTree } from "./components";
 import DashboardLayout from "./layouts/DashboardLayout";
+import ResetPassword from "./pages/common/ResetPassword";
 function App() {
   // Init JOS Animation
   useJOSAnimation();
@@ -49,7 +50,12 @@ function App() {
           <Route path="/" element={<Home_01 />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
-          <Route path="about" element={<About />} />
+          <Route
+            exact
+            path="signup/:sponsorId/:position"
+            element={<Signup />}
+          />
+          <Route path="reset-password" element={<ResetPassword />} />
           <Route path="contact" element={<Contact />} />
           <Route path="blog" element={<Blog />} />
           <Route path="blog-details" element={<Blog_details />} />
@@ -69,13 +75,6 @@ function App() {
         <Route path="home-2" element={<Home_02 />} />
         <Route path="home-3" element={<Home_03 />} />
         <Route path="home-4" element={<Home_04 />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/signupas" element={<SignUpAs />} />
-        <Route
-          exact
-          path="signup/:sponsorId/:position"
-          element={<SignUpAs />}
-        />
 
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<Home />} />
