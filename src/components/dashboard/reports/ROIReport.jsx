@@ -1,4 +1,4 @@
-import { reportsROIColumns } from "../../../constants/columns";
+import { reportsROIColumns } from "../../../constants/Column";
 import Table from "../global/Table";
 
 export default function ({ data }) {

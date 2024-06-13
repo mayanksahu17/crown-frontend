@@ -1,34 +1,34 @@
 import React from "react";
 import { Outlet, Route, Routes } from "react-router-dom";
-import HomeOne from "../Components/static/HomeOne/Main";
-import Footer from "../Components/static/Footer/Main";
+import HomeOne from "../components/static/HomeOne/Main";
+import Footer from "../components/static/Footer/Main";
 
-import About from "../Components/static/About/Main";
-import Contact from "../Components/static/Contact/Main";
-import NFTCompnies from "../Components/static/NFTCompnies/Main";
-import FAQ from "../Components/static/FAQ/Main";
-import Cryptocurrency from "../Components/static/Cryptocurrency/Main";
-import ForbesTop500Companies from "../Components/static/ForbesTop500Companies/Main";
+import About from "../components/static/About/Main";
+import Contact from "../components/static/Contact/Main";
+import NFTCompnies from "../components/static/NFTCompnies/Main";
+import FAQ from "../components/static/FAQ/Main";
+import Cryptocurrency from "../components/static/Cryptocurrency/Main";
+import ForbesTop500Companies from "../components/static/ForbesTop500Companies/Main";
 
-import NewsDetails from "../Components/static/NewsDetails/Main";
-import News from "../Components/static/News/Main";
-import PortfolioDetails from "../Components/static/PortfolioDetails/Main";
-import AIPlateforms from "../Components/static/AIPlateforms/Main";
-import Portfolio from "../Components/static/Portfolio/Main";
+import NewsDetails from "../components/static/NewsDetails/Main";
+import News from "../components/static/News/Main";
+import PortfolioDetails from "../components/static/PortfolioDetails/Main";
+import AIPlateforms from "../components/static/AIPlateforms/Main";
+import Portfolio from "../components/static/Portfolio/Main";
 
-import InvestmentJS from "../Components/static/InvestmentJS/Main";
+import InvestmentJS from "../components/static/InvestmentJS/Main";
 
-import Affiliate from "../Components/static/Affiliate/Main";
-import Services from "../Components/static/Services/Main";
-import TermsAndConditions from "../Components/static/TermsAndConditions/Main";
-import PrivacyPolicies from "../Components/static/PrivacyPolicies/Main";
-import Team from "../Components/static/Team/Main";
-import PDFs from "../Components/static/PDFs/Main";
-import Photos from "../Components/static/Photos/Main";
-import Videos from "../Components/static/Videos/Main";
-import Banners from "../Components/static/Banners/Main";
+import Affiliate from "../components/static/Affiliate/Main";
+import Services from "../components/static/Services/Main";
+import TermsAndConditions from "../components/static/TermsAndConditions/Main";
+import PrivacyPolicies from "../components/static/PrivacyPolicies/Main";
+import Team from "../components/static/Team/Main";
+import PDFs from "../components/static/PDFs/Main";
+import Photos from "../components/static/Photos/Main";
+import Videos from "../components/static/Videos/Main";
+import Banners from "../components/static/Banners/Main";
 import Login from "../pages/Login";
-import Legal from "../Components/static/Legal/Main";
+import Legal from "../components/static/Legal/Main";
 import { DashboardLayout } from "../layouts";
 
 // Dashboard Pages

@@ -1,4 +1,4 @@
-import { reportWithdrawalColumns } from "../../../constants/columns";
+import { reportWithdrawalColumns } from "../../../constants/Column";
 import Table from "../global/Table";
 
 export default function ({ data }) {

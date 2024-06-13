@@ -7,7 +7,7 @@ import {
   SecuritySettings,
   ProfileSettings,
   Tab,
-} from "../../Components";
+} from "../../components";
 import userService from "../../services/userService";
 import toast from "react-hot-toast";
 import { UserAvatar } from "../../assets";

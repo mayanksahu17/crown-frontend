@@ -1,4 +1,4 @@
-import { packageActivationColumns } from "../../../constants/columns";
+import { packageActivationColumns } from "../../../constants/Column";
 import Table from "../global/Table";
 
 export default function PackageActivation({ data }) {

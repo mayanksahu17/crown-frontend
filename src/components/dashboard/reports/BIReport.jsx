@@ -1,4 +1,4 @@
-import { reportsBIColumns } from "../../../constants/columns";
+import { reportsBIColumns } from "../../../constants/Column";
 import Table from "../global/Table";
 
 export default function ({ data }) {

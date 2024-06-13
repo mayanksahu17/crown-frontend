@@ -1,4 +1,4 @@
-import { downlineActivationColumns } from "../../../constants/columns";
+import { downlineActivationColumns } from "../../../constants/Column";
 import Table from "../global/Table";
 
 export default function DownlineActivation({ data }) {

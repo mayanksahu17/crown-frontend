@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, ErrorMessage, PasswordInput, Select } from "../Components";
+import { Button, ErrorMessage, PasswordInput, Select } from "../components";
 import countryList from "react-select-country-list";
 import { useMemo } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";

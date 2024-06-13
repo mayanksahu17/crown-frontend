@@ -1,4 +1,4 @@
-import { reportDepositColumns } from "../../../constants/columns";
+import { reportDepositColumns } from "../../../constants/Column";
 import Table from "../global/Table";
 
 export default function ({ data }) {

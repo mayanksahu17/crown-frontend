@@ -8,7 +8,7 @@ import {
   WithdrawalReport,
   ExtraIncomeReport,
   TokenReport,
-} from "../../Components";
+} from "../../components";
 import reportService from "../../services/reportService";
 import { useAuth } from "../../hooks/useAuth";
 import { useState } from "react";

@@ -1,4 +1,4 @@
-import { SubmitTicket, AllTicket, Tab } from "../../Components";
+import { SubmitTicket, AllTicket, Tab } from "../../components";
 
 export default function Tickets() {
   const data = [

@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Logo, ForgotImage, AuthImage, SignUpImage } from "../assets";
 import { useState } from "react";
-import { Button, PasswordInput } from "../Components";
+import { Button, PasswordInput } from "../components";
 import authService from "../services/authService";
 import toast from "react-hot-toast";
 

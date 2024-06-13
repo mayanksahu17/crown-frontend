@@ -35,7 +35,7 @@ import {
   Vouchers,
   VerifyEmail,
   ForgotPassword,
-} from "../pages";
+} from "./pages";
 import { UserBinaryTree } from "./components";
 function App() {
   // Init JOS Animation

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "../Components";
+import { Button } from "../components";
 import { Email, Flexible, Image, Support, Wallet } from "../assets";
 import toast from "react-hot-toast";
 import authService from "../services/authService";

@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { Button, Card, Select, Modal, SelectWithInput } from "../../Components";
+import { Button, Card, Select, Modal, SelectWithInput } from "../../components";
 import {
   TotalIcon,
   VerseBank,
@@ -21,12 +21,12 @@ import { useNavigate } from "react-router-dom";
 import { tokens } from "../../constants/tokens";
 import depositService from "../../services/depositService";
 import dashboardService from "../../services/dashboardService";
-import UpdateWalletAddressModal from "../../Components/dashboard/home/UpdateWalletAddressModal";
+import UpdateWalletAddressModal from "../../components/dashboard/home/UpdateWalletAddressModal";
 import withdrawalService from "../../services/withdrawalService";
 import { FiDollarSign } from "react-icons/fi";
 import { FaCaretDown } from "react-icons/fa";
 import ProgressBar from "@ramonak/react-progress-bar";
-import Loader from "../../Components/dashboard/Loader";
+import Loader from "../../components/dashboard/Loader";
 
 export default function Home() {
   const { user } = useAuth();

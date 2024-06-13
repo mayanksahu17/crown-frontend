@@ -2,11 +2,11 @@ import React, { useMemo } from "react";
 import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import authService from "../services/authService";
-import Button from "../Components/dashboard/global/Button";
+import Button from "../components/dashboard/global/Button";
 import toast from "react-hot-toast";
 import { useAuth } from "../hooks/useAuth";
 import { AuthImage, LoginImage, Logo } from "../assets";
-import { ErrorMessage, PasswordInput } from "../Components";
+import { ErrorMessage, PasswordInput } from "../components";
 
 const Login = () => {
   const handleNavigate = useNavigate();

@@ -4,7 +4,7 @@ import {
   DownlineActivation,
   PackageActivation,
   Tab,
-} from "../../Components";
+} from "../../components";
 import investmentService from "../../services/investmentService";
 import { useAuth } from "../../hooks/useAuth";
 import walletService from "../../services/walletService";

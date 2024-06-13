@@ -1,4 +1,4 @@
-import { AllVouchers, CreateVoucher, Tab } from "../../Components";
+import { AllVouchers, CreateVoucher, Tab } from "../../components";
 
 export default function Vouchers() {
   const data = [

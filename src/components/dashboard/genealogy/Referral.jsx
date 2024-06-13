@@ -1,6 +1,6 @@
 import countryList from "react-select-country-list";
 import { Select, Button, Table } from "../..";
-import { genealogyColumns } from "../../../constants/columns";
+import { genealogyColumns } from "../../../constants/Column";
 import { useMemo, useState } from "react";
 
 export default function Referral({ data }) {

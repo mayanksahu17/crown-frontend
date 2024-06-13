@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Tab, BinaryTree, Referral } from "../../Components";
+import { Tab, BinaryTree, Referral } from "../../components";
 import { useAuth } from "../../hooks/useAuth";
 import genealogyService from "../../services/genealogyService";
 

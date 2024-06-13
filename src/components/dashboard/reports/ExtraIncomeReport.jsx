@@ -1,4 +1,4 @@
-import { reportsExtraIncomeColumns } from "../../../constants/columns";
+import { reportsExtraIncomeColumns } from "../../../constants/Column";
 import Table from "../global/Table";
 
 export default function ({ data }) {

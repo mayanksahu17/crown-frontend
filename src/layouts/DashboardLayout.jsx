@@ -1,5 +1,5 @@
 import { Navigate, Outlet, useLocation } from "react-router-dom";
-import { Navbar, Sidebar, HomeStats } from "../Components";
+import { Navbar, Sidebar, HomeStats } from "../components";
 import { useState } from "react";
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 import DrawerProvider from "../providers/DrawerProvider";

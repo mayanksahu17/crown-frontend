@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { IoTicketSharp } from "react-icons/io5";
-import { ticketColumns } from "../../../constants/columns";
+import { ticketColumns } from "../../../constants/Column";
 import Table from "../global/Table";
 import { useAuth } from "../../../hooks/useAuth";
 import ticketService from "../../../services/ticketService";

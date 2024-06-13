@@ -1,4 +1,4 @@
-import { reportsTokenColumns } from "../../../constants/columns";
+import { reportsTokenColumns } from "../../../constants/Column";
 import Table from "../global/Table";
 
 export default function ({ data }) {
