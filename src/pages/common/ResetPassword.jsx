@@ -110,7 +110,10 @@ const ResetPassword = () => {
                     </div>
                     {formData.isOTPSent && (
                       <div className="flex flex-col mb-4 w-full">
-                        <label className="block text-textwhite">
+                        <label
+                          htmlFor="login-email"
+                          className="text-lg font-bold leading-[1.6]"
+                        >
                           Enter OTP
                         </label>
                         <input

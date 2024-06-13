@@ -7,6 +7,7 @@ import { useAuth } from "../../hooks/useAuth";
 import { Navigate, useNavigate } from "react-router-dom";
 import authService from "../../services/authService";
 import { CgSpinner } from "react-icons/cg";
+import { FaEye, FaEyeSlash } from "react-icons/fa6";
 
 const Login = () => {
   const handleNavigate = useNavigate();
@@ -182,16 +183,28 @@ const Login = () => {
                         >
                           Enter Password
                         </label>
-                        <input
-                          type={showPassword ? "text" : "password"}
-                          name="password"
-                          value={formData.password}
-                          onChange={handleChange}
-                          id="login-password"
-                          placeholder="............"
-                          className="rounded-[10px] border border-gray-300 bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
-                          required=""
-                        />
+                        <div className="flex flex-column justify-between rounded-[10px] border border-gray-300 bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed">
+                          <input
+                            type={showPassword ? "text" : "password"}
+                            name="password"
+                            value={formData.password}
+                            onChange={handleChange}
+                            id="login-password"
+                            placeholder="............"
+                            className="outline-none"
+                          />
+
+                          <div
+                            className="  flex items-center pr-2 cursor-pointer"
+                            onClick={togglePasswordVisibility}
+                          >
+                            {showPassword ? (
+                              <FaEyeSlash color="#000" size={18} />
+                            ) : (
+                              <FaEye color="#000" size={18} />
+                            )}
+                          </div>
+                        </div>
                       </div>
                     )}
                     {showOTPInput && (
