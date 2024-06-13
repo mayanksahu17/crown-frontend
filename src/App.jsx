@@ -37,6 +37,7 @@ import {
   ForgotPassword,
 } from "./pages";
 import { UserBinaryTree } from "./components";
+import DashboardLayout from "./layouts/DashboardLayout";
 function App() {
   // Init JOS Animation
   useJOSAnimation();

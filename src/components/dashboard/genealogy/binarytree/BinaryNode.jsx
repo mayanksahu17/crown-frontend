@@ -6,7 +6,6 @@ import Tree from "./Tree";
 import {
   EllipseFive,
   EllipseSix,
-  PackageFour,
   PackageOne,
   PackageThree,
   PackageTwo,
@@ -54,7 +53,7 @@ export default function BinaryNode({ data, last, first, ofTwo }) {
         return (
           <img src={PackageThree} alt="Package 3" width="50" height="50" />
         );
-     
+
       default:
         return (
           <img src={EllipseSix} width="50" height="50" className="pt-[4px]" />

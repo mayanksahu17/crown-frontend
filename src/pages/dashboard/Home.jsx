@@ -156,7 +156,6 @@ export default function Home() {
               totalDeposit: data?.total_deposit,
               totalROI: data?.roi_wallet,
               totalRNB: data?.referral_binary_wallet,
-              totalEarning: data?.total_earning,
               interest_wallet: data?.interest_wallet,
               totalVoucherAmount: data?.toal_voucher_generated,
               isWithdrawalWalletUpdated: data?.isWithdrawalWalletUpdated,
