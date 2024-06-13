@@ -28,7 +28,7 @@ import {
   Home,
   Investment,
   Settings,
-  SignUp,
+  SignUpAs,
   Genealogy,
   Reports,
   Tickets,
@@ -70,8 +70,12 @@ function App() {
         <Route path="home-3" element={<Home_03 />} />
         <Route path="home-4" element={<Home_04 />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route exact path="signup/:sponsorId/:position" element={<SignUp />} />
+        <Route path="/signupas" element={<SignUpAs />} />
+        <Route
+          exact
+          path="signup/:sponsorId/:position"
+          element={<SignUpAs />}
+        />
 
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<Home />} />

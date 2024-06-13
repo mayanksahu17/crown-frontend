@@ -74,7 +74,7 @@ export default function SecuritySettings() {
           toast.success("Password updated successfully");
           logOutUser();
           toast.success("logout successful");
-          navigate("/signin");
+          navigate("/login");
         }
       }
     } catch (error) {

@@ -22,7 +22,7 @@ export default function DashboardLayout() {
 
   const toggleDrawer = () => setIsDrawerOpen((prev) => !prev);
   if (!user) {
-    return <Navigate to="/signin" state={{ location }} />;
+    return <Navigate to="/login" state={{ location }} />;
   }
 
   return (

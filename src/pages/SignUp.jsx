@@ -229,7 +229,7 @@ export default function SignUp() {
         toast.success(
           "Verification link sent to your email. Please check your inbox."
         );
-        handleNavigate("/signin");
+        handleNavigate("/login");
         //  }
       }
     } catch (error) {
@@ -544,7 +544,7 @@ export default function SignUp() {
               Already have an account ?{" "}
               <span
                 className="text-[#C0B088] font-medium underline cursor-pointer"
-                onClick={() => handleNavigate("/signin")}
+                onClick={() => handleNavigate("/login")}
               >
                 Sign In
               </span>

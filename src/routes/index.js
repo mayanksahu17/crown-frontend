@@ -84,7 +84,7 @@ function Index() {
             <Route path="/Banners" element={<Banners />} />
             <Route path="/Legal" element={<Legal />} />
           </Route>
-          <Route path="/signin" element={<Login />} />
+          <Route path="/login" element={<Login />} />
           {/* <Route path="/forgotpassword" element={<Forgotpassword />} /> */}
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/signup" element={<SignUp />} />

@@ -11,7 +11,6 @@ import { toast } from "react-hot-toast";
 import { Logo } from "../../assets";
 import Notifications from "./Notifications";
 
-
 export default function Navbar() {
   const handleNavigate = useNavigate();
   const { user, logOutUser } = useAuth();
@@ -29,7 +28,6 @@ export default function Navbar() {
     return () => clearInterval(interval); // Cleanup on component unmount
   }, []);
 
-
   function getUKTime() {
     const ukTime = new Date().toLocaleString("en-US", {
       timeZone: "Europe/London",
@@ -45,14 +43,13 @@ export default function Navbar() {
     return `${ukTime} GMT`;
   }
 
-
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
   };
 
   const handleLogout = () => {
     logOutUser();
-    handleNavigate("/signin");
+    handleNavigate("/login");
   };
 
   const handleSearchChange = (event) => {
@@ -106,7 +103,7 @@ export default function Navbar() {
         </div> */}
 
         <div className="flex items-center space-x-2 lg:space-x-4 relative ">
-          <Notifications  />
+          <Notifications />
 
           <div
             className="flex items-center space-x-4 cursor-pointer"

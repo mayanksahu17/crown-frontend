@@ -17,7 +17,7 @@ export default function VerifyEmail() {
         const res = await authService.verifyUserEmail({ token });
 
         if (res.status === 200) {
-          handleNavigate("/signin");
+          handleNavigate("/login");
           toast.success("Email verified successfully !");
         }
 

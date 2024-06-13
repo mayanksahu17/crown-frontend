@@ -7,6 +7,6 @@ export { default as Reports } from "./dashboard/Reports";
 export { default as Tickets } from "./dashboard/Tickets";
 export { default as Vouchers } from "./dashboard/Vouchers";
 
-export { default as SignUp } from "./SignUp";
+export { default as SignUpAs } from "./SignUp";
 export { default as VerifyEmail } from "./VerifyEmail";
 export { default as ForgotPassword } from "./ForgotPassword";

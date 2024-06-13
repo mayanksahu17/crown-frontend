@@ -56,7 +56,7 @@ export default function ForgotPassword() {
         if (res.status === 200) {
           handleLoadingStatesChange("isForgotLoading", false);
           toast.success("Password changed successfully");
-          handleNavigate("/signin");
+          handleNavigate("/login");
         }
       }
     } catch (error) {
