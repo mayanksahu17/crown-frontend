@@ -7,7 +7,7 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
   (config) => {
-    const user = JSON.parse(localStorage.getItem("project_user"));
+    const user = JSON.parse(localStorage.getItem("crown_user"));
     config.headers.Authorization = user?.token;
     return config;
   },
@@ -22,7 +22,7 @@ axiosInstance.interceptors.response.use(
   },
   (error) => {
     if (error.response && error.response.status === 401) {
-      localStorage.removeItem("project_user");
+      localStorage.removeItem("crown_user");
       window.location.href = "/signin";
     }
 

@@ -69,8 +69,6 @@ function App() {
         <Route path="home-2" element={<Home_02 />} />
         <Route path="home-3" element={<Home_03 />} />
         <Route path="home-4" element={<Home_04 />} />
-        <Route path="/signin" element={<Login />} />
-        {/* <Route path="/forgotpassword" element={<Forgotpassword />} /> */}
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/signup" element={<SignUp />} />
         <Route exact path="signup/:sponsorId/:position" element={<SignUp />} />
