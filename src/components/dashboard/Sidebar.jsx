@@ -22,7 +22,12 @@ export default function Sidebar({ isSidebarOpen, setIsSidebarOpen }) {
     >
       <div className="flex flex-col justify-between items-center h-full w-full ">
         <div className={clsx("flex flex-col space-y-10 w-full items-center")}>
-          <h1 className="text-2xl text-white">
+          <h1
+            className="cursor-pointer text-2xl text-white"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
             Crown <br /> Bankers
           </h1>
 
