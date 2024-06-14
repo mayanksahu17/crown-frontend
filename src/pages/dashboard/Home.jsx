@@ -14,7 +14,6 @@ import moment from "moment/moment";
 import { useAuth } from "../../hooks/useAuth";
 import walletService from "../../services/walletService";
 import frontendURL from "../../constants/frontendURL";
-import copy from "copy-to-clipboard";
 import toast from "react-hot-toast";
 import { IoClose } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
@@ -23,9 +22,7 @@ import depositService from "../../services/depositService";
 import dashboardService from "../../services/dashboardService";
 import UpdateWalletAddressModal from "../../components/dashboard/home/UpdateWalletAddressModal";
 import withdrawalService from "../../services/withdrawalService";
-import { FiDollarSign } from "react-icons/fi";
-import { FaCaretDown } from "react-icons/fa";
-import ProgressBar from "@ramonak/react-progress-bar";
+
 import Loader from "../../components/dashboard/Loader";
 
 export default function Home() {
@@ -229,17 +226,6 @@ export default function Home() {
       color: "#B9A164",
     },
   ];
-
-  const leftReferralLink =
-    frontendURL +
-    "/signup?sponsorId=CROWN-" +
-    user?.user?.userId?.split("-")[1] +
-    "&position=left";
-  const rightReferralLink =
-    frontendURL +
-    "/signup?sponsorId=CROWN-" +
-    user?.user?.userId?.split("-")[1] +
-    "&position=right";
 
   const customStyles = {
     control: (provided) => ({
@@ -676,149 +662,6 @@ export default function Home() {
           </div>
 
           {/* Referral Div */}
-          <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-4">
-            <div className="w-full bg-white p-3 rounded-lg lg:col-span-3">
-              <div className="flex items-center w-full justify-between">
-                <h1 className="text-lg lg:text-xl font-semibold text-[#272727]">
-                  Referral link
-                </h1>
-                {/* <p className="opacity-80 text-[#272727] font-normal text-sm">
-                  1.32 {moment().format("(MMM D, hh:mm UTC)")}
-                </p> */}
-              </div>
-              <div className="mt-3 w-full grid grid-cols-1 sm:grid-cols-2 gap-3 space-y-4 md:space-y-0">
-                <div className="w-full bg-gray-200 rounded-md p-2">
-                  <p className="opacity-80 text-[#272727] font-normal text-xs">
-                    Left link
-                  </p>
-                  <div className="flex justify-between w-full space-x-3 mt-2">
-                    <input
-                      type="text"
-                      className="w-4/6 text-xs px-2 py-1 text-opacity-80 text-[#272727]"
-                      value={leftReferralLink}
-                      readOnly
-                    />
-                    <button
-                      className="text-white bg-[#000000] px-2 py-2 rounded-full w-2/6 text-sm font-normal"
-                      onClick={() => {
-                        copy(leftReferralLink);
-                        toast.success("Link copied");
-                      }}
-                    >
-                      Copy link
-                    </button>
-                  </div>
-                </div>
-                <div className="w-full bg-gray-200 rounded-md  p-2">
-                  <p className="opacity-80 text-[#272727] font-normal text-xs">
-                    Right link
-                  </p>
-                  <div className="flex justify-between w-full space-x-3 mt-2">
-                    <input
-                      type="text"
-                      className="w-4/6 text-xs px-2 py-1 text-opacity-80 text-[#272727]"
-                      value={rightReferralLink}
-                      readOnly
-                    />
-                    <button
-                      className="text-white bg-[#000000] px-2 py-2 rounded-full w-2/6 text-sm font-normal"
-                      onClick={() => {
-                        copy(rightReferralLink);
-                        toast.success("Link copied");
-                      }}
-                    >
-                      Copy link
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white rounded-lg p-3 w-full mt-4">
-            <div className="w-full flex justify-between">
-              <h1 className="text-lg lg:text-xl font-semibold text-[#272727]">
-                My Career : Level {allData?.binary_career_level}
-              </h1>
-
-              <h1 className="text-lg lg:text-xl font-semibold text-themeColor">
-                Next Level: {allData?.binary_career_level + 1}
-              </h1>
-            </div>
-            <div className="mt-3 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-              <div className="w-full">
-                <div className="flex justify-between items-center gap-2">
-                  <div className="flex flex-row gap-2">
-                    <div className="h-5 w-5 rounded-full bg-teal-200 flex items-center justify-center">
-                      <FiDollarSign size="12" color="white" />
-                    </div>
-                    <p className="text-sm font-normal">Left Business</p>
-                  </div>
-                  <p className="text-sm font-normal">Target</p>
-                </div>
-                <div className="flex justify-between items-center gap-2">
-                  <div className="my-3 text-black text-lg font-medium">
-                    ${allData.leftBusiness}
-                  </div>
-                  <div className="my-3 text-black text-lg font-medium">
-                    ${allData.target}
-                  </div>
-                </div>
-                <ProgressBar
-                  completed={allData?.leftWidth}
-                  height="4px"
-                  isLabelVisible={false}
-                  baseBgColor="#cbd5e1"
-                  borderRadius="10px"
-                  bgColor="#6ee7b7"
-                />
-              </div>
-              <div className="w-full">
-                <div className="flex justify-between items-center gap-2">
-                  <div className="flex flex-row gap-2">
-                    <div className="h-5 w-5 rounded-full bg-teal-200 flex items-center justify-center">
-                      <FiDollarSign size="12" color="white" />
-                    </div>
-                    <p className="text-sm font-normal">Right Business</p>
-                  </div>
-                  <p className="text-sm font-normal">Target</p>
-                </div>
-                <div className="flex justify-between items-center gap-2">
-                  <div className="my-3 text-black text-lg font-medium">
-                    ${allData.rightBusiness}
-                  </div>
-                  <div className="my-3 text-black text-lg font-medium">
-                    ${allData.target}
-                  </div>
-                </div>
-                <ProgressBar
-                  completed={allData?.rightWidth}
-                  height="4px"
-                  isLabelVisible={false}
-                  baseBgColor="#cbd5e1"
-                  borderRadius="10px"
-                  bgColor="#6ee7b7"
-                />
-              </div>
-              {/* <div className="w-full rounded-lg bg-teal-500 p-3">
-                <p className="text-black text-2xl font-medium">
-                  ${parseFloat("215221.00")?.toFixed(2)}
-                </p>
-                <div className="gap-2 flex items-center mt-2">
-                  <FaCaretDown color="black" />
-                  <p className="text-xs text-black">Total business</p>
-                </div>
-              </div>
-              <div className="w-full rounded-lg bg-yellow-500 p-3">
-                <p className="text-black text-2xl font-medium">
-                  ${parseFloat("215221.00")?.toFixed(2)}
-                </p>
-                <div className="gap-2 flex items-center mt-2">
-                  <FaCaretDown color="black" />
-                  <p className="text-xs text-black">Rewards</p>
-                </div>
-              </div> */}
-            </div>
-          </div>
         </div>
       </div>
     </>
