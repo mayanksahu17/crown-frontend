@@ -9,18 +9,18 @@ import { useAuth } from "../../../hooks/useAuth";
 const HomeTabComponent = ({ allData }) => {
   return (
     <>
-      <div className="bg-white rounded-lg p-3 w-full mt-4">
-        <div className="w-full flex justify-between">
-          <h1 className="text-lg lg:text-xl font-semibold text-[#272727]">
+      <div className=" rounded-lg  w-full mt-4">
+        <div className="w-full flex flex-col">
+          <div className="w-full text-lg lg:text-xl font-semibold text-[#fff]">
             My Career : Level {allData?.binary_career_level}
-          </h1>
+          </div>
 
-          <h1 className="text-lg lg:text-xl font-semibold text-themeColor">
+          <div className=" w-full text-lg lg:text-xl font-semibold text-[#fff]">
             Next Level: {allData?.binary_career_level + 1}
-          </h1>
+          </div>
         </div>
-        <div className="mt-3 ">
-          <div className="w-full">
+        <div className="mt-3 w-full flex flex-col gap-4 text-white">
+          <div className="w-full bg-[#242424] p-4">
             <div className="flex justify-between items-center gap-2">
               <div className="flex flex-row gap-2">
                 <div className="h-5 w-5 rounded-full bg-teal-200 flex items-center justify-center">
@@ -31,10 +31,10 @@ const HomeTabComponent = ({ allData }) => {
               <p className="text-sm font-normal">Target</p>
             </div>
             <div className="flex justify-between items-center gap-2">
-              <div className="my-3 text-black text-lg font-medium">
+              <div className="my-3 text-white text-lg font-medium">
                 ${allData?.leftBusiness}
               </div>
-              <div className="my-3 text-black text-lg font-medium">
+              <div className="my-3 text-white text-lg font-medium">
                 ${allData?.target}
               </div>
             </div>
@@ -47,7 +47,7 @@ const HomeTabComponent = ({ allData }) => {
               bgColor="#6ee7b7"
             />
           </div>
-          <div className="w-full">
+          <div className="w-full bg-[#242424] p-4">
             <div className="flex justify-between items-center gap-2">
               <div className="flex flex-row gap-2">
                 <div className="h-5 w-5 rounded-full bg-teal-200 flex items-center justify-center">
@@ -58,10 +58,10 @@ const HomeTabComponent = ({ allData }) => {
               <p className="text-sm font-normal">Target</p>
             </div>
             <div className="flex justify-between items-center gap-2">
-              <div className="my-3 text-black text-lg font-medium">
+              <div className="my-3 text-white text-lg font-medium">
                 ${allData?.rightBusiness}
               </div>
-              <div className="my-3 text-black text-lg font-medium">
+              <div className="my-3 text-white text-lg font-medium">
                 ${allData?.target}
               </div>
             </div>
