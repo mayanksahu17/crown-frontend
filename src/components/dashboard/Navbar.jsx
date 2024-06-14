@@ -69,11 +69,9 @@ export default function Navbar() {
   };
 
   return (
-    <div className="w-full mb-2">
+    <div className="w-full mb-2 text-white">
       <div className="flex flex-row justify-between items-center">
-        <h1 className="font-semibold text-2xl sm:text-4xl  sm:mb-0">
-          Hi, {user?.user?.name.split(" ")[0]}!
-        </h1>
+        <div className="text-xl text-white ">Dashboard</div>
 
         {/* Search Bar */}
         {/* <div className="relative max-w-xl w-full mr-2 mt-2 sm:mt-0 hidden lg:block">
@@ -106,7 +104,7 @@ export default function Navbar() {
           <Notifications />
 
           <div
-            className="flex items-center space-x-4 cursor-pointer"
+            className="flex items-center  cursor-pointer"
             onClick={toggleDropdown}
           >
             <div className="h-10 w-10 sm:h-10 sm:w-10 bg-white rounded-full cursor-pointer flex items-center justify-center">
@@ -122,7 +120,7 @@ export default function Navbar() {
             </div>
 
             {isDropdownOpen && (
-              <div className="absolute top-10 z-50 sm:top-14 font-normal bg-white rounded shadow-sm mt-2 py-2 w-40 md:w-52 right-0 text-sm">
+              <div className="text-black absolute top-10 z-50 sm:top-14 font-normal bg-white rounded shadow-sm mt-2 py-2 w-40 md:w-52 right-0 text-sm">
                 <div
                   className="cursor-pointer px-3 py-1.5 hover:bg-gray-200"
                   onClick={() => handleNavigate("/dashboard/settings/profile")}
@@ -131,7 +129,7 @@ export default function Navbar() {
                 </div>
                 <div
                   className="cursor-pointer px-3 py-1.5 hover:bg-gray-200"
-                  onClick={() => handleNavigate("/")}
+                  onClick={() => handleNavigate("/tickets/submit-ticket")}
                 >
                   Help & Support
                 </div>
@@ -143,23 +141,6 @@ export default function Navbar() {
                 </div>
               </div>
             )}
-
-            <div className="cursor-pointer hidden lg:block">
-              <p className="text-[#272727] font-semibold text-sm sm:text-base tracking-[0.00563rem]">
-                {user?.user?.name}
-              </p>
-              <p className="text-xs sm:text-sm font-normal">Customer</p>
-            </div>
-            <MdKeyboardArrowDown
-              size={16}
-              color="#6B7280"
-              className={clsx(
-                "hidden lg:block transition-transform duration-300 ease-in-out",
-                {
-                  "rotate-180": isDropdownOpen,
-                }
-              )}
-            />
           </div>
         </div>
       </div>

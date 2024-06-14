@@ -183,21 +183,21 @@ const Notifications = () => {
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative text-black">
       <button
-        className="w-10 h-10 sm:w-10 sm:h-10 bg-white rounded-full flex items-center justify-center cursor-pointer"
+        className="w-10 h-10 sm:w-10 sm:h-10 bg-black rounded-full flex items-center justify-center cursor-pointer"
         ref={notificationBtnRef}
         onClick={() => setIsNotificationOpen((prev) => !prev)}
       >
-        <GrNotification size={16} color="#6B7280" />
+        <GrNotification size={16} color="#fff" />
       </button>
       {isNotificationOpen && (
         <div
           ref={notificationRef}
-          className="absolute right-5 z-50 top-10 font-normal bg-white rounded shadow-sm mt-2 py-2 w-64 md:w-80 text-sm"
+          className="absolute right-5 z-50 top-10 font-normal bg-white rounded shadow-sm mt-2 py-2 w-64 md:w-80 h-[30rem] text-sm overflow-y-auto"
         >
           <div className="flex items-center justify-between px-3">
-            <h2 className="text-base sm:text-lg">Notifications</h2>
+            <h2 className="text-base text-black sm:text-lg">Notifications</h2>
             <p
               className="text-xs cursor-pointer hover:underline"
               onClick={markAllNotificationsAsRead}

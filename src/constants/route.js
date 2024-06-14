@@ -27,11 +27,7 @@ const routes = [
     route: "/dashboard/genealogy/binary",
     icon: AnalyticsIcon,
   },
-  {
-    name: "Tickets",
-    route: "/dashboard/tickets/submit-ticket",
-    icon: ChatIcon,
-  },
+
   {
     name: "Report",
     route: "/dashboard/reports/roi",

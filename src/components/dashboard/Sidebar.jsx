@@ -13,7 +13,7 @@ export default function Sidebar({ isSidebarOpen, setIsSidebarOpen }) {
   return (
     <nav
       className={clsx(
-        "z-50 hidden bg-[#141414] h-full py-6 lg:flex flex-col transition-all duration-300 ease-in-out ",
+        "z-50 hidden bg-[#242424] h-full py-6 lg:flex flex-col transition-all duration-300 ease-in-out ",
         isSidebarOpen ? "w-[16%]" : "w-[7%] max-w-[100px]",
         isSidebarOpen
           ? "items-start justify-between"
@@ -26,7 +26,7 @@ export default function Sidebar({ isSidebarOpen, setIsSidebarOpen }) {
             Crown <br /> Bankers
           </h1>
 
-          <div className="flex flex-col items-center space-y-6 w-full pl-4 ">
+          <div className="flex flex-col items-center justify-center p-2 w-full  ">
             {routes.map((el, index) => (
               <SidebarItem
                 key={index}
@@ -63,13 +63,13 @@ function SidebarItem({
   return (
     <div
       className={clsx(
-        "flex flex-col items-center justify-between w-full px-3",
+        "flex flex-col items-center justify-center w-full p-3",
         isActive ? "bg-[#000000]" : ""
       )}
     >
-      <div className="flex items-center justify-between w-full">
+      <div className="flex items-center justify-center w-full">
         <div
-          className="w-full flex items-center space-x-4 cursor-pointer"
+          className="w-full flex items-center  cursor-pointer"
           onClick={() => {
             handleRoute(route);
           }}
