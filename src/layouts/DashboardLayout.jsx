@@ -8,7 +8,7 @@ import clsx from "clsx";
 
 export default function DashboardLayout() {
   const location = useLocation();
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const { pathname } = useLocation();
   const { user } = useAuth();
