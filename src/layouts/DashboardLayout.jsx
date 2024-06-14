@@ -49,7 +49,7 @@ export default function DashboardLayout() {
             </div>
             {pathname === "/dashboard" && <HomeStats />}
             <div className="overflow-y-auto w-full">
-              <div className="p-3 lg:p-4 w-full bg-white h-full">
+              <div className="p-3 lg:p-4 w-full bg-black h-full">
                 <DrawerProvider
                   isOpen={isDrawerOpen}
                   toggleDrawer={toggleDrawer}

@@ -6,7 +6,6 @@ import { useAuth } from "../../../hooks/useAuth";
 import ticketService from "../../../services/ticketService";
 import { useEffect, useMemo, useState } from "react";
 import toast from "react-hot-toast";
-import moment from "moment/moment";
 
 export default function AllTicket() {
   const { user } = useAuth();
@@ -76,27 +75,7 @@ export default function AllTicket() {
   return (
     <div className="w-full mt-4">
       <h4 className="text-xl">All Tickets</h4>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-2 text-black w-full">
-        {data.map(({ color, amount, name, icon: Icon }, index) => (
-          <div
-            key={index}
-            className={clsx("p-3 rounded-lg ")}
-            style={{
-              background: color,
-            }}
-          >
-            <div className="flex w-full items-center justify-between">
-              <div className="w-[58px] h-[58px] bg-white rounded-full flex items-center justify-center">
-                <Icon size="24" />
-              </div>
-              <h3 className="text-white font-medium text-2xl">{amount}</h3>
-            </div>
-            <div className="mt-2 flex items-center justify-between w-full">
-              <p className="text-white font-normal">{name}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+
       <Table
         columns={ticketColumns}
         data={allData.allTickets}

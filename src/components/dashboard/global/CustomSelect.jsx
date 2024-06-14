@@ -20,7 +20,7 @@ export default function CustomSelect({
     <div className={clsx("relative inline-block w-full ", className)}>
       <div
         onClick={() => setIsOpen(!isOpen)}
-        className="cursor-pointer border rounded-md px-3 py-2 z-10 text-sm leading-tight flex items-center justify-between font-normal"
+        className="cursor-pointer border rounded-md px-3 py-2 z-10 text-sm leading-tight flex items-center justify-between font-normal text-white"
       >
         <span>
           {value ? value.label : placeHolder ? placeHolder : "Select"}

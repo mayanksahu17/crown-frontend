@@ -79,46 +79,44 @@ export default function SubmitTicket() {
     <div className="mt-4 w-full">
       <h4 className="text-xl">Submit Ticket</h4>
       <div className="mt-2 w-full">
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="w-full">
-            <label className="block text-[#07153D] font-normal">
-              Select Department
-            </label>
-            <CustomSelect
-              className="w-full"
-              options={[
-                { label: "Admin Support", value: "Admin Support" },
-                { label: "Technical Support", value: "Technical Support" },
-              ]}
-              placeHolder="Select Department"
-              handleChange={(value) =>
-                handleAllInputsChange("selectedDepartment", value)
-              }
-              value={allInputs.selectedDepartment}
-            />
-          </div>
-          <div className="w-full">
-            <label className="block text-[#07153D] font-normal">
-              Select Service
-            </label>
-            <CustomSelect
-              className="w-full"
-              options={[
-                { label: "Package Activation", value: "Package Activation" },
-                { label: "Downline Activation", value: "Downline Activation" },
-                { label: "Authentication", value: "Authentication" },
-              ]}
-              placeHolder="Select Service"
-              handleChange={(value) =>
-                handleAllInputsChange("selectedService", value)
-              }
-              value={allInputs.selectedService}
-            />
-          </div>
+        <div className="w-full">
+          <label className="block text-[#fff] font-normal">
+            Select Department
+          </label>
+          <CustomSelect
+            className="w-full"
+            options={[
+              { label: "Admin Support", value: "Admin Support" },
+              { label: "Technical Support", value: "Technical Support" },
+            ]}
+            placeHolder="Select Department"
+            handleChange={(value) =>
+              handleAllInputsChange("selectedDepartment", value)
+            }
+            value={allInputs.selectedDepartment}
+          />
+        </div>
+        <div className="mt-4 w-full">
+          <label className="block text-[#fff] font-normal">
+            Select Service
+          </label>
+          <CustomSelect
+            className="w-full"
+            options={[
+              { label: "Package Activation", value: "Package Activation" },
+              { label: "Downline Activation", value: "Downline Activation" },
+              { label: "Authentication", value: "Authentication" },
+            ]}
+            placeHolder="Select Service"
+            handleChange={(value) =>
+              handleAllInputsChange("selectedService", value)
+            }
+            value={allInputs.selectedService}
+          />
         </div>
         <div className="w-full mt-4 ">
           <div className="w-full">
-            <label className="block text-[#07153D] font-normal">Subject</label>
+            <label className="block text-[#fff] font-normal">Subject</label>
             <input
               type="text"
               className="w-full text-sm bg-transparent text-gray-500 border border-gray-300 px-2.5 py-2.5 rounded-md  outline-none mt-1 !ml-0"
@@ -129,12 +127,12 @@ export default function SubmitTicket() {
             />
           </div>
           <div className="w-full mt-4">
-            <label className="block text-[#07153D] font-normal">Message</label>
+            <label className="block text-[#fff] font-normal">Description</label>
             <textarea
               type="text"
               className="w-full text-sm bg-transparent text-gray-500 border border-gray-300 px-2.5 py-2.5 rounded-md  outline-none mt-1 !ml-0"
-              placeholder="Write a Message"
-              rows="6"
+              placeholder="Write description"
+              rows="2"
               onChange={(e) =>
                 handleAllInputsChange("description", e.target.value)
               }
@@ -142,7 +140,7 @@ export default function SubmitTicket() {
             />
           </div>
           <div className="w-full mt-4">
-            <label className="block text-[#07153D] font-normal">
+            <label className="block text-[#fff] font-normal">
               Attachment (optional)
             </label>
             <input

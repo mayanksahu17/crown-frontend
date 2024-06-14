@@ -52,7 +52,7 @@ export default function Table({ className, columns, data, heading }) {
             </tr>
           ))}
         </thead>
-        <tbody {...getTableBodyProps()} className="w-full">
+        <tbody {...getTableBodyProps()} className="w-full text-white">
           {!(data?.length < 1) ? (
             page.map((el) => {
               prepareRow(el);
@@ -103,7 +103,7 @@ export default function Table({ className, columns, data, heading }) {
           containerClassName={"flex !text-sm"}
           subContainerClassName={"px-3 py-1.5 text-white"}
           activeClassName={"bg-white text-[#07153D] rounded-md"}
-          pageClassName={"text-white py-1.5"}
+          pageClassName={"text-black py-1.5"}
           pageLinkClassName={"px-3 py-1.5"}
           previousClassName={"px-3 py-1.5"}
           nextClassName={"px-3 py-1.5"}

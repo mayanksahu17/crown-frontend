@@ -126,7 +126,7 @@ export default function Referral({ data }) {
           />
         </div>
       </div>
-      <div className="flex items-center gap-4 max-w-lg mt-4">
+      <div className="flex items-center gap-4 max-w-full mt-4">
         <Button onClick={handleSubmit}>Submit</Button>
         <Button
           onClick={() => {

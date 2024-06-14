@@ -21,8 +21,8 @@ export default function Tab({ data }) {
             className={clsx(
               "py-1 px-4 font-light cursor-pointer",
               selectedTab === route?.split("/")?.findLast((el) => el)
-                ? "bg-white border-b-4  text-black border-black"
-                : "bg-white !text-black",
+                ? "bg-black border-b-4  text-white border-white"
+                : "bg-black !text-white",
               arr.length - 1 === index && "rounded-tr-lg rounded-br-lg",
               index === 0 && "rounded-tl-lg rounded-bl-lg"
             )}
