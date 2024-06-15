@@ -97,11 +97,11 @@ const Settings = () => {
       route: "/dashboard/settings/security",
       children: <SecuritySettings />,
     },
-    {
-      name: "Notification Settings",
-      route: "/dashboard/settings/notification",
-      children: <NotificationSettings />,
-    },
+    // {
+    //   name: "Notification Settings",
+    //   route: "/dashboard/settings/notification",
+    //   children: <NotificationSettings />,
+    // },
     {
       name: "KYC Settings",
       route: "/dashboard/settings/kyc",
@@ -110,7 +110,7 @@ const Settings = () => {
   ];
 
   return (
-    <div className="max-w-full w-full md:max-w-[80%] mx-auto ">
+    <div className="max-w-full w-full md:max-w-[80%] mx-auto text-white">
       <div className="w-full h-[200px] md:h-[240px] lg:h-[280px] relative ">
         <input
           type="file"

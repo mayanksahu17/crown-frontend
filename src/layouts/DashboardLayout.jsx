@@ -27,13 +27,13 @@ export default function DashboardLayout() {
 
   return (
     <>
-      <div className="flex h-screen">
+      <div className="flex h-full ">
         <Sidebar
           isSidebarOpen={isSidebarOpen}
           setIsSidebarOpen={setIsSidebarOpen}
         />
 
-        <div className="flex-grow w-full bg-[#F5F7FB]  h-full">
+        <div className=" w-full bg-[#F5F7FB]  min-h-screen h-full">
           <div className="w-full flex h-full relative">
             <div
               className="w-10 h-10 rounded-full cursor-pointer z-[9999999999999999999999] bg-white absolute left-3 bottom-3 border border-gray-400 md:hidden shadow-sm shadow-black flex items-center justify-center"
@@ -47,14 +47,16 @@ export default function DashboardLayout() {
                 )}
               />
             </div>
-            {pathname === "/dashboard" && <HomeStats />}
-            <div className="overflow-y-auto w-full">
-              <div className="p-3 lg:p-4 w-full bg-black h-full">
+
+            <div className=" bg-black w-full">
+              <div className="p-3 lg:p-4 w-full  h-full">
                 <DrawerProvider
                   isOpen={isDrawerOpen}
                   toggleDrawer={toggleDrawer}
                 />
-                <Outlet />
+                <div className="min-h-screen h-full">
+                  <Outlet />
+                </div>
               </div>
             </div>
           </div>

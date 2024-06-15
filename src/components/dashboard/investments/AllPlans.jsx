@@ -184,7 +184,7 @@ export default function Investment({ data }) {
         }
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
       toast.error(error?.response?.data?.message || "Something went wrong");
     }
   };
@@ -569,11 +569,11 @@ export default function Investment({ data }) {
       <div className="mt-10 flex w-full justify-center mb-20 sm:mb-0">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 lg:gap-4 w-full max-w-full lg:max-w-[80%]">
           {packageData.map((el, index) => (
-            <div key={index} className="w-full h-full">
+            <div key={index} className="w-full h-[80%]">
               <img
                 src={el?.image}
                 alt="Package Image"
-                className="h-full w-full object-cover"
+                className="h-full w-full "
               />
               <Button
                 className="bg-[#B9A164] !py-1 !h-10 !flex !items-center !justify-center rounded-md w-full mt-2 text-white font-normal"
