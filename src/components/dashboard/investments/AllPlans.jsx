@@ -20,35 +20,35 @@ export default function Investment({ data }) {
   const { user } = useAuth();
   const packageData = [
     {
-      name: "Begin",
+      name: "Beginner",
       image: BeginImage,
       minAmount: 25,
-      maxAmount: 4999,
+      maxAmount: 2499,
       description: "Get started with our entry-level investment package.",
-      dailyReturns: "1.2%",
-      durationInDays: 200,
+      dailyReturns: "1.5%",
+      durationInDays: 150,
       id: 1,
     },
     {
       name: "Grow",
       image: GrowImage,
-      minAmount: 5000,
-      maxAmount: 24999,
+      minAmount: 2500,
+      maxAmount: 19999,
       description:
         "Experience steady growth with our mid-tier investment package.",
-      dailyReturns: "1.2%",
-      durationInDays: 200,
+      dailyReturns: "1.8%",
+      durationInDays: 140,
       id: 2,
     },
     {
-      name: "Thrive",
+      name: "Banker",
       image: ThriveImage,
-      minAmount: 25000,
-      maxAmount: 75000,
+      minAmount: 20000,
+      maxAmount: 50000,
       description:
         "Take your investments to the next level with our professional package.",
-      dailyReturns: "1.2%",
-      durationInDays: 200,
+      dailyReturns: "2.1%",
+      durationInDays: 130,
       id: 3,
     },
   ];

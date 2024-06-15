@@ -6,6 +6,7 @@ import {
   Modal,
   SelectWithInput,
   Navbar,
+  HomeStats,
 } from "../../components";
 import {
   TotalIcon,
@@ -130,67 +131,72 @@ export default function Home() {
           }));
         }}
       />
-      <div className="flex  flex-col">
-        <div className="flex  justify-center items-center w-full">
-          <div className=" w-2/3 justify-between bg-[#242424] mt-[-12px] lg:mt-[-16px] rounded-2xl ">
-            <div className="w-full mt-4  full flex flex-col justify-between h-full  p-8 rounded-4xl">
-              <Navbar />
-              <div className="mt-8 h-full flex flex-col justify-between ">
-                <div>
-                  <h4 className="text-[#919191] font-normal text-lg">
-                    Available Balance
-                  </h4>
-                  <p className="font-semibold text-[#fff] text-3xl ">
-                    ${allData?.totalEarning}
-                  </p>
-                </div>
-                <div className="mt-4 grid grid-cols-3 gap-8">
-                  <button
-                    className="rounded-full w-full px-4 py-2.5 w-full bg-[#000000] text-white text-base font-normal disabled:bg-gray-900 "
-                    onClick={() =>
-                      handleInputsChange("isWithdrawalModalOpen", true)
-                    }
-                  >
-                    <div className="flex flex-row justify-center gap-4 w-full items-center ">
-                      <div className="">Withdraw</div>
-                      <div className="w-10 h-10 sm:w-10 sm:h-10 bg-[#242424] rounded-full flex items-center justify-center cursor-pointer">
-                        <GoArrowDownLeft />
+      <div className="flex flex-row  h-full">
+        <div className="w-1/4 m-[-12px] lg:m-[-16px]">
+          <HomeStats />
+        </div>
+        <div className="flex w-3/4 flex-col">
+          <div className="flex  justify-center items-center w-full">
+            <div className=" w-3/4 justify-between bg-[#242424] mt-[-12px] lg:mt-[-16px] rounded-2xl ">
+              <div className="w-full mt-4  full flex flex-col justify-between h-full  p-8 rounded-4xl">
+                <Navbar />
+                <div className="mt-8 h-full flex flex-col justify-between ">
+                  <div>
+                    <h4 className="text-[#919191] font-normal text-lg">
+                      Available Balance
+                    </h4>
+                    <p className="font-semibold text-[#fff] text-3xl ">
+                      ${allData?.totalEarning}
+                    </p>
+                  </div>
+                  <div className="mt-4 grid grid-cols-3 gap-8">
+                    <button
+                      className="rounded-full w-full px-4 py-2.5 w-full bg-[#000000] text-white text-base font-normal disabled:bg-gray-900 "
+                      onClick={() =>
+                        handleInputsChange("isWithdrawalModalOpen", true)
+                      }
+                    >
+                      <div className="flex flex-row justify-center gap-4 w-full items-center ">
+                        <div className="">Withdraw</div>
+                        <div className="w-10 h-10 sm:w-10 sm:h-10 bg-[#242424] rounded-full flex items-center justify-center cursor-pointer">
+                          <GoArrowDownLeft />
+                        </div>
                       </div>
-                    </div>
-                  </button>
-                  <button
-                    className="mt-2 rounded-full px-4 py-2.5 w-full bg-[#000000] text-white text-base font-normal"
-                    onClick={() =>
-                      handleNavigate("/dashboard/investments/all-plans")
-                    }
-                  >
-                    <div className="flex flex-row justify-center gap-4 w-full items-center ">
-                      <div className="">Reinvest</div>
-                      <div className="w-10 h-10 sm:w-10 sm:h-10 bg-[#242424] rounded-full flex items-center justify-center cursor-pointer">
-                        <MdArrowOutward />
+                    </button>
+                    <button
+                      className="mt-2 rounded-full px-4 py-2.5 w-full bg-[#000000] text-white text-base font-normal"
+                      onClick={() =>
+                        handleNavigate("/dashboard/investments/all-plans")
+                      }
+                    >
+                      <div className="flex flex-row justify-center gap-4 w-full items-center ">
+                        <div className="">Reinvest</div>
+                        <div className="w-10 h-10 sm:w-10 sm:h-10 bg-[#242424] rounded-full flex items-center justify-center cursor-pointer">
+                          <MdArrowOutward />
+                        </div>
                       </div>
-                    </div>
-                  </button>
-                  <button
-                    className="mt-2 rounded-full px-4 py-2.5 w-full bg-[#000000] text-white text-base font-normal"
-                    onClick={() =>
-                      // handleInputsChange("isReInvestModalOpen", true)
-                      handleNavigate("/dashboard/investments/all-plans")
-                    }
-                  >
-                    <div className="flex flex-row justify-center gap-4 w-full items-center ">
-                      <div className="">Transfer</div>
-                      <div className="w-10 h-10 sm:w-10 sm:h-10 bg-[#242424] rounded-full flex items-center justify-center cursor-pointer">
-                        <LuArrowLeftRight />
+                    </button>
+                    <button
+                      className="mt-2 rounded-full px-4 py-2.5 w-full bg-[#000000] text-white text-base font-normal"
+                      onClick={() =>
+                        // handleInputsChange("isReInvestModalOpen", true)
+                        handleNavigate("/dashboard/investments/all-plans")
+                      }
+                    >
+                      <div className="flex flex-row justify-center gap-4 w-full items-center ">
+                        <div className="">Transfer</div>
+                        <div className="w-10 h-10 sm:w-10 sm:h-10 bg-[#242424] rounded-full flex items-center justify-center cursor-pointer">
+                          <LuArrowLeftRight />
+                        </div>
                       </div>
-                    </div>
-                  </button>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <WalletFeartures />
         </div>
-        <WalletFeartures />
       </div>
     </>
   );
