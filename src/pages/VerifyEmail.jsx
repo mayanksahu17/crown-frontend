@@ -34,7 +34,7 @@ export default function VerifyEmail() {
       <div className="w-full max-w-5xl mx-auto ">
         <div className="w-full flex flex-col-reverse lg:flex-row items-center mb-24 lg:mb-44 gap-4 text-justify">
           <div className="w-full lg:w-1/2 flex flex-col  justify-center px-6">
-            <h1 className="text-4xl lg:text-5xl font-medium mb-4 text-white">
+            <h1 className="text-4xl lg:text-5xl font-medium mb-4 ">
               Welcome to a <br /> World Where
               <br /> <span className="text-textred">Dreams</span> Transform{" "}
               <br />
@@ -66,7 +66,7 @@ export default function VerifyEmail() {
         <div className="w-full px-6">
           <div className="flex md:flex-row flex-col justify-between w-full">
             {" "}
-            <h2 className="text-4xl lg:text-5xl mb-4 text-white">
+            <h2 className="text-4xl lg:text-5xl mb-4 ">
               Why choose <span className="text-textred">Crown Bankers</span>
             </h2>{" "}
             <Button className="w-36">Invest Now</Button>
@@ -137,7 +137,7 @@ export default function VerifyEmail() {
 
           <div className="rounded-2xl  w-full ">
             <div className="w-full flex md:flex-row flex-col justify-between items-start mb-8">
-              <h1 className="text-4xl lg:text-5xl font-semibold mb-4 text-white">
+              <h1 className="text-4xl lg:text-5xl font-semibold mb-4 ">
                 Limitless Earning through
                 <br />
                 Crown Banker's Referral Program
