@@ -76,7 +76,7 @@ export default function SubmitTicket() {
   };
 
   return (
-    <div className="mt-4 w-full">
+    <div className="mt-4 w-full text-white">
       <h4 className="text-xl">Submit Ticket</h4>
       <div className="mt-2 w-full">
         <div className="w-full">

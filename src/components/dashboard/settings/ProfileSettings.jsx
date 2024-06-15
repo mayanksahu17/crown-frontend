@@ -10,8 +10,7 @@ export default function ProfileSettings() {
   const { user, updateUserDetails } = useAuth();
 
   const inputData = [
-    { label: "First Name", name: "firstName", readOnly: false },
-    { label: "Last Name", name: "lastName", readOnly: false },
+    { label: "Full Name", name: "firstName", readOnly: false },
     { label: "User's ID", name: "userId", readOnly: true },
     { label: "Phone Number", name: "phone", readOnly: false },
     { label: "Country", name: "country", readOnly: false },
@@ -19,16 +18,35 @@ export default function ProfileSettings() {
   ];
   let names = user?.user?.name ? user?.user?.name.split(/\s+/) : [];
   let fName = names.length > 0 ? names[0] : "";
-  let lName = names.length > 1 ? names.slice(1).join(" ") : "";
   const [allData, setAllData] = useState({
     firstName: fName,
-    lastName: lName,
     userId: user?.user?.userId,
     phone: user?.user?.phone,
     country: user?.user?.country,
     email: user?.user?.email,
   });
-
+  const customStyles = {
+    control: (provided) => ({
+      ...provided,
+      backgroundColor: "transparent",
+      border: "1px solid #fff",
+      borderRadius: "8px",
+      padding: "1px",
+    }),
+    input: (provided) => ({
+      ...provided,
+      color: "#fff !important",
+    }),
+    singleValue: (provided) => ({
+      ...provided,
+      color: "#FFFFFF",
+    }),
+    option: (provided) => ({
+      ...provided,
+      backgroundColor: "#000000",
+      color: "#FFF",
+    }),
+  };
   const [isLoading, setIsLoading] = useState(false);
 
   const handleDataChange = (name, value) =>
@@ -39,7 +57,7 @@ export default function ProfileSettings() {
       setIsLoading(true);
       const response = await userService.updateUserDetails(user, {
         ...allData,
-        name: `${allData.firstName} ${allData.lastName}`,
+        name: `${allData.firstName}`,
         phoneNo: allData.phone,
       });
 
@@ -75,6 +93,7 @@ export default function ProfileSettings() {
                 options={options}
                 value={options.find((option) => option.label === allData[name])}
                 onChange={handleCountryChange}
+                customStyles={customStyles}
               />
             ) : (
               <input
@@ -83,7 +102,7 @@ export default function ProfileSettings() {
                 readOnly={readOnly}
                 value={allData[name]}
                 onChange={(e) => handleDataChange(name, e.target.value)}
-                className="w-full bg-white text-black px-2.5 py-[7px] border rounded-md border-solid border-slate-200 outline-none !ml-0"
+                className="w-full bg-black text-white px-2.5 py-[7px] border rounded-md border-solid border-slate-200 outline-none !ml-0"
               />
             )}
           </div>

@@ -207,7 +207,7 @@ const PasswordInput = ({ label, name, value, onChange }) => {
         <input
           type={showPassword ? "text" : "password"}
           name={name}
-          className="w-full bg-white px-2.5 py-[7px] text-black border rounded-md border-solid border-slate-200 outline-none !ml-0"
+          className="w-full bg-black px-2.5 py-[7px] text-white border rounded-md border-solid border-slate-200 outline-none !ml-0"
           value={value}
           onChange={onChange}
         />
@@ -216,9 +216,9 @@ const PasswordInput = ({ label, name, value, onChange }) => {
           onClick={togglePasswordVisibility}
         >
           {showPassword ? (
-            <RiEyeCloseLine className="text-black" />
+            <RiEyeCloseLine className="text-white" />
           ) : (
-            <RiEyeLine className="text-black" />
+            <RiEyeLine className="text-white" />
           )}
         </div>
       </div>

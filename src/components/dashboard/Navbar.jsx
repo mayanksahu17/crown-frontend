@@ -129,7 +129,9 @@ export default function Navbar() {
                 </div>
                 <div
                   className="cursor-pointer px-3 py-1.5 hover:bg-gray-200"
-                  onClick={() => handleNavigate("/tickets/submit-ticket")}
+                  onClick={() =>
+                    handleNavigate("/dashboard/tickets/submit-ticket")
+                  }
                 >
                   Help & Support
                 </div>

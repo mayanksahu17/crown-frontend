@@ -33,12 +33,12 @@ export default function CustomSelect({
         />
       </div>
       {isOpen && (
-        <div className="absolute mt-2 !w-full text-sm bg-white border border-gray-300 z-50 rounded-md shadow-md">
+        <div className="absolute mt-2 !w-full text-sm text-white bg-black border border-gray-300 z-50 rounded-md shadow-md">
           {options.map((option) => (
             <div
               key={option.value}
               onClick={() => handleOptionClick(option)}
-              className="cursor-pointer px-2 py-2 hover:bg-gray-100 text-sm font-normal !w-full "
+              className="cursor-pointer px-2 py-2 text-sm font-normal !w-full "
             >
               {option.label}
             </div>
