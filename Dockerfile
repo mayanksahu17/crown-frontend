@@ -21,7 +21,7 @@ FROM nginx:1.17-alpine
 
 COPY default.conf /etc/nginx/conf.d/default.conf
 # Copy the build files from the build stage to the NGINX html directory
-COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=build /app/dist /usr/share/nginx/html
 
 # Expose port 80 for the service
 EXPOSE 80
