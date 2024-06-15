@@ -4,7 +4,7 @@ import Table from "../global/Table";
 export default function ({ data }) {
   const packages = [
     {
-      name: "BEGIN",
+      name: "BEGINNER",
       id: 1,
     },
     {
@@ -12,7 +12,7 @@ export default function ({ data }) {
       id: 2,
     },
     {
-      name: "THRIVE",
+      name: "BANKER",
       id: 3,
     },
   ];
