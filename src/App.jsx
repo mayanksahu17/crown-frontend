@@ -33,12 +33,12 @@ import {
   Reports,
   Tickets,
   Vouchers,
-  VerifyEmail,
   ForgotPassword,
 } from "./pages";
 import { UserBinaryTree } from "./components";
 import DashboardLayout from "./layouts/DashboardLayout";
 import ResetPassword from "./pages/common/ResetPassword";
+import Verify from "./pages/common/Verify";
 function App() {
   // Init JOS Animation
   useJOSAnimation();
@@ -71,7 +71,7 @@ function App() {
           <Route path="service-details" element={<Services_Details />} />
           <Route path="TermsandCondition" element={<TermsandCondition />} />
           <Route path="package_01" element={<package_01 />} />
-          <Route path="/verify/:token" element={<VerifyEmail />} />
+          <Route path="/verify/:token" element={<Verify />} />
         </Route>
         <Route path="home-2" element={<Home_02 />} />
         <Route path="home-3" element={<Home_03 />} />
