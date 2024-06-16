@@ -12,7 +12,7 @@ const Content_01 = () => {
               data-jos_animation='fade-left'
             >
               <img
-                src='assets/img/th-1/content-image-1.jpg'
+                src='assets/img/th-1/solar-panel.png'
                 alt='content-image-2'
                 width={526}
                 height={450}
@@ -35,12 +35,12 @@ const Content_01 = () => {
               <br/>
               <br/>
               <div>
-                <h3 style={{fontSize:"30px"}}>invest in the Cloud: Powering the Future</h3>
+                <h3 style={{fontSize:"30px"}}>Why Invest in the Solar Sector with Crown Bankers</h3>
               </div>
               <br/>
               <br/>
 
-              <h4>Why Cloud Computing?</h4>
+              
 
               <ul className='mt-8 grid gap-x-6 gap-y-8 sm:grid-cols-2 md:grid-cols-1 xl:mt-14 xl:grid-cols-2'>
                 <li className='flex flex-col gap-y-4'>
@@ -54,9 +54,9 @@ const Content_01 = () => {
                     />
                   </div>
                   
-                  <h5>Massive Growth</h5>
+                  <h5>High Growth Potential</h5>
                   <p className='text-lg'>
-                  The cloud market is projected to reach $725 billion in 2024, growing over 16% by 2029
+                  The global solar energy market is projected to reach $1.3 trillion by 2027, driven by growing environmental concerns and the affordability of solar installations.
                   </p>
                 </li>
                 <li className='flex flex-col gap-y-4'>
@@ -69,15 +69,13 @@ const Content_01 = () => {
                       className='h-full w-full object-cover'
                     />
                   </div>
-                  <h5>Daily Integration</h5>
+                  <h5>Sustainable Future</h5>
                   <p className='text-lg'>
-                  The cloud is integral to our work, shopping, and connectivity.
-
+                  Solar energy is a clean, renewable resource with immense potential to power homes, businesses, and communities, contributing to a more sustainable future for generations.
                   </p>
                 </li>
               </ul>
               <br />
-              <h5>Our Approach</h5>
               <ul className='mt-8 grid gap-x-6 gap-y-8 sm:grid-cols-2 md:grid-cols-1 xl:mt-14 xl:grid-cols-2'>
                 <li className='flex flex-col gap-y-4'>
                   <div className='h-[50px] w-[50px]'>
@@ -90,9 +88,9 @@ const Content_01 = () => {
                     />
                   </div>
                   
-                  <h5>Top Picks</h5>
+                  <h5>Technological Advancements</h5>
                   <p className='text-lg'>
-                  We invest in industry giants like Amazon Web Services, Microsoft Azure, and Google Cloud.
+                  We invest in companies at the forefront of solar technology, including high-efficiency solar panels and innovative solutions for installation, operation, and maintenance.
 
                   </p>
                 </li>
@@ -106,10 +104,9 @@ const Content_01 = () => {
                       className='h-full w-full object-cover'
                     />
                   </div>
-                  <h5>High-Growth Areas</h5>
+                  <h5>Expert Guidance</h5>
                   <p className='text-lg'>
-                  Focus on AI, IoT, and other cloud-related businesses.
-
+                  Crown Bankers' dedicated professionals meticulously research and diversify portfolios in promising solar companies, ensuring informed and profitable investments without needing to be a solar expert.
                   </p>
                 </li>
                 

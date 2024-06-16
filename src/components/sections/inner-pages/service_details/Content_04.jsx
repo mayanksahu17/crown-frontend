@@ -12,7 +12,7 @@ const Content_04 = () => {
                 data-jos_animation='fade-left'
               >
                 <img
-                  src='assets/img/th-1/content-image-1.jpg'
+                  src='assets/img/th-1/ev.png'
                   alt='content-image-2'
                   width={526}
                   height={450}

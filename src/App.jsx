@@ -22,7 +22,7 @@ import Team from "./pages/common/team/Team";
 import useJOSAnimation from "./hooks/useJOSAnimation";
 import Layout from "./components/layout/Layout";
 import Faq_01 from "./pages/common/faq/faq_01/Faq_01";
-import package_01 from "./pages/common/package_01";
+
 // Dashboard Pages
 import {
   Home,
@@ -57,6 +57,7 @@ function App() {
           />
           <Route path="reset-password" element={<ResetPassword />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="about" element={<About />} />
           <Route path="blog" element={<Blog />} />
           <Route path="blog-details" element={<Blog_details />} />
           <Route path="portfolio" element={<Portfolio />} />
@@ -70,7 +71,6 @@ function App() {
           <Route path="services" element={<Services />} />
           <Route path="service-details" element={<Services_Details />} />
           <Route path="TermsandCondition" element={<TermsandCondition />} />
-          <Route path="package_01" element={<package_01 />} />
           <Route path="/verify/:token" element={<Verify />} />
         </Route>
         <Route path="home-2" element={<Home_02 />} />

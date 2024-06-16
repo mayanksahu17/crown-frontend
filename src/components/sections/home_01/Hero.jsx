@@ -30,12 +30,7 @@ const Hero = () => {
                 >
                   Get started for free
                 </Link>
-                <Link
-                  to="/services"
-                  className="button rounded-[50px] border-2 border-black bg-transparent py-4 text-black after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white"
-                >
-                  Learn more
-                </Link>
+                
               </div>
             </div>
             <div
@@ -53,9 +48,9 @@ const Hero = () => {
 
             <div className="my-10 h-[1px] w-full bg-[#DBD6CF] lg:my-16 xl:my-20"></div>
             <div className="jos mx-auto mb-12 max-w-[715px] text-center lg:mb-16">
-              <p className="text-lg">
-                Companies of all sizes trust us to find AI SaaS critical to
-                their growth and innovation
+              <p className="text-lg" style={{fontSize:"32px",fontWeight:"bold",lineHeight:"35px"}}>
+              Invest & Enjoy with Our Exclusive Crypto Card Rewards!
+              Partner with
               </p>
             </div>
             <div className="jos brand-slider" data-jos_animation="fade">
@@ -81,7 +76,7 @@ const Hero = () => {
               >
                 <SwiperSlide>
                   <img
-                    src="assets/img/th-1/brand-1.png"
+                    src="assets/img/th-1/Mastercard-Logo-2016-2020.png"
                     alt="brand-1"
                     width="180"
                     height="38"
@@ -90,7 +85,7 @@ const Hero = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                   <img
-                    src="assets/img/th-1/brand-2.png"
+                    src="assets/img/th-1/alchemy-pay.png"
                     alt="brand-2"
                     width="183"
                     height="35"
@@ -99,16 +94,16 @@ const Hero = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                   <img
-                    src="assets/img/th-1/brand-3.png"
+                    src="assets/img/th-1/binance.png"
                     alt="brand-3"
                     width="172"
-                    height="35"
+                    height="50"
                     className="max-w-full"
                   />
                 </SwiperSlide>
                 <SwiperSlide>
                   <img
-                    src="assets/img/th-1/brand-4.png"
+                    src="assets/img/th-1/Visa-Symbol.png"
                     alt="brand-4"
                     width="175"
                     height="30"
@@ -117,7 +112,7 @@ const Hero = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                   <img
-                    src="assets/img/th-1/brand-5.png"
+                    src="assets/img/th-1/Mastercard-Logo-2016-2020.png"
                     alt="brand-5"
                     width="168"
                     height="36"
@@ -126,7 +121,7 @@ const Hero = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                   <img
-                    src="assets/img/th-1/brand-1.png"
+                    src="assets/img/th-1/alchemy-pay.png"
                     alt="brand-1"
                     width="180"
                     height="38"
@@ -135,7 +130,7 @@ const Hero = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                   <img
-                    src="assets/img/th-1/brand-2.png"
+                    src="assets/img/th-1/binance.png"
                     alt="brand-2"
                     width="183"
                     height="35"
@@ -144,7 +139,7 @@ const Hero = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                   <img
-                    src="assets/img/th-1/brand-3.png"
+                    src="assets/img/th-1/Visa-Symbol.png"
                     alt="brand-3"
                     width="172"
                     height="35"
@@ -153,7 +148,7 @@ const Hero = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                   <img
-                    src="assets/img/th-1/brand-4.png"
+                    src="assets/img/th-1/Mastercard-Logo-2016-2020.png"
                     alt="brand-4"
                     width="175"
                     height="30"
@@ -162,7 +157,7 @@ const Hero = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                   <img
-                    src="assets/img/th-1/brand-5.png"
+                    src="assets/img/th-1/Visa-Symbol.png"
                     alt="brand-5"
                     width="168"
                     height="36"

@@ -14,7 +14,7 @@ const Content_02 = () => {
                 data-jos_animation='fade-left'
               >
                 <img
-                  src='assets/img/th-1/content-image-2.jpg'
+                  src='assets/img/th-1/Seize-Wealth-Growth-with-Innovative-Strategies.png'
                   alt='content-image-2'
                   width='526'
                   height='450'

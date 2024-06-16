@@ -31,7 +31,7 @@ const Contact_Info = () => {
               href='tel:+880-1345-922210'
               className='text-2xl font-normal leading-loose hover:text-colorOrangyRed lg:text-3xl'
             >
-              +44 7824306520
+              +44 7452117690 
             </a>
           </li>
           <li className='flex flex-col gap-y-4 text-2xl font-bold'>

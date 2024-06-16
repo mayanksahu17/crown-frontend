@@ -34,7 +34,7 @@ const FunFact = () => {
             </div>
             <FsLightbox
               toggler={toggler}
-              sources={["https://www.youtube.com/watch?v=3nQNiWdeH2Q"]}
+              sources={["assets/img/th-1/Crafting-a-Vision-for-Financial-Excellence.png"]}
             />
             {/* Funfacct Left Block */}
 

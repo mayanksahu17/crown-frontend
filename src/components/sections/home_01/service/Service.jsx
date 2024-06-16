@@ -29,6 +29,21 @@ const Service = () => {
           </div>
           {/* Section Container */}
         </div>
+        <div style={{backgroundColor:"black" , paddingTop:"50px"}}
+        >
+          <h2 style={{marginLeft:"450px",fontSize:"40px",color:"white"}}>Investment Packages and Return</h2>
+          <br />
+        <ul className='jos grid grid-cols-1 gap-[2px] overflow-hidden rounded-[10px] border-2 border-black bg-black sm:grid-cols-2 lg:grid-cols-4' style={
+          {paddingLeft:"200px"}}>
+            
+              {/* Service Item */}
+              <img  style={{marginLeft:"40px",height:"600px",width:"350px"}} src="assets/img/th-1/beginner-1.png" alt=""  />
+              <img style={{marginLeft:"80px" ,height:"600px",width:"350px"}} src="assets/img/th-1/grow.png" alt="" />
+              <img  style={{marginLeft:"120px",height:"600px",width:"350px"}} src="assets/img/th-1/bankers.png" alt=""/>
+              
+              {/* Service Item */}
+            </ul>
+        </div>
         {/* Section Spacer */}
       </section>
       {/*...::: Service Section End :::... */}

@@ -12,7 +12,7 @@ const Content_05 = () => {
               data-jos_animation="fade-left"
             >
               <img
-                src="assets/img/th-1/content-image-1.jpg"
+                src="assets/img/th-1/forvbes-500.png"
                 alt="content-image-2"
                 width={526}
                 height={450}
@@ -29,14 +29,16 @@ const Content_05 = () => {
               <br />
               <div>
                 <h3 style={{ fontSize: "30px" }}>
-                  Why Invest in the Solar Sector with Crown Bankers
+                Invest in the Best with Crown Bankers
                 </h3>
               </div>
               <br />
               <br />
 
-              <h4>Why Solar?</h4>
-
+              <h4>Forbes Top 500 Companies</h4>
+              <p className="text-lg">
+                  Crown Bankers strategically invests in the Forbes Global 500, including industry giants like Apple, Amazon, and Microsoft. This approach ensures
+                  </p>
               <ul className="mt-8 grid gap-x-6 gap-y-8 sm:grid-cols-2 md:grid-cols-1 xl:mt-14 xl:grid-cols-2">
                 <li className="flex flex-col gap-y-4">
                   <div className="h-[50px] w-[50px]">
@@ -49,12 +51,9 @@ const Content_05 = () => {
                     />
                   </div>
 
-                  <h5>High Growth Potential:</h5>
+                  <h5>Stability and Growth</h5>
                   <p className="text-lg">
-                    The global solar energy market is projected to reach $1.3
-                    trillion by 2027, driven by growing environmental concerns
-                    and the affordability of solar installations.
-                  </p>
+                  Leveraging established titans to mitigate risk and secure steady returns</p>
                 </li>
                 <li className="flex flex-col gap-y-4">
                   <div className="h-[50px] w-[50px]">
@@ -66,16 +65,14 @@ const Content_05 = () => {
                       className="h-full w-full object-cover"
                     />
                   </div>
-                  <h5>Sustainable Future:</h5>
+                  <h5>Diverse Market Exposure</h5>
                   <p className="text-lg">
-                    Solar energy is a clean, renewable resource with immense
-                    potential to power homes, businesses, and communities,
-                    contributing to a more sustainable future for generations.
+                  Capitalizing on diverse industry sectors for balanced investment opportunities.
+
                   </p>
                 </li>
               </ul>
               <br />
-              <h5>Technological Advancements:</h5>
               <ul className="mt-8 grid gap-x-6 gap-y-8 sm:grid-cols-2 md:grid-cols-1 xl:mt-14 xl:grid-cols-2">
                 <li className="flex flex-col gap-y-4">
                   <div className="h-[50px] w-[50px]">
@@ -88,11 +85,9 @@ const Content_05 = () => {
                     />
                   </div>
 
-                  <h5>Expertise-Driven</h5>
-                  <p className="text-lg">
-                    We invest in companies at the forefront of solar technology,
-                    including high-efficiency solar panels and innovative
-                    solutions for installation, operation, and maintenance.
+                  <h5>Innovation Integration</h5>
+                  <p className="text-lg">Investing in companies leading technological advancements for long-term growth.
+
                   </p>
                 </li>
                 <li className="flex flex-col gap-y-4">
@@ -105,15 +100,15 @@ const Content_05 = () => {
                       className="h-full w-full object-cover"
                     />
                   </div>
-                  <h5>Expert Guidance:</h5>
+                  <h5>Global Economic Impact</h5>
                   <p className="text-lg">
-                    Crown Bankers' dedicated professionals meticulously research
-                    and diversify portfolios in promising solar companies,
-                    ensuring informed and profitable investments without needing
-                    to be a solar expert.
+                  Participating in a significant portion of the global economy's revenue generation.
                   </p>
                 </li>
               </ul>
+              <br /><br />
+              <h4>Join Crown Bankers Today!</h4>
+              <p className="text-lg">Benefit from our strategic approach to Forbes 500 investments and unlock your investment potential.</p>
             </div>
             {/* Content Right Block */}
           </div>
