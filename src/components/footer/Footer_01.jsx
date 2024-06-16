@@ -93,14 +93,14 @@ const Footer_01 = () => {
                   Home
                 </Link>
               </li>
-              {/* <li>
+              <li>
                 <Link
-                  to="/about"
+                  to="/faq"
                   className="transition-all duration-300 ease-linear hover:text-colorOrangyRed"
                 >
-                  About Us
+                  FAQs
                 </Link>
-              </li> */}
+              </li>
               <li>
                 <Link
                   to="/services"

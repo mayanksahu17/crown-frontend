@@ -183,7 +183,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                   id='submenu-6'
                 >
                   <li className='sub-menu--item'>
-                    <Link to='/faq-1'>FAQ-1</Link>
+                    <Link to='/faq'>FAQ-1</Link>
                   </li>
                   
                 </ul>

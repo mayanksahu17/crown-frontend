@@ -1,31 +1,34 @@
-import { Link } from 'react-router-dom';
-import useAccordion from '../../../../hooks/useAccordion';
+import { Link } from "react-router-dom";
+import useAccordion from "../../../../hooks/useAccordion";
 
 const Faq_Section = () => {
   const [activeIndex, handleAccordion] = useAccordion(0);
   return (
-    <section className='faq-section'>
+    <section className="faq-section">
       {/* Section Spacer */}
-      <div className='pb-20 xl:pb-[150px]'>
+      <div className="pb-20 xl:pb-[150px]">
         {/* Section Container */}
-        <div className='global-container'>
-          <div className='grid grid-cols-1 gap-y-10 md:grid-cols-2'>
+        <div className="global-container">
+          <div className="grid grid-cols-1 gap-y-10 md:grid-cols-2">
             {/* FAQ Left Block */}
-            <div className='jos flex flex-col' data-jos_animation='fade-right'>
+            <div className="jos flex flex-col" data-jos_animation="fade-right">
               {/* Section Content Block */}
-              <div className='mb-6'>
-                <div className='mx-auto md:mx-0 md:max-w-none'>
+              <div className="mb-6">
+                <div className="mx-auto md:mx-0 md:max-w-none">
                   <h2>Freely ask us for more information</h2>
                 </div>
               </div>
               {/* Section Content Block */}
-              <div className='text-lg leading-[1.4] lg:text-[21px]'>
-                <p className='mb-7 last:mb-0'>
-                Welcome to Crown Bankers, your gateway to the best investing platform. Experience seamless transactions, robust returns, and personalized service for a rewarding and stress-free financial journey..
+              <div className="text-lg leading-[1.4] lg:text-[21px]">
+                <p className="mb-7 last:mb-0">
+                  Welcome to Crown Bankers, your gateway to the best investing
+                  platform. Experience seamless transactions, robust returns,
+                  and personalized service for a rewarding and stress-free
+                  financial journey..
                 </p>
                 <Link
-                  to='/faq-1'
-                  className='button mt-5 rounded-[50px] border-2 border-black bg-black py-4 text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white'
+                  to="/faq"
+                  className="button mt-5 rounded-[50px] border-2 border-black bg-black py-4 text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white"
                 >
                   Ask you questions
                 </Link>
@@ -34,49 +37,32 @@ const Faq_Section = () => {
             {/* FAQ Left Block */}
             {/* FAQ Right Block */}
             <div
-              className='jos md:ml-10 lg:ml-20 xl:ml-32'
-              data-jos_animation='fade-left'
+              className="jos md:ml-10 lg:ml-20 xl:ml-32"
+              data-jos_animation="fade-left"
             >
               {/* Accordion*/}
-              <ul className='accordion'>
+              <ul className="accordion">
                 {/* Accordion items */}
                 <li
                   className={`accordion-item border-b-[1px] border-[#DBD6CF] pb-6 pt-6 first:pt-0 last:border-b-0 last:pb-0 ${
-                    activeIndex == 0 && 'active'
+                    activeIndex == 0 && "active"
                   }`}
                 >
                   <div
                     onClick={() => handleAccordion(0)}
-                    className='accordion-header flex items-center justify-between font-dmSans text-xl font-bold leading-[1.2] -tracking-[0.5px] text-black lg:text-[28px]'
+                    className="accordion-header flex items-center justify-between font-dmSans text-xl font-bold leading-[1.2] -tracking-[0.5px] text-black lg:text-[28px]"
                   >
                     <p>Q: What is Crown Bankers, and what do they offer?</p>
-                    <div className='accordion-icon'>
-                      <img src='assets/img/plus.svg' alt='plus' />
+                    <div className="accordion-icon">
+                      <img src="assets/img/plus.svg" alt="plus" />
                     </div>
                   </div>
-                  <div className='accordion-content text-[#2C2C2C]'>
+                  <div className="accordion-content text-[#2C2C2C]">
                     <p>
-                    Crown Bankers is a financial investment platform based in the USA that offers investment packages in NFT companies, cryptocurrencies, AI platforms, and Forbes Top 500 companies.                    </p>
-                  </div>
-                </li>
-                {/* Accordion items */}
-                {/* Accordion items */}
-                <li
-                  className={`accordion-item border-b-[1px] border-[#DBD6CF] pb-6 pt-6 first:pt-0 last:border-b-0 last:pb-0 ${
-                    activeIndex == 1 && 'active'
-                  }`}
-                >
-                  <div
-                    onClick={() => handleAccordion(1)}
-                    className='accordion-header flex items-center justify-between font-dmSans text-xl font-bold leading-[1.2] -tracking-[0.5px] text-black lg:text-[28px]'
-                  >
-                    <p>Q: How does the investment plan work at Crown Bankers?</p>
-                    <div className='accordion-icon'>
-                      <img src='assets/img/plus.svg' alt='plus' />
-                    </div>
-                  </div>
-                  <div className='accordion-content text-[#2C2C2C]'>
-                    <p>Crown Bankers offers four investment packages - Begin, Grow, Thrive, and Stellar, with different investment ranges, durations, and returns. Investors choose a package based on their investment preferences.
+                      Crown Bankers is a financial investment platform based in
+                      the USA that offers investment packages in NFT companies,
+                      cryptocurrencies, AI platforms, and Forbes Top 500
+                      companies.{" "}
                     </p>
                   </div>
                 </li>
@@ -84,21 +70,50 @@ const Faq_Section = () => {
                 {/* Accordion items */}
                 <li
                   className={`accordion-item border-b-[1px] border-[#DBD6CF] pb-6 pt-6 first:pt-0 last:border-b-0 last:pb-0 ${
-                    activeIndex == 2 && 'active'
+                    activeIndex == 1 && "active"
+                  }`}
+                >
+                  <div
+                    onClick={() => handleAccordion(1)}
+                    className="accordion-header flex items-center justify-between font-dmSans text-xl font-bold leading-[1.2] -tracking-[0.5px] text-black lg:text-[28px]"
+                  >
+                    <p>
+                      Q: How does the investment plan work at Crown Bankers?
+                    </p>
+                    <div className="accordion-icon">
+                      <img src="assets/img/plus.svg" alt="plus" />
+                    </div>
+                  </div>
+                  <div className="accordion-content text-[#2C2C2C]">
+                    <p>
+                      Crown Bankers offers four investment packages - Begin,
+                      Grow, Thrive, and Stellar, with different investment
+                      ranges, durations, and returns. Investors choose a package
+                      based on their investment preferences.
+                    </p>
+                  </div>
+                </li>
+                {/* Accordion items */}
+                {/* Accordion items */}
+                <li
+                  className={`accordion-item border-b-[1px] border-[#DBD6CF] pb-6 pt-6 first:pt-0 last:border-b-0 last:pb-0 ${
+                    activeIndex == 2 && "active"
                   }`}
                 >
                   <div
                     onClick={() => handleAccordion(2)}
-                    className='accordion-header flex items-center justify-between font-dmSans text-xl font-bold leading-[1.2] -tracking-[0.5px] text-black lg:text-[28px]'
+                    className="accordion-header flex items-center justify-between font-dmSans text-xl font-bold leading-[1.2] -tracking-[0.5px] text-black lg:text-[28px]"
                   >
                     <p>What types of returns can investors expect?</p>
-                    <div className='accordion-icon'>
-                      <img src='assets/img/plus.svg' alt='plus' />
+                    <div className="accordion-icon">
+                      <img src="assets/img/plus.svg" alt="plus" />
                     </div>
                   </div>
-                  <div className='accordion-content text-[#2C2C2C]'>
+                  <div className="accordion-content text-[#2C2C2C]">
                     <p>
-                    Returns vary based on the chosen package. The ROI ranges from 150% to 228%, and investors receive returns from Monday to Friday.
+                      Returns vary based on the chosen package. The ROI ranges
+                      from 150% to 228%, and investors receive returns from
+                      Monday to Friday.
                     </p>
                   </div>
                 </li>

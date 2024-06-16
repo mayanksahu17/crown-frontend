@@ -61,7 +61,7 @@ function App() {
           <Route path="blog-details" element={<Blog_details />} />
           <Route path="portfolio" element={<Portfolio />} />
           <Route path="portfolio-details" element={<Portfolio_details />} />
-          <Route path="faq-1" element={<Faq_01 />} />
+          <Route path="faq" element={<Faq_01 />} />
           <Route path="faq-2" element={<Faq_02 />} />
           <Route path="team" element={<Team />} />
           <Route path="team-details" element={<Team_details />} />
