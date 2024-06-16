@@ -8,7 +8,7 @@ const Content_02 = () => {
           {/* Section Content Block */}
           <div className='jos mb-10 text-center lg:mb-16 xl:mb-20'>
             <div className='mx-auto md:max-w-xl lg:max-w-4xl xl:max-w-[950px]'>
-              <h2>Why Choose Crown bankers?
+              <h2>Extra Income Opportunities at Crown Bankers
               </h2>
             </div>
           </div>
@@ -20,7 +20,7 @@ const Content_02 = () => {
               data-jos_animation='fade-left'
             >
               <img
-                src='assets/img/th-1/content-image-4.jpg'
+                src='assets/img/th-1/refrral.png'
                 alt='content-image-4'
                 width={529}
                 height={500}
@@ -35,28 +35,18 @@ const Content_02 = () => {
             >
               <ul className='flex flex-col gap-y-6'>
                 <li>
-                  <h5 className='mb-[10px]'>1. Expert Insights:</h5>
+                  <h4 className='mb-[10px]'>Referral bonus
+                  </h4>
                   <p className='mb-7 last:mb-0'>
-                  Our team of financial and industry professionals ensures your investments are well-researched and strategically chosen.
+                  Referral Bonus at Our  company Multiply  Your Prosperity
+Our company believes in the power of community-driven success, and our Referral Bonus is a testament  to that ethos.
+When you refer new investors to Crown Bankers, you not only share the benefits of  financial growth but also earn a Referral Bonus. This bonus, ranging from 7% to 9%, is a direct  acknowledgment of your role in expanding our investment family
+
 
                   </p>
                 </li>
-                <li>
-                  <h5 className='mb-[10px]'>
-                    2. Simplicity and Convenience:
-                  </h5>
-                  <p className='mb-7 last:mb-0'>
-                   We take the complexity out of investing, allowing you to benefit from high-growth sectors without needing deep technical knowledge.
-                  </p>
-                </li>
-                <li>
-                  <h5 className='mb-[10px]'>
-                    3.Diverse Opportunities:
-                  </h5>
-                  <p className='mb-7 last:mb-0'> From the cloud and EVs to biotech and cybersecurity, we cover the sectors poised for significant growth.
-
-                  </p>
-                </li>
+                
+                
               </ul>
             </div>
             {/* Content Right Block */}
@@ -64,6 +54,57 @@ const Content_02 = () => {
         </div>
         {/* Section Container */}
       </div>
+
+      <div className='pb-20 xl:pb-[150px]'>
+          {/* Section Container */}
+          <div className='global-container'>
+            <div className='grid grid-cols-1 items-center gap-12 md:grid-cols-2 xl:grid-cols-[minmax(0,_1.2fr)_1fr] xl:gap-28'>
+              {/* Content Left Block */}
+              <div
+                className='jos order-2 overflow-hidden rounded-md'
+                data-jos_animation='fade-left'
+              >
+                <img
+                  src='assets/img/th-1/binary.png'
+                  alt='content-image-2'
+                  width={526}
+                  height={450}
+                  className='h-auto w-full'
+                />
+              </div>
+              {/* Content Left Block */}
+              {/* Content Right Block */}
+              <div className='jos order-1' data-jos_animation='fade-right'>
+                {/* Section Content Block */}
+                {/* Section Content Block */}
+                
+                <br/>
+                <br/>
+                <div>
+                  <h3 style={{fontSize:"30px"}}>Binary bonus
+
+                  </h3>
+                </div>
+                <br/>
+                <br/>
+  
+                <p>Binary Bonus at Crown bankers 
+The Binary Bonus at our company a rewarding incentive designed for members who bring new investors  into our dynamic investment ecosystem. This bonus operates on a binary structure, where each member  possesses a left  and a right leg. Payments are determined by the investment volume in each leg,  encouraging a balanced and sustainable  growth strategy
+</p>
+<p>Let's say an investor on the left side contributes $15,000, and another on the right side invests $20,000.  The binary bonus is calculated based on the lesser leg volume, which is $15,000 in this case. Assuming a  10% binary bonus rate, the bonus earned would be $1,500 However, since there's a capping limit, let's say at $1,000, the actual bonus paid out would be $1,000,  providing a streamlined and fair distribution of rewards.
+</p>
+                
+                
+                
+              </div>
+              {/* Content Right Block */}
+            </div>
+          </div>
+          {/* Section Container */}
+        </div>
+        <div style={{paddingBottom:"50px"}}>
+          <img src="assets/img/th-1/table1.png" alt="" />
+        </div>
       {/* Section Spacer */}
     </section>
   );
