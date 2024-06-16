@@ -24,7 +24,7 @@ export default function TreeNode({
     <tr>
       <td
         className={clsx(
-          "px-4 border border-gray-500 text-red-600 font-semibold",
+          "p-2 border border-gray-500 text-red-600 font-semibold",
           rounded === "bottom" && "rounded-bl"
         )}
       >
@@ -32,15 +32,15 @@ export default function TreeNode({
       </td>
 
       {isSingle ? (
-        <td className="text-center px-4 border border-gray-500" colSpan="2">
+        <td className="text-center p-2 border border-gray-500" colSpan="2">
           {formatValue(name, leftCount)}
         </td>
       ) : (
         <>
-          <td className="text-center px-4 border border-gray-500">
+          <td className="text-center p-2 border border-gray-500">
             {formatValue(name, leftCount)}
           </td>
-          <td className="text-center px-4 border border-gray-500">
+          <td className="text-center p-2 border border-gray-500">
             {formatValue(name, rightCount)}
           </td>
         </>

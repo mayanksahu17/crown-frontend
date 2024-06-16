@@ -5,7 +5,7 @@ export default function BinaryTree({ data }) {
 
   return (
     data?.length > 0 && (
-      <div className="w-full px-[800px] max-w-[100vw] lg:px-0 ">
+      <div className="w-full mt-20 px-[800px] max-w-[100vw] lg:px-0 ">
         <div className="flex flex-col items-center justify-center ">
           <BinaryNode data={getNodeById(1)} first />
           <div className="flex items-center justify-center">

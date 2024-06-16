@@ -92,7 +92,7 @@ export default function BinaryNode({ data, last, first, ofTwo }) {
           {renderImageByPackage()}
           {showTree && !ofTwo && data && !first && (
             <div
-              className="absolute top-[0] left-[330px] w-[450px] rounded-2xl transform -translate-x-1/2 -mt-40 -500 p-2 bg-gray-900 z-100 "
+              className="absolute bottom-20 left-[30px] w-[450px] rounded-2xl transform -translate-x-1/2 -mt-40 -500 p-2 bg-gray-900 z-100 "
               style={{ zIndex: "100" }}
             >
               <Tree data={data} />
@@ -100,7 +100,7 @@ export default function BinaryNode({ data, last, first, ofTwo }) {
           )}
           {showTree && !ofTwo && data && first && (
             <div
-              className="absolute -bottom-20 left-[350px]  w-[280px] rounded-2xl transform -translate-x-1/2 -mt-40 -500  z-100 "
+              className="absolute top-[0] left-[330px] w-[450px] rounded-2xl transform -translate-x-1/2 -mt-40 -500 p-2 bg-gray-900 z-100"
               style={{ zIndex: "100" }}
             >
               <Tree data={data} />
@@ -108,8 +108,8 @@ export default function BinaryNode({ data, last, first, ofTwo }) {
           )}
         </div>
         <span
-          className={` text-sm md:text-md ${
-            !data ? "text-red-600 mt-2 " : "text-red-600 font-semibold mt-2"
+          className={`text-center text-sm  ${
+            !data ? "text-red-600 mt-2 " : "text-red-600 font-semibold mt-2 "
           }`}
         >
           {data ? data.user_id : ""}
