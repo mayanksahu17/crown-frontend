@@ -259,7 +259,7 @@
   height: 80px;
   z-index: 10;
   /* right:1100px; */
-  margin-right: 200px;
+  /* right: 10%; */
   animation: blink 2s infinite;
   /* Adjust as needed to position before the share button */
 }

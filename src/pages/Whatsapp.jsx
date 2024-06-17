@@ -31,8 +31,8 @@ const Whatsapp = () => {
       class="flex fixed justify-end items-end "
       style={
         isShare
-          ? { bottom: "2rem", top: "0", right: "0px", zIndex: 1000 }
-          : { bottom: "2rem", top: "0", right: "0px", zIndex: 1000 }
+          ? { bottom: "2rem", top: "0", left: "0px", zIndex: 1000 }
+          : { bottom: "2rem", top: "0", left: "0px", zIndex: 1000 }
       }
       onMouseLeave={() => setisShare(false)}
     >
@@ -42,13 +42,7 @@ const Whatsapp = () => {
           className="whatsapp-btn flex justify-center align-center"
           to="https://wa.link/97slwg"
           target="_blank"
-          style={
-            isShare && isMobile
-              ? { right: "72px" }
-              : isMobile
-              ? { right: "-22px" }
-              : {}
-          }
+          style={isMobile ? { left: "72px" } : { left: "100px" }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
