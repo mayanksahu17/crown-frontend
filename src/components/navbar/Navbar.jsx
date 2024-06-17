@@ -115,143 +115,141 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
               </li>
             </ul>
           </li>
-          {/* <li
+          <li
             onClick={(e) => handleSubMenu(e, 3)}
-            className='nav-item nav-item-has-children'
+            className="nav-item nav-item-has-children"
           >
-            <Link to='#' className='nav-link-item drop-trigger'>
+            <Link to="#" className="nav-link-item drop-trigger">
               Pages
               <img
-                className='dropdown-icon'
-                src='assets/img/icon-black-cheveron-right.svg'
-                alt='cheveron-right'
+                className="dropdown-icon"
+                src="assets/img/icon-black-cheveron-right.svg"
+                alt="cheveron-right"
                 width={16}
                 height={16}
               />
             </Link>
             <ul
-              className={`sub-menu ${mobileSubMenu === 3 && 'active'}`}
-              id='submenu-3'
+              className={`sub-menu ${mobileSubMenu === 3 && "active"}`}
+              id="submenu-3"
             >
-              
               <li
                 onClick={(e) => handleSubMenuSub(e, 2)}
-                className='sub-menu--item nav-item-has-children'
+                className="sub-menu--item nav-item-has-children"
               >
-                <Link to='#' data-menu-get='h3' className='drop-trigger'>
+                <Link to="#" data-menu-get="h3" className="drop-trigger">
                   Team
                   <img
-                    className='dropdown-icon'
-                    src='assets/img/icon-black-cheveron-right.svg'
-                    alt='cheveron-right'
+                    className="dropdown-icon"
+                    src="assets/img/icon-black-cheveron-right.svg"
+                    alt="cheveron-right"
                     width={16}
                     height={16}
                   />
                 </Link>
                 <ul
                   className={`sub-menu shape-none ${
-                    mobileSubMenuSub === 2 && 'active'
+                    mobileSubMenuSub === 2 && "active"
                   }`}
-                  id='submenu-5'
+                  id="submenu-5"
                 >
-                  <li className='sub-menu--item'>
-                    <Link to='/team'>Team</Link>
+                  <li className="sub-menu--item">
+                    <Link to="/team">Team</Link>
                   </li>
-                  <li className='sub-menu--item'>
-                    <Link to='/team-details'>Team Details</Link>
+                  <li className="sub-menu--item">
+                    <Link to="/team-details">Team Details</Link>
                   </li>
                 </ul>
               </li>
               <li
                 onClick={(e) => handleSubMenuSub(e, 3)}
-                className='sub-menu--item nav-item-has-children'
+                className="sub-menu--item nav-item-has-children"
               >
-                <Link to='#' data-menu-get='h3' className='drop-trigger'>
+                <Link to="#" data-menu-get="h3" className="drop-trigger">
                   FAQ
                   <img
-                    className='dropdown-icon'
-                    src='assets/img/icon-black-cheveron-right.svg'
-                    alt='cheveron-right'
+                    className="dropdown-icon"
+                    src="assets/img/icon-black-cheveron-right.svg"
+                    alt="cheveron-right"
                     width={16}
                     height={16}
                   />
                 </Link>
                 <ul
                   className={`sub-menu shape-none ${
-                    mobileSubMenuSub === 3 && 'active'
+                    mobileSubMenuSub === 3 && "active"
                   }`}
-                  id='submenu-6'
+                  id="submenu-6"
                 >
-                  <li className='sub-menu--item'>
-                    <Link to='/faq'>FAQ-1</Link>
+                  <li className="sub-menu--item">
+                    <Link to="/faq">FAQ</Link>
                   </li>
-                  
                 </ul>
               </li>
               <li
                 onClick={(e) => handleSubMenuSub(e, 4)}
-                className='sub-menu--item nav-item-has-children'
+                className="sub-menu--item nav-item-has-children"
               >
-                
                 <ul
                   className={`sub-menu shape-none ${
-                    mobileSubMenuSub === 4 && 'active'
+                    mobileSubMenuSub === 4 && "active"
                   }`}
-                  id='submenu-7'
+                  id="submenu-7"
                 >
-                  <li className='sub-menu--item'>
-                    <Link to='/portfolio'>Portfolio</Link>
+                  <li className="sub-menu--item">
+                    <Link to="/portfolio">Portfolio</Link>
                   </li>
-                  <li className='sub-menu--item'>
-                    <Link to='/portfolio-details'>Portfolio Details</Link>
+                  <li className="sub-menu--item">
+                    <Link to="/portfolio-details">Portfolio Details</Link>
                   </li>
                 </ul>
               </li>
-              <li className='sub-menu--item'>
-                
-              </li>
+              <li className="sub-menu--item"></li>
               <li
                 onClick={(e) => handleSubMenuSub(e, 5)}
-                className='sub-menu--item nav-item-has-children'
+                className="sub-menu--item nav-item-has-children"
               >
-                <Link to='#' data-menu-get='h3' className='drop-trigger'>
+                <Link to="#" data-menu-get="h3" className="drop-trigger">
                   Utilities
                   <img
-                    className='dropdown-icon'
-                    src='assets/img/icon-black-cheveron-right.svg'
-                    alt='cheveron-right'
+                    className="dropdown-icon"
+                    src="assets/img/icon-black-cheveron-right.svg"
+                    alt="cheveron-right"
                     width={16}
                     height={16}
                   />
                 </Link>
                 <ul
                   className={`sub-menu shape-none ${
-                    mobileSubMenuSub === 5 && 'active'
+                    mobileSubMenuSub === 5 && "active"
                   }`}
-                  id='submenu-8'
+                  id="submenu-8"
                 >
-                  <li className='sub-menu--item'>
-                    <Link to='/TermsandCondition'>TermsandCondition</Link>
+                  <li className="sub-menu--item">
+                    <Link to="/TermsandCondition">Terms and Conditions</Link>
                   </li>
-                  <li className='sub-menu--item'>
-                    <Link to='/login'>Login</Link>
+                  <li className="sub-menu--item">
+                    <Link to="/login">Login</Link>
                   </li>
-                  <li className='sub-menu--item'>
-                    <Link to='/signup'>Signup</Link>
+                  <li className="sub-menu--item">
+                    <Link to="/signup">Signup</Link>
                   </li>
-                 
                 </ul>
               </li>
-              <li
+              {/* <li
                 onClick={(e) => handleSubMenuSub(e, 5)}
-                className='sub-menu--item nav-item-has-children'
+                className="sub-menu--item nav-item-has-children"
               >
-                <Link to='/package_01' data-menu-get='h3' className='drop-trigger'>
+                <Link
+                  to="/package_01"
+                  data-menu-get="h3"
+                  className="drop-trigger"
+                >
                   package
                 </Link>
-                </li>
+              </li> */}
             </ul>
-          </li> */}
+          </li>
           <li className="nav-item">
             <Link to="/contact" className="nav-link-item">
               Contact

@@ -55,10 +55,10 @@ const Contact = () => {
                 <li className="flex flex-col gap-x-2 leading-tight text-colorOrangyRed lg:flex-row lg:leading-normal">
                   Email:
                   <a
-                    href="mailto:yourmail@mail.com"
+                    href="mailto:officialcrownbankers@gmail.com"
                     className="text-white hover:text-colorOrangyRed"
                   >
-                    yourmail@mail.com
+                    officialcrownbankers@gmail.com
                   </a>
                 </li>
                 <li className="flex flex-col gap-x-2 leading-tight text-colorOrangyRed lg:flex-row lg:leading-normal">
