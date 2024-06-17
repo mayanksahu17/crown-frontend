@@ -21,11 +21,13 @@ const Hero = () => {
               alt="center-img"
               className=" w-64 h-52 "
             />
-            <h1 className="font-bold text-white text-5xl">Business Plan</h1>
+            <h1 className="font-bold text-black text-4xl">Business Plan</h1>
           </div>
         </div>
         <div className="global-container mt-12 flex flex-col justify-center w-full items-center">
-          <h1 className="font-bold text-6xl ">Go Green, Earn Green</h1>
+          <h1 className="font-bold text-6xl text-colorGreen ">
+            Go Green,<span className="text-black">Earn Green</span>
+          </h1>
           <div className=" flex flex-row items-center gap-20 justify-center w-full ">
             <div className="w-1/3 jos  flex flex-col gap-10 md:gap-[50px]">
               <p className="text-lg leading-[1.33] md:text-xl lg:text-2xl">

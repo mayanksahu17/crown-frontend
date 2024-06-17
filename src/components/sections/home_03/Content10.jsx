@@ -10,8 +10,11 @@ const Content10 = () => {
                   <span className="inline-block w-2 h-2 bg-colorOrangyRed rounded-full mr-2"></span>
                   Referral Bonus
                 </h6>
+                <h1 className="font-raleway text-6xl text-colorOrangyRed">
+                  Referral Bonus
+                </h1>
                 <h1 className="font-raleway text-6xl">
-                  Referral Bonus at Our company Multiply Your Prosperity
+                  at Our company Multiply Your Prosperity
                 </h1>
                 <div className="flex mt-2 flex-row gap-4">
                   <p className="mb-8 text-lg leading-[1.33] last:mb-0 mt-4">

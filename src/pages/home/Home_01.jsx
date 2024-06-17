@@ -4,12 +4,44 @@ import Content_01 from "../../components/sections/home_01/Content_01";
 import Content_02 from "../../components/sections/home_01/Content_02";
 import FunFact from "../../components/sections/home_01/FunFact";
 import Whatsapp from "../Whatsapp";
+import { Popup } from "../../components/dashboard/Popup";
+import { useState } from "react";
 // import Pricing from '../../components/sections/home_01/Pricing';
 // import Testimonial_Section from '../../components/sections/home_01/Testimonial_Section';
 
 const Home_01 = () => {
+  const [popups, setPopups] = useState([
+    // { imageSrc: "/images/11march.jpeg", visible: true },
+    { imageSrc: "assets/img/popups/17june.jpeg", visible: true },
+    // { imageSrc: "/images/10apr2.png", visible: false },
+    // { imageSrc: "/images/4march3.jpeg", visible: false },
+  ]);
+  const closePopup = (index) => {
+    const updatedPopups = [...popups];
+    updatedPopups[index].visible = false;
+    setPopups(updatedPopups);
+  };
+
+  const nextPopup = (index) => {
+    if (index < popups.length - 1) {
+      const updatedPopups = [...popups];
+      updatedPopups[index + 1].visible = true;
+      setPopups(updatedPopups);
+    }
+  };
   return (
     <main className="main-wrapper relative overflow-hidden">
+      {popups.map(
+        (popup, index) =>
+          popup.visible && (
+            <Popup
+              key={index}
+              imageSrc={popup.imageSrc}
+              closePopup={() => closePopup(index)}
+              nextPopup={() => nextPopup(index)}
+            />
+          )
+      )}
       <Hero />
       <Service />
       <Content_01 />

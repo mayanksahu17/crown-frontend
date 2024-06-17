@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import routes from "../../constants/route";
 import clsx from "clsx";
 import { useState } from "react";
+import { Logo } from "../../assets";
 
 export default function Sidebar({ isSidebarOpen, setIsSidebarOpen }) {
   const navigate = useNavigate();
@@ -22,14 +23,14 @@ export default function Sidebar({ isSidebarOpen, setIsSidebarOpen }) {
     >
       <div className="flex flex-col justify-between items-center h-full w-full ">
         <div className={clsx("flex flex-col space-y-10 w-full items-center")}>
-          <h1
-            className="cursor-pointer text-2xl text-white"
-            onClick={() => {
-              navigate("/");
-            }}
-          >
-            Crown <br /> Bankers
-          </h1>
+          <div className="cursor-pointer h-14 px-1 w-14 md:h-16 xl:h-18 md:w-16 xl:w-18 2xl:w-20 2xl:h-20 rounded-full bg-white flex items-center justify-center ">
+            <img
+              src={Logo}
+              alt="Logo Image"
+              className="w-[80%] h-full object-contain"
+              onClick={() => navigate("/")}
+            />
+          </div>
 
           <div className="flex flex-col items-center justify-center p-2 w-full  ">
             {routes.map((el, index) => (

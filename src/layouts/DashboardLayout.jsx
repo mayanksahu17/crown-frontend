@@ -5,6 +5,7 @@ import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 import DrawerProvider from "../providers/DrawerProvider";
 import { useAuth } from "../hooks/useAuth";
 import clsx from "clsx";
+import Whatsapp from "../pages/Whatsapp";
 
 export default function DashboardLayout() {
   const location = useLocation();
@@ -56,6 +57,7 @@ export default function DashboardLayout() {
                 />
                 <div className="min-h-screen h-full">
                   <Outlet />
+                  <Whatsapp />
                 </div>
               </div>
             </div>
