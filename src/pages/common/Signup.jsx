@@ -203,7 +203,7 @@ const Signup = () => {
         ...formData,
         referrer_id: formData.sponsorId
           ? `${formData.sponsorId}`
-          : "CROWN-000000",
+          : "CROWN-100012",
         phone: formData.phoneNumber,
         // withdrawal_wallet: formData.withdrawal_wallet,
         username: `${formData.firstName} `,
