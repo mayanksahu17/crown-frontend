@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import Logo from "../logo/Logo";
+import CountdownTimer from "../dashboard/CountDownTimer";
 
 // eslint-disable-next-line react/prop-types
 const Header = ({ loginCSS, signupCSS, navColor, light }) => {
@@ -48,6 +49,9 @@ const Header = ({ loginCSS, signupCSS, navColor, light }) => {
           </div>
           {/* Header User Event */}
         </div>
+      </div>
+      <div className="flex align-center justify-center w-full">
+        <CountdownTimer />
       </div>
     </header>
   );
