@@ -83,9 +83,9 @@ export default function HomeStats() {
         ))}
       </div>
 
-      <div className="mt-2 w-full">
+      {/* <div className="mt-2 w-full">
         <HomeTabComponent />
-      </div>
+      </div> */}
     </div>
   );
 }

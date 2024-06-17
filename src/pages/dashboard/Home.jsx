@@ -34,6 +34,7 @@ import Loader from "../../components/dashboard/Loader";
 import { MdArrowOutward } from "react-icons/md";
 import { LuArrowLeftRight } from "react-icons/lu";
 import WalletFeartures from "../../components/dashboard/home/WalletFeartures";
+import HomeTabComponent from "../../components/dashboard/home/HomeTabComponent";
 
 export default function Home() {
   const { user } = useAuth();
@@ -193,6 +194,7 @@ export default function Home() {
             </div>
           </div>
           <WalletFeartures />
+          <HomeTabComponent />
         </div>
       </div>
     </>

@@ -10,7 +10,7 @@ const HomeTabComponent = ({ allData }) => {
   return (
     <>
       <div className=" rounded-lg  w-full mt-4">
-        <div className="w-full flex flex-col">
+        <div className="w-full flex flex-row">
           <div className="w-full text-lg lg:text-xl font-semibold text-[#fff]">
             My Career : Level {allData?.binary_career_level || 0}
           </div>
@@ -19,7 +19,7 @@ const HomeTabComponent = ({ allData }) => {
             Next Level: {allData?.binary_career_level || 0 + 1}
           </div>
         </div>
-        <div className="mt-3 w-full flex flex-col gap-4 text-white">
+        <div className="mt-3 w-full flex flex-row gap-4 text-white">
           <div className="w-full bg-[#242424] p-4">
             <div className="flex justify-between items-center gap-2">
               <div className="flex flex-row gap-2">
