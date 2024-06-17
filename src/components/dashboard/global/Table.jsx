@@ -11,7 +11,8 @@ export default function Table({ className, columns, data, heading }) {
     page,
     prepareRow,
     pageCount,
-    gotoPage,
+    previousPage,
+    nextPage,
     state: { pageIndex },
   } = useTable(
     {
