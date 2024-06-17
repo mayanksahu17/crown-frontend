@@ -19,38 +19,25 @@ const Home_03 = () => {
           signupCSS="button hidden rounded-[50px] border-colorViolet bg-colorViolet text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white lg:inline-block"
         />
         <main className="main-wrapper relative overflow-hidden">
-          {/*...::: Hero Section Start :::... */}
           <Hero />
-          {/*...::: Hero Section End :::... */}
-          {/*...::: Promo Section Start :::... */}
-          {/* <Promo /> */}
-          {/*...::: Promo Section End :::... */}
-          {/*...::: Content Section-1 Start :::... */}
-          {/*...::: Content Section-1 End :::... */}
+
           <Content1 />
           <Working />
-          <Content_01 />
-          {/*...::: Working Process Start :::... */}
-          {/*...::: Working Process End :::... */}
-          {/*...::: Content Section-2 Start :::... */}
+          {/* <Content_01 />
+
           <Content_02 />
-          {/*...::: Content Section-2 End :::... */}
-          {/* Separator */}
+
           <div className="global-container overflow-hidden">
             <div className="h-[1px] w-full bg-[#F6F6EB]" />
           </div>
-          {/* Separator */}
-          {/*...::: Team Section Start :::... */}
+
           <Team />
-          {/*...::: Team Section End :::... */}
-          {/*...::: Testimonial Start :::... */}
+
           <Testimonial />
-          {/*...::: Testimonial End :::... */}
-          {/*...::: Blog Start :::... */}
-          <Blog />
-          {/*...::: Blog End :::... */}
+
+          <Blog /> */}
         </main>
-        <Footer_03 />
+        {/* <Footer_03 /> */}
       </div>
       {/* Vertical Line */}
       <div className="absolute left-0 top-0 -z-[1] flex h-full w-full justify-evenly">
