@@ -576,11 +576,12 @@ export default function Investment({ data }) {
                 className="h-full w-full "
               />
               <Button
-                className="bg-[#B9A164] !py-1 !h-10 !flex !items-center !justify-center rounded-md w-full mt-2 text-white font-normal"
-                onClick={() => {
-                  handleDataChange("isOpenModal", true);
-                  handleDataChange("selectedModalPackage", el);
-                }}
+                className="bg-[#B9A164] !py-1 !h-10 !flex !items-center !justify-center rounded-md w-full mt-2 text-white font-normal "
+                disabled={true}
+                // onClick={() => {
+                //   handleDataChange("isOpenModal", true);
+                //   handleDataChange("selectedModalPackage", el);
+                // }}
               >
                 Purchase
               </Button>

@@ -58,17 +58,17 @@ const Contact = () => {
                     href="mailto:officialcrownbankers@gmail.com"
                     className="text-white hover:text-colorOrangyRed"
                   >
-                    officialcrownbankers@gmail.com
+                    support@crownbankers.com
                   </a>
                 </li>
                 <li className="flex flex-col gap-x-2 leading-tight text-colorOrangyRed lg:flex-row lg:leading-normal">
                   Phone:
-                  <a
-                    href="tel:+880-1345-922210"
+                  {/* <a
+                    href="tel:+44 7452117690"
                     className="text-white hover:text-colorOrangyRed"
-                  >
-                    +44 7452117690
-                  </a>
+                  > */}
+                  +44 7452117690
+                  {/* </a> */}
                 </li>
               </ul>
             </div>

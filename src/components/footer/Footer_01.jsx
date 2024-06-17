@@ -79,9 +79,7 @@ const Footer_01 = () => {
           {/* Footer Widget */}
           <div className="flex flex-col gap-y-6">
             {/* Footer Title */}
-            <h4 className="text-[21px] font-semibold capitalize text-black">
-              Primary Pages
-            </h4>
+
             {/* Footer Title */}
             {/* Footer Navbar */}
             <ul className="flex flex-col gap-y-[10px] capitalize">
@@ -123,9 +121,7 @@ const Footer_01 = () => {
           {/* Footer Widget */}
           <div className="flex flex-col gap-y-6">
             {/* Footer Title */}
-            <h4 className="text-[21px] font-semibold capitalize text-black">
-              Utility pages
-            </h4>
+
             {/* Footer Title */}
             {/* Footer Navbar */}
             <ul className="flex flex-col gap-y-[10px] capitalize">

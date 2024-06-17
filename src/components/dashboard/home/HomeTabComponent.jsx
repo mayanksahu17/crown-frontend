@@ -12,11 +12,11 @@ const HomeTabComponent = ({ allData }) => {
       <div className=" rounded-lg  w-full mt-4">
         <div className="w-full flex flex-col">
           <div className="w-full text-lg lg:text-xl font-semibold text-[#fff]">
-            My Career : Level {allData?.binary_career_level}
+            My Career : Level {allData?.binary_career_level || 0}
           </div>
 
           <div className=" w-full text-lg lg:text-xl font-semibold text-[#fff]">
-            Next Level: {allData?.binary_career_level + 1}
+            Next Level: {allData?.binary_career_level || 0 + 1}
           </div>
         </div>
         <div className="mt-3 w-full flex flex-col gap-4 text-white">
@@ -32,14 +32,14 @@ const HomeTabComponent = ({ allData }) => {
             </div>
             <div className="flex justify-between items-center gap-2">
               <div className="my-3 text-white text-lg font-medium">
-                ${allData?.leftBusiness}
+                ${allData?.leftBusiness || 0}
               </div>
               <div className="my-3 text-white text-lg font-medium">
-                ${allData?.target}
+                ${allData?.target || 0}
               </div>
             </div>
             <ProgressBar
-              completed={allData?.leftWidth}
+              completed={allData?.leftWidth || 0}
               height="4px"
               isLabelVisible={false}
               baseBgColor="#cbd5e1"
@@ -59,14 +59,14 @@ const HomeTabComponent = ({ allData }) => {
             </div>
             <div className="flex justify-between items-center gap-2">
               <div className="my-3 text-white text-lg font-medium">
-                ${allData?.rightBusiness}
+                ${allData?.rightBusiness || 0}
               </div>
               <div className="my-3 text-white text-lg font-medium">
-                ${allData?.target}
+                ${allData?.target || 0}
               </div>
             </div>
             <ProgressBar
-              completed={allData?.rightWidth}
+              completed={allData?.rightWidth || 0}
               height="4px"
               isLabelVisible={false}
               baseBgColor="#cbd5e1"

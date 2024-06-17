@@ -122,7 +122,7 @@ export default function Home() {
     <Loader />
   ) : (
     <>
-      <UpdateWalletAddressModal
+      {/* <UpdateWalletAddressModal
         isOpen={allData.isWithdrawalWalletUpdated === false}
         handleClose={() => {
           setAllData((prev) => ({
@@ -130,7 +130,7 @@ export default function Home() {
             isWithdrawalWalletUpdated: true,
           }));
         }}
-      />
+      /> */}
       <div className="flex flex-row  h-full">
         <div className="w-1/4 m-[-12px] lg:m-[-16px]">
           <HomeStats />
@@ -178,10 +178,7 @@ export default function Home() {
                     </button>
                     <button
                       className="mt-2 rounded-full px-4 py-2.5 w-full bg-[#000000] text-white text-base font-normal"
-                      onClick={() =>
-                        // handleInputsChange("isReInvestModalOpen", true)
-                        handleNavigate("/dashboard/investments/all-plans")
-                      }
+                      disabled={true}
                     >
                       <div className="flex flex-row justify-center gap-4 w-full items-center ">
                         <div className="">Transfer</div>

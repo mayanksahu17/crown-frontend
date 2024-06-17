@@ -60,9 +60,9 @@ const Faq_Section = () => {
                   <div className="accordion-content text-[#2C2C2C]">
                     <p>
                       Crown Bankers is a financial investment platform based in
-                      the USA that offers investment packages in NFT companies,
-                      cryptocurrencies, AI platforms, and Forbes Top 500
-                      companies.{" "}
+                      the UK that offers investment packages in EVs, solar
+                      energy, cryptocurrencies, AI platforms, and Forbes Top 500
+                      companies.
                     </p>
                   </div>
                 </li>
@@ -86,10 +86,10 @@ const Faq_Section = () => {
                   </div>
                   <div className="accordion-content text-[#2C2C2C]">
                     <p>
-                      Crown Bankers offers four investment packages - Begin,
-                      Grow, Thrive, and Stellar, with different investment
-                      ranges, durations, and returns. Investors choose a package
-                      based on their investment preferences.
+                      Crown Bankers offers three investment packages - Beginner,
+                      Grow, and Banker, with different investment ranges,
+                      durations, and returns. Investors choose a package based
+                      on their investment preferences.
                     </p>
                   </div>
                 </li>
@@ -112,7 +112,7 @@ const Faq_Section = () => {
                   <div className="accordion-content text-[#2C2C2C]">
                     <p>
                       Returns vary based on the chosen package. The ROI ranges
-                      from 150% to 228%, and investors receive returns from
+                      from 225% to 312%, and investors receive returns from
                       Monday to Friday.
                     </p>
                   </div>

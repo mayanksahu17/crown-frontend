@@ -92,7 +92,7 @@ const Contact_From = () => {
               value={input.email}
               onChange={handleInput}
               id="contact-email"
-              placeholder="officialcrownbankers@gmail.com"
+              placeholder="example@gmail.com"
               className="rounded-[10px] border border-gray-300 bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
               required=""
             />
@@ -116,7 +116,7 @@ const Contact_From = () => {
               value={input.phone}
               onChange={handleInput}
               id="contact-phone"
-              placeholder="+880-1345-922210"
+              placeholder="+44 123456789"
               className="rounded-[10px] border border-gray-300 bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
               required=""
             />
