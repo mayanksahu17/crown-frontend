@@ -10,7 +10,19 @@ import Testimonial from "../../components/sections/home_03/Testimonial";
 import Blog from "../../components/sections/home_03/Blog";
 import Content1 from "../../components/sections/home_03/Content1";
 import Content3 from "../../components/sections/home_03/Content3";
-
+import Content4 from "../../components/sections/home_03/Content4";
+import Content14 from "../../components/sections/home_03/Content14";
+import Content13 from "../../components/sections/home_03/Content13";
+import Content12 from "../../components/sections/home_03/Content12";
+import Content11 from "../../components/sections/home_03/Content11";
+import Content10 from "../../components/sections/home_03/Content10";
+import Content9 from "../../components/sections/home_03/Content9";
+import Content8 from "../../components/sections/home_03/Content8";
+import Content7 from "../../components/sections/home_03/Content7";
+import Content5 from "../../components/sections/home_03/Content5";
+import Content6 from "../../components/sections/home_03/Content6";
+import Terms from "../../components/sections/home_03/Terms";
+import Benefits from "../../components/sections/home_03/Benefits";
 const Home_03 = () => {
   return (
     <>
@@ -26,7 +38,38 @@ const Home_03 = () => {
           <Working />
           <Content_01 />
           <Content3 />
+          <Content4 />
+          <Content5 />
+          <Content6 />
+          <Content7 />
+          <div className="bg-[#EDEDE0] ">
+            <div className="h-12 w-[100%] bg-[#EDEDE0]" />
+          </div>
+          <Content8 />
 
+          <Content9 />
+
+          <Content10 />
+          <Content11 />
+          <Content12 />
+          <Content13 />
+          <Content14 />
+          <Terms />
+          <div className="bg-[#EDEDE0] ">
+            <div className="h-12 w-[100%] bg-[#EDEDE0]" />
+          </div>
+
+          <Benefits />
+          <div className="relative mt-12">
+            <img
+              src="assets/img/plan/thanks.png"
+              alt="hero-img"
+              className="relative h-full w-full"
+            />
+            <div className="absolute bottom-[50%] right-[42%] flex justify-center items-center flex-col gap-2">
+              <h1 className="font-bold text-white text-5xl">Thank You</h1>
+            </div>
+          </div>
           {/* <Content_02 />
 
           <div className="global-container overflow-hidden">
