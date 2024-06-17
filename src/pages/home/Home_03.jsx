@@ -9,6 +9,7 @@ import Team from "../../components/sections/home_03/Team";
 import Testimonial from "../../components/sections/home_03/Testimonial";
 import Blog from "../../components/sections/home_03/Blog";
 import Content1 from "../../components/sections/home_03/Content1";
+import Content3 from "../../components/sections/home_03/Content3";
 
 const Home_03 = () => {
   return (
@@ -24,6 +25,7 @@ const Home_03 = () => {
           <Content1 />
           <Working />
           <Content_01 />
+          <Content3 />
 
           {/* <Content_02 />
 
