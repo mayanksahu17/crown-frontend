@@ -31,10 +31,10 @@ const Signup = () => {
   const paramPosition = searchParams.get("position");
 
   const [formData, setFormData] = useState({
-    hasSponsor: false,
+    hasSponsor: true,
     position: "left",
-    sponsorId: "CROWN-",
-    sponsorName: "",
+    sponsorId: "CROWN-100012",
+    sponsorName: "CROWN",
     firstName: "",
     country: null,
     phoneNumber: "",
@@ -188,7 +188,7 @@ const Signup = () => {
         setFormData((prev) => ({ ...prev, sponsorName: data?.data?.name }));
       }
     } catch (error) {
-      setFormData((prev) => ({ ...prev, sponsorName: "" }));
+      setFormData((prev) => ({ ...prev, sponsorName: "CROWN" }));
     }
   };
 
@@ -218,10 +218,10 @@ const Signup = () => {
         console.log(emailResponse);
         // if (emailResponse?.status === 200) {
         setFormData({
-          hasSponsor: false,
+          hasSponsor: true,
           position: "left",
-          sponsorId: "",
-          sponsorName: "",
+          sponsorId: "CROWN-100012",
+          sponsorName: "CROWN",
           firstName: "",
           country: null,
           phoneNumber: "",
