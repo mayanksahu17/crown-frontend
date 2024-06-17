@@ -17,7 +17,7 @@ const Working = () => {
                     Charge up your portfolio: How our platform van plug you into
                     the Electrifying EV Revolution
                   </div>
-                  <div className="flex flex-row justify-between items-centerw-full gap-4">
+                  <div className="flex flex-col md:flex-row justify-between items-centerw-full gap-4">
                     <img
                       src="assets/img/plan/working.png"
                       alt="hero-img"

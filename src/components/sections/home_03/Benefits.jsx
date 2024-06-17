@@ -26,18 +26,18 @@ const texts = [
 const Benefits = () => {
   return (
     <section id="section-working-process ">
-      <div className="bg-[#EDEDE0] px-60">
+      <div className="bg-[#EDEDE0] px-4 md:px-60">
         <div className="relative z-[1] w-full rounded-[20px] bg-black">
           <div className="py-20 xl:py-[130px]">
             <div className="global-container">
               <h1 className="text-4xl text-white text-center mb-6">Benefits</h1>
-              <div className="flex flex-col gap-10">
-                <div className="flex justify-center gap-10">
+              <div className="flex flex-col  gap-10 justify-center w-full items-center">
+                <div className="flex flex-col md:flex-row justify-center gap-10">
                   {texts.slice(0, 3).map((text, index) => (
                     <BoxComponent key={index} text={text} />
                   ))}
                 </div>
-                <div className="flex justify-center gap-10">
+                <div className="flex flex-col md:flex-row justify-center gap-10">
                   {texts.slice(3, 6).map((text, index) => (
                     <BoxComponent key={index} text={text} />
                   ))}

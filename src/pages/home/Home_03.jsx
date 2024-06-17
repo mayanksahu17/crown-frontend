@@ -66,8 +66,8 @@ const Home_03 = () => {
               alt="hero-img"
               className="relative h-full w-full"
             />
-            <div className="absolute bottom-[50%] right-[42%] flex justify-center items-center flex-col gap-2">
-              <h1 className="font-bold text-white text-5xl">Thank You</h1>
+            <div className="absolute bottom-[40%] md:bottom-[50%] right-[25%] md:right-[42%] flex justify-center items-center flex-col gap-2">
+              <h1 className="font-bold text-black text-5xl">Thank You</h1>
             </div>
           </div>
           {/* <Content_02 />

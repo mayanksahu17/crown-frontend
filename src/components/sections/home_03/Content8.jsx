@@ -36,8 +36,8 @@ const Content8 = () => {
                   {/* Section Content Block */}
 
                   {/* Section Content Block */}
-                  <div className="flex flex-col gap-10">
-                    <div className="flex justify-center gap-10">
+                  <div className="flex justify-center items-center w-full flex-col gap-10">
+                    <div className="flex  flex-col md:flex-row justify-center gap-10">
                       <div className="w-60 h-60 rounded-xl bg-[#242424] p-6 flex flex-col gap-6 relative">
                         <div className="relative flex items-center jusify-center gap-8">
                           <img
@@ -73,7 +73,7 @@ const Content8 = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="flex justify-center gap-10">
+                    <div className="flex  flex-col md:flex-row justify-center gap-10">
                       <div className="w-60 h-60 rounded-xl bg-[#242424] p-6 flex flex-col gap-6 relative">
                         <div className="relative flex items-center jusify-center gap-8">
                           <img

@@ -13,7 +13,7 @@ const Content6 = () => {
                 <h1 className="font-raleway text-6xl">
                   Forbes Top 500 Companies
                 </h1>
-                <div className="flex mt-2 flex-row gap-4">
+                <div className="flex mt-2 flex-col md:flex-row gap-4">
                   <img
                     src="assets/img/plan/nature.png"
                     alt="hero-img"
