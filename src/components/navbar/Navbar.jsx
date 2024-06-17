@@ -236,18 +236,18 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                   </li>
                 </ul>
               </li>
-              {/* <li
+              <li
                 onClick={(e) => handleSubMenuSub(e, 5)}
                 className="sub-menu--item nav-item-has-children"
               >
                 <Link
-                  to="/package_01"
+                  to="/business-plan"
                   data-menu-get="h3"
                   className="drop-trigger"
                 >
-                  package
+                  Business Plan
                 </Link>
-              </li> */}
+              </li>
             </ul>
           </li>
           <li className="nav-item">

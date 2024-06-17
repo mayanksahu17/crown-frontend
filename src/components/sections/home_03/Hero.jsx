@@ -1,48 +1,47 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <section id='hero-section'>
+    <section id="hero-section">
       {/* Section Spacer */}
-      <div className='pt-28 lg:pt-40 xl:pt-[195px]'>
+      <div className="pt-28 lg:pt-40 xl:pt-[195px]">
         {/* Section Container */}
-        <div className='global-container'>
-          {/* Hero Content */}
-          <div className='grid items-center gap-10 md:grid-cols-2 xl:grid-cols-[minmax(0,_1.3fr)_1fr]'>
-            {/* Section Content Block */}
-            <div>
-              <h2 className='font-raleway text-5xl md:text-6xl lg:text-7xl xl:text-[100px] xxl:text-[120px]'>
-                AI the future of business
-              </h2>
-            </div>
-            {/* Section Content Block */}
-            <div className='jos flex flex-col gap-10 md:gap-[50px]'>
-              <p className='text-lg font-semibold leading-[1.33] md:text-xl lg:text-2xl'>
-                Businesses harnessing AI's power are better positioned to thrive
-                in the modern age. It can drive decision-making skills.
-              </p>
-              <Link
-                to='/about'
-                className='button inline-block rounded-[50px] border-2 border-black bg-[#F6F6EB] text-black after:border-colorOrangyRed after:bg-colorOrangyRed hover:text-white'
-              >
-                Explore About Us
-              </Link>
-            </div>
-          </div>
-          {/* Hero Content */}
-        </div>
+
         {/* Section Container */}
         {/* Hero Image */}
-        <div
-          className='jos mx-auto mt-12 max-w-[1500px] px-5 md:mt-20'
-          data-jos_animation='zoom'
-        >
+        <div className="relative" data-jos_animation="zoom">
           <img
-            src='assets/img/th-3/hero-img.jpg'
-            alt='hero-img'
-            width={1500}
-            height={700}
-            className='h-auto w-full'
+            src="assets/img/plan/bg.png"
+            alt="hero-img"
+            className="relative h-auto w-full"
+          />
+          <div className="absolute bottom-[50%] right-[42%] flex justify-center items-center flex-col gap-2">
+            <img
+              src="assets/img/plan/logo.png"
+              alt="center-img"
+              className=" w-64 h-52 "
+            />
+            <h1 className="font-bold text-white text-5xl">Business Plan</h1>
+          </div>
+        </div>
+        <div className="global-container mt-12 flex flex-col justify-center w-full items-center">
+          <h1 className="font-bold text-6xl ">Go Green, Earn Green</h1>
+          <div className=" flex flex-row items-center gap-20 justify-center w-full ">
+            <div className="w-1/3 jos  flex flex-col gap-10 md:gap-[50px]">
+              <p className="text-lg leading-[1.33] md:text-xl lg:text-2xl">
+                Rule Your Portfolio: Crown Bankers Invest in Forbes 500, EV,
+                Solar, and Crypto!
+              </p>
+            </div>
+            <div>
+              <h5 className=" font-raleway text-6xl">Invest in EV & Solar</h5>
+              <span className=" font-raleway text-6xl">with Us!</span>
+            </div>
+          </div>
+          <img
+            src="assets/img/plan/hero.png"
+            alt="hero-img"
+            className="relative h-auto w-full"
           />
         </div>
         {/* Hero Image */}
