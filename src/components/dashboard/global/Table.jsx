@@ -23,9 +23,9 @@ export default function Table({ className, columns, data, heading }) {
   );
 
   return (
-    <div className="w-full overflow-x-auto">
+    <div className="w-full overflow-auto">
       {heading && (
-        <h1 className="mb-2 text-xl font-normal text-[#07153D]">{heading}</h1>
+        <h1 className="mb-2 text-xl font-normal text-[#fff]">{heading}</h1>
       )}
       <table
         className={clsx(
@@ -85,7 +85,7 @@ export default function Table({ className, columns, data, heading }) {
         </tbody>
       </table>
 
-      <div className="flex items-center justify-between w-full border-t border-gray-200 bg-textred px-4 mt-4 py-2 text-white">
+      <div className="flex items-center justify-between border-t border-gray-200 bg-textred px-4 mt-4 py-2 text-white">
         <div className="text-sm ">
           Showing{" "}
           <span className="font-medium">

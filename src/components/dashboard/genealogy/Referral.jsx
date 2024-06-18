@@ -70,10 +70,10 @@ export default function Referral({ data }) {
   };
 
   return (
-    <div className="mt-4 w-full">
+    <div className="mt-4 w-full text-white">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         <div className="w-full">
-          <label className="block text-[#07153D] font-normal">
+          <label className="block text-[#fff] font-normal">
             Search User's ID
           </label>
           <input
@@ -85,7 +85,7 @@ export default function Referral({ data }) {
           />
         </div>
         <div className="w-full">
-          <label className="block text-[#07153D] font-normal mb-1">
+          <label className="block text-[#fff] font-normal mb-1">
             Search User's Country
           </label>
           <Select
@@ -98,7 +98,7 @@ export default function Referral({ data }) {
           />
         </div>
         {/* <div className="w-full">
-          <label className="block text-[#07153D] font-normal mb-1">
+          <label className="block text-[#fff] font-normal mb-1">
             Search User's Status
           </label>
           <Select
@@ -110,7 +110,7 @@ export default function Referral({ data }) {
           />
         </div> */}
         <div className="w-full">
-          <label className="block text-[#07153D] font-normal mb-1">
+          <label className="block text-[#fff] font-normal mb-1">
             Search User's Email Verification
           </label>
           <Select

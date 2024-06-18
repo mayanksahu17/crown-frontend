@@ -14,12 +14,12 @@ export default function Tab({ data }) {
 
   return (
     <>
-      <div className={clsx("flex items-center")}>
+      <div className={clsx("flex items-center overflow-auto")}>
         {data.map(({ name, route }, index, arr) => (
           <div
             key={index}
             className={clsx(
-              "py-1 px-4 font-light cursor-pointer",
+              "py-1 px-2 md:px-4 font-light cursor-pointer",
               selectedTab === route?.split("/")?.findLast((el) => el)
                 ? "bg-black border-b-4  text-white border-white"
                 : "bg-black !text-white",
