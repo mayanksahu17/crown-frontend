@@ -19,7 +19,7 @@ const HomeTabComponent = ({ allData }) => {
             Next Level: {allData?.binary_career_level || 0 + 1}
           </div>
         </div>
-        <div className="mt-3 w-full flex flex-row gap-4 text-white">
+        <div className="mt-3 w-full flex flex-col md:flex-row gap-4 text-white">
           <div className="w-full bg-[#242424] p-4">
             <div className="flex justify-between items-center gap-2">
               <div className="flex flex-row gap-2">

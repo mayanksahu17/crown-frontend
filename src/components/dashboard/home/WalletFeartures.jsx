@@ -20,7 +20,7 @@ const WalletFeartures = () => {
     <div className="w-full mt-20">
       <div className="w-full bg-[#000] p-3 rounded-lg">
         <div className="text-white text-xl">Referral Link</div>
-        <div className="mt-3 w-full flex flex-row gap-4 ">
+        <div className="mt-3 w-full flex flex-col md:flex-row gap-4 ">
           <div className="w-full bg-[#0] rounded-md p-2">
             <p className="opacity-80 text-[#fff] font-normal text-xs">
               Left link
