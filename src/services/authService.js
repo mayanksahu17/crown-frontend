@@ -14,7 +14,6 @@ const loginUser = async (data) => {
 };
 
 const sendLoginOTP = async (data) => {
-  console.log(baseURL);
   return axios.post(`${baseURL}/auth/login-otp`, data);
 };
 

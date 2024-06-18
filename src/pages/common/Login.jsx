@@ -84,7 +84,6 @@ const Login = () => {
           userId: `${formData.userId}`,
           password: formData.password,
         });
-        console.log(response);
         if (response?.data?.success) {
           changeLoadingStates("isSignInLoading", false);
           // updateUser({
@@ -101,7 +100,6 @@ const Login = () => {
           password: formData.password,
           otp: formData.otp,
         });
-        console.log(response);
         if (response?.data?.success) {
           changeLoadingStates("isSignInLoading", false);
           updateUser({

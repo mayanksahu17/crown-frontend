@@ -77,7 +77,6 @@ export default function SignUp() {
         error = value.trim() === "" ? `${name} is required` : "";
         break;
       case "country":
-        console.log(value);
         error = value ? "" : "Please select a country";
         break;
       case "withdrawal_wallet":
@@ -209,7 +208,6 @@ export default function SignUp() {
           email: formData.email,
           userId: response?.data?.data?.userId,
         });
-        console.log(emailResponse);
         // if (emailResponse?.status === 200) {
         setFormData({
           hasSponsor: false,

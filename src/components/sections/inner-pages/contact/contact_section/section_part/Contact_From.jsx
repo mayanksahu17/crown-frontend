@@ -33,7 +33,6 @@ const Contact_From = () => {
         email: input.email,
         company_name: input.company,
       });
-      console.log(response);
       if (response?.data?.success) {
         toast.success("Your message has been sent!");
         // Clear the form

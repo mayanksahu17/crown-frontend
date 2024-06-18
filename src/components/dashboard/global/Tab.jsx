@@ -14,7 +14,7 @@ export default function Tab({ data }) {
 
   return (
     <>
-      <div className={clsx("hidden lg:flex items-center")}>
+      <div className={clsx("flex items-center")}>
         {data.map(({ name, route }, index, arr) => (
           <div
             key={index}
