@@ -310,7 +310,7 @@ const Signup = () => {
                       </div>
                     </div>
                     {formData.hasSponsor && (
-                      <div className="w-full flex ">
+                      <div className="w-full flex flex-col md:flex-row ">
                         <div className="w-full">
                           <label className="text-lg font-bold leading-[1.6] ">
                             Sponsor ID

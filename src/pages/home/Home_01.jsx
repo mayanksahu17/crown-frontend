@@ -46,7 +46,9 @@ const Home_01 = () => {
       <Service />
       <Content_01 />
       <Content_02 />
+
       <FunFact />
+
       {/* <Pricing />
       <Testimonial_Section /> */}
 

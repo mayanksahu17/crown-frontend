@@ -30,11 +30,11 @@ const Service = () => {
           {/* Section Container */}
         </div>
         <div style={{ backgroundColor: "black", paddingTop: "50px" }}>
-          <h2 style={{ fontSize: "40px", color: "white" }}>
+          <h2 style={{ fontSize: "40px", color: "white" }} className="px-4">
             Investment Packages and Return
           </h2>
           <br />
-          <ul className="jos flex-col flex md:flex-row justify-center w-full gap-24 overflow-hidden rounded-[10px] border-2 border-black bg-black">
+          <ul className="jos flex-col flex md:flex-row justify-center w-full gap-24 overflow-hidden rounded-[10px] border-2 border-black bg-black items-center">
             {/* Service Item */}
             <img
               style={{ height: "600px", width: "350px" }}
