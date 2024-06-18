@@ -20,6 +20,7 @@ const Layout = () => {
       {/*...::: Footer Start :::... */}
       <Footer_01 />
       {/*...::: Footer End :::... */}
+      <Whatsapp />
     </div>
   );
 };
