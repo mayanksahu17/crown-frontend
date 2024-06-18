@@ -37,7 +37,7 @@ export default function DashboardLayout() {
         <div className=" w-full bg-[#F5F7FB]  min-h-screen h-full">
           <div className="w-full flex h-full relative">
             <div
-              className="w-10 h-10 rounded-full cursor-pointer z-[9999999999999999999999] bg-white absolute left-3 bottom-3 border border-gray-400 md:hidden shadow-sm shadow-black flex items-center justify-center"
+              className="w-10 h-10 rounded-full cursor-pointer z-[9999999999999999999999] bg-white fixed left-3 bottom-3 border border-gray-400 md:hidden shadow-sm shadow-black flex items-center justify-center"
               onClick={toggleDrawer}
             >
               <MdOutlineKeyboardDoubleArrowRight

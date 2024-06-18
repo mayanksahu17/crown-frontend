@@ -12,7 +12,7 @@ export default function DrawerProvider({ toggleDrawer, isOpen }) {
   const [activeRoute, setActiveRoute] = useState("");
 
   const handleRoute = (route) => {
-    setActiveRoute(route === activeRoute ? null : route);
+    handleNavigate(route);
   };
 
   return (
@@ -48,35 +48,7 @@ export default function DrawerProvider({ toggleDrawer, isOpen }) {
                   />
                   <p className="text-white">{name}</p>
                 </div>
-                <MdKeyboardArrowLeft
-                  className={clsx("text-white", {
-                    "-rotate-90": activeRoute === route,
-                  })}
-                  size={18}
-                />
               </div>
-              {activeRoute === route && childNavs?.length > 0 && (
-                <div className="w-full flex flex-col items-start space-y-6">
-                  {childNavs.map(
-                    (
-                      { icon: Icon, name: childName, route: childRoute },
-                      childIndex
-                    ) => (
-                      <div
-                        key={childIndex}
-                        className="w-full flex items-center space-x-4 px-7 cursor-pointer"
-                        onClick={() => {
-                          handleNavigate(childRoute);
-                          toggleDrawer();
-                        }}
-                      >
-                        <Icon color="white" />
-                        <p className="text-white">{childName}</p>
-                      </div>
-                    )
-                  )}
-                </div>
-              )}
             </>
           ))}
         </div>
