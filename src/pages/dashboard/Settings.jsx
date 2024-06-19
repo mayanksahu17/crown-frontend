@@ -12,6 +12,7 @@ import userService from "../../services/userService";
 import toast from "react-hot-toast";
 import { UserAvatar } from "../../assets";
 import dashboardService from "../../services/dashboardService";
+import UpdateWalletAddressModal from "../../components/dashboard/home/UpdateWalletAddressModal";
 
 const Settings = () => {
   const { user, updateUserDetails } = useAuth();
@@ -21,7 +22,6 @@ const Settings = () => {
   });
   const [allData, setAllData] = useState({
     notificationSettings: [],
-    walletAddress: "N/A",
   });
 
   const handleAllDataChange = (name, value) =>
@@ -66,26 +66,19 @@ const Settings = () => {
       toast.error(error?.response?.data?.message || "Something went wrong");
     }
   };
-
   useEffect(() => {
     (async () => {
       try {
-        const [dashboardResponse] = await Promise.all([
-          dashboardService.getDashboardData(user),
-        ]);
+        const updatedUserResponse = await userService.getUserData(user);
 
-        if (dashboardResponse?.data?.success) {
-          handleAllDataChange(
-            "walletAddress",
-            dashboardResponse?.data?.data?.withdrawal_wallet
-          );
+        if (updatedUserResponse?.data?.success) {
+          updateUserDetails(updatedUserResponse?.data?.data);
         }
       } catch (error) {
         console.log(error);
       }
     })();
-  }, [user]);
-
+  }, []);
   const data = [
     {
       name: "Profile Settings",
@@ -106,6 +99,11 @@ const Settings = () => {
       name: "KYC Settings",
       route: "/dashboard/settings/kyc",
       children: <KYCSettings />,
+    },
+    {
+      name: "Withdrawal Wallet",
+      route: "/dashboard/settings/wallet",
+      children: <UpdateWalletAddressModal />,
     },
   ];
 
@@ -159,9 +157,6 @@ const Settings = () => {
           </p>
           <p className="text-[#737A99] font-normal text-sm md:text-base">
             PIN - {user?.user?.security_pin}
-          </p>
-          <p className="text-[#737A99] font-normal text-sm md:text-base">
-            WALLET ADDRESS - {allData.walletAddress}
           </p>
         </div>
       </div>
