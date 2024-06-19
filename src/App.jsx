@@ -39,6 +39,7 @@ import { UserBinaryTree } from "./components";
 import DashboardLayout from "./layouts/DashboardLayout";
 import ResetPassword from "./pages/common/ResetPassword";
 import Verify from "./pages/common/Verify";
+import AboutNew from "./AboutNew";
 function App() {
   // Init JOS Animation
   useJOSAnimation();
@@ -76,6 +77,7 @@ function App() {
         </Route>
         <Route path="home-2" element={<Home_02 />} />
         <Route path="home-4" element={<Home_04 />} />
+        {/* <Route path="new" element={<AboutNew />} /> */}
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<Home />} />
           <Route path="investments/:selectedRoute" element={<Investment />} />
