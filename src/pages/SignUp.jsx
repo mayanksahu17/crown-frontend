@@ -196,7 +196,7 @@ export default function SignUp() {
         ...formData,
         referrer_id: formData.sponsorId
           ? `${formData.sponsorId}`
-          : "CROWN-100012",
+          : "CROWN-000000",
         phone: formData.phoneNumber,
         // withdrawal_wallet: formData.withdrawal_wallet,
         username: `${formData.firstName} ${formData.lastName}`,
