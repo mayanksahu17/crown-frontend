@@ -78,38 +78,40 @@ const Login = () => {
   const handleSubmit = async () => {
     console.log("first");
     try {
-      if (!showOTPInput) {
-        changeLoadingStates("isSignInLoading", true);
-        const response = await authService.sendLoginOTP({
-          userId: `${formData.userId}`,
-          password: formData.password,
+      // if (!showOTPInput) {
+      //   changeLoadingStates("isSignInLoading", true);
+      //   const response = await authService.sendLoginOTP({
+      //     userId: `${formData.userId}`,
+      //     password: formData.password,
+      //   });
+      //   if (response?.data?.success) {
+      //     changeLoadingStates("isSignInLoading", false);
+      //     // updateUser({
+      //     //   user: response?.data?.data,
+      //     //   token: response?.data?.token,
+      //     // });
+      //     // handleNavigate("/dashboard");
+      //     setShowOTPInput(true);
+      //   }
+      // } else {
+      changeLoadingStates("isSignInLoading", true);
+      const response = await authService.loginUser({
+        userId: `${formData.userId}`,
+        password: formData.password,
+        // otp: formData.otp,
+      });
+      console.log(response);
+      if (response?.data?.success) {
+        changeLoadingStates("isSignInLoading", false);
+        updateUser({
+          user: response?.data?.data,
+          token: response?.data?.token,
         });
-        if (response?.data?.success) {
-          changeLoadingStates("isSignInLoading", false);
-          // updateUser({
-          //   user: response?.data?.data,
-          //   token: response?.data?.token,
-          // });
-          // handleNavigate("/dashboard");
-          setShowOTPInput(true);
-        }
-      } else {
-        changeLoadingStates("isSignInLoading", true);
-        const response = await authService.loginUser({
-          userId: `${formData.userId}`,
-          password: formData.password,
-          otp: formData.otp,
-        });
-        if (response?.data?.success) {
-          changeLoadingStates("isSignInLoading", false);
-          updateUser({
-            user: response?.data?.data,
-            token: response?.data?.token,
-          });
-          handleNavigate("/dashboard");
-        }
+        handleNavigate("/dashboard");
       }
+      // }
     } catch (error) {
+      console.log(error);
       changeLoadingStates("isSignInLoading", false);
       toast.error(error?.response?.data?.message || "Something went wrong");
     }
