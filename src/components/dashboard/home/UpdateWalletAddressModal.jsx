@@ -1,7 +1,7 @@
 import { IoClose } from "react-icons/io5";
 import Modal from "../global/Modal";
 import Button from "../global/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import walletAddressService from "../../../services/walletAddressService";
 import { useAuth } from "../../../hooks/useAuth";
@@ -56,7 +56,7 @@ export default function UpdateWalletAddressModal({ isOpen, handleClose }) {
   };
 
   return !user?.user?.withdrawal_wallet ? (
-    <div className="">
+    <div className="text-white">
       <div className="w-full">
         <p className="text-2xl text-gray-700 font-semibold leading-tight">
           Update Wallet Address
@@ -111,8 +111,11 @@ export default function UpdateWalletAddressModal({ isOpen, handleClose }) {
     </div>
   ) : (
     <div className="w-full">
-      <p className="text-2xl text-white mt-2 font-semibold leading-tight ">
-        Wallet Address : {user?.user?.withdrawal_wallet}
+      <p className="text-2xl text-white  mt-12 font-semibold leading-tight ">
+        Wallet Address :
+        <span className="ml-4 rounded-2xl bg-gradient-to-l from-[#8011E8] to-[#CD6AFB] p-4">
+          {user?.user?.withdrawal_wallet}
+        </span>
       </p>
     </div>
   );

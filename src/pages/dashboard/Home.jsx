@@ -35,6 +35,7 @@ import { MdArrowOutward } from "react-icons/md";
 import { LuArrowLeftRight } from "react-icons/lu";
 import WalletFeartures from "../../components/dashboard/home/WalletFeartures";
 import HomeTabComponent from "../../components/dashboard/home/HomeTabComponent";
+import userService from "../../services/userService";
 
 export default function Home() {
   const { user } = useAuth();
@@ -63,7 +64,19 @@ export default function Home() {
     interest_wallet: 0.0,
     binary_career_level: 0,
   });
+  useEffect(() => {
+    (async () => {
+      try {
+        const updatedUserResponse = await userService.getUserData(user);
 
+        if (updatedUserResponse?.data?.success) {
+          updateUserDetails(updatedUserResponse?.data?.data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
   useEffect(() => {
     (async () => {
       try {
@@ -197,6 +210,7 @@ export default function Home() {
           </div>
           <WalletFeartures />
           <HomeTabComponent />
+          <UpdateWalletAddressModal />
         </div>
       </div>
     </>

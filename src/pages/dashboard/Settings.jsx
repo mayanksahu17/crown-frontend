@@ -66,19 +66,7 @@ const Settings = () => {
       toast.error(error?.response?.data?.message || "Something went wrong");
     }
   };
-  useEffect(() => {
-    (async () => {
-      try {
-        const updatedUserResponse = await userService.getUserData(user);
 
-        if (updatedUserResponse?.data?.success) {
-          updateUserDetails(updatedUserResponse?.data?.data);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-  }, []);
   const data = [
     {
       name: "Profile Settings",
@@ -100,11 +88,11 @@ const Settings = () => {
       route: "/dashboard/settings/kyc",
       children: <KYCSettings />,
     },
-    {
-      name: "Withdrawal Wallet",
-      route: "/dashboard/settings/wallet",
-      children: <UpdateWalletAddressModal />,
-    },
+    // {
+    //   name: "Withdrawal Wallet",
+    //   route: "/dashboard/settings/wallet",
+    //   children: <UpdateWalletAddressModal />,
+    // },
   ];
 
   return (
