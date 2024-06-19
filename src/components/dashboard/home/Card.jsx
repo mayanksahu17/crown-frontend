@@ -1,6 +1,6 @@
 export default function Card({ name, value, icon }) {
   return (
-    <div className="relative w-full h-full py-3 px- rounded-md lg:rounded-xl overflow-hidden">
+    <div className="relative w-full h-full py-3 px-3 rounded-md bg-gradient-to-l from-[#FB8B5C] to-[#E753AE] lg:rounded-xl overflow-hidden">
       <div className="flex items-center space-x-4">
         <div className="p-2 rounded-2xl bg-white ">
           <div className="flex w-full items-center justify-between">

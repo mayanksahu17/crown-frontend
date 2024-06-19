@@ -20,7 +20,7 @@ const HomeTabComponent = ({ allData }) => {
           </div>
         </div>
         <div className="mt-3 w-full flex flex-col md:flex-row gap-4 text-white">
-          <div className="w-full bg-[#242424] p-4">
+          <div className="w-full bg-[#242424] p-4 rounded-2xl">
             <div className="flex justify-between items-center gap-2">
               <div className="flex flex-row gap-2">
                 <div className="h-5 w-5 rounded-full bg-teal-200 flex items-center justify-center">
@@ -47,7 +47,7 @@ const HomeTabComponent = ({ allData }) => {
               bgColor="#6ee7b7"
             />
           </div>
-          <div className="w-full bg-[#242424] p-4">
+          <div className="w-full bg-[#242424] p-4 rounded-2xl">
             <div className="flex justify-between items-center gap-2">
               <div className="flex flex-row gap-2">
                 <div className="h-5 w-5 rounded-full bg-teal-200 flex items-center justify-center">

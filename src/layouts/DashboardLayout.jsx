@@ -49,7 +49,7 @@ export default function DashboardLayout() {
               />
             </div>
 
-            <div className=" bg-black w-full">
+            <div className="bg-gradient-to-l from-[#070707] to-[#27101A] w-full">
               <div className="p-3 lg:p-4 w-full  h-full">
                 <DrawerProvider
                   isOpen={isDrawerOpen}

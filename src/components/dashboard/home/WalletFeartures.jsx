@@ -17,15 +17,15 @@ const WalletFeartures = () => {
     user?.user?.userId?.split("-")[1] +
     "&position=right";
   return (
-    <div className="w-full mt-20">
-      <div className="w-full bg-[#000] p-3 rounded-lg">
+    <div className="w-full mt-20 rounded-2xl">
+      <div className="w-full p-3 rounded-lg">
         <div className="text-white text-xl">Referral Link</div>
         <div className="mt-3 w-full flex flex-col md:flex-row gap-4 ">
           <div className="w-full bg-[#0] rounded-md p-2">
             <p className="opacity-80 text-[#fff] font-normal text-xs">
               Left link
             </p>
-            <div className="flex justify-between w-full space-x-3 mt-2 bg-[#242424] p-2">
+            <div className="flex justify-between w-full space-x-3 mt-2 bg-[#242424] p-2 rounded-2xl">
               <input
                 type="text"
                 className="w-4/6 bg-[#242424] rounded-xl text-xs px-2 py-1 text-opacity-80 text-[#fff]"
@@ -43,11 +43,11 @@ const WalletFeartures = () => {
               </button>
             </div>
           </div>
-          <div className="w-full bg-[#000] rounded-md  p-2">
+          <div className="w-full  rounded-md  p-2">
             <p className="opacity-80 text-[#fff] font-normal text-xs">
               Right link
             </p>
-            <div className="flex justify-between w-full space-x-3 mt-2 bg-[#242424] p-2">
+            <div className="flex justify-between w-full space-x-3 mt-2 bg-[#242424] p-2 rounded-2xl">
               <input
                 type="text"
                 className="w-4/6 bg-[#242424] text-xs px-2 py-1 text-opacity-80 text-[#fff]"

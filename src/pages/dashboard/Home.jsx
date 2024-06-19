@@ -138,7 +138,7 @@ export default function Home() {
         </div>
         <div className="flex w-full md:w-3/4  flex-col">
           <div className="flex  justify-center items-center w-full">
-            <div className="w-full md:w-3/4 justify-between bg-[#242424] mt-[-12px] lg:mt-[-16px] rounded-2xl ">
+            <div className="w-full md:w-3/4 justify-between bg-gradient-to-l from-[#221F1C] to-[#39272D] mt-[-12px] lg:mt-[-16px] rounded-2xl ">
               <div className="w-full mt-4  full flex flex-col justify-between h-full  p-8 rounded-4xl">
                 <Navbar />
                 <div className="mt-8 h-full flex flex-col justify-between ">
@@ -150,9 +150,10 @@ export default function Home() {
                       ${allData?.totalEarning}
                     </p>
                   </div>
+
                   <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-8">
                     <button
-                      className="rounded-full w-full px-4 py-2.5 w-full bg-[#000000] text-white text-base font-normal disabled:bg-gray-900 "
+                      className="rounded-full w-full px-4 py-2.5 w-full bg-gradient-to-l from-[#8011E8] to-[#CD6AFB] text-white text-base font-normal disabled:bg-gray-900 "
                       onClick={() =>
                         handleInputsChange("isWithdrawalModalOpen", true)
                       }
@@ -164,8 +165,9 @@ export default function Home() {
                         </div>
                       </div>
                     </button>
+
                     <button
-                      className="mt-2 rounded-full px-4 py-2.5 w-full bg-[#000000] text-white text-base font-normal"
+                      className="mt-2 rounded-full px-4 py-2.5 w-full bg-gradient-to-l from-[#FA895F] to-[#E753AE] text-white text-base font-normal"
                       onClick={() =>
                         handleNavigate("/dashboard/investments/all-plans")
                       }
