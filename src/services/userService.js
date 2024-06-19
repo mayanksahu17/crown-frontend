@@ -5,7 +5,7 @@ const updateUserDetails = (user, data) => {
 };
 
 const getUserData = (user) => {
-  return axios.get(`users//user-data?email=${user?.user?.email}`);
+  return axios.get(`users/user-data?email=${user?.user?.email}`);
 };
 
 const updateUserPassword = (data, user) => {

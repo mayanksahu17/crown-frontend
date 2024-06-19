@@ -5,10 +5,10 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import walletAddressService from "../../../services/walletAddressService";
 import { useAuth } from "../../../hooks/useAuth";
+import userService from "../../../services/userService";
 
 export default function UpdateWalletAddressModal({ isOpen, handleClose }) {
-  const { user } = useAuth();
-
+  const { user, updateUserDetails } = useAuth();
   const [walletAddress, setWalletAddress] = useState("");
   const [loading, setLoading] = useState(false);
   const [showOtpInput, setShowOtpInput] = useState(false);
@@ -23,10 +23,15 @@ export default function UpdateWalletAddressModal({ isOpen, handleClose }) {
       });
 
       if (res.status === 200) {
-        setLoading(false);
-        localStorage.setItem("isWithdrawalWalletUpdated", JSON.stringify(true));
-        toast.success("Wallet address updated");
-        handleClose();
+        const updatedUserResponse = await userService.getUserData(user);
+        if (updatedUserResponse?.data?.success) {
+          updateUserDetails(updatedUserResponse?.data?.data);
+          toast.success("Wallet address updated Successfully");
+          localStorage.setItem(
+            "isWithdrawalWalletUpdated",
+            JSON.stringify(true)
+          );
+        }
       }
     } catch (error) {
       setLoading(false);
@@ -50,15 +55,8 @@ export default function UpdateWalletAddressModal({ isOpen, handleClose }) {
     }
   };
 
-  return (
-    <Modal isOpen={isOpen} handleClose={handleClose}>
-      <div className="flex items-center justify-end">
-        <IoClose
-          size="20"
-          className="text-gray-600 cursor-pointer"
-          onClick={handleClose}
-        />
-      </div>
+  return !user?.user?.withdrawal_wallet ? (
+    <div className="">
       <div className="w-full">
         <p className="text-2xl text-gray-700 font-semibold leading-tight">
           Update Wallet Address
@@ -71,21 +69,19 @@ export default function UpdateWalletAddressModal({ isOpen, handleClose }) {
       <div className="w-full mt-4">
         {showOtpInput ? (
           <>
-            <label className="block text-[#07153D] font-normal">
-              Enter OTP
-            </label>
+            <label className="block text-[#fff] font-normal">Enter OTP</label>
             <input
               type="text"
               name="otp"
               placeholder="Enter OTP"
               value={otp}
               onChange={(e) => setOtp(e.target.value)}
-              className="w-full bg-white px-2.5 py-2 border rounded-md border-solid border-slate-200 outline-none mt-1 !ml-0"
+              className="w-full bg-white px-2.5 py-2 border text-black rounded-md border-solid border-slate-200 outline-none mt-1 !ml-0"
             />
           </>
         ) : (
           <>
-            <label className="block text-[#07153D] font-normal">
+            <label className="block text-[#fff] font-normal">
               Wallet Address
             </label>
             <input
@@ -94,7 +90,7 @@ export default function UpdateWalletAddressModal({ isOpen, handleClose }) {
               placeholder="Enter Wallet Address"
               value={walletAddress}
               onChange={(e) => setWalletAddress(e.target.value)}
-              className="w-full bg-white px-2.5 py-2 border rounded-md border-solid border-slate-200 outline-none mt-1 !ml-0"
+              className="w-full bg-white px-2.5 py-2 border text-black rounded-md border-solid border-slate-200 outline-none mt-1 !ml-0"
             />
           </>
         )}
@@ -112,6 +108,12 @@ export default function UpdateWalletAddressModal({ isOpen, handleClose }) {
           to protect your money.
         </p>
       </div>
-    </Modal>
+    </div>
+  ) : (
+    <div className="w-full">
+      <p className="text-2xl text-white mt-2 font-semibold leading-tight ">
+        Wallet Address : {user?.user?.withdrawal_wallet}
+      </p>
+    </div>
   );
 }
