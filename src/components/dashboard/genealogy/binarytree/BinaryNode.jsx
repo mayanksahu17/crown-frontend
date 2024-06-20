@@ -12,7 +12,7 @@ import {
   VerifiedImage,
 } from "../../../../assets";
 
-export default function BinaryNode({ data, last, first, ofTwo }) {
+export default function BinaryNode({ data, last, first, ofTwo, side }) {
   const { user } = useAuth();
   const handleNavigate = useNavigate();
   const isClickAble = data?.user_id !== user?.user?.userId;
@@ -90,18 +90,26 @@ export default function BinaryNode({ data, last, first, ofTwo }) {
           onClick={() => setShowTree((prev) => !prev)}
         >
           {renderImageByPackage()}
-          {showTree && !ofTwo && data && !first && (
+          {showTree && data && !first && side && (
             <div
-              className="absolute bottom-20 left-[30px] w-[450px] rounded-2xl transform -translate-x-1/2 -mt-40 -500 p-2 bg-gray-900 z-100 "
-              style={{ zIndex: "100" }}
+              className="absolute bottom-20 left-[200px] w-[450px] rounded-2xl transform -translate-x-1/2 -mt-40 -500 p-2 bg-gray-900 z-100 "
+              style={{ zIndex: 1000 }}
             >
               <Tree data={data} />
             </div>
           )}
-          {showTree && !ofTwo && data && first && (
+          {showTree && data && !first && !side && (
+            <div
+              className="absolute bottom-20 left-[30px] w-[450px] rounded-2xl transform -translate-x-1/2 -mt-40 -500 p-2 bg-gray-900 z-100 "
+              style={{ zIndex: 1000 }}
+            >
+              <Tree data={data} />
+            </div>
+          )}
+          {showTree && data && first && (
             <div
               className="absolute top-[0] left-[330px] w-[450px] rounded-2xl transform -translate-x-1/2 -mt-40 -500 p-2 bg-gray-900 z-100"
-              style={{ zIndex: "100" }}
+              style={{ zIndex: 1000 }}
             >
               <Tree data={data} />
             </div>

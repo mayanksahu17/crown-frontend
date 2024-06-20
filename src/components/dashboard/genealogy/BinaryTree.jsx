@@ -21,7 +21,7 @@ export default function BinaryTree({ data }) {
               <div className="h-[2px] bg-gray-300 absolute w-[272px] left-[135px]" />
             </div>
             <div className="flex gap-[151px]">
-              <BinaryNode data={getNodeById(4)} />
+              <BinaryNode data={getNodeById(4)} side />
               <BinaryNode data={getNodeById(5)} />
               <BinaryNode data={getNodeById(6)} />
               <BinaryNode data={getNodeById(7)} />
@@ -33,7 +33,7 @@ export default function BinaryTree({ data }) {
               <div className="h-[2px] bg-gray-300 absolute w-[145px] left-[360px]" />
             </div>
             <div className="flex gap-6 px-0">
-              <BinaryNode last data={getNodeById(8)} />
+              <BinaryNode last data={getNodeById(8)} side />
               <BinaryNode last data={getNodeById(9)} />
               <BinaryNode last data={getNodeById(10)} />
               <BinaryNode last data={getNodeById(11)} />
