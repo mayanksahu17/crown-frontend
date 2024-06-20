@@ -66,7 +66,7 @@ export default function Home() {
     (async () => {
       try {
         const updatedUserResponse = await userService.getUserData(user);
-
+        console.log(updatedUserResponse);
         if (updatedUserResponse?.data?.success) {
           updateUserDetails(updatedUserResponse?.data?.data);
         }
