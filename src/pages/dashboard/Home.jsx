@@ -1,44 +1,21 @@
-import clsx from "clsx";
-import {
-  Button,
-  Card,
-  Select,
-  Modal,
-  SelectWithInput,
-  Navbar,
-  HomeStats,
-} from "../../components";
-import {
-  TotalIcon,
-  VerseBank,
-  ExtraIncomeIcon,
-  RNBIcon,
-  ROIIcon,
-  CouponsIcon,
-} from "../../assets";
-import { FaArrowUp } from "react-icons/fa6";
+import { Navbar, HomeStats } from "../../components";
+
+import { ExtraIncomeIcon, RNBIcon, ROIIcon, CouponsIcon } from "../../assets";
 import { useEffect, useState } from "react";
-import moment from "moment/moment";
 import { useAuth } from "../../hooks/useAuth";
-import walletService from "../../services/walletService";
-import frontendURL from "../../constants/frontendURL";
-import toast from "react-hot-toast";
-import { IoClose } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
-import { tokens } from "../../constants/tokens";
-import depositService from "../../services/depositService";
 import dashboardService from "../../services/dashboardService";
 import UpdateWalletAddressModal from "../../components/dashboard/home/UpdateWalletAddressModal";
 import { GoArrowDownLeft } from "react-icons/go";
 import Loader from "../../components/dashboard/Loader";
 import { MdArrowOutward } from "react-icons/md";
-import { LuArrowLeftRight } from "react-icons/lu";
 import WalletFeartures from "../../components/dashboard/home/WalletFeartures";
 import HomeTabComponent from "../../components/dashboard/home/HomeTabComponent";
 import userService from "../../services/userService";
 
 export default function Home() {
   const { user } = useAuth();
+  const [selectedWallet, setSelectedWallet] = useState("roi");
   const handleNavigate = useNavigate();
   const [isDataLoaded, setIsDataLoaded] = useState(false);
   const [allData, setAllData] = useState({
@@ -64,6 +41,27 @@ export default function Home() {
     interest_wallet: 0.0,
     binary_career_level: 0,
   });
+  const getSelectedWalletBalance = () => {
+    let amount;
+    switch (selectedWallet) {
+      case "roi":
+        amount = allData.roi_wallet;
+        break;
+      case "rnb":
+        amount = allData.referral_binary_wallet;
+        break;
+      case "extra":
+        amount = allData.interest_wallet;
+        break;
+      case "coupons":
+        amount = allData.totalVoucherAmount;
+        break;
+      default:
+        amount = 0;
+        break;
+    }
+    return amount;
+  };
   useEffect(() => {
     (async () => {
       try {
@@ -83,7 +81,6 @@ export default function Home() {
         setIsDataLoaded(false);
         const response = await dashboardService.getDashboardData(user);
         const { success, data } = response?.data;
-        console.log(data);
         if (success) {
           if (data) {
             let lWidth =
@@ -110,10 +107,10 @@ export default function Home() {
               totalWithdrawal: data?.total_withdrawal,
               totalEarning: data?.total_earning,
               totalDeposit: data?.total_deposit,
-              totalROI: data?.roi_wallet,
-              totalRNB: data?.referral_binary_wallet,
+              roi_wallet: data?.roi_wallet,
+              referral_binary_wallet: data?.referral_binary_wallet,
               interest_wallet: data?.interest_wallet,
-              totalVoucherAmount: data?.toal_voucher_generated,
+              toal_voucher_generated: data?.toal_voucher_generated,
               isWithdrawalWalletUpdated: data?.isWithdrawalWalletUpdated,
               leftBusiness: parseFloat(data?.left_business || 0)?.toFixed(2),
               rightBusiness: parseFloat(data?.right_business || 0)?.toFixed(2),
@@ -131,23 +128,39 @@ export default function Home() {
       }
     })();
   }, [user]);
-
+  const cardsData = [
+    {
+      name: "ROI Wallet",
+      icon: ROIIcon,
+      value: "roi",
+    },
+    {
+      name: "R&B Wallet",
+      icon: RNBIcon,
+      value: "rnb",
+    },
+    {
+      name: "Extra Income Wallet",
+      icon: ExtraIncomeIcon,
+      value: "extra",
+    },
+    {
+      name: "Coupons",
+      icon: CouponsIcon,
+      value: "coupons",
+    },
+  ];
   return !isDataLoaded ? (
     <Loader />
   ) : (
     <>
-      {/* <UpdateWalletAddressModal
-        isOpen={allData.isWithdrawalWalletUpdated === false}
-        handleClose={() => {
-          setAllData((prev) => ({
-            ...prev,
-            isWithdrawalWalletUpdated: true,
-          }));
-        }}
-      /> */}
       <div className="flex flex-col md:flex-row  h-full">
         <div className="w-full md:w-1/4 m-[-12px] lg:m-[-16px]">
-          <HomeStats />
+          <HomeStats
+            selectedWallet={selectedWallet}
+            setSelectedWallet={(value) => setSelectedWallet(value)}
+            cardsData={cardsData}
+          />
         </div>
         <div className="flex w-full md:w-3/4  flex-col">
           <div className="flex  justify-center items-center w-full">
@@ -160,7 +173,7 @@ export default function Home() {
                       Available Balance
                     </h4>
                     <p className="font-semibold text-[#fff] text-3xl ">
-                      ${allData?.totalEarning}
+                      ${getSelectedWalletBalance()}
                     </p>
                   </div>
 
@@ -192,17 +205,6 @@ export default function Home() {
                         </div>
                       </div>
                     </button>
-                    {/* <button
-                      className="mt-2 rounded-full px-4 py-2.5 w-full bg-[#000000] text-white text-base font-normal"
-                      disabled={true}
-                    >
-                      <div className="flex flex-row justify-center gap-4 w-full items-center ">
-                        <div className="">Transfer</div>
-                        <div className="w-10 h-10 sm:w-10 sm:h-10 bg-[#242424] rounded-full flex items-center justify-center cursor-pointer">
-                          <LuArrowLeftRight />
-                        </div>
-                      </div>
-                    </button> */}
                   </div>
                 </div>
               </div>
@@ -215,4 +217,17 @@ export default function Home() {
       </div>
     </>
   );
+}
+{
+  /* <button
+                      className="mt-2 rounded-full px-4 py-2.5 w-full bg-[#000000] text-white text-base font-normal"
+                      disabled={true}
+                    >
+                      <div className="flex flex-row justify-center gap-4 w-full items-center ">
+                        <div className="">Transfer</div>
+                        <div className="w-10 h-10 sm:w-10 sm:h-10 bg-[#242424] rounded-full flex items-center justify-center cursor-pointer">
+                          <LuArrowLeftRight />
+                        </div>
+                      </div>
+                    </button> */
 }
