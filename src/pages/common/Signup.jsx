@@ -445,7 +445,7 @@ const Signup = () => {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="officialcrownbankers@gmail.com"
+                        placeholder="example@gmail.com"
                         className="rounded-[10px] border border-gray-300 bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
                         onBlur={() => handleBlur("email")}
                       />
@@ -467,7 +467,7 @@ const Signup = () => {
                         value={formData.confirmEmail}
                         onChange={handleChange}
                         onBlur={() => handleBlur("confirmEmail")}
-                        placeholder="officialcrownbankers@gmail.com"
+                        placeholder="example@gmail.com"
                         className="rounded-[10px] border border-gray-300 bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
                       />
                       <ErrorMessage
