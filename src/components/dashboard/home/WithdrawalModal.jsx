@@ -1,13 +1,32 @@
-import React from "react";
-import withdrawalService from "../../services/withdrawalService";
+import React, { useState } from "react";
+import withdrawalService from "../../../services/withdrawalService";
+import Modal from "../global/Modal";
+import { IoClose } from "react-icons/io5";
+import Select from "../global/Select";
+import { tokens } from "../../../constants/tokens";
+import Button from "../global/Button";
 
-const WithdrawalModal = () => {
+const WithdrawalModal = ({
+  isWithdrawalModalOpen,
+  setIsWithdrawalModalOpen,
+  selectedWallet,
+}) => {
   const [withdrawalData, setWithdrawalData] = useState({
     isOTPSentForWithdrawal: false,
     amount: 0,
     fromWallet: {
-      label: "R&B Wallet",
-      value: "R&B",
+      label:
+        selectedWallet === "rnb"
+          ? "R&B Wallet"
+          : selectedWallet === "roi"
+          ? "ROI Wallet"
+          : "Interest Wallet",
+      value:
+        selectedWallet === "rnb"
+          ? "R&B"
+          : selectedWallet === "roi"
+          ? "ROI"
+          : "Interest",
     },
     securityPin: "",
     currency: {
@@ -23,7 +42,7 @@ const WithdrawalModal = () => {
   const customStyles = {
     control: (provided) => ({
       ...provided,
-      backgroundColor: "transparent",
+      backgroundColor: "white",
       border: "1px solid #e2e8f0",
       borderRadius: "8px",
       padding: "1px",
@@ -34,12 +53,12 @@ const WithdrawalModal = () => {
     }),
     singleValue: (provided) => ({
       ...provided,
-      color: "#475569",
+      color: "#000",
       fontWeight: "400",
     }),
     option: (provided) => ({
       ...provided,
-      color: "#374151",
+      color: "#000",
       fontWeight: "400",
       cursor: "pointer",
     }),
@@ -111,7 +130,6 @@ const WithdrawalModal = () => {
             otp: "",
             isLoading: false,
           });
-          handleInputsChange("isWithdrawalModalOpen", false);
         }
       }
     } catch (error) {
@@ -121,33 +139,33 @@ const WithdrawalModal = () => {
     }
   };
   return (
-    <Modal
-      isOpen={inputs.isWithdrawalModalOpen}
-      handleClose={() => {
-        handleInputsChange("isWithdrawalModalOpen", false);
-        setWithdrawalData({
-          isOTPSentForWithdrawal: false,
-          amount: 0,
-          fromWallet: {
-            label: "R&B Wallet",
-            value: "R&B",
-          },
-          securityPin: "",
-          currency: {
-            label: "Bitcoin",
-            value: "BTC",
-          },
-          otp: "",
-          isLoading: false,
-        });
-      }}
-    >
-      <div className="flex items-center justify-end">
+    // <Modal
+    //   isOpen={isWithdrawalModalOpen}
+    //   handleClose={() => {
+    //     setWithdrawalData({
+    //       isOTPSentForWithdrawal: false,
+    //       amount: 0,
+    //       fromWallet: {
+    //         label: "R&B Wallet",
+    //         value: "R&B",
+    //       },
+    //       securityPin: "",
+    //       currency: {
+    //         label: "Bitcoin",
+    //         value: "BTC",
+    //       },
+    //       otp: "",
+    //       isLoading: false,
+    //     });
+    //     setIsWithdrawalModalOpen(false);
+    //   }}
+    // >
+    <div className="mt-4 flex flex-col text-white items-center justify-end">
+      <div className="flex w-full items-center justify-end">
         <IoClose
           size="20"
-          className="text-gray-600 cursor-pointer"
+          className="text-white cursor-pointer"
           onClick={() => {
-            handleInputsChange("isWithdrawalModalOpen", false);
             setWithdrawalData({
               isOTPSentForWithdrawal: false,
               amount: 0,
@@ -163,11 +181,12 @@ const WithdrawalModal = () => {
               otp: "",
               isLoading: false,
             });
+            setIsWithdrawalModalOpen(false);
           }}
         />
       </div>
       <div className="w-full">
-        <p className="text-2xl text-gray-700 font-semibold leading-tighter">
+        <p className="text-2xl text-white font-semibold leading-tighter">
           Withdraw Fund
         </p>
         <p className="text-base">
@@ -176,9 +195,7 @@ const WithdrawalModal = () => {
         </p>
       </div>
       <div className="w-full mt-4">
-        <label className="block text-[#07153D] font-normal">
-          Select Wallet
-        </label>
+        <label className="block text-[#fff] font-normal">Select Wallet</label>
         <Select
           options={[
             {
@@ -200,17 +217,17 @@ const WithdrawalModal = () => {
         />
       </div>
       <div className="w-full mt-4">
-        <label className="block text-[#07153D] font-normal">Enter Amount</label>
+        <label className="block text-[#fff] font-normal">Enter Amount</label>
         <input
           type="text"
           name="amount"
-          className="w-full bg-white px-2.5 py-2 border rounded-md border-solid border-slate-200 outline-none mt-1 !ml-0"
+          className="w-full bg-white px-2.5 py-2 border rounded-md text-black border-solid border-slate-200 outline-none mt-1 !ml-0"
           onChange={(e) => handleWithdrawalDataChange("amount", e.target.value)}
           value={withdrawalData.amount}
         />
       </div>
       <div className="w-full mt-4">
-        <label className="block text-[#07153D] font-normal">
+        <label className="block text-[#fff] font-normal">
           Select Crypto Currency
         </label>
         <Select
@@ -221,13 +238,13 @@ const WithdrawalModal = () => {
         />
       </div>
       <div className="w-full mt-4">
-        <label className="block text-[#07153D] font-normal">
+        <label className="block text-[#fff] font-normal">
           Enter Your Security Pin
         </label>
         <input
           type="text"
           name="securityPin"
-          className="w-full bg-white px-2.5 py-2 border rounded-md border-solid border-slate-200 outline-none mt-1 !ml-0"
+          className="w-full bg-white px-2.5 py-2 border rounded-md border-solid border-slate-200 text-black outline-none mt-1 !ml-0"
           value={withdrawalData.securityPin}
           onChange={(e) =>
             handleWithdrawalDataChange("securityPin", e.target.value)
@@ -237,11 +254,11 @@ const WithdrawalModal = () => {
 
       {withdrawalData.isOTPSentForWithdrawal && (
         <div className="w-full mt-4">
-          <label className="block text-[#07153D] font-normal">Enter OTP</label>
+          <label className="block text-[#fff] font-normal">Enter OTP</label>
           <input
             type="text"
             name="otp"
-            className="w-full bg-white px-2.5 py-2 border rounded-md border-solid border-slate-200 outline-none mt-1 !ml-0"
+            className="w-full bg-white px-2.5 py-2 border rounded-md border-solid border-slate-200 outline-none mt-1 text-black !ml-0"
             value={withdrawalData.otp}
             onChange={(e) => handleWithdrawalDataChange("otp", e.target.value)}
           />
@@ -254,7 +271,8 @@ const WithdrawalModal = () => {
       >
         Submit
       </Button>
-    </Modal>
+    </div>
+    // </Modal>
   );
 };
 

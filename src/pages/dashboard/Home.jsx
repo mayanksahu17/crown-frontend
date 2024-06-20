@@ -4,7 +4,6 @@ import { ExtraIncomeIcon, RNBIcon, ROIIcon, CouponsIcon } from "../../assets";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
-import dashboardService from "../../services/dashboardService";
 import UpdateWalletAddressModal from "../../components/dashboard/home/UpdateWalletAddressModal";
 import { GoArrowDownLeft } from "react-icons/go";
 import Loader from "../../components/dashboard/Loader";
@@ -12,9 +11,12 @@ import { MdArrowOutward } from "react-icons/md";
 import WalletFeartures from "../../components/dashboard/home/WalletFeartures";
 import HomeTabComponent from "../../components/dashboard/home/HomeTabComponent";
 import userService from "../../services/userService";
+import WithdrawalModal from "../../components/dashboard/home/WithdrawalModal";
+import dashboardService from "../../services/dashboardService";
 
 export default function Home() {
   const { user, updateUserDetails } = useAuth();
+  const [isWithdrawalModalOpen, setIsWithdrawalModalOpen] = useState(false);
   const [selectedWallet, setSelectedWallet] = useState("roi");
   const handleNavigate = useNavigate();
   const [isDataLoaded, setIsDataLoaded] = useState(false);
@@ -62,6 +64,7 @@ export default function Home() {
     }
     return amount;
   };
+
   useEffect(() => {
     (async () => {
       try {
@@ -180,9 +183,7 @@ export default function Home() {
                   <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-8">
                     <button
                       className="rounded-full w-full px-4 py-2.5 w-full bg-gradient-to-l from-[#8011E8] to-[#CD6AFB] text-white text-base font-normal disabled:bg-gray-900 "
-                      onClick={() =>
-                        handleInputsChange("isWithdrawalModalOpen", true)
-                      }
+                      // onClick={() => setIsWithdrawalModalOpen(true)}
                     >
                       <div className="flex flex-row justify-center gap-4 w-full items-center ">
                         <div className="">Withdraw</div>
@@ -210,9 +211,20 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <WalletFeartures />
-          <HomeTabComponent />
-          <UpdateWalletAddressModal />
+          {!isWithdrawalModalOpen && (
+            <>
+              <WalletFeartures />
+              <HomeTabComponent />
+              <UpdateWalletAddressModal />
+            </>
+          )}
+          {isWithdrawalModalOpen && (
+            <WithdrawalModal
+              isWithdrawalModalOpen={isWithdrawalModalOpen}
+              setIsWithdrawalModalOpen={setIsWithdrawalModalOpen}
+              selectedWallet={selectedWallet}
+            />
+          )}
         </div>
       </div>
     </>
