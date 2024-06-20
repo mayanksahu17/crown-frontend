@@ -9,6 +9,15 @@
     "instagram": "http://www.instagram.com"
   },
   {
+    "img": "assets/img/th-1/team-member-img-5.jpeg",
+    "name": "Alexander Cole",
+    "info": "Vice President",
+    "facebook": "http://www.facebook.com",
+    "twitter": "http://www.twitter.com",
+    "linkedin": "http://www.linkedin.com",
+    "instagram": "http://www.instagram.com"
+  },
+  {
     "img": "assets/img/th-1/team-member-img-2.jpeg",
     "name": "Zoe Richards",
     "info": "Chief Technology Officer",
@@ -35,5 +44,6 @@
     "linkedin": "http://www.linkedin.com",
     "instagram": "http://www.instagram.com"
   }
+ 
  
 ]
