@@ -42,7 +42,7 @@ export default function AllVouchers() {
   );
 
   return (
-    <div className="p-1 sm:p-4 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div className="p-1 sm:p-4 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-white">
       {formattedData.length < 1 ? (
         <>
           <p className="mb-1">No Vouchers Found</p>

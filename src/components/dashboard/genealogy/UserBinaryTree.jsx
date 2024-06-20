@@ -68,7 +68,7 @@ export default function UserBinaryTree() {
             ))}
           </div>
         </div>
-        <div className="overflow-x-auto min-h-[100vh] py-20 w-full bg-[#0a090d] md:px-12 md:mt-0 ">
+        <div className="overflow-x-auto min-h-[100vh] py-40 w-full md:px-12 md:mt-0 ">
           <div className="mx-auto max-w-[100vw] px-[800px] lg:px-0 ">
             <div className="flex flex-col items-center justify-center ">
               <BinaryNode data={getNodeById(1)} first />

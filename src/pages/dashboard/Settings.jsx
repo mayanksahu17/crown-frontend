@@ -66,19 +66,7 @@ const Settings = () => {
       toast.error(error?.response?.data?.message || "Something went wrong");
     }
   };
-  useEffect(() => {
-    (async () => {
-      try {
-        const updatedUserResponse = await userService.getUserData(user);
 
-        if (updatedUserResponse?.data?.success) {
-          updateUserDetails(updatedUserResponse?.data?.data);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-  }, []);
   const data = [
     {
       name: "Profile Settings",
@@ -100,11 +88,11 @@ const Settings = () => {
       route: "/dashboard/settings/kyc",
       children: <KYCSettings />,
     },
-    {
-      name: "Withdrawal Wallet",
-      route: "/dashboard/settings/wallet",
-      children: <UpdateWalletAddressModal />,
-    },
+    // {
+    //   name: "Withdrawal Wallet",
+    //   route: "/dashboard/settings/wallet",
+    //   children: <UpdateWalletAddressModal />,
+    // },
   ];
 
   return (
@@ -148,14 +136,14 @@ const Settings = () => {
         </button>
       </div>
       <div className="flex justify-between h-full">
-        <div className="mt-16 lg:mt-24 w-[160px] md:w-[220px] text-left">
+        <div className="mt-16 lg:mt-24  text-left">
           <h1 className="font-semibold text-[#050023] text-2xl md:text-3xl">
             {user?.user?.name}
           </h1>
-          <p className="text-[#737A99] font-normal text-sm md:text-base">
+          <p className="text-[#fff] font-semibold text-md ">
             USER ID - {user?.user?.userId}
           </p>
-          <p className="text-[#737A99] font-normal text-sm md:text-base">
+          <p className="text-[#fff] font-semibold text-md">
             PIN - {user?.user?.security_pin}
           </p>
         </div>

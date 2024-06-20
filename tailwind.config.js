@@ -36,7 +36,7 @@ export default {
         colorViolet: "#321CA4",
         colorGreen: "#39FF14",
         bgblue: "#000000",
-        textred: "#B9A164",
+        textred: "#FA895F",
         textwhite: "#FFFFFF",
         themeColor: "#D5AA6D",
       },

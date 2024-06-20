@@ -129,7 +129,7 @@ export default function KYCSettings() {
         </div>
       </div>
       <Button
-        className="w-full !px-6 !h-10 !mt-3 !bg-[#B28D5B] hover:!bg-[#c7ad89] disabled:!bg-[#74624a]"
+        className="w-full !px-6 !h-10 !mt-3  "
         disabled={!formData.file || !formData.docType}
         onClick={handleUpload}
         loading={formData.isUploadLoading}

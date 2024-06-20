@@ -13,6 +13,7 @@ export default function Table({ className, columns, data, heading }) {
     pageCount,
     previousPage,
     nextPage,
+    gotoPage,
     state: { pageIndex },
   } = useTable(
     {
@@ -25,7 +26,7 @@ export default function Table({ className, columns, data, heading }) {
   return (
     <div className="w-full overflow-auto">
       {heading && (
-        <h1 className="mb-2 text-xl font-normal text-[#fff]">{heading}</h1>
+        <div className="mb-2 text-xl font-normal text-[#fff]">{heading}</div>
       )}
       <table
         className={clsx(
@@ -101,12 +102,7 @@ export default function Table({ className, columns, data, heading }) {
           marginPagesDisplayed={2}
           pageRangeDisplayed={5}
           onPageChange={(data) => {
-            // Handle previous and next page navigation
-            if (data.selected === pageIndex - 1) {
-              previousPage(pageIndex - 1);
-            } else if (data.selected === pageIndex + 1) {
-              nextPage(pageIndex + 1);
-            }
+            gotoPage(data.selected);
           }}
           containerClassName={"flex !text-sm text-black items-center"}
           subContainerClassName={"px-3 py-1.5 text-black"}

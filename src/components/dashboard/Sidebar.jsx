@@ -14,7 +14,7 @@ export default function Sidebar({ isSidebarOpen, setIsSidebarOpen }) {
   return (
     <nav
       className={clsx(
-        "z-50 hidden bg-[#242424] py-6 lg:flex flex-col transition-all duration-300 ease-in-out ",
+        "z-50 hidden bg-gradient-to-r from-[#412738] to-[#402736] py-6 lg:flex flex-col transition-all duration-300 ease-in-out ",
         isSidebarOpen ? "w-[16%]" : "w-[7%] max-w-[100px]",
         isSidebarOpen
           ? "items-start justify-between"
