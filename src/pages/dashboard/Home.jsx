@@ -14,7 +14,7 @@ import HomeTabComponent from "../../components/dashboard/home/HomeTabComponent";
 import userService from "../../services/userService";
 
 export default function Home() {
-  const { user } = useAuth();
+  const { user, updateUserDetails } = useAuth();
   const [selectedWallet, setSelectedWallet] = useState("roi");
   const handleNavigate = useNavigate();
   const [isDataLoaded, setIsDataLoaded] = useState(false);
