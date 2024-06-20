@@ -183,7 +183,7 @@ export default function Home() {
                   <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-8">
                     <button
                       className="rounded-full w-full px-4 py-2.5 w-full bg-gradient-to-l from-[#8011E8] to-[#CD6AFB] text-white text-base font-normal disabled:bg-gray-900 "
-                      // onClick={() => setIsWithdrawalModalOpen(true)}
+                      onClick={() => setIsWithdrawalModalOpen(true)}
                     >
                       <div className="flex flex-row justify-center gap-4 w-full items-center ">
                         <div className="">Withdraw</div>
