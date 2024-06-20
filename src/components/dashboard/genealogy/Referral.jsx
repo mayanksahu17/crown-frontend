@@ -16,14 +16,22 @@ export default function Referral({ data }) {
     control: (provided) => ({
       ...provided,
       backgroundColor: "white",
-      border: "1px solid #e2e8f0",
+      border: "1px solid #000",
       borderRadius: "8px",
       padding: "1px",
-      fontWeight: "400",
     }),
-    options: (provided) => ({
+    input: (provided) => ({
       ...provided,
-      fontWeight: "400",
+      color: "#000 !important",
+    }),
+    singleValue: (provided) => ({
+      ...provided,
+      color: "#000",
+    }),
+    option: (provided) => ({
+      ...provided,
+      backgroundColor: "#fff",
+      color: "#000",
     }),
   };
 
@@ -79,7 +87,7 @@ export default function Referral({ data }) {
           <input
             type="text"
             name="confirmEmail"
-            className="w-full bg-white px-2.5 py-[7px] border rounded-md border-solid border-slate-200 outline-none mt-1 !ml-0"
+            className="w-full bg-white px-2.5 py-[7px] border text-black rounded-md border-solid border-slate-200 outline-none mt-1 !ml-0"
             value={allFilters.userId}
             onChange={(e) => handleAllFiltersChange("userId", e.target.value)}
           />

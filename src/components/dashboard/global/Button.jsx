@@ -12,7 +12,7 @@ export default function Button({
   return (
     <button
       className={clsx(
-        "w-full bg-textred h-12 rounded-lg font-normal text-white hover:bg-[#c7b483] relative cursor-pointer disabled:bg-[#c7b483]  disabled:cursor-not-allowed",
+        "w-full bg-textred h-12 rounded-lg font-normal text-white hover:bg-[#E753AE] relative cursor-pointer   disabled:cursor-not-allowed",
         className
       )}
       onClick={onClick}

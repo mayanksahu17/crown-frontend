@@ -26,7 +26,7 @@ export default function Table({ className, columns, data, heading }) {
   return (
     <div className="w-full overflow-auto">
       {heading && (
-        <h1 className="mb-2 text-xl font-normal text-[#fff]">{heading}</h1>
+        <div className="mb-2 text-xl font-normal text-[#fff]">{heading}</div>
       )}
       <table
         className={clsx(
