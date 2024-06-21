@@ -60,7 +60,7 @@ export default function Home() {
         amount = allData.interest_wallet;
         break;
       case "coupons":
-        amount = allData.totalVoucherAmount;
+        amount = allData.toal_voucher_generated;
         break;
       default:
         amount = 0;
