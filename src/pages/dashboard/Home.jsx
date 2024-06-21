@@ -36,7 +36,7 @@ export default function Home() {
     latestROI: [],
     latestRnB: [],
     latestExtraIncome: [],
-    totalVoucherAmount: 0,
+    toal_voucher_generated: 0,
     isWithdrawalWalletUpdated:
       JSON.parse(localStorage.getItem("isWithdrawalWalletUpdated")) || false,
     leftBusiness: 0.0,
