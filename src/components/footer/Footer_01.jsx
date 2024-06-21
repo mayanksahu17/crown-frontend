@@ -192,7 +192,7 @@ const Footer_01 = () => {
                   <Link
                     rel="noopener noreferrer"
                     target="_blank"
-                    to="www.youtube.com/@official-CrownBankers"
+                    to="https://www.youtube.com/@official-CrownBankers"
                     className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed"
                   >
                     <img
