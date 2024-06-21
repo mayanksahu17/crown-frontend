@@ -71,7 +71,7 @@ export default function KYCSettings() {
   return (
     <div className="mt-4">
       <h1 className="text-2xl ">KYC Settings</h1>
-      <p className="text-gray-600 text-sm mt-1">
+      <p className="text-white text-sm mt-1">
         To adhere to regulatory requirements, all users must complete identity
         verification to prevent fraudulent activities. You have not yet
         submitted the required documents for this process. To continue your

@@ -55,7 +55,7 @@ const Contact = () => {
                 <li className="flex flex-col gap-x-2 leading-tight text-colorOrangyRed lg:flex-row lg:leading-normal">
                   Email:
                   <a
-                    href="mailto:officialcrownbankers@gmail.com"
+                    href="mailto:support@crownbankers.com"
                     className="text-white hover:text-colorOrangyRed"
                   >
                     support@crownbankers.com

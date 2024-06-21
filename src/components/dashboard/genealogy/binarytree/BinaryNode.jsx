@@ -20,7 +20,7 @@ export default function BinaryNode({ data, last, first, ofTwo, side }) {
   const [showTree, setShowTree] = useState(false);
 
   const handleClick = () => {
-    if (isClickAble) {
+    if (isClickAble && data?.user_id) {
       handleNavigate(`/dashboard/genealogy/binary/${data?.user_id}`);
     }
   };

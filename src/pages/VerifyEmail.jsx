@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "../components";
 import toast from "react-hot-toast";
 import authService from "../services/authService";
@@ -8,8 +8,11 @@ export default function VerifyEmail() {
   const [isLoading, setIsLoading] = useState(false);
   const { token } = useParams();
   const handleNavigate = useNavigate();
-
+  useEffect(() => {
+    handleVerifyEmail();
+  }, []);
   const handleVerifyEmail = async () => {
+    console.log("first");
     if (token) {
       try {
         setIsLoading(true);

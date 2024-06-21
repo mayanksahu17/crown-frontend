@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CgSpinner } from "react-icons/cg";
 import { useNavigate, useParams } from "react-router-dom";
@@ -9,7 +9,9 @@ const Verify = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { token } = useParams();
   const handleNavigate = useNavigate();
-
+  useEffect(() => {
+    handleVerifyEmail();
+  }, []);
   const handleVerifyEmail = async () => {
     if (token) {
       try {

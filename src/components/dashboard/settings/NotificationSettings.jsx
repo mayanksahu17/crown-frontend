@@ -110,9 +110,7 @@ export default function NotificationSettings() {
         {data.map((el, index) => (
           <div key={index}>
             <h4 className="text-xl text-gray-900 font-medium">{el.name}</h4>
-            <p className="text-gray-600 text-sm font-normal">
-              {el.description}
-            </p>
+            <p className="text-white text-sm font-normal">{el.description}</p>
             <div className="mt-4 w-full space-y-3">
               {el.checkboxes.map((currElem, index) => (
                 <div key={index} className="flex items-center space-x-4">

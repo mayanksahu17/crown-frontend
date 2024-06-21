@@ -33,7 +33,7 @@ export default function CustomSelect({
         />
       </div>
       {isOpen && (
-        <div className="absolute mt-2 !w-full bg-white text-blacktext-sm border border-gray-300 z-50 rounded-md shadow-md">
+        <div className="absolute mt-2 !w-full bg-white text-black text-sm border border-gray-300 z-50 rounded-md shadow-md">
           {options.map((option) => (
             <div
               key={option.value}

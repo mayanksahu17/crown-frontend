@@ -5,12 +5,18 @@ import { IoClose } from "react-icons/io5";
 import Select from "../global/Select";
 import { tokens } from "../../../constants/tokens";
 import Button from "../global/Button";
+import { useAuth } from "../../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const WithdrawalModal = ({
   isWithdrawalModalOpen,
   setIsWithdrawalModalOpen,
   selectedWallet,
+  allData,
+  setRender,
 }) => {
+  const { user } = useAuth();
+
   const [withdrawalData, setWithdrawalData] = useState({
     isOTPSentForWithdrawal: false,
     amount: 0,
@@ -75,8 +81,8 @@ const WithdrawalModal = ({
       return;
     }
     const amountUserCanWithdrawal = {
-      "R&B": parseFloat(allData.totalRNB),
-      ROI: parseFloat(allData.totalROI),
+      "R&B": parseFloat(allData.referral_binary_wallet),
+      ROI: parseFloat(allData.roi_wallet),
       Interest: parseFloat(allData.interest_wallet),
     };
     if (
@@ -130,6 +136,8 @@ const WithdrawalModal = ({
             otp: "",
             isLoading: false,
           });
+          setRender((prev) => !prev);
+          setIsWithdrawalModalOpen(false);
         }
       }
     } catch (error) {

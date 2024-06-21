@@ -5,6 +5,12 @@ const sendOTP = (user) => {
     email: user?.user?.email,
   });
 };
+const createInterWalletTransfer = (user, data) => {
+  return axios.post(`/wallets/inter-wallet-transfer`, {
+    ...data,
+    email: user?.user?.email,
+  });
+};
 
 const updateWithdrawWallet = (user, data) => {
   return axios.put(`/wallets/withdrawal-wallet`, {
@@ -13,9 +19,14 @@ const updateWithdrawWallet = (user, data) => {
   });
 };
 
+const getUserDownlineInfo = (user) => {
+  return axios.get(`/referral/downlines?email=${user?.user?.email}`);
+};
 const walletAddressService = {
   sendOTP,
   updateWithdrawWallet,
+  getUserDownlineInfo,
+  createInterWalletTransfer,
 };
 
 export default walletAddressService;

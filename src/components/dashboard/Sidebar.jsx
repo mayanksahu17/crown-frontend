@@ -77,7 +77,6 @@ function SidebarItem({
         <div
           className="w-full flex items-center  cursor-pointer"
           onClick={() => {
-            console.log(route);
             handleRoute(route);
           }}
         >
