@@ -36,7 +36,7 @@ export default function Home() {
     latestROI: [],
     latestRnB: [],
     latestExtraIncome: [],
-    totalVoucherAmount: 0,
+    toal_voucher_generated: 0,
     isWithdrawalWalletUpdated:
       JSON.parse(localStorage.getItem("isWithdrawalWalletUpdated")) || false,
     leftBusiness: 0.0,
@@ -60,7 +60,7 @@ export default function Home() {
         amount = allData.interest_wallet;
         break;
       case "coupons":
-        amount = allData.totalVoucherAmount;
+        amount = allData.toal_voucher_generated;
         break;
       default:
         amount = 0;
