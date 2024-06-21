@@ -41,7 +41,7 @@ export const genealogyColumns = [
     Cell: ({ value }) => (
       <span
         className={clsx(
-          "px-3 py-2 uppercase rounded-md text-sm text-white lg:text-base ",
+          "px-3 py-2 uppercase rounded-md text-sm text-black lg:text-base ",
           value === 1 ? "bg-teal-200" : "bg-red-200"
         )}
       >
