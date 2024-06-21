@@ -31,7 +31,7 @@ const CountdownTimer = () => {
   }, []);
 
   return (
-    <div className="countdown-timer h-[40px] md:h-[80px] p-2 bg-[#EDEDE0] mt-[-100px] md:mt-[-10px] text-black flex flex-col items-center justify-center text-thin md:text-2xl">
+    <div className="countdown-timer h-[40px] md:h-[80px] p-2 bg-transparent mt-[-100px] md:mt-[-10px] text-black flex flex-col items-center justify-center text-thin md:text-2xl">
       <div className="font-semibold">Time Left Until Launch</div>
       <div className="timer text-black">
         <span>{timeLeft.days}d </span>

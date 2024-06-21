@@ -5,8 +5,9 @@ const sendOTP = (user) => {
     email: user?.user?.email,
   });
 };
-const createInterWalletTransfer = (user) => {
+const createInterWalletTransfer = (user, data) => {
   return axios.post(`/wallets/inter-wallet-transfer`, {
+    ...data,
     email: user?.user?.email,
   });
 };

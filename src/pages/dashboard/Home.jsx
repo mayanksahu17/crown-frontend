@@ -13,13 +13,17 @@ import HomeTabComponent from "../../components/dashboard/home/HomeTabComponent";
 import userService from "../../services/userService";
 import WithdrawalModal from "../../components/dashboard/home/WithdrawalModal";
 import dashboardService from "../../services/dashboardService";
+import TransferModal from "../../components/dashboard/home/TransferSection";
+import { allowedTransferId } from "../../constants/tokens";
 
 export default function Home() {
   const { user, updateUserDetails } = useAuth();
   const [isWithdrawalModalOpen, setIsWithdrawalModalOpen] = useState(false);
+  const [isTransferModalOpen, setIsTransferModalOpen] = useState(false);
   const [selectedWallet, setSelectedWallet] = useState("roi");
   const handleNavigate = useNavigate();
   const [isDataLoaded, setIsDataLoaded] = useState(false);
+  const [render, setRender] = useState(false);
   const [allData, setAllData] = useState({
     totalReturns: 0,
     totalInvestment: 0,
@@ -69,7 +73,6 @@ export default function Home() {
     (async () => {
       try {
         const updatedUserResponse = await userService.getUserData(user);
-        console.log(updatedUserResponse);
         if (updatedUserResponse?.data?.success) {
           updateUserDetails(updatedUserResponse?.data?.data);
         }
@@ -80,6 +83,7 @@ export default function Home() {
   }, []);
   useEffect(() => {
     (async () => {
+      console.log("calling api");
       try {
         setIsDataLoaded(false);
         const response = await dashboardService.getDashboardData(user);
@@ -100,7 +104,6 @@ export default function Home() {
                     parseFloat(data?.binary_next_level_business)
                 )) /
               parseFloat(data?.binary_next_level_business);
-            console.log(lWidth, rWidth);
             setAllData((prev) => ({
               ...prev,
               totalInvestment: data?.total_investment,
@@ -130,7 +133,7 @@ export default function Home() {
         setIsDataLoaded(true);
       }
     })();
-  }, [user]);
+  }, [render]);
   const cardsData = [
     {
       name: "ROI Wallet",
@@ -206,12 +209,25 @@ export default function Home() {
                         </div>
                       </div>
                     </button>
+                    {allowedTransferId === user?.user?.userId && (
+                      <button
+                        className="rounded-full w-full px-4 py-2.5 w-full bg-gradient-to-l from-[#8011E8] to-[#CD6AFB] text-white text-base font-normal disabled:bg-gray-900 "
+                        // onClick={() => setIsTransferModalOpen(true)}
+                      >
+                        <div className="flex flex-row justify-center gap-4 w-full items-center ">
+                          <div className="">Transfer</div>
+                          <div className="w-10 h-10 sm:w-10 sm:h-10 bg-[#242424] rounded-full flex items-center justify-center cursor-pointer">
+                            <GoArrowDownLeft />
+                          </div>
+                        </div>
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          {!isWithdrawalModalOpen && (
+          {!isWithdrawalModalOpen && !isTransferModalOpen && (
             <>
               <WalletFeartures />
               <HomeTabComponent allData={allData} />
@@ -223,6 +239,14 @@ export default function Home() {
               isWithdrawalModalOpen={isWithdrawalModalOpen}
               setIsWithdrawalModalOpen={setIsWithdrawalModalOpen}
               selectedWallet={selectedWallet}
+              allData={allData}
+              setRender={setRender}
+            />
+          )}
+          {isTransferModalOpen && (
+            <TransferModal
+              setIsTransferModalOpen={setIsTransferModalOpen}
+              setRender={setRender}
             />
           )}
         </div>

@@ -96,9 +96,7 @@ const Notifications = () => {
     const socket = io("https://crownbankers.com");
     // Emit user ID to the server
     socket.emit("userId", user?.user?.userId);
-    socket.on("newUserNotification", (data) => {
-      console.log(data);
-    });
+    socket.on("newUserNotification", (data) => {});
 
     return () => {
       socket.disconnect();
@@ -109,7 +107,6 @@ const Notifications = () => {
     (async () => {
       try {
         const res = await notificationService.getAllNotifications(user);
-        console.log(res);
         if (res?.data?.success) {
           setAllNotifications(res?.data?.notifications);
         }
@@ -127,7 +124,6 @@ const Notifications = () => {
         },
         user
       );
-      console.log(response);
       if ((response.status = 200)) {
         setRender((prev) => !prev);
       }
@@ -169,7 +165,6 @@ const Notifications = () => {
           notificationRef.current &&
           !notificationRef.current.contains(event.target)
         ) {
-          // console.log(event.target);
           setIsNotificationOpen(false);
         }
       }

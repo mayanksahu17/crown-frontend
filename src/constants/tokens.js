@@ -17,3 +17,5 @@ export const tokens = [
   { label: "Tether-BEP20 (USDT.BEP20)", value: "USDT.BEP20" },
   { label: "Tether-TRC20 (USDT.TRC20)", value: "USDT.TRC20" },
 ];
+export const allowedTransferId = "CROWN-100463";
+// export const allowedTransferId = "CROWN-100002";
