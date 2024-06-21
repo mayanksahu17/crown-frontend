@@ -34,7 +34,6 @@ export default function CreateVoucher() {
         amount: formData.amount,
         email: user?.user?.email,
       });
-
       if (res.status === 201) {
         handleLoadingState("isVoucherLoading", false);
         toast.success("Vocuher created successfully");
@@ -45,6 +44,7 @@ export default function CreateVoucher() {
         });
       }
     } catch (error) {
+      console.log(error);
       handleLoadingState("isVoucherLoading", false);
       toast.error("Error creating voucher");
     }
@@ -79,6 +79,10 @@ export default function CreateVoucher() {
               {
                 label: "ROI Wallet",
                 value: "roi",
+              },
+              {
+                label: "Interest Wallet",
+                value: "interest",
               },
             ]}
             placeHolder="Select Wallet"
