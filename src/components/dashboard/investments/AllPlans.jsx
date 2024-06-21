@@ -357,7 +357,7 @@ export default function Investment({ data }) {
               <div className="flex items-center justify-end">
                 <IoClose
                   size="20"
-                  className="text-gray-600 cursor-pointer"
+                  className="text-white cursor-pointer"
                   onClick={() => {
                     handleDataChange("isOpenModal", false);
                     handleDataChange("isTokenClicked", false);

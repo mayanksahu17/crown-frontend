@@ -184,7 +184,7 @@ const Footer_03 = () => {
                       <Link
                         rel="noopener noreferrer"
                         target="_blank"
-                        to="http://www.facebook.com"
+                        to="https://www.facebook.com/crownbankersofficial"
                         className="group flex items-center gap-x-3"
                       >
                         <div className="flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-white bg-opacity-10 transition-all duration-300 group-hover:bg-colorViolet">
@@ -202,7 +202,7 @@ const Footer_03 = () => {
                       <Link
                         rel="noopener noreferrer"
                         target="_blank"
-                        to="http://www.twitter.com"
+                        to="www.youtube.com/@official-CrownBankers"
                         className="group flex items-center gap-x-3"
                       >
                         <div className="flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-white bg-opacity-10 transition-all duration-300 group-hover:bg-colorViolet">
@@ -238,7 +238,7 @@ const Footer_03 = () => {
                       <Link
                         rel="noopener noreferrer"
                         target="_blank"
-                        to="http://www.linkedin.com"
+                        to="https://whatsapp.com/channel/0029VacNHAq60eBXejGceh3F"
                         className="group flex items-center gap-x-3"
                       >
                         <div className="flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-white bg-opacity-10 transition-all duration-300 group-hover:bg-colorViolet">

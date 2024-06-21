@@ -53,7 +53,7 @@ const DepositModal = () => {
       <div className="flex items-center justify-end">
         <IoClose
           size="20"
-          className="text-gray-600 cursor-pointer"
+          className="text-white cursor-pointer"
           onClick={() => handleInputsChange("isReInvestModalOpen", false)}
         />
       </div>

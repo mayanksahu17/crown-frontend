@@ -214,7 +214,7 @@ export default function Home() {
           {!isWithdrawalModalOpen && (
             <>
               <WalletFeartures />
-              <HomeTabComponent />
+              <HomeTabComponent allData={allData} />
               <UpdateWalletAddressModal />
             </>
           )}

@@ -39,7 +39,7 @@ export default function PreviewModal({ handleClose, isOpen, children }) {
                 <div className="flex items-center justify-end">
                   <IoClose
                     size="22"
-                    className="text-gray-600 cursor-pointer"
+                    className="text-white cursor-pointer"
                     onClick={handleClose}
                   />
                 </div>

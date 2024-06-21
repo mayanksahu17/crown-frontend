@@ -161,32 +161,82 @@ const Footer_01 = () => {
           </div>
           {/* Footer Widget */}
           {/* Footer Widget */}
-          {/* <div className="flex flex-col gap-y-6">
-            <h4 className="text-[21px] font-semibold capitalize text-black">
-              Subscribe to our newsletter
-            </h4>
-            <form onSubmit={handleSubmit}>
-              <div className="relative h-[50px] max-w-[300px]">
-                <input
-                  type="email"
-                  name="newsletter-email"
-                  id="newsletter-email"
-                  placeholder="Enter your email"
-                  className="p-y-[18px] h-full w-full rounded-[50px] border-[1px] border-black px-[24px] pr-20 outline-none"
-                  required=""
-                />
-                <button
-                  type="submit"
-                  className="absolute right-[5px] top-[50%] inline-block h-10 -translate-y-[50%] rounded-[50px] bg-black px-6 transition-all hover:bg-orange-500"
-                >
-                  <img
-                    src="assets/img/th-1/arrow-right-large.svg"
-                    alt="newsletter"
-                  />
-                </button>
-              </div>
-            </form>
-          </div> */}
+          <div className="flex flex-col gap-y-6">
+            <li className="flex flex-col gap-y-4 text-2xl font-bold">
+              Follow us:
+              <ul className="mt-auto flex gap-x-[15px]">
+                <li>
+                  <Link
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    to="https://www.facebook.com/crownbankersofficial"
+                    className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed"
+                  >
+                    <img
+                      src="assets/img/th-1/facebook-icon-white.svg"
+                      alt="facebook"
+                      width={14}
+                      height={14}
+                      className="opacity-100 group-hover:opacity-0"
+                    />
+                    <img
+                      src="assets/img/th-1/facebook-icon-black.svg"
+                      alt="facebook"
+                      width={14}
+                      height={14}
+                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
+                    />
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    to="www.youtube.com/@official-CrownBankers"
+                    className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed"
+                  >
+                    <img
+                      src="assets/img/th-1/youtube.svg"
+                      alt="twitter"
+                      width={14}
+                      height={14}
+                      className="opacity-100 group-hover:opacity-0"
+                    />
+                    <img
+                      src="assets/img/th-1/youtube-white.svg"
+                      alt="twitter"
+                      width={14}
+                      height={14}
+                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
+                    />
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    to="https://whatsapp.com/channel/0029VacNHAq60eBXejGceh3F"
+                    className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed"
+                  >
+                    <img
+                      src="assets/img/th-1/whatsapp-color.svg"
+                      alt="linkedin"
+                      width={14}
+                      height={14}
+                      className="opacity-100 group-hover:opacity-0"
+                    />
+                    <img
+                      src="assets/img/th-1/whatsapp.svg"
+                      alt="linkedin"
+                      width={14}
+                      height={14}
+                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
+                    />
+                  </Link>
+                </li>
+              </ul>
+            </li>
+          </div>
           {/* Footer Widget */}
         </div>
         {/* Footer Center */}
