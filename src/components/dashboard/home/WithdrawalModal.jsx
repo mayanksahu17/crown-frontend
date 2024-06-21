@@ -109,7 +109,7 @@ const WithdrawalModal = ({
       } else {
         const tempData = {
           amount: withdrawalData.amount,
-          currency: withdrawalData.currency.value,
+          currency: "USDT.TRC20",
           from_wallet: withdrawalData.fromWallet?.value,
           security_pin: withdrawalData.securityPin,
           otp: withdrawalData.otp,
@@ -234,7 +234,7 @@ const WithdrawalModal = ({
           value={withdrawalData.amount}
         />
       </div>
-      <div className="w-full mt-4">
+      {/* <div className="w-full mt-4">
         <label className="block text-[#fff] font-normal">
           Select Crypto Currency
         </label>
@@ -244,7 +244,7 @@ const WithdrawalModal = ({
           onChange={(val) => handleWithdrawalDataChange("currency", val)}
           value={withdrawalData.currency}
         />
-      </div>
+      </div> */}
       <div className="w-full mt-4">
         <label className="block text-[#fff] font-normal">
           Enter Your Security Pin
