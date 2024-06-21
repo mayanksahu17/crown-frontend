@@ -8,6 +8,9 @@ import clsx from "clsx";
 export default function UserBinaryTree() {
   const { userId } = useParams();
   const { user } = useAuth();
+  if (userId < user?.user?.userId) {
+    return;
+  }
   const [allData, setAllData] = useState({
     binaryTreeData: [],
     selectedButton: "",
