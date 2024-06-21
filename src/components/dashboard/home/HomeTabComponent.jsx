@@ -1,22 +1,19 @@
 import React from "react";
 import { FiDollarSign } from "react-icons/fi";
-import copy from "copy-to-clipboard";
-import toast from "react-hot-toast";
-import { FaCaretDown } from "react-icons/fa";
 import ProgressBar from "@ramonak/react-progress-bar";
-import frontendURL from "../../../constants/frontendURL";
-import { useAuth } from "../../../hooks/useAuth";
 const HomeTabComponent = ({ allData }) => {
   return (
     <>
       <div className=" rounded-lg  w-full mt-4">
         <div className="w-full flex flex-row">
           <div className="w-full text-lg lg:text-xl font-semibold text-[#fff]">
-            My Career : Level {allData?.binary_career_level || 0}
+            My Career : Level {allData?.binary_career_level || 0} -{" "}
+            {allData?.binary_current_level_name || ""}
           </div>
 
           <div className=" w-full text-lg lg:text-xl font-semibold text-[#fff]">
-            Next Level: {allData?.binary_career_level || 0 + 1}
+            Next Level: {allData?.binary_career_level + 1 || 0 + 1} -{" "}
+            {allData?.binary_next_level_name || ""}
           </div>
         </div>
         <div className="mt-3 w-full flex flex-col md:flex-row gap-4 text-white">

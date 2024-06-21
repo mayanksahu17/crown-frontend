@@ -118,6 +118,8 @@ export default function Home() {
               interest_wallet: data?.interest_wallet,
               toal_voucher_generated: data?.toal_voucher_generated,
               isWithdrawalWalletUpdated: data?.isWithdrawalWalletUpdated,
+              binary_current_level_name: data?.binary_current_level_name,
+              binary_next_level_name: data?.binary_next_level_name,
               leftBusiness: parseFloat(data?.left_business || 0)?.toFixed(2),
               rightBusiness: parseFloat(data?.right_business || 0)?.toFixed(2),
               leftWidth: lWidth * 100,
