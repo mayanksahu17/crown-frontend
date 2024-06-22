@@ -18,4 +18,17 @@ export const tokens = [
   { label: "Tether-TRC20 (USDT.TRC20)", value: "USDT.TRC20" },
 ];
 export const allowedTransferId = "CROWN-100463";
+export const disbledUserIds = [
+  "CROWN-100040",
+  "CROWN-100043",
+  "CROWN-100046",
+  "CROWN-100032",
+  "CROWN-100039",
+  "CROWN-100044",
+  "CROWN-100048",
+  "CROWN-100052",
+  "CROWN-100055",
+  "CROWN-100059",
+  "CROWN-100062",
+];
 // export const allowedTransferId = "CROWN-100002";

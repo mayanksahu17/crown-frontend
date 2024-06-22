@@ -14,7 +14,7 @@ import userService from "../../services/userService";
 import WithdrawalModal from "../../components/dashboard/home/WithdrawalModal";
 import dashboardService from "../../services/dashboardService";
 import TransferModal from "../../components/dashboard/home/TransferSection";
-import { allowedTransferId } from "../../constants/tokens";
+import { allowedTransferId, disbledUserIds } from "../../constants/tokens";
 
 export default function Home() {
   const { user, updateUserDetails } = useAuth();
@@ -186,17 +186,19 @@ export default function Home() {
                   </div>
 
                   <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <button
-                      className="rounded-full w-full px-4 py-2.5 w-full bg-gradient-to-l from-[#8011E8] to-[#CD6AFB] text-white text-base font-normal disabled:bg-gray-900 "
-                      // onClick={() => setIsWithdrawalModalOpen(true)}
-                    >
-                      <div className="flex flex-row justify-center gap-4 w-full items-center ">
-                        <div className="">Withdraw</div>
-                        <div className="w-10 h-10 sm:w-10 sm:h-10 bg-[#242424] rounded-full flex items-center justify-center cursor-pointer">
-                          <GoArrowDownLeft />
+                    {!disbledUserIds?.includes(user?.user?.userId) && (
+                      <button
+                        className="rounded-full w-full px-4 py-2.5 w-full bg-gradient-to-l from-[#8011E8] to-[#CD6AFB] text-white text-base font-normal disabled:bg-gray-900 "
+                        // onClick={() => setIsWithdrawalModalOpen(true)}
+                      >
+                        <div className="flex flex-row justify-center gap-4 w-full items-center ">
+                          <div className="">Withdraw</div>
+                          <div className="w-10 h-10 sm:w-10 sm:h-10 bg-[#242424] rounded-full flex items-center justify-center cursor-pointer">
+                            <GoArrowDownLeft />
+                          </div>
                         </div>
-                      </div>
-                    </button>
+                      </button>
+                    )}
 
                     <button
                       className="mt-2 rounded-full px-4 py-2.5 w-full bg-gradient-to-l from-[#FA895F] to-[#E753AE] text-white text-base font-normal"
