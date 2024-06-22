@@ -324,11 +324,11 @@ export default function Investment({ data }) {
               />
               <Button
                 className=" !py-1 !h-10 !flex !items-center !justify-center rounded-md w-full mt-2 text-white font-normal "
-                disabled={true}
-                // onClick={() => {
-                //   handleDataChange("isOpenModal", true);
-                //   handleDataChange("selectedModalPackage", el);
-                // }}
+                // disabled={true}
+                onClick={() => {
+                  handleDataChange("isOpenModal", true);
+                  handleDataChange("selectedModalPackage", el);
+                }}
               >
                 Purchase
               </Button>
