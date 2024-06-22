@@ -50,9 +50,9 @@ const Header = ({ loginCSS, signupCSS, navColor, light }) => {
           {/* Header User Event */}
         </div>
       </div>
-      <div className="flex align-center justify-center w-full">
+      {/* <div className="flex align-center justify-center w-full">
         <CountdownTimer />
-      </div>
+      </div> */}
     </header>
   );
 };
