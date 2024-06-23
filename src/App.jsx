@@ -40,6 +40,7 @@ import DashboardLayout from "./layouts/DashboardLayout";
 import ResetPassword from "./pages/common/ResetPassword";
 import Verify from "./pages/common/Verify";
 import AboutNew from "./AboutNew";
+import TeamPhotos from "./pages/common/team/TeamPhotos";
 function App() {
   // Init JOS Animation
   useJOSAnimation();
@@ -66,6 +67,7 @@ function App() {
           <Route path="faq" element={<Faq_01 />} />
           <Route path="faq-2" element={<Faq_02 />} />
           <Route path="team" element={<Team />} />
+          <Route path="media" element={<TeamPhotos />} />
           <Route path="team-details" element={<Team_details />} />
           <Route path="pricing" element={<Pricing />} />
           <Route path="PrivacyPolicies" element={<PrivacyPolicies />} />

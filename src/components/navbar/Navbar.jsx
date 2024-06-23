@@ -156,9 +156,9 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                   <li className="sub-menu--item">
                     <Link to="/team">Team</Link>
                   </li>
-                  {/* <li className="sub-menu--item">
-                    <Link to="/team-details">Team Details</Link>
-                  </li> */}
+                  <li className="sub-menu--item">
+                    <Link to="/media">Team Photos</Link>
+                  </li>
                 </ul>
               </li>
               <li
