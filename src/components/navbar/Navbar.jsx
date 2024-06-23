@@ -248,6 +248,14 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                   Business Plan
                 </Link>
               </li>
+              <li
+                onClick={(e) => handleSubMenuSub(e, 5)}
+                className="sub-menu--item nav-item-has-children"
+              >
+                <Link to="/map" data-menu-get="h3" className="drop-trigger">
+                  Legal
+                </Link>
+              </li>
             </ul>
           </li>
           <li className="nav-item">
