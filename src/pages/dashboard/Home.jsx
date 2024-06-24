@@ -203,7 +203,7 @@ export default function Home() {
                     <button
                       className="mt-2 rounded-full px-4 py-2.5 w-full bg-gradient-to-l from-[#FA895F] to-[#E753AE] text-white text-base font-normal"
                       onClick={() =>
-                        handleNavigate("/dashboard/investments/all-plans")
+                        handleNavigate("/dashboard/vouchers/create")
                       }
                     >
                       <div className="flex flex-row justify-center gap-4 w-full items-center ">
@@ -235,7 +235,6 @@ export default function Home() {
             <>
               <WalletFeartures />
               <HomeTabComponent allData={allData} />
-              <UpdateWalletAddressModal />
             </>
           )}
           {isWithdrawalModalOpen && (

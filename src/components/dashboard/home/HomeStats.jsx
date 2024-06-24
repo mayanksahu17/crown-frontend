@@ -1,4 +1,5 @@
 import Card from "./Card";
+import UpdateWalletAddressModal from "./UpdateWalletAddressModal";
 
 export default function HomeStats({
   selectedWallet,
@@ -19,6 +20,7 @@ export default function HomeStats({
           />
         ))}
       </div>
+      <UpdateWalletAddressModal />
     </div>
   );
 }
