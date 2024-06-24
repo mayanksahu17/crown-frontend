@@ -110,13 +110,14 @@ export default function UpdateWalletAddressModal({ isOpen, handleClose }) {
       </div>
     </div>
   ) : (
-    <div className="w-full mt-12  flex flex-col  items-start gap-2">
+    <div className="w-full mt-12  flex flex-col  items-start gap-2 ">
       <p className="text-2xl text-white font-semibold leading-tight ">
         Wallet Address
       </p>
-
-      <div className=" rounded-2xl bg-gradient-to-l text-sm from-[#8011E8] to-[#CD6AFB] p-4 max-w-full">
-        {user?.user?.withdrawal_wallet}
+      <div className="mx-[-20px]">
+        <div className=" rounded-2xl bg-gradient-to-l text-sm from-[#8011E8] to-[#CD6AFB] p-4 max-w-full ">
+          {user?.user?.withdrawal_wallet}
+        </div>
       </div>
     </div>
   );

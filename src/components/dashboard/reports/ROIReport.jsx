@@ -9,7 +9,7 @@ export default function ({ data }) {
     percentage: el?.investment?.package?.roi,
     investedAmount: el?.invested_amount,
     expiryDate: el?.expires_on,
-    roi: el?.roi,
+    roi: el?.amount,
   }));
   return (
     <div className="h-full w-full mt-4">

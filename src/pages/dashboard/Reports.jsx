@@ -47,7 +47,7 @@ export default function Reports() {
           // reportService.getTokenReport(user),
           reportService.getWithdrawalReport(user),
         ]);
-
+        console.log(roiResponse);
         if (roiResponse?.data?.success)
           handleDataChange("allROIData", roiResponse?.data?.data);
 
