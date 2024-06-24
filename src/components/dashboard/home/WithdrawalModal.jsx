@@ -26,7 +26,7 @@ const WithdrawalModal = ({
           ? "R&B Wallet"
           : selectedWallet === "roi"
           ? "ROI Wallet"
-          : "Interest Wallet",
+          : "Extra Inome Wallet",
       value:
         selectedWallet === "rnb"
           ? "R&B"
@@ -194,7 +194,7 @@ const WithdrawalModal = ({
               value: "ROI",
             },
             {
-              label: "Interest Wallet",
+              label: "Extra Inome Wallet",
               value: "Interest",
             },
           ]}

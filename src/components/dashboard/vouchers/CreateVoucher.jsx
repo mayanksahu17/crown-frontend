@@ -81,7 +81,7 @@ export default function CreateVoucher() {
                 value: "roi",
               },
               {
-                label: "Interest Wallet",
+                label: "Extra Inome Wallet",
                 value: "interest",
               },
             ]}
