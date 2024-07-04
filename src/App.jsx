@@ -43,6 +43,7 @@ import AboutNew from "./AboutNew";
 import TeamPhotos from "./pages/common/team/TeamPhotos";
 import Map from "./components/sections/inner-pages/contact/Map";
 import LoginToUserDashboard from "./pages/common/LoginToUserDashboard";
+import Calculator from "./components/dashboard/calculator/Calculator";
 function App() {
   // Init JOS Animation
   useJOSAnimation();
