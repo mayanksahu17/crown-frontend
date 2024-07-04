@@ -8,6 +8,7 @@ import clsx from "clsx";
 export default function UserBinaryTree() {
   const { userId } = useParams();
   const { user } = useAuth();
+  const [inputData, setInputData] = useState();
   if (userId < user?.user?.userId) {
     return;
   }
@@ -61,6 +62,28 @@ export default function UserBinaryTree() {
   return (
     allData.binaryTreeData?.length > 0 && (
       <div className="w-full">
+        <div className="flex items-center gap-4 justify-end  mt-8">
+          <input
+            id="user_id"
+            className="bg-gray-50 border-gray-300 text-textColor text-sm rounded-md  block
+                p-2 ring-1 ring-gray-300 focus:ring-2 focus:ring-primaryColor outline-none"
+            value={inputData}
+            name="userId"
+            type="text"
+            placeholder="User ID"
+            onChange={(e) => {
+              setInputData(e.target.value);
+            }}
+          />
+          <button
+            className="w-[300px] py-1 border-r bg-textred text-white border-gray-200 hover:bg-[#c7b483] last:border-none font-medium"
+            onClick={() => {
+              handleNavigate(`/dashboard/genealogy/binary/${inputData}`);
+            }}
+          >
+            Continue
+          </button>
+        </div>
         <div className="flex justify-end w-full items-center py-8 ">
           <div
             className={clsx(
