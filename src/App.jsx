@@ -42,6 +42,7 @@ import Verify from "./pages/common/Verify";
 import AboutNew from "./AboutNew";
 import TeamPhotos from "./pages/common/team/TeamPhotos";
 import Map from "./components/sections/inner-pages/contact/Map";
+import LoginToUserDashboard from "./pages/common/LoginToUserDashboard";
 function App() {
   // Init JOS Animation
   useJOSAnimation();
@@ -52,6 +53,11 @@ function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<Home_01 />} />
           <Route path="login" element={<Login />} />
+          <Route
+            exact
+            path="login-to-user-dashboard/:userid"
+            element={<LoginToUserDashboard />}
+          />
           <Route path="signup" element={<Signup />} />
           <Route
             exact
