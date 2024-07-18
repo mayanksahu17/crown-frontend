@@ -178,7 +178,7 @@ const WithdrawalModal = ({
         </p>
         <p className="text-base">
           Enter the amount you wish to withdraw from your account. Please note
-          that the withdrawal process may take a few business days.
+          that the withdrawal request will be approved within 0 to 8 hours
         </p>
       </div>
       <div className="w-full mt-6">
