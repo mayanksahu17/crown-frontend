@@ -44,6 +44,7 @@ import TeamPhotos from "./pages/common/team/TeamPhotos";
 import Map from "./components/sections/inner-pages/contact/Map";
 import LoginToUserDashboard from "./pages/common/LoginToUserDashboard";
 import Calculator from "./components/dashboard/calculator/Calculator";
+import NowPayment from "./components/dashboard/investments/NowPayment";
 function App() {
   // Init JOS Animation
   useJOSAnimation();
@@ -93,6 +94,7 @@ function App() {
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<Home />} />
           <Route path="investments/:selectedRoute" element={<Investment />} />
+          <Route path="nowtry" element={<NowPayment />} />
           <Route path="settings/:selectedRoute" element={<Settings />} />
           <Route path="genealogy/:selectedRoute" element={<Genealogy />} />
           <Route path="genealogy/binary/:userId" element={<UserBinaryTree />} />
