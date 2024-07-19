@@ -76,7 +76,7 @@ function App() {
           <Route path="faq" element={<Faq_01 />} />
           <Route path="faq-2" element={<Faq_02 />} />
           <Route path="team" element={<Team />} />
-          <Route path="media" element={<TeamPhotos />} />
+          {/* <Route path="media" element={<TeamPhotos />} /> */}
           <Route path="map" element={<Map />} />
 
           <Route path="team-details" element={<Team_details />} />
