@@ -26,7 +26,7 @@ const Contact_Info = () => {
             </a>
           </li>
           <li className="flex flex-col gap-y-4 text-2xl font-bold">
-            Give us a call: +44 7452117690
+            Give us a call: +44 7452 217071
           </li>
           <li className="flex flex-col gap-y-4 text-2xl font-bold">
             Follow us:
