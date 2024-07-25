@@ -40,7 +40,7 @@ const Whatsapp = () => {
         <Link
           // onClick={() => (window.location.href = "YOUR_WHATSAPP_LINK_HERE")}
           className="whatsapp-btn flex justify-center align-center"
-          to="https://wa.link/97slwg"
+          to="https://api.whatsapp.com/send?phone=447452217071"
           target="_blank"
           style={isMobile ? { left: "72px" } : { left: "100px" }}
         >
