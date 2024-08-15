@@ -35,7 +35,7 @@ const Whatsapp = () => {
           className="whatsapp-btn flex justify-center align-center"
           to="https://api.whatsapp.com/send?phone=447452237526"
           target="_blank"
-          style={isMobile ? { left: "72px" } : { left: "100px" }}
+          style={isMobile ? { left: "140px" } : { left: "120px" }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -51,9 +51,9 @@ const Whatsapp = () => {
         {/* Telegram Link */}
         <Link
           className="telegram-btn flex justify-center align-center"
-          to="t.me/crownbankersadmin"
+          to="https://t.me/crownbankersadmin"
           target="_blank"
-          style={isMobile ? { left: "72px" } : { left: "100px" }}
+          style={isMobile ? { left: "70px" } : { left: "40px" }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
