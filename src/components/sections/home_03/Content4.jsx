@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 const Content4 = () => {
   return (
     <section id="section-working-process">
-      <div className="bg-[#EDEDE0] px-5 sm:px-[50px]">
+      <div className="bg-colorBlack text-white px-5 sm:px-[50px]">
         <div className="relative z-[1] mx-auto max-w-full rounded-[20px] bg-black">
           <div className="py-20 xl:py-[130px]">
             <div className="global-container">
               <div className="grid items-center gap-10 md:grid-cols-[minmax(0,_1fr)_1.3fr] lg:gap-[60px] xl:gap-x-[94px]">
                 <div className="jos" data-jos_animation="fade-left">
-                  <h6 className=" mb-4 text-white">
+                  <div className="mb-4">
                     <span className="inline-block w-2 h-2 bg-colorOrangyRed rounded-full mr-2"></span>
                     SOLAR ENERGY
-                  </h6>
+                  </div>
                   <div className="font-raleway text-2xl text-white">
                     Navigating the Solar Landscape: We're Your Guiding Light
                   </div>

@@ -26,7 +26,7 @@ import Benefits from "../../components/sections/home_03/Benefits";
 const Home_03 = () => {
   return (
     <>
-      <div className="page-wrapper relative z-[1] bg-[#F6F6EB]">
+      <div className="page-wrapper relative z-[1] bg-colorBlack text-white">
         <Header
           loginCSS="button hidden rounded-[50px] border-[#7F8995] bg-transparent text-black after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white lg:inline-block"
           signupCSS="button hidden rounded-[50px] border-colorViolet bg-colorViolet text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white lg:inline-block"
@@ -42,8 +42,8 @@ const Home_03 = () => {
           <Content5 />
           <Content6 />
           <Content7 />
-          <div className="bg-[#EDEDE0] ">
-            <div className="h-12 w-[100%] bg-[#EDEDE0]" />
+          <div className="bg-colorBlack ">
+            <div className="h-12 w-[100%] bg-colorBlack" />
           </div>
           <Content8 />
 
@@ -55,8 +55,8 @@ const Home_03 = () => {
           <Content13 />
           <Content14 />
           <Terms />
-          <div className="bg-[#EDEDE0] ">
-            <div className="h-12 w-[100%] bg-[#EDEDE0]" />
+          <div className="bg-colorBlack ">
+            <div className="h-12 w-[100%] bg-colorBlack" />
           </div>
 
           <Benefits />
@@ -67,7 +67,7 @@ const Home_03 = () => {
               className="relative h-full w-full"
             />
             <div className="absolute bottom-[40%] md:bottom-[50%] right-[25%] md:right-[42%] flex justify-center items-center flex-col gap-2">
-              <h1 className="font-bold text-black text-5xl">Thank You</h1>
+              <h1 className="font-bold text-white text-5xl">Thank You</h1>
             </div>
           </div>
           {/* <Content_02 />
@@ -86,14 +86,14 @@ const Home_03 = () => {
       </div>
       {/* Vertical Line */}
       <div className="absolute left-0 top-0 -z-[1] flex h-full w-full justify-evenly">
-        <div className="h-full w-[1px] bg-[#EDEDE0]" />
-        <div className="h-full w-[1px] bg-[#EDEDE0]" />
-        <div className="h-full w-[1px] bg-[#EDEDE0]" />
-        <div className="h-full w-[1px] bg-[#EDEDE0]" />
-        <div className="h-full w-[1px] bg-[#EDEDE0]" />
-        <div className="h-full w-[1px] bg-[#EDEDE0]" />
-        <div className="h-full w-[1px] bg-[#EDEDE0]" />
-        <div className="h-full w-[1px] bg-[#EDEDE0]" />
+        <div className="h-full w-[1px] bg-colorBlack" />
+        <div className="h-full w-[1px] bg-colorBlack" />
+        <div className="h-full w-[1px] bg-colorBlack" />
+        <div className="h-full w-[1px] bg-colorBlack" />
+        <div className="h-full w-[1px] bg-colorBlack" />
+        <div className="h-full w-[1px] bg-colorBlack" />
+        <div className="h-full w-[1px] bg-colorBlack" />
+        <div className="h-full w-[1px] bg-colorBlack" />
       </div>
       {/* Vertical Line */}
     </>

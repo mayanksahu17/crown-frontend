@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <section id="hero-section">
       {/* Section Spacer */}
-      <div className="pt-28 lg:pt-40 xl:pt-[195px]">
+      <div className="">
         {/* Section Container */}
 
         {/* Section Container */}
@@ -16,11 +16,7 @@ const Hero = () => {
             className="relative h-auto w-full"
           />
           <div className="absolute bottom-[20%] md:bottom-[50%] right-[25%] md:right-[42%] flex justify-center items-center flex-col gap-2">
-            <img
-              src="assets/img/plan/logo.png"
-              alt="center-img"
-              className="w-32 md:w-64 h-26 md:h-52 "
-            />
+            <img src="assets/img/logo.png" alt="center-img" className="" />
             <h1 className="font-bold text-black text-4xl">Business Plan</h1>
           </div>
         </div>

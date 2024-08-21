@@ -1,17 +1,17 @@
 const Content1 = () => {
   return (
     <section id="section-content-1">
-      <div className="bg-[#EDEDE0]">
+      <div className="bg-colorBlack text-white">
         {/* Section Spacer */}
         <div className="py-20 xl:py-[130px]">
           {/* Section Container */}
           <div className="global-container">
             <div className="grid items-center gap-10 md:grid-cols-[minmax(0,_1fr)_1.3fr] lg:gap-[60px] xl:gap-x-[94px]">
               <div className="jos" data-jos_animation="fade-left">
-                <h6 className=" mb-4">
+                <div className="mb-4">
                   <span className="inline-block w-2 h-2 bg-colorOrangyRed rounded-full mr-2"></span>
                   About us
-                </h6>
+                </div>
                 <h1 className="font-raleway text-6xl">Know about</h1>
                 <h1 className="font-raleway text-6xl">
                   <span className="text-colorOrangyRed">Crown</span> Bankers

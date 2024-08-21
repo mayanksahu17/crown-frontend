@@ -26,7 +26,7 @@ const texts = [
 const Terms = () => {
   return (
     <section id="section-working-process ">
-      <div className="bg-[#EDEDE0] px-4 md:px-60">
+      <div className="bg-colorBlack text-white px-4 md:px-60">
         <div className="relative z-[1] w-full rounded-[20px] bg-black">
           <div className="py-20 xl:py-[130px]">
             <div className="global-container">
