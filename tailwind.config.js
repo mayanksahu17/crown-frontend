@@ -22,11 +22,11 @@ export default {
     extend: {
       fontFamily: {
         // Add your custom fonts
-        dmSans: ["Rubik"],
-        clashDisplay: ["Rubik"],
-        raleway: ["Rubik"],
-        spaceGrotesk: ["Rubik"],
-        body: ["Rubik"],
+        dmSans: ["DM Sans", "sans-serif"],
+        clashDisplay: ["Clash Display", "sans-serif"],
+        raleway: ["Raleway", "sans-serif"],
+        spaceGrotesk: ["Space Grotesk", "sans-serif"],
+        body: ["Inter", "sans-serif"],
       },
 
       colors: {

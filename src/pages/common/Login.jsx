@@ -230,7 +230,7 @@ const Login = () => {
           <button
             type="submit"
             onClick={handleSubmit}
-            className="button mt-7 block rounded-[50px] border-2 border-white bg-primary py- text-white text-3xl after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white w-full"
+            className="button mt-7 block rounded-[50px] border-2 border-white bg-primary py- text-white text-2xl after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white w-full"
           >
             {loadingStates.isSignInLoading && (
               <span className="absolute inset-0 flex items-center justify-center">

@@ -289,12 +289,12 @@ const Signup = () => {
           </a>
         </div>
         <div className="block rounded-lg text-left ">
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 font-bold">
             <div className="flex items-center gap-4">
               <label className="text-3xl font-bold">
                 Do you have a sponsor ?
               </label>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 text-xl">
                 <input
                   type="radio"
                   name="hasSponsor"
@@ -321,7 +321,7 @@ const Signup = () => {
                     value={formData.sponsorId}
                     onChange={handleChange}
                     placeholder="Sponsor ID"
-                    className="h-12 rounded-[10px] border border-secondary bg-white px-3 py-3 text-black outline-none transition-all focus:border-colorOrangyRed "
+                    className="h-12 rounded-[10px] border border-secondary bg-white px-3 py-3 text-black outline-none transition-all focus:border-colorOrangyRed placeholder:text-slate-500 w-full"
                   />
                 </div>
                 <div className="w-1/2">
@@ -331,7 +331,7 @@ const Signup = () => {
                     value={formData.sponsorName}
                     readOnly
                     placeholder="Sponsor Name"
-                    className="h-12 rounded-[10px] border border-secondary bg-white px-3 py-3 text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
+                    className="h-12 rounded-[10px] border border-secondary bg-white px-3 py-3 text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed w-full"
                   />
                 </div>
               </div>
@@ -508,7 +508,7 @@ const Signup = () => {
                 checked={!formData.acceptTerms}
                 onChange={handleCheckboxChange}
               />
-              <label htmlFor="signup-check" className="text-xl">
+              <label htmlFor="signup-check" className="text-xl font-normal">
                 I have read and accept the &nbsp;
                 <Link href="#" className="font-bold hover:text-colorOrangyRed">
                   Terms &amp; Conditions
