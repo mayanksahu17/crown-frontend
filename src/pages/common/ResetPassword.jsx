@@ -105,7 +105,7 @@ const ResetPassword = () => {
                         name="userId"
                         value={formData.userId}
                         onChange={(e) => handleChange("userId", e.target.value)}
-                        className="rounded-[10px] border border-gray-300 bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
+                        className="rounded-[10px] border border-secondary bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
                       />
                     </div>
                     {formData.isOTPSent && (
@@ -121,7 +121,7 @@ const ResetPassword = () => {
                           name="otp"
                           value={formData.otp}
                           onChange={(e) => handleChange("otp", e.target.value)}
-                          className="rounded-[10px] border border-gray-300 bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
+                          className="rounded-[10px] border border-secondary bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
                         />
                       </div>
                     )}
@@ -134,7 +134,7 @@ const ResetPassword = () => {
                         >
                           Password
                         </label>
-                        <div className="flex flex-column justify-between rounded-[10px] border border-gray-300 bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed">
+                        <div className="flex flex-column justify-between rounded-[10px] border border-secondary bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed">
                           <input
                             type={showPassword ? "text" : "password"}
                             name="password"
@@ -165,7 +165,7 @@ const ResetPassword = () => {
                           >
                             Confirm Password
                           </label>
-                          <div className="flex flex-column justify-between rounded-[10px] border border-gray-300 bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed">
+                          <div className="flex flex-column justify-between rounded-[10px] border border-secondary bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed">
                             <input
                               type={showConfirmPassword ? "text" : "password"}
                               name="confirmPassword"

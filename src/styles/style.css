@@ -1,14 +1,15 @@
 @import url(./pre-custom-style.css);
+@import url("https://fonts.googleapis.com/css2?family=Monument+Extended:wght@400;700&display=swap");
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
 
+@tailwind utilities;
 /* Post Custom Styles */
 
 body {
   min-height: 100vh;
-  font-family: Inter, sans-serif;
-  font-size: 1.125rem;
+  font-family:"Rubik";
+  font-size: 1.5rem;
   line-height: 1.75rem;
   line-height: 1.66;
   --tw-text-opacity: 1;
@@ -21,8 +22,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: DM Sans, sans-serif;
-  letter-spacing: -2px;
+  font-family: "Rubik";
+  letter-spacing: 1px;
 }
 
 h1 {

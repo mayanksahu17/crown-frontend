@@ -52,20 +52,17 @@ function App() {
   return (
     <>
       <Routes>
+        <Route path="login" element={<Login />} />
+        <Route path="signup" element={<Signup />} />
+        <Route exact path="signup/:sponsorId/:position" element={<Signup />} />
         <Route element={<Layout />}>
           <Route path="/" element={<Home_01 />} />
-          <Route path="login" element={<Login />} />
           <Route
             exact
             path="login-to-user-dashboard/:userid"
             element={<LoginToUserDashboard />}
           />
-          <Route path="signup" element={<Signup />} />
-          <Route
-            exact
-            path="signup/:sponsorId/:position"
-            element={<Signup />}
-          />
+
           <Route path="reset-password" element={<ResetPassword />} />
           <Route path="contact" element={<Contact />} />
           <Route path="about" element={<About />} />

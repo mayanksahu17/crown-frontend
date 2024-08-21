@@ -72,7 +72,7 @@ const Contact_From = () => {
               onChange={handleInput}
               id="contact-name"
               placeholder="Adam Smith"
-              className="rounded-[10px] border border-gray-300 bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
+              className="rounded-[10px] border border-secondary bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
               required=""
             />
           </div>
@@ -92,7 +92,7 @@ const Contact_From = () => {
               onChange={handleInput}
               id="contact-email"
               placeholder="example@gmail.com"
-              className="rounded-[10px] border border-gray-300 bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
+              className="rounded-[10px] border border-secondary bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
               required=""
             />
           </div>
@@ -116,7 +116,7 @@ const Contact_From = () => {
               onChange={handleInput}
               id="contact-phone"
               placeholder="+44 123456789"
-              className="rounded-[10px] border border-gray-300 bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
+              className="rounded-[10px] border border-secondary bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
               required=""
             />
           </div>
@@ -136,7 +136,7 @@ const Contact_From = () => {
               onChange={handleInput}
               id="contact-company"
               placeholder="EX Facebook"
-              className="rounded-[10px] border border-gray-300 bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
+              className="rounded-[10px] border border-secondary bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
               required=""
             />
           </div>
@@ -158,7 +158,7 @@ const Contact_From = () => {
               value={input.message}
               onChange={handleInput}
               id="contact-message"
-              className="min-h-[180px] rounded-[10px] border border-gray-300 bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
+              className="min-h-[180px] rounded-[10px] border border-secondary bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
               placeholder="Write your message here..."
               required=""
             />

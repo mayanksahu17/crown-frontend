@@ -2,7 +2,7 @@ import TreeNode from "./TreeNode";
 
 export default function Tree({ data }) {
   return (
-    <div className="p-2 border border-solid rounded-md border-gray-300 flex justify-center align-center">
+    <div className="p-2 border border-solid rounded-md border-secondary flex justify-center align-center">
       <table className="w-full text-white gap-2 rounded bg-gray-800">
         <thead>
           <tr>

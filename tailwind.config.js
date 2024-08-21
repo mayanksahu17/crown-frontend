@@ -22,16 +22,16 @@ export default {
     extend: {
       fontFamily: {
         // Add your custom fonts
-        dmSans: ["DM Sans", "sans-serif"],
-        clashDisplay: ["Clash Display", "sans-serif"],
-        raleway: ["Raleway", "sans-serif"],
-        spaceGrotesk: ["Space Grotesk", "sans-serif"],
-        body: ["Inter", "sans-serif"],
+        dmSans: ["Rubik"],
+        clashDisplay: ["Rubik"],
+        raleway: ["Rubik"],
+        spaceGrotesk: ["Rubik"],
+        body: ["Rubik"],
       },
 
       colors: {
         colorCodGray: "#191919",
-        colorOrangyRed: "#FE330A",
+        colorOrangyRed: "#00B3FF",
         colorLinenRuffle: "#EFEAE3",
         colorViolet: "#321CA4",
         colorGreen: "#39FF14",
@@ -39,6 +39,12 @@ export default {
         textred: "#FA895F",
         textwhite: "#FFFFFF",
         themeColor: "#D5AA6D",
+        primary: "#315DFF",
+        secondary: "#093AED",
+      },
+      backgroundImage: {
+        "custom-eclipse":
+          "linear-gradient(134.15deg, #FEFFFE -1.52%, #F4FBFF 100%)",
       },
     },
   },
