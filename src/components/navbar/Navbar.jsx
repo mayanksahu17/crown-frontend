@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { FaChevronRight } from "react-icons/fa";
 // eslint-disable-next-line react/prop-types
 const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
   const [mobileSubMenu, setMobileSubMenu] = useState("");
@@ -95,13 +95,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
           >
             <Link to="#" className="nav-link-item drop-trigger">
               Services
-              <img
-                className="dropdown-icon"
-                src="assets/img/icon-black-cheveron-right.svg"
-                alt="cheveron-right"
-                width={16}
-                height={16}
-              />
+              <FaChevronRight className="dropdown-icon" size={16} />
             </Link>
             <ul
               className={`sub-menu ${mobileSubMenu === 2 && "active"}`}
@@ -121,13 +115,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
           >
             <Link to="#" className="nav-link-item drop-trigger">
               Pages
-              <img
-                className="dropdown-icon"
-                src="assets/img/icon-black-cheveron-right.svg"
-                alt="cheveron-right"
-                width={16}
-                height={16}
-              />
+              <FaChevronRight className="dropdown-icon" size={16} />
             </Link>
             <ul
               className={`sub-menu ${mobileSubMenu === 3 && "active"}`}
@@ -139,18 +127,12 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
               >
                 <Link to="#" data-menu-get="h3" className="drop-trigger">
                   Team
-                  <img
-                    className="dropdown-icon"
-                    src="assets/img/icon-black-cheveron-right.svg"
-                    alt="cheveron-right"
-                    width={16}
-                    height={16}
-                  />
+                  <FaChevronRight className="dropdown-icon" size={16} />
                 </Link>
                 <ul
                   className={`sub-menu shape-none ${
                     mobileSubMenuSub === 2 && "active"
-                  }`}
+                  } bg-black`}
                   id="submenu-5"
                 >
                   <li className="sub-menu--item">
@@ -167,13 +149,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
               >
                 <Link to="#" data-menu-get="h3" className="drop-trigger">
                   FAQ
-                  <img
-                    className="dropdown-icon"
-                    src="assets/img/icon-black-cheveron-right.svg"
-                    alt="cheveron-right"
-                    width={16}
-                    height={16}
-                  />
+                  <FaChevronRight className="dropdown-icon" size={16} />
                 </Link>
                 <ul
                   className={`sub-menu shape-none ${
@@ -211,13 +187,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
               >
                 <Link to="#" data-menu-get="h3" className="drop-trigger">
                   Utilities
-                  <img
-                    className="dropdown-icon"
-                    src="assets/img/icon-black-cheveron-right.svg"
-                    alt="cheveron-right"
-                    width={16}
-                    height={16}
-                  />
+                  <FaChevronRight className="dropdown-icon" size={16} />
                 </Link>
                 <ul
                   className={`sub-menu shape-none ${

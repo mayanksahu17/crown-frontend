@@ -10,13 +10,13 @@ const Header = ({ loginCSS, signupCSS, navColor, light }) => {
 
   return (
     <header
-      className="site-header site-header--absolute is--white py-3"
+      className="site-header site-header--absolute is--white py-3 text-white bg-black"
       id="sticky-menu"
     >
       <div className="global-container">
         <div className="flex items-center justify-between gap-x-8">
           {/* Header Logo */}
-          <div className="w-32 h-32">
+          <div className="flex flex-col items-center justify-center">
             <Logo light={light} />
           </div>
           {/* Header Logo */}
@@ -28,7 +28,7 @@ const Header = ({ loginCSS, signupCSS, navColor, light }) => {
           />
           {/* Header Navigation */}
           {/* Header User Event */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-6 text-white">
             <Link to="/login" className={loginCSS}>
               Login
             </Link>

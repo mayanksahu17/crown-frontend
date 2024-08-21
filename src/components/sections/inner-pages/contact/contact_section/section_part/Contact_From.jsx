@@ -52,7 +52,7 @@ const Contact_From = () => {
   };
 
   return (
-    <div className="order-1 block rounded-lg bg-white px-[30px] py-[50px] shadow-[0_4px_60px_0_rgba(0,0,0,0.1)] md:order-2">
+    <div className="order-1 block rounded-lg bg-white text-black px-[30px] py-[50px] shadow-[0_4px_60px_0_rgba(0,0,0,0.1)] md:order-2">
       {/* Contact Form */}
       <form onSubmit={handleSubmit} className="flex flex-col gap-y-5">
         {/* Form Group */}
@@ -168,7 +168,7 @@ const Contact_From = () => {
         <div>
           <button
             type="submit"
-            className="button mt-5 rounded-[50px] border-2 border-black bg-black py-4 text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white"
+            className=" text-center button mt-5 rounded-[50px] border-2 border-black bg-primary w-full py-4 text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white flex justify-center"
           >
             Send your message
           </button>

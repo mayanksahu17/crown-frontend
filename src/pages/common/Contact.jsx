@@ -6,7 +6,7 @@ const Contact = () => {
   return (
     <>
       <main className="main-wrapper relative overflow-hidden">
-        <Breadcrumb title="Contact Us" link="Contact" />
+        {/* <Breadcrumb title="Contact Us" link="Contact" /> */}
         <Contact_Section />
         {/* <Map /> */}
       </main>

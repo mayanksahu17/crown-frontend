@@ -1,259 +1,229 @@
 import { Link } from "react-router-dom";
-
+import { FaFacebookF, FaYoutube, FaWhatsapp } from "react-icons/fa";
 const Footer_01 = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
 
   return (
-    <footer className="relative z-[1] -mt-[70px] overflow-hidden rounded-tl-[30px] rounded-tr-[30px] bg-colorLinenRuffle lg:rounded-tl-[50px] lg:rounded-tr-[50px]">
-      {/* Footer Top */}
-      <div className="py-[60px] xl:pb-[100px] xl:pt-[130px]">
-        <div className="overflow-hidden">
-          {/* Footer Text Slider */}
-          <div className="footer-text-slider flex w-full items-center gap-x-[30px] whitespace-nowrap">
-            {/* Footer Slide Item  */}
-            <img
-              src="assets/img/th-1/footer-text-slider-icon.svg"
-              alt="footer-text-slider-icon"
-              width={60}
-              height={60}
-              className="h-10 w-10 lg:h-[60px] lg:w-[60px]"
-            />
-            <div className="block font-dmSans text-4xl font-bold leading-none -tracking-[2px] text-black lg:text-6xl xl:text-7xl xxl:text-[80px]">
-              Invest In Your Future
+    <footer id="footer-4">
+      <div
+        className="relative z-[1] overflow-hidden text-white"
+        style={{
+          background: "linear-gradient(180deg, #AFAFAF -77.81%, #212121 100%)",
+        }}
+      >
+        <div className="py-[60px] xl:pb-[100px] xl:pt-[130px]">
+          <div className="overflow-hidden text-white">
+            {/* Footer Text Slider */}
+            <div className="footer-text-slider flex w-full items-center gap-x-[30px] whitespace-nowrap">
+              {/* Footer Slide Item  */}
+              <img
+                src="assets/img/th-1/footer-text-slider-icon.svg"
+                alt="footer-text-slider-icon"
+                width={60}
+                height={60}
+                className="h-10 w-10 lg:h-[60px] lg:w-[60px]"
+              />
+              <div className="block font-dmSans text-4xl font-bold leading-none -tracking-[2px]  lg:text-6xl xl:text-7xl xxl:text-[80px]">
+                Invest In Your Future
+              </div>
+              {/* Footer Slide Item  */}
+              {/* Footer Slide Item  */}
+              <img
+                src="assets/img/th-1/footer-text-slider-icon.svg"
+                alt="footer-text-slider-icon"
+                width={60}
+                height={60}
+                className="h-10 w-10 lg:h-[60px] lg:w-[60px]"
+              />
+              <div className="block font-dmSans text-4xl font-bold leading-none -tracking-[2px]  lg:text-6xl xl:text-7xl xxl:text-[80px]">
+                Invest In Your Future
+              </div>
+              {/* Footer Slide Item  */}
+              {/* Footer Slide Item  */}
+              <img
+                src="assets/img/th-1/footer-text-slider-icon.svg"
+                alt="footer-text-slider-icon"
+                width={60}
+                height={60}
+                className="h-10 w-10 lg:h-[60px] lg:w-[60px]"
+              />
+              <div className="block font-dmSans text-4xl font-bold leading-none -tracking-[2px]  lg:text-6xl xl:text-7xl xxl:text-[80px]">
+                Invest In Your Future
+              </div>
+              {/* Footer Slide Item  */}
             </div>
-            {/* Footer Slide Item  */}
-            {/* Footer Slide Item  */}
-            <img
-              src="assets/img/th-1/footer-text-slider-icon.svg"
-              alt="footer-text-slider-icon"
-              width={60}
-              height={60}
-              className="h-10 w-10 lg:h-[60px] lg:w-[60px]"
-            />
-            <div className="block font-dmSans text-4xl font-bold leading-none -tracking-[2px] text-black lg:text-6xl xl:text-7xl xxl:text-[80px]">
-              Invest In Your Future
-            </div>
-            {/* Footer Slide Item  */}
-            {/* Footer Slide Item  */}
-            <img
-              src="assets/img/th-1/footer-text-slider-icon.svg"
-              alt="footer-text-slider-icon"
-              width={60}
-              height={60}
-              className="h-10 w-10 lg:h-[60px] lg:w-[60px]"
-            />
-            <div className="block font-dmSans text-4xl font-bold leading-none -tracking-[2px] text-black lg:text-6xl xl:text-7xl xxl:text-[80px]">
-              Invest In Your Future
-            </div>
-            {/* Footer Slide Item  */}
           </div>
         </div>
-      </div>
-      {/* Footer Text Slider */}
-      {/* Footer Top */}
-      <div className="global-container">
-        <div className="h-[1px] w-full bg-[#DBD6CF]" />
-        {/* Footer Center */}
-        <div className="lg grid grid-cols-1 gap-10 py-[60px] md:grid-cols-[1fr_auto_auto] xl:grid-cols-[1fr_auto_auto_1fr] xl:gap-20 xl:py-[100px]">
-          {/* Footer Widget */}
-          <div className="flex flex-col gap-y-6">
-            <Link to="/" className="inline-block">
-              <img
-                src="assets/img/th-1/Untitled-1.png"
-                alt="logo"
-                width={96}
-                height={24}
-              />
-            </Link>
-            <p>
-              Your Gateway to Prosperity. Experience strategic investing,
-              innovative solutions, and financial excellence with us.
-            </p>
-            <p>
-              Website: <Link to="/">crownbankers.com</Link>
-            </p>
-          </div>
-          {/* Footer Widget */}
-          {/* Footer Widget */}
-          <div className="flex flex-col gap-y-6">
-            {/* Footer Title */}
+        <div className="global-container">
+          <div className="h-[1px] w-full bg-[#DBD6CF]" />
+          {/* Footer Center */}
+          <div className="lg grid grid-cols-1 gap-10 py-[60px] md:grid-cols-[1fr_auto_auto] xl:grid-cols-[1fr_auto_auto_1fr] xl:gap-20 xl:py-[100px]">
+            {/* Footer Widget */}
+            <div className="flex flex-col gap-y-6">
+              <Link to="/" className="inline-block">
+                <img
+                  src="/assets/img/logo.png"
+                  alt="logo"
+                  width={96}
+                  height={24}
+                />
+              </Link>
+              <p>
+                Your Gateway to Prosperity. Experience strategic investing,
+                innovative solutions, and financial excellence with us.
+              </p>
+              <p>
+                Website: <Link to="/">crownbankers.com</Link>
+              </p>
+            </div>
+            {/* Footer Widget */}
+            {/* Footer Widget */}
+            <div className="flex flex-col gap-y-6">
+              {/* Footer Title */}
 
-            {/* Footer Title */}
-            {/* Footer Navbar */}
-            <ul className="flex flex-col gap-y-[10px] capitalize">
-              <li>
-                <Link
-                  to="/"
-                  className="transition-all duration-300 ease-linear hover:text-colorOrangyRed"
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/faq"
-                  className="transition-all duration-300 ease-linear hover:text-colorOrangyRed"
-                >
-                  FAQs
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services"
-                  className="transition-all duration-300 ease-linear hover:text-colorOrangyRed"
-                >
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/contact"
-                  className="transition-all duration-300 ease-linear hover:text-colorOrangyRed"
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
-          {/* Footer Widget */}
-          {/* Footer Widget */}
-          <div className="flex flex-col gap-y-6">
-            {/* Footer Title */}
-
-            {/* Footer Title */}
-            {/* Footer Navbar */}
-            <ul className="flex flex-col gap-y-[10px] capitalize">
-              <li>
-                <Link
-                  to="/signup"
-                  className="transition-all duration-300 ease-linear hover:text-colorOrangyRed"
-                >
-                  Signup
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/login"
-                  className="transition-all duration-300 ease-linear hover:text-colorOrangyRed"
-                >
-                  Login
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/TermsandCondition"
-                  className="transition-all duration-300 ease-linear hover:text-colorOrangyRed"
-                >
-                  Terms and Conditions
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/PrivacyPolicies"
-                  className="transition-all duration-300 ease-linear hover:text-colorOrangyRed"
-                >
-                  Privacy Policy
-                </Link>
-              </li>
-            </ul>
-          </div>
-          {/* Footer Widget */}
-          {/* Footer Widget */}
-          <div className="flex flex-col gap-y-6">
-            <li className="flex flex-col gap-y-4 text-2xl font-bold">
-              Follow us:
-              <ul className="mt-auto flex gap-x-[15px]">
+              {/* Footer Title */}
+              {/* Footer Navbar */}
+              <ul className="flex flex-col gap-y-[10px] capitalize">
                 <li>
                   <Link
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    to="https://www.facebook.com/crownbankersofficial"
-                    className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed"
+                    to="/"
+                    className="transition-all duration-300 ease-linear hover:text-colorOrangyRed"
                   >
-                    <img
-                      src="assets/img/th-1/facebook-icon-white.svg"
-                      alt="facebook"
-                      width={14}
-                      height={14}
-                      className="opacity-100 group-hover:opacity-0"
-                    />
-                    <img
-                      src="assets/img/th-1/facebook-icon-black.svg"
-                      alt="facebook"
-                      width={14}
-                      height={14}
-                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
-                    />
+                    Home
                   </Link>
                 </li>
                 <li>
                   <Link
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    to="https://www.youtube.com/@official-CrownBankers"
-                    className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed"
+                    to="/faq"
+                    className="transition-all duration-300 ease-linear hover:text-colorOrangyRed"
                   >
-                    <img
-                      src="assets/img/th-1/youtube.svg"
-                      alt="twitter"
-                      width={14}
-                      height={14}
-                      className="opacity-100 group-hover:opacity-0"
-                    />
-                    <img
-                      src="assets/img/th-1/youtube-white.svg"
-                      alt="twitter"
-                      width={14}
-                      height={14}
-                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
-                    />
+                    FAQs
                   </Link>
                 </li>
                 <li>
                   <Link
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    to="https://whatsapp.com/channel/0029VacNHAq60eBXejGceh3F"
-                    className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed"
+                    to="/services"
+                    className="transition-all duration-300 ease-linear hover:text-colorOrangyRed"
                   >
-                    <img
-                      src="assets/img/th-1/whatsapp-color.svg"
-                      alt="linkedin"
-                      width={14}
-                      height={14}
-                      className="opacity-100 group-hover:opacity-0"
-                    />
-                    <img
-                      src="assets/img/th-1/whatsapp.svg"
-                      alt="linkedin"
-                      width={14}
-                      height={14}
-                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
-                    />
+                    Services
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/contact"
+                    className="transition-all duration-300 ease-linear hover:text-colorOrangyRed"
+                  >
+                    Contact
                   </Link>
                 </li>
               </ul>
-            </li>
+            </div>
+            {/* Footer Widget */}
+            {/* Footer Widget */}
+            <div className="flex flex-col gap-y-6">
+              {/* Footer Title */}
+
+              {/* Footer Title */}
+              {/* Footer Navbar */}
+              <ul className="flex flex-col gap-y-[10px] capitalize">
+                <li>
+                  <Link
+                    to="/signup"
+                    className="transition-all duration-300 ease-linear hover:text-colorOrangyRed"
+                  >
+                    Signup
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/login"
+                    className="transition-all duration-300 ease-linear hover:text-colorOrangyRed"
+                  >
+                    Login
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/TermsandCondition"
+                    className="transition-all duration-300 ease-linear hover:text-colorOrangyRed"
+                  >
+                    Terms and Conditions
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/PrivacyPolicies"
+                    className="transition-all duration-300 ease-linear hover:text-colorOrangyRed"
+                  >
+                    Privacy Policy
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            {/* Footer Widget */}
+            {/* Footer Widget */}
+            <div className="flex flex-col gap-y-6">
+              <li className="flex flex-col gap-y-4 text-2xl font-bold">
+                Follow us:
+                <ul className="mt-auto flex gap-x-[15px]">
+                  <li>
+                    <Link
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      to="https://www.facebook.com/crownbankersofficial"
+                      className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-full bg-white hover:bg-colorOrangyRed"
+                    >
+                      <FaFacebookF
+                        className="text-black group-hover:text-white"
+                        size={14}
+                      />
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      to="https://www.youtube.com/@official-CrownBankers"
+                      className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-full bg-white hover:bg-colorOrangyRed"
+                    >
+                      <FaYoutube
+                        className="text-black group-hover:text-white"
+                        size={14}
+                      />
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      to="https://whatsapp.com/channel/0029VacNHAq60eBXejGceh3F"
+                      className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-full bg-white hover:bg-colorOrangyRed"
+                    >
+                      <FaWhatsapp
+                        className="text-black group-hover:text-white"
+                        size={14}
+                      />
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+            </div>
+            {/* Footer Widget */}
           </div>
-          {/* Footer Widget */}
+          {/* Footer Center */}
+          <div className="h-[1px] w-full bg-[#DBD6CF]" />
+          {/* Footer Bottom */}
+          <div className="py-9 text-center">
+            <p>
+              © Copyright {new Date().getFullYear()}, All Rights Reserved by
+              CrownBankers
+            </p>
+          </div>
+          {/* Footer Bottom */}
         </div>
-        {/* Footer Center */}
-        <div className="h-[1px] w-full bg-[#DBD6CF]" />
-        {/* Footer Bottom */}
-        <div className="py-9 text-center">
-          <p>
-            © Copyright {new Date().getFullYear()}, All Rights Reserved by
-            CrownBankers
-          </p>
-        </div>
-        {/* Footer Bottom */}
       </div>
-      {/* Footer Background Shape 1  */}
-      <div className="orange-gradient-2 absolute -top-[290px] right-[90px] -z-[1] h-[406px] w-[406px] -rotate-[58deg] rounded-[406px]"></div>
-      {/* Footer Background Shape 2  */}
-      <div className="orange-gradient-1 absolute -right-[200px] -top-[205px] -z-[1] h-[451px] w-[451px] -rotate-[58deg] rounded-[451px]"></div>
     </footer>
   );
 };

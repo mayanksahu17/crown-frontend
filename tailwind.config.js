@@ -41,6 +41,8 @@ export default {
         themeColor: "#D5AA6D",
         primary: "#315DFF",
         secondary: "#093AED",
+        colorBlack: "#020804",
+        colorBlue: "#12CEF9",
       },
       backgroundImage: {
         "custom-eclipse":
