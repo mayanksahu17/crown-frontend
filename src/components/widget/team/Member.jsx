@@ -26,7 +26,7 @@ const Member = ({
           className="h-full w-full object-cover"
         />
       </div>
-      <div className="mt-5 text-center">
+      <div className="mt-5 text-center text-black">
         <Link
           // to="/team-details"
           className="font-dmSans text-[26px] leading-[1.33] hover:text-colorOrangyRed xxl:text-[30px]"
