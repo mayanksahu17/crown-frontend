@@ -54,6 +54,8 @@ function App() {
       <Routes>
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
+        <Route path="reset-password" element={<ResetPassword />} />
+
         <Route exact path="signup/:sponsorId/:position" element={<Signup />} />
         <Route element={<Layout />}>
           <Route path="/" element={<Home_01 />} />
@@ -63,7 +65,6 @@ function App() {
             element={<LoginToUserDashboard />}
           />
 
-          <Route path="reset-password" element={<ResetPassword />} />
           <Route path="contact" element={<Contact />} />
           <Route path="about" element={<About />} />
           <Route path="blog" element={<Blog />} />
