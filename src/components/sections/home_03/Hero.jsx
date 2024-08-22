@@ -21,7 +21,7 @@ const Hero = () => {
           </div>
         </div>
         <div className="global-container mt-12 flex flex-col justify-center w-full items-center">
-          <h1 className="font-bold text-4xl md:text-6xl text-colorGreen ">
+          <h1 className="font-bold text-4xl md:text-6xl text-colorBlue ">
             Go Green,<span className="text-black">Earn Green</span>
           </h1>
           <div className=" flex flex-row items-center gap-20 justify-center w-full ">

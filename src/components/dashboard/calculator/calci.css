@@ -1,7 +1,7 @@
 .customeBorder {
     position: relative;
     padding: 10px;
-    background: #0E0E0E;
+    background: #fff;
     margin: 5px;
     border-radius: 30px;
 }
@@ -16,13 +16,13 @@
     z-index: -1;
     margin: -3px;
     border-radius: inherit;
-    background-image: linear-gradient(180deg, #D5AA6D 0%, rgba(115, 114, 114, 0) 100%);
+    background-image: linear-gradient(180deg, #315DFF 0%, #315DFF 100%);
 }
 
 .customeBorder2 {
     position: relative;
     padding: 10px;
-    background: #0E0E0E;
+    background: #fff;
     margin: 5px;
     border-radius: 30px;
 }
@@ -37,5 +37,5 @@
     z-index: -1;
     margin: -3px;
     border-radius: inherit;
-    background-image: linear-gradient(180deg, #7a4e10 0%, rgba(216, 81, 165, 0) 100%);
+    background-image: linear-gradient(180deg, #12CEF9 20%, rgba(216, 81, 165, 0) 100%);
 }
