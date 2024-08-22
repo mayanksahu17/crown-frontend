@@ -15,7 +15,7 @@ const Content_01 = () => {
             <div className="mb-6">
               <h2 className="text-colorBlue text-4xl mb-2">Main Initiative</h2>
 
-              <h2 className="font-spaceGrotesk text-6xl font-medium text-white ">
+              <h2 className="font-spaceGrotesk text-3xl md:text-6xl font-medium text-white ">
                 "Our Goal is To Change The Modern World Become Nature Friendly"
               </h2>
             </div>

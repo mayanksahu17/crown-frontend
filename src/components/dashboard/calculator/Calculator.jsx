@@ -14,14 +14,14 @@ const Calculator = ({ navigate, isCalculator = false }) => {
   }, [investmentAmount]);
 
   return (
-    <div className="w-full mt-33 pt-10 text-center flex flex-row items-center">
-      <div className="w-1/2">
+    <div className="w-full mt-33 pt-10 text-center flex flex-col md:flex-row items-center">
+      <div className="w-full md:w-1/2">
         <h1 className="px-6 text-5xl font-medium mb-4 ">
           Calculate Your Earning
         </h1>
       </div>
 
-      <div className="mx-auto w-1/2 p-4 font-Montserrat ">
+      <div className="mx-auto w-full md:w-1/2 p-4 font-Montserrat ">
         <div className="flex flex-col max-w-4xl mx-auto px-6 borderOuter py-6 gap-4">
           <h1 className="flex space-x-4 pl-3 my-2 text-left text-white font-semibold leading-relaxed text-2xl font-Montserrat ">
             <span>Profit calculator</span>

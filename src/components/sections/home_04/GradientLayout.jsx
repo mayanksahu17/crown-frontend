@@ -2,7 +2,7 @@ import React from "react";
 
 const GradientLayout = () => {
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen bg-black">
+    <div className="relative flex flex-col items-center justify-center bg-black">
       {/* Top Square */}
       <div className="relative flex items-center justify-center mb-6">
         <div

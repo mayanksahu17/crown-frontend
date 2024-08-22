@@ -138,7 +138,7 @@ const Login = () => {
   };
   return (
     <div className="w-full flex flex-col md:flex-row h-full bg-custom-eclipse">
-      <div className="mx-auto w-1/2 text-center flex flex-col justify-center px-32">
+      <div className="mx-auto w-full md:w-1/2 text-center flex flex-col justify-center px-6 md:px-32 mt-4 md:mt-0">
         <div className=" text-center flex flex-row justify-center gap-6 mb-12 items-center ">
           <a href="/">
             <img src="/assets/img/logo.png" className="" />
@@ -147,7 +147,7 @@ const Login = () => {
             <div className="font-bold text-4xl">Crown Bankers</div>
           </a>
         </div>
-        <div className="block rounded-lg px-[60px] py-[50px] text-left sm:px-10">
+        <div className="block rounded-lg py-[50px] text-left px-0 md:px-10">
           <div className="grid grid-cols-1 gap-6">
             <div className="flex flex-col gap-y-[10px]">
               <label
@@ -251,7 +251,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <div className="relative w-1/2 h-screen ">
+      <div className="relative w-full md:w-1/2 h-[600px] md:h-screen ">
         {/* Background Image */}
         <img
           src="/assets/LoginBg.png"

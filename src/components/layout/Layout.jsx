@@ -10,6 +10,7 @@ const Layout = () => {
       <Header
         loginCSS="button hidden rounded-[50px] border-primary bg-primary text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white lg:inline-block"
         signupCSS="button hidden rounded-[50px] border-black bg-black text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white lg:inline-block"
+        light={true}
       />
       {/*...::: Header End :::... */}
 

@@ -162,24 +162,6 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                   </li>
                 </ul>
               </li>
-              <li
-                onClick={(e) => handleSubMenuSub(e, 4)}
-                className="sub-menu--item nav-item-has-children"
-              >
-                <ul
-                  className={`sub-menu shape-none ${
-                    mobileSubMenuSub === 4 && "active"
-                  }`}
-                  id="submenu-7"
-                >
-                  <li className="sub-menu--item">
-                    <Link to="/portfolio">Portfolio</Link>
-                  </li>
-                  <li className="sub-menu--item">
-                    <Link to="/portfolio-details">Portfolio Details</Link>
-                  </li>
-                </ul>
-              </li>
               <li className="sub-menu--item"></li>
               <li
                 onClick={(e) => handleSubMenuSub(e, 5)}
@@ -231,6 +213,16 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
           <li className="nav-item">
             <Link to="/contact" className="nav-link-item">
               Contact
+            </Link>
+          </li>
+          <li className="md:hidden">
+            <Link to="/login" className="nav-link-item">
+              Login
+            </Link>
+          </li>
+          <li className="md:hidden">
+            <Link to="/signup" className="nav-link-item">
+              Sign up
             </Link>
           </li>
         </ul>

@@ -279,7 +279,7 @@ const Signup = () => {
       className="w-full flex flex-col md:flex-row h-full bg-custom-eclipse"
       style={{ fontFamily: "Monument Extended" }}
     >
-      <div className="mx-auto w-1/2 text-center flex flex-col justify-center px-24">
+      <div className="mx-auto w-full md:w-1/2 text-center flex flex-col justify-center px-2 md:px-24 mt-4 md:mt-0">
         <div className=" text-center flex flex-row justify-center gap-6 mb-12 items-center ">
           <a href="/">
             <img src="/assets/img/logo.png" className="" />
@@ -314,7 +314,7 @@ const Signup = () => {
             </div>
             {formData.hasSponsor && (
               <div className="w-full flex flex-col md:flex-row gap-2">
-                <div className="w-1/2 ">
+                <div className="w-full md:w-1/2 ">
                   <input
                     type="text"
                     name="sponsorId"
@@ -324,7 +324,7 @@ const Signup = () => {
                     className="h-12 rounded-[10px] border border-secondary bg-white px-3 py-3 text-black outline-none transition-all focus:border-colorOrangyRed placeholder:text-slate-500 w-full"
                   />
                 </div>
-                <div className="w-1/2">
+                <div className="w-full md:w-1/2">
                   <input
                     type="text"
                     name="sponsorName"
@@ -367,7 +367,7 @@ const Signup = () => {
               </div>
             </div>
             <div className="w-full flex flex-col md:flex-row gap-2">
-              <div className="flex flex-col w-1/2">
+              <div className="flex flex-col w-full md:w-1/2">
                 <input
                   type="text"
                   name="firstName"
@@ -382,7 +382,7 @@ const Signup = () => {
                   touched={touched.firstName}
                 />
               </div>
-              <div className="flex flex-col w-1/2">
+              <div className="flex flex-col w-full md:w-1/2">
                 <input
                   type="text"
                   name="phoneNumber"
@@ -412,7 +412,7 @@ const Signup = () => {
               <ErrorMessage error={errors.country} touched={touched.country} />
             </div>
             <div className="w-full flex flex-col md:flex-row gap-2">
-              <div className="flex flex-col w-1/2">
+              <div className="flex flex-col w-full md:w-1/2">
                 <input
                   type="t"
                   name="email"
@@ -424,7 +424,7 @@ const Signup = () => {
                 />
                 <ErrorMessage error={errors.email} touched={touched.email} />
               </div>
-              <div className="flex flex-col w-1/2">
+              <div className="flex flex-col w-full md:w-1/2">
                 <input
                   type="confirmEmail"
                   name="confirmEmail"
@@ -441,7 +441,7 @@ const Signup = () => {
               </div>
             </div>
             <div className="w-full flex flex-col md:flex-row gap-2">
-              <div className="flex flex-col w-1/2">
+              <div className="flex flex-col w-full md:w-1/2">
                 <div className="flex relative flex-column justify-between h-12 rounded-[10px] border border-secondary bg-white px-3 py-3 text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed">
                   <input
                     type={showPassword ? "text" : "password"}
@@ -470,7 +470,7 @@ const Signup = () => {
                   touched={touched.password}
                 />
               </div>
-              <div className="flex flex-col w-1/2">
+              <div className="flex flex-col w-full md:w-1/2">
                 <div className="flex relative flex-column justify-between h-12 rounded-[10px] border border-secondary bg-white px-3 py-3 text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed">
                   <input
                     type={showConfirmPassword ? "text" : "password"}
@@ -550,7 +550,7 @@ const Signup = () => {
           </div>
         </div>
       </div>
-      <div className="relative w-1/2 h-screen ">
+      <div className="relative w-full md:w-1/2 h-[600px] md:h-screen ">
         {/* Background Image */}
         <img
           src="/assets/LoginBg.png"

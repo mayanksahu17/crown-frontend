@@ -13,12 +13,12 @@ const Hero = () => {
           <div className="global-container">
             <h2 className="text-colorBlue text-4xl mb-2">About Energize</h2>
 
-            <h1 className="jos mb-6 font-spaceGrotesk text-6xl text-left text-white">
+            <h1 className="jos mb-6 font-spaceGrotesk text-3xl md:text-6xl text-left text-white">
               We Are Experts In <br />
               The World Of Solar <br />& Renewable Energy
             </h1>
             <div className=" ">
-              <p className="leading-[1.33] lg:text-xl xl:text-2xl text-left max-w-[60%]">
+              <p className="leading-[1.33] lg:text-xl xl:text-2xl text-left md:max-w-[60%]">
                 Duis fringilla orci fermentum scelerisque tempus. Pellentesque
                 nec ante non augue finibus sagittis. Curabitur mollis lectus et
                 risus ultricies congue. Pellentesque tempus ultrices nulla, et

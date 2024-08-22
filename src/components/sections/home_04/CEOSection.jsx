@@ -10,7 +10,7 @@ const CEOSection = () => {
       </div>
 
       {/* Content */}
-      <div className="flex flex-col lg:flex-row items-center  px-20">
+      <div className="flex flex-col lg:flex-row items-center px-6 md:px-20">
         {/* CEO Image */}
         <div className="mb-8 lg:mb-0 lg:mr-8">
           <img src="assets/img/th-1/12.png" alt="CEO" className="rounded-lg" />

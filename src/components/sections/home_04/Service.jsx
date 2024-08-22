@@ -8,14 +8,14 @@ const Service = () => {
         {/* Section Container */}
         <div className="global-container">
           {/* Section Content Block */}
-          <div className="flex flex-row justify-center items-center w-full mb-10 md:mb-16 lg:mb-20">
-            <div className="jos mx-auto  w-1/2">
+          <div className="flex flex-col md:flex-row justify-center items-center w-full mb-10 md:mb-16 lg:mb-20">
+            <div className="jos mx-auto w-full md:w-1/2">
               <h2 className="text-colorBlue text-4xl mb-2">Crypto card</h2>
               <h2 className="font-spaceGrotesk text-4xl font-medium text-white">
                 Elevate Your Crypto Experience with Crown Bankers Cards!
               </h2>
             </div>
-            <div className="w-1/2">
+            <div className="mt-4 md:mt-0 w-full md:w-1/2">
               <p className="mb-8 text-lg leading-[1.42] last:mb-0 lg:text-[21px]">
                 Discover the ultimate flexibility in managing your
                 cryptocurrency with Crown Bankers. Whether you're shopping

@@ -79,7 +79,7 @@ const ResetPassword = () => {
 
   return (
     <div className="w-full flex flex-col md:flex-row h-full bg-custom-eclipse">
-      <div className="mx-auto w-1/2 text-center flex flex-col justify-center px-32">
+      <div className="mx-auto w-full md:w-1/2 text-center flex flex-col justify-center px-4 md:px-32 mt-4 md:mt-0">
         <div className=" text-center flex flex-row justify-center gap-6 mb-12 items-center ">
           <a href="/">
             <img src="/assets/img/logo.png" className="" />
@@ -88,7 +88,7 @@ const ResetPassword = () => {
             <div className="font-bold text-4xl">Crown Bankers</div>
           </a>
         </div>
-        <div className="block rounded-lg bg-white px-[30px] py-[50px] text-left shadow-[0_4px_60px_0_rgba(0,0,0,0.1)] sm:px-10">
+        <div className="block rounded-lg bg-white px-[30px] py-[50px] text-left sm:px-10">
           {/* Login Form */}
           {/* Form Group */}
           <div className="grid grid-cols-1 gap-6">
@@ -213,7 +213,7 @@ const ResetPassword = () => {
           </div>
         </div>
       </div>
-      <div className="relative w-1/2 h-screen ">
+      <div className="relative w-full md:w-1/2 h-[600px] md:h-screen ">
         {/* Background Image */}
         <img
           src="/assets/LoginBg.png"
