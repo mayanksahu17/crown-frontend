@@ -43,10 +43,10 @@ const Verify = () => {
                 <div className="flex flex-col justify-center items-center rounded-lg bg-white px-[30px] py-[50px] text-left shadow-[0_4px_60px_0_rgba(0,0,0,0.1)] sm:px-10">
                   <h1 className="text-4xl lg:text-5xl font-medium mb-4 ">
                     Welcome to a <br /> World Where
-                    <br /> <span className="text-textred">Dreams</span>{" "}
+                    <br /> <span className="text-primary">Dreams</span>{" "}
                     Transform <br />
                     into{" "}
-                    <span className="text-textred">
+                    <span className="text-primary">
                       Investment <br />
                       Success
                     </span>

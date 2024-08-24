@@ -26,7 +26,7 @@ export default function Table({ className, columns, data, heading }) {
   return (
     <div className="w-full overflow-auto">
       {heading && (
-        <div className="mb-2 text-xl font-normal text-[#fff]">{heading}</div>
+        <div className="mb-2 text-xl font-normal text-black">{heading}</div>
       )}
       <table
         className={clsx(
@@ -39,7 +39,7 @@ export default function Table({ className, columns, data, heading }) {
           {headerGroups.map((el) => (
             <tr
               {...el.getHeaderGroupProps()}
-              className="bg-textred text-white"
+              className="bg-colorBlue text-white"
               key={el.id}
             >
               {el.headers.map((currElem) => (
@@ -54,7 +54,7 @@ export default function Table({ className, columns, data, heading }) {
             </tr>
           ))}
         </thead>
-        <tbody {...getTableBodyProps()} className="w-full text-white">
+        <tbody {...getTableBodyProps()} className="w-full text-black">
           {!(data?.length < 1) ? (
             page.map((el) => {
               prepareRow(el);
@@ -86,7 +86,7 @@ export default function Table({ className, columns, data, heading }) {
         </tbody>
       </table>
 
-      <div className="flex items-center justify-between border-t border-gray-200 bg-textred px-4 mt-4 py-2 text-white">
+      <div className="flex items-center justify-between border-t border-gray-200 bg-colorBlue px-4 mt-4 py-2 text-black">
         <div className="text-sm ">
           Showing{" "}
           <span className="font-medium">

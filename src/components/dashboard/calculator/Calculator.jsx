@@ -25,7 +25,7 @@ const Calculator = ({ navigate, isCalculator = false }) => {
         <div className="flex flex-col max-w-4xl mx-auto px-6 borderOuter py-6 gap-4">
           <h1 className="flex space-x-4 pl-3 my-2 text-left text-white font-semibold leading-relaxed text-2xl font-Montserrat ">
             <span>Profit calculator</span>
-            <span className="text-textred">
+            <span className="text-primary">
               {selectedPackage?.package_name}
             </span>
           </h1>

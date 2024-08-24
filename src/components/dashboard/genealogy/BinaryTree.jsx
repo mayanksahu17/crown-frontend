@@ -33,7 +33,7 @@ export default function BinaryTree({ data }) {
           }}
         />
         <button
-          className="w-[300px] py-1 border-r bg-textred text-white border-gray-200 hover:bg-[#c7b483] last:border-none font-medium"
+          className="w-[300px] py-1 border-r bg-primary text-white rounded-xl border-gray-200 hover:bg-colorBlue last:border-none font-medium"
           onClick={() => {
             handleNavigate(`/dashboard/genealogy/binary/${inputData}`);
           }}

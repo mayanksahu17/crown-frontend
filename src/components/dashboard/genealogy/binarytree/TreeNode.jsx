@@ -24,7 +24,7 @@ export default function TreeNode({
     <tr>
       <td
         className={clsx(
-          "p-2 border border-gray-500 text-red-600 font-semibold",
+          "p-2 border border-gray-500 text-colorBlue font-semibold",
           rounded === "bottom" && "rounded-bl"
         )}
       >

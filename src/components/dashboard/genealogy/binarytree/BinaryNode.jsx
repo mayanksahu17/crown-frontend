@@ -92,7 +92,7 @@ export default function BinaryNode({ data, last, first, ofTwo, side }) {
           {renderImageByPackage()}
           {showTree && data && !first && side && (
             <div
-              className="absolute bottom-20 left-[200px] w-[450px] rounded-2xl transform -translate-x-1/2 -mt-40 -500 p-2 bg-gray-900 z-100 "
+              className="absolute bottom-20 left-[200px] w-[450px] rounded-2xl transform -translate-x-1/2 -mt-40 -500 bg-gray-900 z-100 "
               style={{ zIndex: 1000 }}
             >
               <Tree data={data} />
@@ -100,7 +100,7 @@ export default function BinaryNode({ data, last, first, ofTwo, side }) {
           )}
           {showTree && data && !first && !side && (
             <div
-              className="absolute bottom-20 left-[30px] w-[450px] rounded-2xl transform -translate-x-1/2 -mt-40 -500 p-2 bg-gray-900 z-100 "
+              className="absolute bottom-20 left-[30px] w-[450px] rounded-2xl transform -translate-x-1/2 -mt-40 -500  bg-gray-900 z-100 "
               style={{ zIndex: 1000 }}
             >
               <Tree data={data} />
@@ -108,7 +108,7 @@ export default function BinaryNode({ data, last, first, ofTwo, side }) {
           )}
           {showTree && data && first && (
             <div
-              className="absolute top-[0] left-[330px] w-[450px] rounded-2xl transform -translate-x-1/2 -mt-40 -500 p-2 bg-gray-900 z-100"
+              className="absolute top-[0] left-[330px] w-[450px] rounded-2xl transform -translate-x-1/2 -mt-40 -500  bg-gray-900 z-100"
               style={{ zIndex: 1000 }}
             >
               <Tree data={data} />
@@ -117,7 +117,7 @@ export default function BinaryNode({ data, last, first, ofTwo, side }) {
         </div>
         <span
           className={`text-center text-sm  ${
-            !data ? "text-red-600 mt-2 " : "text-red-600 font-semibold mt-2 "
+            !data ? "text-primary mt-2 " : "text-primary font-semibold mt-2 "
           }`}
         >
           {data ? data.user_id : ""}

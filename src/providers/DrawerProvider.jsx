@@ -23,7 +23,7 @@ export default function DrawerProvider({ toggleDrawer, isOpen }) {
       className="w-full h-full"
       size="260px"
     >
-      <div className="bg-textred w-full h-full p-3 flex flex-col items-start">
+      <div className="bg-primary w-full h-full p-3 flex flex-col items-start">
         <div className="cursor-pointer h-14 p-2 w-14 rounded-full bg-white flex items-center justify-center">
           <img
             src={Logo}

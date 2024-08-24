@@ -19,10 +19,10 @@ export default function Tab({ data }) {
           <div
             key={index}
             className={clsx(
-              "py-1 px-2 md:px-4 font-light cursor-pointer",
+              "py-1 px-2 md:px-4  cursor-pointer",
               selectedTab === route?.split("/")?.findLast((el) => el)
-                ? " border-b-4  text-white border-white"
-                : " !text-white",
+                ? " border-b-4  font-bold text-black border-black"
+                : "text-gray-700",
               arr.length - 1 === index && "rounded-tr-lg rounded-br-lg",
               index === 0 && "rounded-tl-lg rounded-bl-lg"
             )}

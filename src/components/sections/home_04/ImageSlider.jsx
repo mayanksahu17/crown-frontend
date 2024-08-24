@@ -10,10 +10,10 @@ const ImageSlider = () => {
           <img src="assets/img/th-1/11.png" className="w-[70%]"></img>
         </div>
       </div>
-      <div className="bg-white">
+      <div className="bg-colorBlack">
         <div className="jos mx-auto mb-12 max-w-[715px] text-center lg:mb-16 pt-4">
           <p
-            className="text-lg text-black"
+            className="text-lg text-white"
             style={{
               fontSize: "32px",
               fontWeight: "bold",
@@ -53,15 +53,7 @@ const ImageSlider = () => {
                 className="max-w-full"
               />
             </SwiperSlide>
-            <SwiperSlide>
-              <img
-                src="assets/img/th-1/alchemy-pay.png"
-                alt="brand-2"
-                width="183"
-                height="35"
-                className="max-w-full"
-              />
-            </SwiperSlide>
+
             <SwiperSlide>
               <img
                 src="assets/img/th-1/binance.png"
@@ -89,15 +81,7 @@ const ImageSlider = () => {
                 className="max-w-full"
               />
             </SwiperSlide>
-            <SwiperSlide>
-              <img
-                src="assets/img/th-1/alchemy-pay.png"
-                alt="brand-1"
-                width="180"
-                height="38"
-                className="max-w-full"
-              />
-            </SwiperSlide>
+
             <SwiperSlide>
               <img
                 src="assets/img/th-1/binance.png"

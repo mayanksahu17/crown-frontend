@@ -132,7 +132,7 @@ export default function Investment({ data }) {
           <div className="flex items-center justify-end">
             <IoClose
               size="20"
-              className="text-white cursor-pointer"
+              className="text-black cursor-pointer"
               onClick={() => {
                 handleDataChange("isOpenModal", false);
                 handleDataChange("isTokenClicked", false);
@@ -322,7 +322,7 @@ export default function Investment({ data }) {
                 className="h-full w-full "
               />
               <Button
-                className=" !py-1 !h-10 !flex !items-center !justify-center rounded-md w-full mt-2 text-white font-normal "
+                className=" flex items-center justify-center rounded-md w-full mt-2 text-white font-normal "
                 // disabled={true}
                 onClick={() => {
                   handleDataChange("isOpenModal", true);

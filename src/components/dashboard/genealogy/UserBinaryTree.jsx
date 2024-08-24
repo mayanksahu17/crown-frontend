@@ -76,7 +76,7 @@ export default function UserBinaryTree() {
             }}
           />
           <button
-            className="w-[300px] py-1 border-r bg-textred text-white border-gray-200 hover:bg-[#c7b483] last:border-none font-medium"
+            className="w-[300px] py-1 border-r bg-primary text-white border-gray-200 hover:bg-colorBlue last:border-none font-medium"
             onClick={() => {
               handleNavigate(`/dashboard/genealogy/binary/${inputData}`);
             }}
@@ -93,7 +93,7 @@ export default function UserBinaryTree() {
             {buttons.map((el, index) => (
               <button
                 className={clsx(
-                  "w-full py-1 border-r bg-textred text-white border-gray-200 hover:bg-[#c7b483] last:border-none font-medium"
+                  "w-full py-1 border-r bg-primary text-white border-gray-200 hover:bg-colorBlue last:border-none font-medium"
                 )}
                 key={index}
                 onClick={el?.onClick}

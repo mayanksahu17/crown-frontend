@@ -38,7 +38,7 @@ const Content_03 = () => {
           </div>
           <FsLightbox
             toggler={toggler}
-            sources={["https://www.youtube.com/watch?v=3nQNiWdeH2Q"]}
+            sources={["https://youtu.be/u-Q4siIGJQ8"]}
           />
           <div className="flex w-full justify-end mt-4">
             <Social />
