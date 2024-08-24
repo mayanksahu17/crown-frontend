@@ -56,9 +56,9 @@ export default function UpdateWalletAddressModal({ isOpen, handleClose }) {
   };
 
   return !user?.user?.withdrawal_wallet ? (
-    <div className="mt-4 text-white">
+    <div className="mt-4 text-black px-6">
       <div className="w-full">
-        <p className="text-xl text-white font-semibold leading-tight">
+        <p className="text-xl text-black font-semibold leading-tight">
           Update Wallet Address
         </p>
         <div className="w-full font-light text-sm mt-1">
@@ -69,7 +69,7 @@ export default function UpdateWalletAddressModal({ isOpen, handleClose }) {
       <div className="w-full mt-4">
         {showOtpInput ? (
           <>
-            <label className="block text-[#fff] font-normal">Enter OTP</label>
+            <label className="block text-black font-normal">Enter OTP</label>
             <input
               type="text"
               name="otp"
@@ -81,7 +81,7 @@ export default function UpdateWalletAddressModal({ isOpen, handleClose }) {
           </>
         ) : (
           <>
-            <label className="block text-[#fff] font-normal">
+            <label className="block text-black font-normal">
               Wallet Address
             </label>
             <input
@@ -111,11 +111,11 @@ export default function UpdateWalletAddressModal({ isOpen, handleClose }) {
     </div>
   ) : (
     <div className="w-full mt-12  flex flex-col  items-start gap-2 ">
-      <p className="text-2xl text-white font-semibold leading-tight ">
+      <p className="text-2xl text-black font-semibold leading-tight ">
         Wallet Address
       </p>
-      <div className="mx-[-20px]">
-        <div className=" rounded-2xl bg-gradient-to-l text-sm from-[#8011E8] to-[#CD6AFB] p-4 max-w-full ">
+      <div className="">
+        <div className=" rounded-2xl bg-colorBlue p-4 max-w-full ">
           {user?.user?.withdrawal_wallet}
         </div>
       </div>
