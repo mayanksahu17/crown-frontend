@@ -28,7 +28,7 @@ const Faq_Section = () => {
                 </p>
                 <Link
                   to="/faq"
-                  className="button mt-5 rounded-[50px] border-2 border-black bg-black py-4 text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white"
+                  className="button mt-5 rounded-[50px] border-2 border-black bg-colorBlue py-4 text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white"
                 >
                   Ask you questions
                 </Link>
@@ -46,18 +46,18 @@ const Faq_Section = () => {
                 <li
                   className={`accordion-item border-b-[1px] border-[#DBD6CF] pb-6 pt-6 first:pt-0 last:border-b-0 last:pb-0 ${
                     activeIndex == 0 && "active"
-                  }`}
+                  } text-white`}
                 >
                   <div
                     onClick={() => handleAccordion(0)}
-                    className="accordion-header flex items-center justify-between font-dmSans text-xl font-bold leading-[1.2] -tracking-[0.5px] text-black lg:text-[28px]"
+                    className="accordion-header flex items-center justify-between font-dmSans text-xl font-bold leading-[1.2] -tracking-[0.5px]  lg:text-[28px]"
                   >
                     <p>Q: What is Crown Bankers, and what do they offer?</p>
                     <div className="accordion-icon">
                       <img src="assets/img/plus.svg" alt="plus" />
                     </div>
                   </div>
-                  <div className="accordion-content text-[#2C2C2C]">
+                  <div className="accordion-content text-[#ffeffa]">
                     <p>
                       Crown Bankers is a financial investment platform based in
                       the UK that offers investment packages in EVs, solar
@@ -75,7 +75,7 @@ const Faq_Section = () => {
                 >
                   <div
                     onClick={() => handleAccordion(1)}
-                    className="accordion-header flex items-center justify-between font-dmSans text-xl font-bold leading-[1.2] -tracking-[0.5px] text-black lg:text-[28px]"
+                    className="accordion-header flex items-center justify-between font-dmSans text-xl font-bold leading-[1.2] -tracking-[0.5px] text-black lg:text-[28px] text-white"
                   >
                     <p>
                       Q: How does the investment plan work at Crown Bankers?
@@ -84,7 +84,7 @@ const Faq_Section = () => {
                       <img src="assets/img/plus.svg" alt="plus" />
                     </div>
                   </div>
-                  <div className="accordion-content text-[#2C2C2C]">
+                  <div className="accordion-content text-[#ffeffa]">
                     <p>
                       Crown Bankers offers three investment packages - Beginner,
                       Grow, and Banker, with different investment ranges,
@@ -102,14 +102,14 @@ const Faq_Section = () => {
                 >
                   <div
                     onClick={() => handleAccordion(2)}
-                    className="accordion-header flex items-center justify-between font-dmSans text-xl font-bold leading-[1.2] -tracking-[0.5px] text-black lg:text-[28px]"
+                    className="accordion-header flex items-center justify-between font-dmSans text-xl font-bold leading-[1.2] -tracking-[0.5px] text-black lg:text-[28px] text-white"
                   >
                     <p>What types of returns can investors expect?</p>
                     <div className="accordion-icon">
                       <img src="assets/img/plus.svg" alt="plus" />
                     </div>
                   </div>
-                  <div className="accordion-content text-[#2C2C2C]">
+                  <div className="accordion-content text-[#ffeffa]">
                     <p>
                       Returns vary based on the chosen package. The ROI ranges
                       from 225% to 312%, and investors receive returns from

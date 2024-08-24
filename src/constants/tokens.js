@@ -1,5 +1,9 @@
 export const tokens = [
+  { label: "Tether-BEP20 (USDT.BEP20)", value: "USDT.BEP20" },
+  { label: "Tether-TRC20 (USDT.TRC20)", value: "USDT.TRC20" },
   { label: "Bitcoin (BTC)", value: "BTC" },
+  { label: "TRON (TRX)", value: "TRX" },
+
   { label: "Ethereum (ETH)", value: "ETH" },
   { label: "Tether (USDT)", value: "USDT" },
   { label: "Binance Coin (BNB)", value: "BNB" },
@@ -12,10 +16,20 @@ export const tokens = [
   { label: "Litecoin (LTC)", value: "LTC" },
   { label: "Bitcoin Cash (BCH)", value: "BCH" },
   { label: "Dogecoin (DOGE)", value: "DOGE" },
-  { label: "TRON (TRX)", value: "TRX" },
   { label: "BNB (BNB)", value: "BNB" },
-  { label: "Tether-BEP20 (USDT.BEP20)", value: "USDT.BEP20" },
-  { label: "Tether-TRC20 (USDT.TRC20)", value: "USDT.TRC20" },
 ];
-// export const allowedTransferId = "CROWN-100463";
-export const allowedTransferId = "CROWN-100023";
+export const allowedTransferId = "CROWN-100463";
+export const disbledUserIds = [
+  "CROWN-100040",
+  "CROWN-100043",
+  "CROWN-100046",
+  "CROWN-100032",
+  "CROWN-100039",
+  "CROWN-100044",
+  "CROWN-100048",
+  "CROWN-100052",
+  "CROWN-100055",
+  "CROWN-100059",
+  "CROWN-100062",
+];
+// export const allowedTransferId = "CROWN-100002";

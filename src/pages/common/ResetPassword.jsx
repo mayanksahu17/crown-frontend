@@ -78,148 +78,158 @@ const ResetPassword = () => {
   };
 
   return (
-    <>
-      <main className="main-wrapper relative overflow-hidden">
-        {/*...::: Login Section Start :::... */}
-        <section id="login-section">
-          {/* Section Spacer */}
-          <div className="py-40 pt-36 xl:pb-[200px] xl:pt-[180px]">
-            {/* Section Container */}
-            <div className="global-container">
-              <div className="mx-auto max-w-[910px] text-center">
-                <h1 className="mb-[50px]">Reset Password</h1>
-                <div className="block rounded-lg bg-white px-[30px] py-[50px] text-left shadow-[0_4px_60px_0_rgba(0,0,0,0.1)] sm:px-10">
-                  {/* Login Form */}
-                  {/* Form Group */}
-                  <div className="grid grid-cols-1 gap-6">
-                    {/* Form Single Input */}
-                    <div className="flex flex-col gap-y-[10px]">
-                      <label
-                        htmlFor="login-email"
-                        className="text-lg font-bold leading-[1.6]"
-                      >
-                        User ID
-                      </label>
-                      <input
-                        type="text"
-                        name="userId"
-                        value={formData.userId}
-                        onChange={(e) => handleChange("userId", e.target.value)}
-                        className="rounded-[10px] border border-gray-300 bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
-                      />
-                    </div>
-                    {formData.isOTPSent && (
-                      <div className="flex flex-col mb-4 w-full">
-                        <label
-                          htmlFor="login-email"
-                          className="text-lg font-bold leading-[1.6]"
-                        >
-                          Enter OTP
-                        </label>
-                        <input
-                          type="text"
-                          name="otp"
-                          value={formData.otp}
-                          onChange={(e) => handleChange("otp", e.target.value)}
-                          className="rounded-[10px] border border-gray-300 bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
-                        />
-                      </div>
-                    )}
+    <div className="w-full flex flex-col md:flex-row h-full bg-custom-eclipse">
+      <div className="mx-auto w-full md:w-1/2 text-center flex flex-col justify-center px-4 md:px-32 mt-4 md:mt-0">
+        <div className=" text-center flex flex-row justify-center gap-6 mb-12 items-center ">
+          <a href="/">
+            <img src="/assets/img/logo.png" className="" />
+          </a>
+          <a href="/">
+            <div className="font-bold text-4xl">Crown Bankers</div>
+          </a>
+        </div>
+        <div className="block rounded-lg bg-white px-[30px] py-[50px] text-left sm:px-10">
+          {/* Login Form */}
+          {/* Form Group */}
+          <div className="grid grid-cols-1 gap-6">
+            {/* Form Single Input */}
+            <div className="flex flex-col gap-y-[10px]">
+              <label
+                htmlFor="login-email"
+                className="text-lg font-bold leading-[1.6]"
+              >
+                User ID
+              </label>
+              <input
+                type="text"
+                name="userId"
+                value={formData.userId}
+                onChange={(e) => handleChange("userId", e.target.value)}
+                className="rounded-[10px] border border-secondary bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
+              />
+            </div>
+            {formData.isOTPSent && (
+              <div className="flex flex-col mb-4 w-full">
+                <label
+                  htmlFor="login-email"
+                  className="text-lg font-bold leading-[1.6]"
+                >
+                  Enter OTP
+                </label>
+                <input
+                  type="text"
+                  name="otp"
+                  value={formData.otp}
+                  onChange={(e) => handleChange("otp", e.target.value)}
+                  className="rounded-[10px] border border-secondary bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
+                />
+              </div>
+            )}
 
-                    {formData.isOTPSent && (
-                      <div className="flex flex-col mb-4 space-y-4 w-full">
-                        <label
-                          htmlFor="signup-password"
-                          className="text-lg font-bold leading-[1.6]"
-                        >
-                          Password
-                        </label>
-                        <div className="flex flex-column justify-between rounded-[10px] border border-gray-300 bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed">
-                          <input
-                            type={showPassword ? "text" : "password"}
-                            name="password"
-                            value={formData.password}
-                            onChange={(e) =>
-                              handleChange("password", e.target.value)
-                            }
-                            placeholder="............"
-                            className="outline-none"
-                            required=""
-                          />
-                          <div
-                            className="  flex items-center pr-2 cursor-pointer"
-                            onClick={togglePasswordVisibility}
-                          >
-                            {showPassword ? (
-                              <FaEyeSlash color="#000" size={18} />
-                            ) : (
-                              <FaEye color="#000" size={18} />
-                            )}
-                          </div>
-                        </div>
-
-                        <div className="flex flex-col gap-y-[10px]">
-                          <label
-                            htmlFor="signup-password"
-                            className="text-lg font-bold leading-[1.6]"
-                          >
-                            Confirm Password
-                          </label>
-                          <div className="flex flex-column justify-between rounded-[10px] border border-gray-300 bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed">
-                            <input
-                              type={showConfirmPassword ? "text" : "password"}
-                              name="confirmPassword"
-                              value={formData.confirmPassword}
-                              onChange={(e) =>
-                                handleChange("confirmPassword", e.target.value)
-                              }
-                              placeholder="............"
-                              className="outline-none"
-                            />
-                            <div
-                              className="  flex items-center pr-2 cursor-pointer"
-                              onClick={toggleConfirmPasswordVisibility}
-                            >
-                              {showConfirmPassword ? (
-                                <FaEyeSlash color="#000" size={18} />
-                              ) : (
-                                <FaEye color="#000" size={18} />
-                              )}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+            {formData.isOTPSent && (
+              <div className="flex flex-col mb-4 space-y-4 w-full">
+                <label
+                  htmlFor="signup-password"
+                  className="text-lg font-bold leading-[1.6]"
+                >
+                  Password
+                </label>
+                <div className="flex flex-column justify-between rounded-[10px] border border-secondary bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    value={formData.password}
+                    onChange={(e) => handleChange("password", e.target.value)}
+                    placeholder="............"
+                    className="outline-none"
+                    required=""
+                  />
+                  <div
+                    className="  flex items-center pr-2 cursor-pointer"
+                    onClick={togglePasswordVisibility}
+                  >
+                    {showPassword ? (
+                      <FaEyeSlash color="#000" size={18} />
+                    ) : (
+                      <FaEye color="#000" size={18} />
                     )}
                   </div>
-                  <button
-                    type="submit"
-                    onClick={handleSubmit}
-                    className="button mt-7 block rounded-[50px] border-2 border-black bg-black py-4 text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white"
-                  >
-                    {loadingStates.isSignInLoading && (
-                      <span className="absolute inset-0 flex items-center justify-center">
-                        <CgSpinner className="animate-spin" size={20} />
-                      </span>
-                    )}
-                    {!formData.isOTPSent ? "Reset Password" : "Verify OTP"}
-                  </button>
+                </div>
 
-                  <div className="mt-10 text-center">
-                    Don't have an account? &nbsp;
-                    <Link
-                      to="/signup"
-                      className="text-base font-semibold hover:text-colorOrangyRed"
+                <div className="flex flex-col gap-y-[10px]">
+                  <label
+                    htmlFor="signup-password"
+                    className="text-lg font-bold leading-[1.6]"
+                  >
+                    Confirm Password
+                  </label>
+                  <div className="flex flex-column justify-between rounded-[10px] border border-secondary bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed">
+                    <input
+                      type={showConfirmPassword ? "text" : "password"}
+                      name="confirmPassword"
+                      value={formData.confirmPassword}
+                      onChange={(e) =>
+                        handleChange("confirmPassword", e.target.value)
+                      }
+                      placeholder="............"
+                      className="outline-none"
+                    />
+                    <div
+                      className="  flex items-center pr-2 cursor-pointer"
+                      onClick={toggleConfirmPasswordVisibility}
                     >
-                      Sign Up here
-                    </Link>
+                      {showConfirmPassword ? (
+                        <FaEyeSlash color="#000" size={18} />
+                      ) : (
+                        <FaEye color="#000" size={18} />
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
-        </section>
-      </main>
-    </>
+          <button
+            type="submit"
+            onClick={handleSubmit}
+            className="button mt-7 block rounded-[50px] border-2 border-white bg-primary w-full text-2xl py-4 text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white"
+          >
+            {loadingStates.isSignInLoading && (
+              <span className="absolute inset-0 flex items-center justify-center">
+                <CgSpinner className="animate-spin" size={20} />
+              </span>
+            )}
+            {!formData.isOTPSent ? "Reset Password" : "Verify OTP"}
+          </button>
+
+          <div className="mt-10 text-center">
+            Don't have an account? &nbsp;
+            <Link
+              to="/signup"
+              className="text-base font-semibold hover:text-colorOrangyRed"
+            >
+              Sign Up here
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div className="relative w-full md:w-1/2 h-[600px] md:h-screen ">
+        {/* Background Image */}
+        <img
+          src="/assets/LoginBg.png"
+          className="w-full h-full"
+          alt="Background"
+        />
+
+        {/* Overlayed Login Image */}
+        <img
+          src="/assets/Login.png"
+          className="absolute top-0 left-0 w-full h-[80%]"
+          alt="Login"
+        />
+      </div>
+      {/* Section Container */}
+    </div>
   );
 };
 

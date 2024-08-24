@@ -31,7 +31,7 @@ export default {
 
       colors: {
         colorCodGray: "#191919",
-        colorOrangyRed: "#FE330A",
+        colorOrangyRed: "#00B3FF",
         colorLinenRuffle: "#EFEAE3",
         colorViolet: "#321CA4",
         colorGreen: "#39FF14",
@@ -39,6 +39,14 @@ export default {
         textred: "#FA895F",
         textwhite: "#FFFFFF",
         themeColor: "#D5AA6D",
+        primary: "#315DFF",
+        secondary: "#093AED",
+        colorBlack: "#020804",
+        colorBlue: "#12CEF9",
+      },
+      backgroundImage: {
+        "custom-eclipse":
+          "linear-gradient(134.15deg, #FEFFFE -1.52%, #F4FBFF 100%)",
       },
     },
   },

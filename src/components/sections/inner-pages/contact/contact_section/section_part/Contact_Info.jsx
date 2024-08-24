@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { FaFacebookF, FaYoutube, FaWhatsapp } from "react-icons/fa";
 
 const Contact_Info = () => {
   return (
@@ -26,7 +27,7 @@ const Contact_Info = () => {
             </a>
           </li>
           <li className="flex flex-col gap-y-4 text-2xl font-bold">
-            Give us a call: +44 7452117690
+            Give us a call: +44 7452 217071
           </li>
           <li className="flex flex-col gap-y-4 text-2xl font-bold">
             Follow us:
@@ -36,21 +37,11 @@ const Contact_Info = () => {
                   rel="noopener noreferrer"
                   target="_blank"
                   to="https://www.facebook.com/crownbankersofficial"
-                  className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed"
+                  className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-full bg-white hover:bg-colorOrangyRed"
                 >
-                  <img
-                    src="assets/img/th-1/facebook-icon-white.svg"
-                    alt="facebook"
-                    width={14}
-                    height={14}
-                    className="opacity-100 group-hover:opacity-0"
-                  />
-                  <img
-                    src="assets/img/th-1/facebook-icon-black.svg"
-                    alt="facebook"
-                    width={14}
-                    height={14}
-                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
+                  <FaFacebookF
+                    className="text-black group-hover:text-white"
+                    size={14}
                   />
                 </Link>
               </li>
@@ -59,21 +50,11 @@ const Contact_Info = () => {
                   rel="noopener noreferrer"
                   target="_blank"
                   to="https://www.youtube.com/@official-CrownBankers"
-                  className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed"
+                  className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-full bg-white hover:bg-colorOrangyRed"
                 >
-                  <img
-                    src="assets/img/th-1/youtube.svg"
-                    alt="twitter"
-                    width={14}
-                    height={14}
-                    className="opacity-100 group-hover:opacity-0"
-                  />
-                  <img
-                    src="assets/img/th-1/youtube-white.svg"
-                    alt="twitter"
-                    width={14}
-                    height={14}
-                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
+                  <FaYoutube
+                    className="text-black group-hover:text-white"
+                    size={14}
                   />
                 </Link>
               </li>
@@ -82,21 +63,11 @@ const Contact_Info = () => {
                   rel="noopener noreferrer"
                   target="_blank"
                   to="https://whatsapp.com/channel/0029VacNHAq60eBXejGceh3F"
-                  className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-[50%] bg-black hover:bg-colorOrangyRed"
+                  className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-full bg-white hover:bg-colorOrangyRed"
                 >
-                  <img
-                    src="assets/img/th-1/whatsapp-color.svg"
-                    alt="linkedin"
-                    width={14}
-                    height={14}
-                    className="opacity-100 group-hover:opacity-0"
-                  />
-                  <img
-                    src="assets/img/th-1/whatsapp.svg"
-                    alt="linkedin"
-                    width={14}
-                    height={14}
-                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
+                  <FaWhatsapp
+                    className="text-black group-hover:text-white"
+                    size={14}
                   />
                 </Link>
               </li>

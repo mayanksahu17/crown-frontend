@@ -24,7 +24,7 @@ const Footer_04 = () => {
                     <li>
                       <Link
                         to="/"
-                        className="transition-all duration-300 ease-linear hover:text-colorGreen"
+                        className="transition-all duration-300 ease-linear hover:text-colorBlue"
                       >
                         Home
                       </Link>
@@ -32,7 +32,7 @@ const Footer_04 = () => {
                     <li>
                       <Link
                         to="/about"
-                        className="transition-all duration-300 ease-linear hover:text-colorGreen"
+                        className="transition-all duration-300 ease-linear hover:text-colorBlue"
                       >
                         About Us
                       </Link>
@@ -40,7 +40,7 @@ const Footer_04 = () => {
                     <li>
                       <Link
                         to="/services"
-                        className="transition-all duration-300 ease-linear hover:text-colorGreen"
+                        className="transition-all duration-300 ease-linear hover:text-colorBlue"
                       >
                         Services
                       </Link>
@@ -48,7 +48,7 @@ const Footer_04 = () => {
                     <li>
                       <Link
                         to="/pricing"
-                        className="transition-all duration-300 ease-linear hover:text-colorGreen"
+                        className="transition-all duration-300 ease-linear hover:text-colorBlue"
                       >
                         Pricing
                       </Link>
@@ -56,7 +56,7 @@ const Footer_04 = () => {
                     <li>
                       <Link
                         to="/contact"
-                        className="transition-all duration-300 ease-linear hover:text-colorGreen"
+                        className="transition-all duration-300 ease-linear hover:text-colorBlue"
                       >
                         Contact
                       </Link>
@@ -76,7 +76,7 @@ const Footer_04 = () => {
                     <li>
                       <Link
                         to="/signup"
-                        className="transition-all duration-300 ease-linear hover:text-colorGreen"
+                        className="transition-all duration-300 ease-linear hover:text-colorBlue"
                       >
                         Signup
                       </Link>
@@ -84,7 +84,7 @@ const Footer_04 = () => {
                     <li>
                       <Link
                         to="/login"
-                        className="transition-all duration-300 ease-linear hover:text-colorGreen"
+                        className="transition-all duration-300 ease-linear hover:text-colorBlue"
                       >
                         Login
                       </Link>
@@ -92,7 +92,7 @@ const Footer_04 = () => {
                     <li>
                       <Link
                         to="/error-404"
-                        className="transition-all duration-300 ease-linear hover:text-colorGreen"
+                        className="transition-all duration-300 ease-linear hover:text-colorBlue"
                       >
                         404 Not Found
                       </Link>
@@ -100,7 +100,7 @@ const Footer_04 = () => {
                     <li>
                       <Link
                         to="/reset-password"
-                        className="transition-all duration-300 ease-linear hover:text-colorGreen"
+                        className="transition-all duration-300 ease-linear hover:text-colorBlue"
                       >
                         Password Reset
                       </Link>
@@ -122,7 +122,7 @@ const Footer_04 = () => {
                         rel="noopener noreferrer"
                         target="_blank"
                         to="https://crownbankers.com/"
-                        className="transition-all duration-300 ease-linear hover:text-colorGreen"
+                        className="transition-all duration-300 ease-linear hover:text-colorBlue"
                       >
                         URL Categorization
                       </Link>
@@ -132,7 +132,7 @@ const Footer_04 = () => {
                         target="_blank"
                         to="https://crownbankers.com/"
                         rel="noopener noreferrer"
-                        className="transition-all duration-300 ease-linear hover:text-colorGreen"
+                        className="transition-all duration-300 ease-linear hover:text-colorBlue"
                       >
                         Advisories
                       </Link>
@@ -142,7 +142,7 @@ const Footer_04 = () => {
                         rel="noopener noreferrer"
                         target="_blank"
                         to="https://crownbankers.com/"
-                        className="transition-all duration-300 ease-linear hover:text-colorGreen"
+                        className="transition-all duration-300 ease-linear hover:text-colorBlue"
                       >
                         Security Check Up
                       </Link>
@@ -152,7 +152,7 @@ const Footer_04 = () => {
                         rel="noopener noreferrer"
                         target="_blank"
                         to="https://crownbankers.com/"
-                        className="transition-all duration-300 ease-linear hover:text-colorGreen"
+                        className="transition-all duration-300 ease-linear hover:text-colorBlue"
                       >
                         User Center
                       </Link>
@@ -162,7 +162,7 @@ const Footer_04 = () => {
                         rel="noopener noreferrer"
                         target="_blank"
                         to="https://crownbankers.com/"
-                        className="transition-all duration-300 ease-linear hover:text-colorGreen"
+                        className="transition-all duration-300 ease-linear hover:text-colorBlue"
                       >
                         App Version
                       </Link>
@@ -288,7 +288,7 @@ const Footer_04 = () => {
         </div>
         {/* Section Container */}
         {/* Background Gradient */}
-        <div className="absolute left-1/2 top-[80%] -z-[1] h-[1280px] w-[1280px] -translate-x-1/2 rounded-full bg-gradient-to-t from-[#39FF14] to-[#37ff1460] blur-[150px]"></div>
+        <div className="absolute left-1/2 top-[80%] -z-[1] h-[1280px] w-[1280px] -translate-x-1/2 rounded-full bg-gradient-to-t from-primary to-colorBlue blur-[150px]"></div>
       </div>
     </footer>
   );

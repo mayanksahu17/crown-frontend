@@ -5,13 +5,14 @@ import Content_02 from "../../components/sections/home_01/Content_02";
 import FunFact from "../../components/sections/home_01/FunFact";
 import { Popup } from "../../components/dashboard/Popup";
 import { useState } from "react";
+import Calculator from "../../components/dashboard/calculator/Calculator";
 // import Pricing from '../../components/sections/home_01/Pricing';
 // import Testimonial_Section from '../../components/sections/home_01/Testimonial_Section';
 
 const Home_01 = () => {
   const [popups, setPopups] = useState([
     // { imageSrc: "/images/11march.jpeg", visible: true },
-    { imageSrc: "assets/img/popups/19june.png", visible: true },
+    { imageSrc: "assets/img/popups/23july.jpeg", visible: false },
     // { imageSrc: "/images/10apr2.png", visible: false },
     // { imageSrc: "/images/4march3.jpeg", visible: false },
   ]);
@@ -43,6 +44,7 @@ const Home_01 = () => {
       )}
       <Hero />
       <Service />
+      <Calculator />
       <Content_01 />
       <Content_02 />
 

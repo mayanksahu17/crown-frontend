@@ -24,7 +24,7 @@ const Comment_Form = () => {
                 name="comment-name"
                 id="comment-name"
                 placeholder="Adam Smith"
-                className="placeholder:[#7F8995] rounded-[10px] border border-gray-300 bg-white px-6 py-[18px] font-semibold text-black outline-none transition-all focus:border-colorOrangyRed"
+                className="placeholder:[#7F8995] rounded-[10px] border border-secondary bg-white px-6 py-[18px] font-semibold text-black outline-none transition-all focus:border-colorOrangyRed"
                 required=""
               />
             </div>
@@ -42,7 +42,7 @@ const Comment_Form = () => {
                 name="comment-email"
                 id="comment-email"
                 placeholder="officialcrownbankers@gmail.com"
-                className="placeholder:[#7F8995] rounded-[10px] border border-gray-300 bg-white px-6 py-[18px] font-semibold text-black outline-none transition-all focus:border-colorOrangyRed"
+                className="placeholder:[#7F8995] rounded-[10px] border border-secondary bg-white px-6 py-[18px] font-semibold text-black outline-none transition-all focus:border-colorOrangyRed"
                 required=""
               />
             </div>
@@ -62,7 +62,7 @@ const Comment_Form = () => {
               <textarea
                 name="comment-message"
                 id="comment-message"
-                className="placeholder:[#7F8995] min-h-[180px] rounded-[10px] border border-gray-300 bg-white px-6 py-[18px] font-semibold text-black outline-none transition-all focus:border-colorOrangyRed"
+                className="placeholder:[#7F8995] min-h-[180px] rounded-[10px] border border-secondary bg-white px-6 py-[18px] font-semibold text-black outline-none transition-all focus:border-colorOrangyRed"
                 placeholder="Write your message here..."
                 required=""
                 defaultValue={"                            "}

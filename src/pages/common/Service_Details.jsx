@@ -1,21 +1,21 @@
-import Breadcrumb from '../../components/breadcrumb/Breadcrumb';
-import Contact from '../../components/contact/Contact';
-import Content_01 from '../../components/sections/inner-pages/service_details/Content_01';
+import Breadcrumb from "../../components/breadcrumb/Breadcrumb";
+import Contact from "../../components/contact/Contact";
+import Content_01 from "../../components/sections/inner-pages/service_details/Content_01";
 
-import Content_04 from '../../components/sections/inner-pages/service_details/Content_04';
+import Content_04 from "../../components/sections/inner-pages/service_details/Content_04";
 
-import Content_05 from '../../components/sections/inner-pages/service_details/Content_05';
+import Content_05 from "../../components/sections/inner-pages/service_details/Content_05";
 
-import Content_06 from '../../components/sections/inner-pages/service_details/Content_06';
-import Content_02 from '../../components/sections/inner-pages/service_details/Content_02';
-import FunFact from '../../components/sections/inner-pages/service_details/FunFact';
+import Content_06 from "../../components/sections/inner-pages/service_details/Content_06";
+import Content_02 from "../../components/sections/inner-pages/service_details/Content_02";
+import FunFact from "../../components/sections/inner-pages/service_details/FunFact";
 
 const Services_Details = () => {
   return (
     <>
-      <main className='main-wrapper relative overflow-hidden'>
+      <main className="main-wrapper relative overflow-hidden pt-32 bg-colorBlack text-white">
         {/*...::: Breadcrumb Section Start :::... */}
-        <Breadcrumb title='Our Services' link='Service Details' />
+        {/* <Breadcrumb title='Our Services' link='Service Details' /> */}
         {/*...::: Breadcrumb Section End :::... */}
         {/*...::: Content Section Start :::... */}
         <Content_01 />

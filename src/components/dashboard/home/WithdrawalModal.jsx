@@ -26,7 +26,7 @@ const WithdrawalModal = ({
           ? "R&B Wallet"
           : selectedWallet === "roi"
           ? "ROI Wallet"
-          : "Interest Wallet",
+          : "Extra Inome Wallet",
       value:
         selectedWallet === "rnb"
           ? "R&B"
@@ -49,7 +49,7 @@ const WithdrawalModal = ({
     control: (provided) => ({
       ...provided,
       backgroundColor: "white",
-      border: "1px solid #e2e8f0",
+      border: "1px solid black",
       borderRadius: "8px",
       padding: "1px",
     }),
@@ -70,8 +70,8 @@ const WithdrawalModal = ({
     }),
   };
   const handleWithdrawalSubmit = async () => {
-    if (parseFloat(withdrawalData?.amount) < 25) {
-      toast.error("Withdrawal amount has to be greater than $25");
+    if (parseFloat(withdrawalData?.amount) < 15) {
+      toast.error("Withdrawal amount has to be greater than $15");
       return;
     }
     if (
@@ -147,27 +147,6 @@ const WithdrawalModal = ({
     }
   };
   return (
-    // <Modal
-    //   isOpen={isWithdrawalModalOpen}
-    //   handleClose={() => {
-    //     setWithdrawalData({
-    //       isOTPSentForWithdrawal: false,
-    //       amount: 0,
-    //       fromWallet: {
-    //         label: "R&B Wallet",
-    //         value: "R&B",
-    //       },
-    //       securityPin: "",
-    //       currency: {
-    //         label: "Bitcoin",
-    //         value: "BTC",
-    //       },
-    //       otp: "",
-    //       isLoading: false,
-    //     });
-    //     setIsWithdrawalModalOpen(false);
-    //   }}
-    // >
     <div className="mt-4 flex flex-col text-white items-center justify-end">
       <div className="flex w-full items-center justify-end">
         <IoClose
@@ -199,10 +178,10 @@ const WithdrawalModal = ({
         </p>
         <p className="text-base">
           Enter the amount you wish to withdraw from your account. Please note
-          that the withdrawal process may take a few business days.
+          that the withdrawal request will be approved within 0 to 8 hours
         </p>
       </div>
-      <div className="w-full mt-4">
+      <div className="w-full mt-6">
         <label className="block text-[#fff] font-normal">Select Wallet</label>
         <Select
           options={[
@@ -215,7 +194,7 @@ const WithdrawalModal = ({
               value: "ROI",
             },
             {
-              label: "Interest Wallet",
+              label: "Extra Inome Wallet",
               value: "Interest",
             },
           ]}
@@ -224,7 +203,7 @@ const WithdrawalModal = ({
           value={withdrawalData.fromWallet}
         />
       </div>
-      <div className="w-full mt-4">
+      <div className="w-full mt-6">
         <label className="block text-[#fff] font-normal">Enter Amount</label>
         <input
           type="text"
@@ -245,7 +224,7 @@ const WithdrawalModal = ({
           value={withdrawalData.currency}
         />
       </div> */}
-      <div className="w-full mt-4">
+      <div className="w-full mt-6">
         <label className="block text-[#fff] font-normal">
           Enter Your Security Pin
         </label>

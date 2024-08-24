@@ -189,7 +189,6 @@ export default function Investment({ data }) {
                   name="downlineId"
                   className="w-full bg-white px-2.5 py-2 border rounded-md border-solid border-slate-200 outline-none mt-1 !ml-0"
                   onChange={(e) => {
-                    handleChange(e);
                     handleDataChange("downlineId", e.target.value);
                   }}
                   value={allData.downlineId}

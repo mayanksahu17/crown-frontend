@@ -78,7 +78,7 @@ export default function Navbar() {
           <input
             type="text"
             placeholder="Search Anything"
-            className="pl-4 pr-10 py-1 bg-white w-full rounded-full border border-gray-300 focus:outline-none focus:border-blue-500"
+            className="pl-4 pr-10 py-1 bg-white w-full rounded-full border border-secondary focus:outline-none focus:border-blue-500"
             value={searchTerm}
             onChange={handleSearchChange}
           />
@@ -86,7 +86,7 @@ export default function Navbar() {
             <CiSearch size={20} color="#6B7280" />
           </div>
           {searchResults.length > 0 && (
-            <div className="absolute max-w-sm lg:max-w-xl xl:max-w-2xl left-0 right-0 bg-white w-full border border-gray-300 rounded-md shadow-md mt-2 z-10 !pl-0">
+            <div className="absolute max-w-sm lg:max-w-xl xl:max-w-2xl left-0 right-0 bg-white w-full border border-secondary rounded-md shadow-md mt-2 z-10 !pl-0">
               {searchResults.map((result) => (
                 <div
                   key={result.route}

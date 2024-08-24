@@ -1,7 +1,7 @@
 const Content11 = () => {
   return (
     <section id="section-content-1">
-      <div className="bg-[#EDEDE0]">
+      <div className="bg-colorBlack text-white">
         <div className="py-20 xl:py-[130px]">
           <div className="global-container">
             <div className="grid items-center gap-10 md:grid-cols-[minmax(0,_1fr)_1.3fr] lg:gap-[60px] xl:gap-x-[94px]">
@@ -13,10 +13,10 @@ const Content11 = () => {
                 />
               </div>
               <div className="jos" data-jos_animation="fade-left">
-                <h6 className=" mb-4">
+                <div className="mb-4">
                   <span className="inline-block w-2 h-2 bg-colorOrangyRed rounded-full mr-2"></span>
                   Binary Bonus
-                </h6>
+                </div>
                 <h1 className="text-colorOrangyRed font-raleway text-6xl">
                   Binary Bonus
                 </h1>

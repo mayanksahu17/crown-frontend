@@ -28,7 +28,9 @@ const sendForgotPasswordOTP = async (data) => {
 const resetForgotPassword = async (data) => {
   return axios.post(`${baseURL}/auth/forgot-password-reset`, data);
 };
-
+const userLoginAdmin = async (data) => {
+  return axios.post(`${baseURL}/admin/user-signin`, data);
+};
 const authService = {
   signUpUser,
   sendVerificationEmail,
@@ -37,6 +39,7 @@ const authService = {
   sendForgotPasswordOTP,
   resetForgotPassword,
   sendLoginOTP,
+  userLoginAdmin,
 };
 
 export default authService;

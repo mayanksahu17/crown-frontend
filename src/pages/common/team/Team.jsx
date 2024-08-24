@@ -6,9 +6,9 @@ import Member from "../../../components/widget/team/Member";
 const Team = () => {
   return (
     <>
-      <main className="main-wrapper relative overflow-hidden">
+      <main className="main-wrapper relative overflow-hidden pt-32 bg-black text-white">
         {/*...::: Breadcrumb Section Start :::... */}
-        <Breadcrumb title="Our Team" />
+        {/* <Breadcrumb title="Our Team" /> */}
         {/*...::: Breadcrumb Section End :::... */}
         {/*...::: Team Section Start :::... */}
         <section id="team-section">

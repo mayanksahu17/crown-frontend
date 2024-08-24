@@ -14,11 +14,18 @@ const createInvestment = (user, data) => {
     email: user?.user?.email,
   });
 };
+const createNowInvestment = (user, data) => {
+  return axios.post(`/nowpayment/create_transaction`, {
+    ...data,
+    email: user?.user?.email,
+  });
+};
 
 const investmentService = {
   getDownlineReport,
   getPackageReport,
   createInvestment,
+  createNowInvestment,
 };
 
 export default investmentService;

@@ -6,9 +6,9 @@ import Testimonial_Section from "../../components/sections/inner-pages/service/t
 const Services = () => {
   return (
     <>
-      <main className="main-wrapper relative overflow-hidden">
+      <main className="main-wrapper relative overflow-hidden pt-32 bg-colorBlack text-white">
         {/*...::: Breadcrumb Section Start :::... */}
-        <Breadcrumb title="Our Services" link="Services" />
+        {/* <Breadcrumb title="Our Services" link="Services" /> */}
         {/*...::: Breadcrumb Section End :::... */}
         {/*...::: Service Section Start :::... */}
         <Service_Section />

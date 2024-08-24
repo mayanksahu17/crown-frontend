@@ -25,12 +25,11 @@ const Hero = () => {
                 data-jos_animation="fade"
               >
                 <Link
-                  to="/signup"
+                  to="/login"
                   className="button rounded-[50px] border-2 border-black bg-black py-4 text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white"
                 >
-                  Get started for free
+                  Login
                 </Link>
-                
               </div>
             </div>
             <div
@@ -48,9 +47,16 @@ const Hero = () => {
 
             <div className="my-10 h-[1px] w-full bg-[#DBD6CF] lg:my-16 xl:my-20"></div>
             <div className="jos mx-auto mb-12 max-w-[715px] text-center lg:mb-16">
-              <p className="text-lg" style={{fontSize:"32px",fontWeight:"bold",lineHeight:"35px"}}>
-              Invest & Enjoy with Our Exclusive Crypto Card Rewards!
-              Partner with
+              <p
+                className="text-lg"
+                style={{
+                  fontSize: "32px",
+                  fontWeight: "bold",
+                  lineHeight: "35px",
+                }}
+              >
+                Invest & Enjoy with Our Exclusive Crypto Card Rewards!
+                Partner with
               </p>
             </div>
             <div className="jos brand-slider" data-jos_animation="fade">

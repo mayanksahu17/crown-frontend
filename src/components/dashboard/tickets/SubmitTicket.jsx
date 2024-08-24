@@ -119,7 +119,7 @@ export default function SubmitTicket() {
             <label className="block text-[#fff] font-normal">Subject</label>
             <input
               type="text"
-              className="w-full text-sm bg-transparent text-gray-500 border border-gray-300 px-2.5 py-2.5 rounded-md  outline-none mt-1 !ml-0"
+              className="w-full text-sm bg-transparent text-gray-500 border border-secondary px-2.5 py-2.5 rounded-md  outline-none mt-1 !ml-0"
               placeholder="Write a Subject"
               name="subject"
               value={allInputs.subject}
@@ -130,7 +130,7 @@ export default function SubmitTicket() {
             <label className="block text-[#fff] font-normal">Description</label>
             <textarea
               type="text"
-              className="w-full text-sm bg-transparent text-gray-500 border border-gray-300 px-2.5 py-2.5 rounded-md  outline-none mt-1 !ml-0"
+              className="w-full text-sm bg-transparent text-gray-500 border border-secondary px-2.5 py-2.5 rounded-md  outline-none mt-1 !ml-0"
               placeholder="Write description"
               rows="2"
               onChange={(e) =>

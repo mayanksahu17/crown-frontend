@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { FaChevronRight } from "react-icons/fa";
 // eslint-disable-next-line react/prop-types
 const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
   const [mobileSubMenu, setMobileSubMenu] = useState("");
@@ -95,13 +95,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
           >
             <Link to="#" className="nav-link-item drop-trigger">
               Services
-              <img
-                className="dropdown-icon"
-                src="assets/img/icon-black-cheveron-right.svg"
-                alt="cheveron-right"
-                width={16}
-                height={16}
-              />
+              <FaChevronRight className="dropdown-icon" size={16} />
             </Link>
             <ul
               className={`sub-menu ${mobileSubMenu === 2 && "active"}`}
@@ -121,13 +115,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
           >
             <Link to="#" className="nav-link-item drop-trigger">
               Pages
-              <img
-                className="dropdown-icon"
-                src="assets/img/icon-black-cheveron-right.svg"
-                alt="cheveron-right"
-                width={16}
-                height={16}
-              />
+              <FaChevronRight className="dropdown-icon" size={16} />
             </Link>
             <ul
               className={`sub-menu ${mobileSubMenu === 3 && "active"}`}
@@ -139,25 +127,19 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
               >
                 <Link to="#" data-menu-get="h3" className="drop-trigger">
                   Team
-                  <img
-                    className="dropdown-icon"
-                    src="assets/img/icon-black-cheveron-right.svg"
-                    alt="cheveron-right"
-                    width={16}
-                    height={16}
-                  />
+                  <FaChevronRight className="dropdown-icon" size={16} />
                 </Link>
                 <ul
                   className={`sub-menu shape-none ${
                     mobileSubMenuSub === 2 && "active"
-                  }`}
+                  } bg-black`}
                   id="submenu-5"
                 >
                   <li className="sub-menu--item">
                     <Link to="/team">Team</Link>
                   </li>
                   {/* <li className="sub-menu--item">
-                    <Link to="/team-details">Team Details</Link>
+                    <Link to="/media">Team Photos</Link>
                   </li> */}
                 </ul>
               </li>
@@ -167,13 +149,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
               >
                 <Link to="#" data-menu-get="h3" className="drop-trigger">
                   FAQ
-                  <img
-                    className="dropdown-icon"
-                    src="assets/img/icon-black-cheveron-right.svg"
-                    alt="cheveron-right"
-                    width={16}
-                    height={16}
-                  />
+                  <FaChevronRight className="dropdown-icon" size={16} />
                 </Link>
                 <ul
                   className={`sub-menu shape-none ${
@@ -186,24 +162,6 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                   </li>
                 </ul>
               </li>
-              <li
-                onClick={(e) => handleSubMenuSub(e, 4)}
-                className="sub-menu--item nav-item-has-children"
-              >
-                <ul
-                  className={`sub-menu shape-none ${
-                    mobileSubMenuSub === 4 && "active"
-                  }`}
-                  id="submenu-7"
-                >
-                  <li className="sub-menu--item">
-                    <Link to="/portfolio">Portfolio</Link>
-                  </li>
-                  <li className="sub-menu--item">
-                    <Link to="/portfolio-details">Portfolio Details</Link>
-                  </li>
-                </ul>
-              </li>
               <li className="sub-menu--item"></li>
               <li
                 onClick={(e) => handleSubMenuSub(e, 5)}
@@ -211,13 +169,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
               >
                 <Link to="#" data-menu-get="h3" className="drop-trigger">
                   Utilities
-                  <img
-                    className="dropdown-icon"
-                    src="assets/img/icon-black-cheveron-right.svg"
-                    alt="cheveron-right"
-                    width={16}
-                    height={16}
-                  />
+                  <FaChevronRight className="dropdown-icon" size={16} />
                 </Link>
                 <ul
                   className={`sub-menu shape-none ${
@@ -248,11 +200,29 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                   Business Plan
                 </Link>
               </li>
+              <li
+                onClick={(e) => handleSubMenuSub(e, 5)}
+                className="sub-menu--item nav-item-has-children"
+              >
+                <Link to="/map" data-menu-get="h3" className="drop-trigger">
+                  Legal
+                </Link>
+              </li>
             </ul>
           </li>
           <li className="nav-item">
             <Link to="/contact" className="nav-link-item">
               Contact
+            </Link>
+          </li>
+          <li className="md:hidden">
+            <Link to="/login" className="nav-link-item">
+              Login
+            </Link>
+          </li>
+          <li className="md:hidden">
+            <Link to="/signup" className="nav-link-item">
+              Sign up
             </Link>
           </li>
         </ul>

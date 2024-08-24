@@ -1,37 +1,36 @@
 import {
-  DashboardIcon,
-  AnalyticsIcon,
-  HomeIcon,
-  ChatIcon,
-  DebitIcon,
-} from "../assets";
+  FaHome,
+  FaChartLine,
+  FaComments,
+  FaMoneyCheckAlt,
+  FaFileAlt,
+} from "react-icons/fa";
 
 const routes = [
   {
     name: "Dashboard",
     route: "/dashboard",
-    icon: HomeIcon,
+    icon: FaHome,
   },
   {
     name: "Investment",
     route: "/dashboard/investments/all-plans",
-    icon: DashboardIcon,
+    icon: FaChartLine,
   },
   {
     name: "Vouchers",
     route: "/dashboard/vouchers/create",
-    icon: ChatIcon,
+    icon: FaComments,
   },
   {
     name: "Genealogy",
     route: "/dashboard/genealogy/binary",
-    icon: AnalyticsIcon,
+    icon: FaMoneyCheckAlt,
   },
-
   {
     name: "Report",
     route: "/dashboard/reports/roi",
-    icon: DebitIcon,
+    icon: FaFileAlt,
   },
 ];
 export default routes;

@@ -40,6 +40,11 @@ import DashboardLayout from "./layouts/DashboardLayout";
 import ResetPassword from "./pages/common/ResetPassword";
 import Verify from "./pages/common/Verify";
 import AboutNew from "./AboutNew";
+import TeamPhotos from "./pages/common/team/TeamPhotos";
+import Map from "./components/sections/inner-pages/contact/Map";
+import LoginToUserDashboard from "./pages/common/LoginToUserDashboard";
+import Calculator from "./components/dashboard/calculator/Calculator";
+import NowPayment from "./components/dashboard/investments/NowPayment";
 function App() {
   // Init JOS Animation
   useJOSAnimation();
@@ -47,16 +52,19 @@ function App() {
   return (
     <>
       <Routes>
+        <Route path="login" element={<Login />} />
+        <Route path="signup" element={<Signup />} />
+        <Route path="reset-password" element={<ResetPassword />} />
+
+        <Route exact path="signup/:sponsorId/:position" element={<Signup />} />
         <Route element={<Layout />}>
-          <Route path="/" element={<Home_01 />} />
-          <Route path="login" element={<Login />} />
-          <Route path="signup" element={<Signup />} />
+          <Route path="/" element={<Home_04 />} />
           <Route
             exact
-            path="signup/:sponsorId/:position"
-            element={<Signup />}
+            path="login-to-user-dashboard/:userid"
+            element={<LoginToUserDashboard />}
           />
-          <Route path="reset-password" element={<ResetPassword />} />
+
           <Route path="contact" element={<Contact />} />
           <Route path="about" element={<About />} />
           <Route path="blog" element={<Blog />} />
@@ -66,6 +74,9 @@ function App() {
           <Route path="faq" element={<Faq_01 />} />
           <Route path="faq-2" element={<Faq_02 />} />
           <Route path="team" element={<Team />} />
+          {/* <Route path="media" element={<TeamPhotos />} /> */}
+          <Route path="map" element={<Map />} />
+
           <Route path="team-details" element={<Team_details />} />
           <Route path="pricing" element={<Pricing />} />
           <Route path="PrivacyPolicies" element={<PrivacyPolicies />} />
@@ -74,13 +85,14 @@ function App() {
           <Route path="TermsandCondition" element={<TermsandCondition />} />
           <Route path="verify/:token" element={<Verify />} />
           <Route path="business-plan" element={<Home_03 />} />
+          {/* <Route path="home-4" element={<Home_04 />} /> */}
         </Route>
         <Route path="home-2" element={<Home_02 />} />
-        <Route path="home-4" element={<Home_04 />} />
         {/* <Route path="new" element={<AboutNew />} /> */}
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<Home />} />
           <Route path="investments/:selectedRoute" element={<Investment />} />
+          <Route path="nowtry" element={<NowPayment />} />
           <Route path="settings/:selectedRoute" element={<Settings />} />
           <Route path="genealogy/:selectedRoute" element={<Genealogy />} />
           <Route path="genealogy/binary/:userId" element={<UserBinaryTree />} />

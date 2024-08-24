@@ -45,6 +45,7 @@ import {
   ForgotPassword,
 } from "../pages";
 import { UserBinaryTree } from "../components";
+import LoginToUserDashboard from "../pages/common/LoginToUserDashboard";
 
 function Index() {
   return (
@@ -84,6 +85,7 @@ function Index() {
             <Route path="/Banners" element={<Banners />} />
             <Route path="/Legal" element={<Legal />} />
           </Route>
+          <Route exact path="user" element={<LoginToUserDashboard />} />
           <Route path="/login" element={<Login />} />
           {/* <Route path="/forgotpassword" element={<Forgotpassword />} /> */}
           <Route path="/forgot-password" element={<ForgotPassword />} />

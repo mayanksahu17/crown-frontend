@@ -170,7 +170,7 @@ const TransferModal = ({ setIsTransferModalOpen }) => {
               value: "ROI",
             },
             {
-              label: "Interest Wallet",
+              label: "Extra Inome Wallet",
               value: "Interest",
             },
           ]}
@@ -192,7 +192,7 @@ const TransferModal = ({ setIsTransferModalOpen }) => {
               value: "ROI",
             },
             {
-              label: "Interest Wallet",
+              label: "Extra Inome Wallet",
               value: "Interest",
             },
           ]}

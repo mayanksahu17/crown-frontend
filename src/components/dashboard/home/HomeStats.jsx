@@ -1,4 +1,5 @@
 import Card from "./Card";
+import UpdateWalletAddressModal from "./UpdateWalletAddressModal";
 
 export default function HomeStats({
   selectedWallet,
@@ -6,7 +7,7 @@ export default function HomeStats({
   cardsData,
 }) {
   return (
-    <div className="hidden lg:flex flex-col items-start max-w-[19rem] w-full h-full min-h-screen  py-10 px-6 ">
+    <div className="flex flex-col items-center md:items-start md:max-w-[19rem] w-full h-full md:min-h-screen  py-10 px-6 ">
       <div className="flex flex-col w-full space-y-4 ">
         {cardsData.map((el, index) => (
           <Card
@@ -19,6 +20,7 @@ export default function HomeStats({
           />
         ))}
       </div>
+      <UpdateWalletAddressModal />
     </div>
   );
 }

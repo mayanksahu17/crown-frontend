@@ -64,10 +64,10 @@ const Contact = () => {
                 <li className="flex flex-col gap-x-2 leading-tight text-colorOrangyRed lg:flex-row lg:leading-normal">
                   Phone:
                   {/* <a
-                    href="tel:+44 7452117690"
+                    href="tel:+44 7452 217071"
                     className="text-white hover:text-colorOrangyRed"
                   > */}
-                  +44 7452117690
+                  +44 7452 217071
                   {/* </a> */}
                 </li>
               </ul>

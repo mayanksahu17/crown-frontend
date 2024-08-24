@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Team = () => {
   return (
     <section id="team-section">
-      <div className="bg-[#EDEDE0]">
+      <div className="bg-colorBlack text-white">
         {/* Section Spacer */}
         <div className="py-20 xl:py-[130px]">
           {/* Section Container */}
