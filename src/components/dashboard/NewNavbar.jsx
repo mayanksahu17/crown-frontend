@@ -4,9 +4,13 @@ import routes from "../../constants/route";
 import clsx from "clsx";
 import { FaUser, FaBars, FaTimes } from "react-icons/fa";
 import { Logo } from "../../assets";
+import { useAuth } from "../../hooks/useAuth";
+import Notifications from "./Notifications";
 
 export default function NewNavbar() {
   const navigate = useNavigate();
+  const { user, logOutUser } = useAuth();
+
   const location = useLocation();
   const [activeRoute, setActiveRoute] = useState("");
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -16,7 +20,15 @@ export default function NewNavbar() {
     navigate(route);
     setDropdownOpen(false); // Close dropdown on route change
   };
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
 
+  const handleLogout = () => {
+    logOutUser();
+    navigate("/login");
+  };
   return (
     <nav className="z-50 bg-white py-2 px-4 shadow-md flex items-center justify-between">
       <div className="flex items-center space-x-6">
@@ -64,8 +76,51 @@ export default function NewNavbar() {
 
       {/* Icons on the right side */}
       <div className="flex items-center space-x-4">
-        <FaUser className="text-gray-400 cursor-pointer" size={20} />
-        <div className="w-8 h-8 rounded-full bg-gray-300 cursor-pointer"></div>
+        <div className="flex items-center space-x-2 lg:space-x-4 relative ">
+          <Notifications />
+
+          <div
+            className="flex items-center  cursor-pointer"
+            onClick={toggleDropdown}
+          >
+            <div className="h-10 w-10 sm:h-10 sm:w-10 bg-white rounded-full cursor-pointer flex items-center justify-center">
+              <img
+                src={
+                  user?.user?.profile_picture
+                    ? user?.user?.profile_picture
+                    : Logo
+                }
+                alt="Profile"
+                className="w-full h-full rounded-full"
+              />
+            </div>
+
+            {isDropdownOpen && (
+              <div className="text-black absolute top-10 z-50 sm:top-14 font-normal bg-white rounded shadow-sm mt-2 py-2 w-40 md:w-52 right-0 text-sm">
+                <div
+                  className="cursor-pointer px-3 py-1.5 hover:bg-gray-200"
+                  onClick={() => handleNavigate("/dashboard/settings/profile")}
+                >
+                  Settings
+                </div>
+                <div
+                  className="cursor-pointer px-3 py-1.5 hover:bg-gray-200"
+                  onClick={() =>
+                    handleNavigate("/dashboard/tickets/submit-ticket")
+                  }
+                >
+                  Help & Support
+                </div>
+                <div
+                  className="cursor-pointer px-3 py-1.5 hover:bg-red-100 text-red-400"
+                  onClick={handleLogout}
+                >
+                  Log Out
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
 
       {/* Mobile Dropdown Menu */}

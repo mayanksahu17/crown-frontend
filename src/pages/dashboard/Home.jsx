@@ -163,7 +163,7 @@ export default function Home() {
   ) : (
     <>
       <div className="flex flex-col md:flex-row  h-full">
-        <div className="w-full md:w-1/4 m-[-12px] lg:m-[-16px]">
+        <div className="w-full md:w-1/4">
           <HomeStats
             selectedWallet={selectedWallet}
             setSelectedWallet={(value) => setSelectedWallet(value)}
@@ -171,70 +171,73 @@ export default function Home() {
           />
         </div>
         <div className="flex w-full md:w-3/4  flex-col">
-          <div className="flex  justify-center items-center w-full">
-            <div className="w-full md:w-3/4 justify-between bg-gradient-to-l from-[#221F1C] to-[#39272D] mt-[-12px] lg:mt-[-16px] rounded-2xl ">
-              <div className="w-full mt-4  full flex flex-col justify-between h-full  p-8 rounded-4xl">
-                <Navbar />
-                <div className="mt-8 h-full flex flex-col justify-between ">
-                  <div>
-                    <h4 className="text-[#919191] font-normal text-lg">
-                      Available Balance
-                    </h4>
-                    <p className="font-semibold text-[#fff] text-3xl ">
-                      ${getSelectedWalletBalance()}
-                    </p>
-                  </div>
-
-                  <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {!disbledUserIds?.includes(user?.user?.userId) && (
-                      <button
-                        className="rounded-full w-full px-4 py-2.5 w-full bg-gradient-to-l from-[#8011E8] to-[#CD6AFB] text-white text-base font-normal disabled:bg-gray-900 "
-                        onClick={() => setIsWithdrawalModalOpen(true)}
-                      >
-                        <div className="flex flex-row justify-center gap-4 w-full items-center ">
-                          <div className="">Withdraw</div>
-                          <div className="w-10 h-10 sm:w-10 sm:h-10 bg-[#242424] rounded-full flex items-center justify-center cursor-pointer">
-                            <GoArrowDownLeft />
-                          </div>
-                        </div>
-                      </button>
-                    )}
-
-                    <button
-                      className="mt-2 rounded-full px-4 py-2.5 w-full bg-gradient-to-l from-[#FA895F] to-[#E753AE] text-white text-base font-normal"
-                      onClick={() =>
-                        handleNavigate("/dashboard/vouchers/create")
-                      }
-                    >
-                      <div className="flex flex-row justify-center gap-4 w-full items-center ">
-                        <div className="">Reinvest</div>
-                        <div className="w-10 h-10 sm:w-10 sm:h-10 bg-[#242424] rounded-full flex items-center justify-center cursor-pointer">
-                          <MdArrowOutward />
-                        </div>
-                      </div>
-                    </button>
-                    {allowedTransferId === user?.user?.userId && (
-                      <button
-                        className="rounded-full w-full px-4 py-2.5 w-full bg-gradient-to-l from-[#8011E8] to-[#CD6AFB] text-white text-base font-normal disabled:bg-gray-900 "
-                        onClick={() => setIsTransferModalOpen(true)}
-                      >
-                        <div className="flex flex-row justify-center gap-4 w-full items-center ">
-                          <div className="">Transfer</div>
-                          <div className="w-10 h-10 sm:w-10 sm:h-10 bg-[#242424] rounded-full flex items-center justify-center cursor-pointer">
-                            <GoArrowDownLeft />
-                          </div>
-                        </div>
-                      </button>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
           {!isWithdrawalModalOpen && !isTransferModalOpen && (
             <>
-              <WalletFeartures />
-              <HomeTabComponent allData={allData} />
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
+                <WalletCard
+                  title="ROI Wallet"
+                  amount="128,320"
+                  borderColor="bg-blue-500"
+                />
+                <WalletCard
+                  title="R&B Wallet"
+                  amount="128,320"
+                  borderColor="bg-green-500"
+                />
+                <WalletCard
+                  title="Extra income wallet"
+                  amount="128,320"
+                  borderColor="bg-yellow-500"
+                />
+                <WalletCard
+                  title="Coupons"
+                  amount="128,320"
+                  borderColor="bg-orange-500"
+                />
+              </div>
+
+              {!disbledUserIds?.includes(user?.user?.userId) && (
+                <button
+                  className="rounded-full w-full px-4 py-2.5 w-full bg-gradient-to-l from-[#8011E8] to-[#CD6AFB] text-white text-base font-normal disabled:bg-gray-900 "
+                  onClick={() => setIsWithdrawalModalOpen(true)}
+                >
+                  <div className="flex flex-row justify-center gap-4 w-full items-center ">
+                    <div className="">Withdraw</div>
+                    <div className="w-10 h-10 sm:w-10 sm:h-10 bg-[#242424] rounded-full flex items-center justify-center cursor-pointer">
+                      <GoArrowDownLeft />
+                    </div>
+                  </div>
+                </button>
+              )}
+
+              <button
+                className="mt-2 rounded-full px-4 py-2.5 w-full bg-gradient-to-l from-[#FA895F] to-[#E753AE] text-white text-base font-normal"
+                onClick={() => handleNavigate("/dashboard/vouchers/create")}
+              >
+                <div className="flex flex-row justify-center gap-4 w-full items-center ">
+                  <div className="">Reinvest</div>
+                  <div className="w-10 h-10 sm:w-10 sm:h-10 bg-[#242424] rounded-full flex items-center justify-center cursor-pointer">
+                    <MdArrowOutward />
+                  </div>
+                </div>
+              </button>
+              {allowedTransferId === user?.user?.userId && (
+                <button
+                  className="rounded-full w-full px-4 py-2.5 w-full bg-gradient-to-l from-[#8011E8] to-[#CD6AFB] text-white text-base font-normal disabled:bg-gray-900 "
+                  onClick={() => setIsTransferModalOpen(true)}
+                >
+                  <div className="flex flex-row justify-center gap-4 w-full items-center ">
+                    <div className="">Transfer</div>
+                    <div className="w-10 h-10 sm:w-10 sm:h-10 bg-[#242424] rounded-full flex items-center justify-center cursor-pointer">
+                      <GoArrowDownLeft />
+                    </div>
+                  </div>
+                </button>
+              )}
+              <div className="flex flex-row w-full items-center gap-4 justify-center mt-12">
+                <WalletFeartures />
+                <HomeTabComponent allData={allData} />
+              </div>
             </>
           )}
           {isWithdrawalModalOpen && (
@@ -257,6 +260,18 @@ export default function Home() {
     </>
   );
 }
+
+const WalletCard = ({ title, amount, borderColor }) => {
+  return (
+    <div className="flex items-center bg-white rounded-lg shadow-sm p-4 border">
+      <div className={`w-1 h-full rounded-l-lg ${borderColor}`}></div>
+      <div className="ml-4">
+        <div className="text-gray-500 font-medium text-sm">{title}</div>
+        <p className="text-black font-bold text-lg">${amount}</p>
+      </div>
+    </div>
+  );
+};
 {
   /* <button
                       className="mt-2 rounded-full px-4 py-2.5 w-full bg-[#000000] text-white text-base font-normal"

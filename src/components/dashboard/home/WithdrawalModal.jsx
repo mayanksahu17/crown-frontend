@@ -151,7 +151,7 @@ const WithdrawalModal = ({
       <div className="flex w-full items-center justify-end">
         <IoClose
           size="20"
-          className="text-white cursor-pointer"
+          className="text-black cursor-pointer"
           onClick={() => {
             setWithdrawalData({
               isOTPSentForWithdrawal: false,

@@ -132,7 +132,7 @@ export default function NowPayment({ data }) {
           <div className="flex items-center justify-end">
             <IoClose
               size="20"
-              className="text-white cursor-pointer"
+              className="text-black cursor-pointer"
               onClick={() => {
                 handleDataChange("isOpenModal", false);
                 handleDataChange("isTokenClicked", false);
