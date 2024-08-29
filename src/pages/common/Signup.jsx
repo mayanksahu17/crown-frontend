@@ -282,7 +282,7 @@ const Signup = () => {
       <div className="mx-auto w-full md:w-1/2 text-center flex flex-col justify-center px-2 md:px-24 mt-4 md:mt-0">
         <div className=" text-center flex flex-row justify-center gap-6 mb-12 items-center ">
           <a href="/">
-            <img src="/assets/img/logo.png" className="" />
+            <img src="/assets/img/logoname.png" className="w-16" />
           </a>
           <a href="/">
             <div className="font-bold text-4xl">Crown Bankers</div>
@@ -510,13 +510,19 @@ const Signup = () => {
               />
               <label htmlFor="signup-check" className="text-xl font-normal">
                 I have read and accept the &nbsp;
-                <Link href="#" className="font-bold hover:text-colorOrangyRed">
+                <a
+                  href="/TermsandCondition"
+                  className="font-bold hover:text-colorOrangyRed"
+                >
                   Terms &amp; Conditions
-                </Link>
+                </a>
                 &nbsp; and &nbsp;
-                <Link href="#" className="font-bold hover:text-colorOrangyRed">
+                <a
+                  href="/PrivacyPolicies"
+                  className="font-bold hover:text-colorOrangyRed"
+                >
                   Privacy Policy
-                </Link>
+                </a>
               </label>
               <ErrorMessage
                 error={errors.acceptTerms}

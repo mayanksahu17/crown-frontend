@@ -21,10 +21,11 @@ const Content_01 = () => {
             </div>
             <div>
               <p className="mb-8 text-lg leading-[1.42] last:mb-0 lg:text-[21px]">
-                Suspendisse in pulvinar turpis, id ultricies nisi. Nam vitae
-                quam et quam efficitur porttitor. Donec semper arcu sed risus
-                euismod pharetra a vitae tellus. Ut interdum quis sem ut
-                laoreet. Duis semper eros diam.
+                Our goal is to reshape the modern world by embracing
+                nature-friendly practices. We're committed to driving change
+                with sustainable solutions, fostering a greener future, and
+                making eco-conscious choices that benefit both people and the
+                planet. Join us in this vital journey.
               </p>
 
               <Link

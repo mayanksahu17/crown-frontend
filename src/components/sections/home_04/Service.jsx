@@ -8,7 +8,7 @@ const Service = () => {
         {/* Section Container */}
         <div className="global-container">
           {/* Section Content Block */}
-          <div className="flex flex-col md:flex-row justify-center items-center w-full mb-10 md:mb-16 lg:mb-20">
+          {/* <div className="flex flex-col md:flex-row justify-center items-center w-full mb-10 md:mb-16 lg:mb-20">
             <div className="jos mx-auto w-full md:w-1/2">
               <h2 className="text-colorBlue text-4xl mb-2">Crypto card</h2>
               <h2 className="font-spaceGrotesk text-4xl font-medium text-white">
@@ -25,7 +25,7 @@ const Service = () => {
                 transactions anytime, anywhere.
               </p>
             </div>
-          </div>
+          </div> */}
           <ul className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <li
               className="jos group rounded-[10px] bg-[#121212] p-[30px]"
@@ -68,7 +68,7 @@ const Service = () => {
                 <img
                   src="assets/img/th-1/8.png"
                   alt="icon-green-service"
-                  className="h-full w-auto"
+                  className="h-full w-[500px]"
                 />
               </div>
             </li>

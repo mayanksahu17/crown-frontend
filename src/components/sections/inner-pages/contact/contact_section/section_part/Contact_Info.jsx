@@ -27,7 +27,7 @@ const Contact_Info = () => {
             </a>
           </li>
           <li className="flex flex-col gap-y-4 text-2xl font-bold">
-            Give us a call: +44 7452 217071
+            Give us a call: +44 7452237526
           </li>
           <li className="flex flex-col gap-y-4 text-2xl font-bold">
             Follow us:
@@ -62,7 +62,7 @@ const Contact_Info = () => {
                 <Link
                   rel="noopener noreferrer"
                   target="_blank"
-                  to="https://whatsapp.com/channel/0029VacNHAq60eBXejGceh3F"
+                  to="https://chat.whatsapp.com/IjNiWEBDuoo7hmTCgynB9T"
                   className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-full bg-white hover:bg-colorOrangyRed"
                 >
                   <FaWhatsapp

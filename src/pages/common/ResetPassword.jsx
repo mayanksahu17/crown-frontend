@@ -82,7 +82,7 @@ const ResetPassword = () => {
       <div className="mx-auto w-full md:w-1/2 text-center flex flex-col justify-center px-4 md:px-32 mt-4 md:mt-0">
         <div className=" text-center flex flex-row justify-center gap-6 mb-12 items-center ">
           <a href="/">
-            <img src="/assets/img/logo.png" className="" />
+            <img src="/assets/img/logoname.png" className="w-16" />
           </a>
           <a href="/">
             <div className="font-bold text-4xl">Crown Bankers</div>

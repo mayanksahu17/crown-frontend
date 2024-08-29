@@ -35,19 +35,19 @@ const CEOSection = () => {
             </svg>
           </div>
           <p className="text-xl mb-6">
-            By investing in our solar projects, you’re not just choosing a smart
-            financial move—you’re championing a sustainable future for our
-            planet.
+            At Crown Bankers, we’re focused on advancing solar energy and
+            creating a sustainable future. Investing with us means supporting
+            innovative projects that drive real change in the energy sector.
           </p>
           <p className="text-gray-400">
-            As CEO, I’m thrilled to lead our solar innovation. With over 180
-            global plants and a major 90-acre site, we’re driving clean energy
-            forward. Your investment supports cutting-edge technology and a
-            greener future, offering both strong returns and environmental
-            benefits. Join us in shaping a sustainable world.
+            As CEO, I’m committed to leading our efforts in harnessing solar
+            power to benefit both businesses and communities. Your investment
+            will play a key role in advancing our mission and achieving
+            meaningful progress. Thank you for considering us as your partner in
+            this important journey.
           </p>
           <div className="mt-6">
-            <p className="text-cyan-400 text-lg">Adrian</p>
+            <p className="text-cyan-400 text-lg">Adrian Cadiz</p>
             <p className="text-gray-400 text-sm">C.E.O</p>
           </div>
         </div>

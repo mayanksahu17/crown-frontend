@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logoDark from "/assets/img/logo.png";
+import logoDark from "/assets/img/logoname.png";
 import logoLight from "../../assets/img/logo-light.png";
 
 // eslint-disable-next-line react/prop-types

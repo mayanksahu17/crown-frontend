@@ -16,7 +16,7 @@ const Header = ({ loginCSS, signupCSS, navColor, light }) => {
       <div className="global-container">
         <div className="flex items-center justify-between gap-x-8">
           {/* Header Logo */}
-          <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center w-16">
             <Logo light={light} />
           </div>
           {/* Header Logo */}

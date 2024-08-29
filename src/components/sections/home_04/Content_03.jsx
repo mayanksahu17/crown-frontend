@@ -30,7 +30,7 @@ const Content_03 = () => {
             </button>
             {/* Video Play Button */}
             <div className="jos mt-10  px-10">
-              <h2 className="text-colorBlue text-2xl">Energise</h2>
+              <h2 className="text-colorBlue text-2xl">Crown Bankers</h2>
               <h2 className="font-spaceGrotesk text-4xl font-medium leading-[1.06] -tracking-[2px] text-white sm:text-[44px] lg:text-[56px] xl:text-[70px] align-start flex w-full">
                 An Alternative <br /> Energy Source
               </h2>

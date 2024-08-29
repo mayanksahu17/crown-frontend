@@ -19,12 +19,12 @@ const Team = () => {
               {/* Section Content Block */}
               <div className="jos mb-10 text-center lg:mb-16 xl:mb-20">
                 <div className="mx-auto md:max-w-xs lg:max-w-xl xl:max-w-[746px]">
-                  <h2>Our team consists of a group of talents</h2>
+                  <h2>About Our CEO</h2>
                 </div>
               </div>
               {/* Section Content Block */}
               {/* Team Member List */}
-              <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <ul className="flex items-center justify-center w-full  gap-6 ">
                 {/* Team Member Item */}
                 {data.map((member, index) => (
                   <Member key={index} {...member} />

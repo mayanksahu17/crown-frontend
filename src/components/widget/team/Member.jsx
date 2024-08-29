@@ -10,10 +10,11 @@ const Member = ({
   twitter,
   linkedin,
   instagram,
+  whatsapp,
 }) => {
   return (
     <li
-      className="jos rounded-[20px] bg-colorLinenRuffle p-[20px]"
+      className="jos rounded-[20px] bg-colorLinenRuffle p-[20px] w-full md:w-1/3"
       data-jos_animation="flip"
       data-jos_delay="0.1"
     >
@@ -35,14 +36,24 @@ const Member = ({
         </Link>
         <div className="mt-3 flex flex-col justify-center gap-3 xxl:flex-row xxl:flex-wrap xxl:items-center">
           <span className="text-center text-[21px]">{info}</span>
-          {/* {
+          {
             <Team_Social
               facebook={facebook}
-              twitter={twitter}
-              linkedin={linkedin}
-              instagram={instagram}
+              whatsapp={whatsapp}
+              // twitter={twitter}
+              // linkedin={linkedin}
+              // instagram={instagram}
             />
-          } */}
+          }
+        </div>
+        <div>
+          Adrian Cadiz is the dynamic CEO of Crown Bankers, leading the company
+          with a strong vision and strategic expertise. A native of the UK,
+          Adrian's leadership will drive our operations over the next three
+          years, with the option to renew based on his continued commitment.
+          Under his guidance, Crown Bankers is poised to excel in the financial
+          and technological landscapes, shaping a bright future for the company
+          and its stakeholders.
         </div>
       </div>
     </li>

@@ -5,14 +5,19 @@ const Map = () => {
         <div className="global-container">
           <div className="mb-10 items-start flex lg:mb-16 xl:mb-20 ">
             <div className="mx-auto md:max-w-xs lg:max-w-xl xl:max-w-[950px]">
-              <h2 className="text-white">
-                Compliance with Legal Standards and Regulation
-              </h2>
+              <h2 className="text-white">Legal Compliance and Verification</h2>
               <p className="text-white font-light mt-6">
-                Crown Bankers has meticulously ensured its legal incorporation
-                in the United Kingdom. By adhering strictly to regulations and
-                legal provisions, Crown Bankers demonstrates its commitment to
-                transparency and integrity.
+                Crown Bankers is fully compliant with legal and regulatory
+                requirements in both the UK and New Zealand. Our company is
+                officially registered in these countries, and our credentials
+                can be verified on government-owned websites. We are committed
+                to maintaining the highest standards of transparency and
+                integrity in all aspects of our operations. Our certifications
+                are issued under the name 'CROWNQUEST ASSET MANAGEMENT LIMITED'
+                due to regulatory and administrative reasons. This name is used
+                for official purposes and represents the same entity as Crown
+                Bankers. Below are our official certificates for both the UK and
+                New Zealand.
               </p>
               <img src="/assets/img/th-1/uk.png" alt="uk" className="mt-6" />
               <div className="rounded-lg bg-[#FFEBD8] text-black w-24 mt-6 text-center">

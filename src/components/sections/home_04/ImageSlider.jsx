@@ -59,8 +59,8 @@ const ImageSlider = () => {
                 src="assets/img/th-1/binance.png"
                 alt="brand-3"
                 width="172"
-                height="50"
-                className="max-w-full"
+                height="30"
+                className="max-w-full mt-[-50px]"
               />
             </SwiperSlide>
             <SwiperSlide>
@@ -88,7 +88,7 @@ const ImageSlider = () => {
                 alt="brand-2"
                 width="183"
                 height="35"
-                className="max-w-full"
+                className="max-w-full mt-[-50px]"
               />
             </SwiperSlide>
             <SwiperSlide>

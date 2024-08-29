@@ -17,12 +17,12 @@ const Calculator = ({ navigate, isCalculator = false }) => {
     <div className="w-full mt-33 pt-10 text-center flex flex-col md:flex-row items-center">
       <div className="w-full md:w-1/2">
         <h1 className="px-6 text-5xl font-medium mb-4 ">
-          Calculate Your Earning
+          Calculate Your Earnings
         </h1>
       </div>
 
       <div className="mx-auto w-full md:w-1/2 p-4 font-Montserrat ">
-        <div className="flex flex-col max-w-4xl mx-auto px-6 borderOuter py-6 gap-4">
+        <div className="flex flex-col max-w-4xl mx-auto px-6 borderOuter py-6 gap-4 border border-2 rounded-lg">
           <h1 className="flex space-x-4 pl-3 my-2 text-left text-white font-semibold leading-relaxed text-2xl font-Montserrat ">
             <span>Profit calculator</span>
             <span className="text-primary">
@@ -119,14 +119,14 @@ const Calculator = ({ navigate, isCalculator = false }) => {
                 className="w-full text-black border-1 rounded-md text-center"
               />
             </div>
-            <div
+            {/* <div
               className="cursor-pointer p-4 rounded-full"
               onClick={() => navigate("/signup")}
             >
               <span className="uppercase text-white underline text-[700]">
                 Invest Now
               </span>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

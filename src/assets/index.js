@@ -1,4 +1,4 @@
-export { default as Logo } from "./logo.png";
+export { default as Logo } from "./logoname.png";
 export { default as AuthImage } from "./AuthImage.png";
 export { default as LoginImage } from "./LoginImage.png";
 export { default as SignUpImage } from "./SignUpImage.png";

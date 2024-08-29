@@ -12,7 +12,7 @@ const GradientLayout = () => {
           }}
         >
           <img
-            src="/assets/img/logo.png"
+            src="/assets/img/logoname.png"
             alt="center-icon"
             className="h-12 w-12"
           />

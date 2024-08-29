@@ -64,7 +64,7 @@ const Footer_01 = () => {
             <div className="flex flex-col gap-y-6">
               <Link to="/" className="inline-block">
                 <img
-                  src="/assets/img/logo.png"
+                  src="/assets/img/logoname.png"
                   alt="logo"
                   width={96}
                   height={24}
@@ -198,7 +198,7 @@ const Footer_01 = () => {
                     <Link
                       rel="noopener noreferrer"
                       target="_blank"
-                      to="https://whatsapp.com/channel/0029VacNHAq60eBXejGceh3F"
+                      to="https://chat.whatsapp.com/IjNiWEBDuoo7hmTCgynB9T"
                       className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-full bg-white hover:bg-colorOrangyRed"
                     >
                       <FaWhatsapp

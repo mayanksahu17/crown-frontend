@@ -16,7 +16,7 @@ const Hero = () => {
             className="relative h-auto w-full"
           />
           <div className="absolute bottom-[20%] md:bottom-[50%] right-[25%] md:right-[42%] flex justify-center items-center flex-col gap-2">
-            <img src="assets/img/logo.png" alt="center-img" className="" />
+            <img src="assets/img/logoname.png" alt="center-img" className="" />
             <h1 className="font-bold text-black text-4xl">Business Plan</h1>
           </div>
         </div>

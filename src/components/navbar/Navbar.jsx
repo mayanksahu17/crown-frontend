@@ -121,7 +121,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
               className={`sub-menu ${mobileSubMenu === 3 && "active"}`}
               id="submenu-3"
             >
-              <li
+              {/* <li
                 onClick={(e) => handleSubMenuSub(e, 2)}
                 className="sub-menu--item nav-item-has-children"
               >
@@ -138,55 +138,20 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                   <li className="sub-menu--item">
                     <Link to="/team">Team</Link>
                   </li>
-                  {/* <li className="sub-menu--item">
+                   <li className="sub-menu--item">
                     <Link to="/media">Team Photos</Link>
-                  </li> */}
+                  </li> 
                 </ul>
-              </li>
-              <li
-                onClick={(e) => handleSubMenuSub(e, 3)}
-                className="sub-menu--item nav-item-has-children"
-              >
-                <Link to="#" data-menu-get="h3" className="drop-trigger">
-                  FAQ
-                  <FaChevronRight className="dropdown-icon" size={16} />
-                </Link>
-                <ul
-                  className={`sub-menu shape-none ${
-                    mobileSubMenuSub === 3 && "active"
-                  }`}
-                  id="submenu-6"
-                >
-                  <li className="sub-menu--item">
-                    <Link to="/faq">FAQ</Link>
-                  </li>
-                </ul>
-              </li>
+              </li> */}
+
               <li className="sub-menu--item"></li>
               <li
                 onClick={(e) => handleSubMenuSub(e, 5)}
                 className="sub-menu--item nav-item-has-children"
               >
-                <Link to="#" data-menu-get="h3" className="drop-trigger">
-                  Utilities
-                  <FaChevronRight className="dropdown-icon" size={16} />
+                <Link to="/team" data-menu-get="h3" className="drop-trigger">
+                  Team
                 </Link>
-                <ul
-                  className={`sub-menu shape-none ${
-                    mobileSubMenuSub === 5 && "active"
-                  }`}
-                  id="submenu-8"
-                >
-                  <li className="sub-menu--item">
-                    <Link to="/TermsandCondition">Terms and Conditions</Link>
-                  </li>
-                  <li className="sub-menu--item">
-                    <Link to="/login">Login</Link>
-                  </li>
-                  <li className="sub-menu--item">
-                    <Link to="/signup">Signup</Link>
-                  </li>
-                </ul>
               </li>
               <li
                 onClick={(e) => handleSubMenuSub(e, 5)}
