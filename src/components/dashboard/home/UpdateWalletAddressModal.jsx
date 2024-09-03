@@ -115,7 +115,7 @@ export default function UpdateWalletAddressModal({ isOpen, handleClose }) {
         Wallet Address
       </p>
       <div className="">
-        <div className=" rounded-2xl bg-colorBlue p-4 max-w-full ">
+        <div className=" rounded-2xl bg-colorBlue p-4 max-w-[300px] overflow-x-scroll ">
           {user?.user?.withdrawal_wallet}
         </div>
       </div>

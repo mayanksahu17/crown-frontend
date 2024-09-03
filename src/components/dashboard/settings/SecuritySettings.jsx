@@ -142,7 +142,7 @@ export default function SecuritySettings() {
   };
 
   return (
-    <div className="my-4 space-y-4 text-white">
+    <div className="my-4 space-y-4 text-black">
       <div className="flex flex-col gap-8 mb-8">
         <div className="flex flex-col gap-4 w-full items-center">
           <h1 className="text-2xl ">Password Settings</h1>
@@ -200,14 +200,14 @@ const PasswordInput = ({ label, name, value, onChange }) => {
 
   return (
     <div className="w-full">
-      <label className="block text-black font-normal mb-1 text-white">
+      <label className="block text-black font-normal mb-1 text-black">
         {label}
       </label>
       <div className="relative">
         <input
           type={showPassword ? "text" : "password"}
           name={name}
-          className="w-full bg-black px-2.5 py-[7px] text-white border rounded-md border-solid border-slate-200 outline-none !ml-0"
+          className="w-full  px-2.5 py-[7px] text-black border rounded-md border-solid border-slate-200 outline-none !ml-0"
           value={value}
           onChange={onChange}
         />
@@ -216,9 +216,9 @@ const PasswordInput = ({ label, name, value, onChange }) => {
           onClick={togglePasswordVisibility}
         >
           {showPassword ? (
-            <RiEyeCloseLine className="text-white" />
+            <RiEyeCloseLine className="text-black" />
           ) : (
-            <RiEyeLine className="text-white" />
+            <RiEyeLine className="text-black" />
           )}
         </div>
       </div>

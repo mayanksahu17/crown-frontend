@@ -29,22 +29,22 @@ export default function ProfileSettings() {
     control: (provided) => ({
       ...provided,
       backgroundColor: "transparent",
-      border: "1px solid #fff",
+      border: "1px solid #000",
       borderRadius: "8px",
       padding: "1px",
     }),
     input: (provided) => ({
       ...provided,
-      color: "#fff !important",
+      color: "#000 !important",
     }),
     singleValue: (provided) => ({
       ...provided,
-      color: "#FFFFFF",
+      color: "#000",
     }),
     option: (provided) => ({
       ...provided,
-      backgroundColor: "#000000",
-      color: "#FFF",
+      backgroundColor: "#fff",
+      color: "#000",
     }),
   };
   const [isLoading, setIsLoading] = useState(false);
@@ -82,12 +82,12 @@ export default function ProfileSettings() {
     handleDataChange("country", selectedCountry.label);
 
   return (
-    <div className="mt-4 space-y-4 text-white">
+    <div className="mt-4 space-y-4 text-black">
       <h1 className="text-2xl ">Profile Settings</h1>
       <div className="grid grid-cols-1  gap-4 w-full items-center">
         {inputData.map(({ label, name, readOnly }) => (
           <div key={name} className="w-full">
-            <label className="block text-white font-normal mb-1">{label}</label>
+            <label className="block text-black font-normal mb-1">{label}</label>
             {name === "country" ? (
               <Select
                 options={options}
@@ -102,7 +102,7 @@ export default function ProfileSettings() {
                 readOnly={readOnly}
                 value={allData[name]}
                 onChange={(e) => handleDataChange(name, e.target.value)}
-                className="w-full bg-black text-white px-2.5 py-[7px] border rounded-md border-solid border-slate-200 outline-none !ml-0"
+                className="w-full  text-black px-2.5 py-[7px] border rounded-md border-solid border-slate-200 outline-none !ml-0"
               />
             )}
           </div>

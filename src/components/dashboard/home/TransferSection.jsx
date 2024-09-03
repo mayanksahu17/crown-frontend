@@ -9,7 +9,7 @@ import walletAddressService from "../../../services/walletAddressService";
 import toast from "react-hot-toast";
 import { useAuth } from "../../../hooks/useAuth";
 
-const TransferModal = ({ setIsTransferModalOpen }) => {
+const TransferModal = ({ setIsTransferModalOpen, isTransferModalOpen }) => {
   const { user } = useAuth();
   const [transferData, setTransferData] = useState({
     isOTPSentForTransfer: false,
@@ -131,140 +131,146 @@ const TransferModal = ({ setIsTransferModalOpen }) => {
     }
   };
   return (
-    <div className="mt-4 flex flex-col text-white items-center justify-end">
-      <div className="flex w-full items-center justify-end">
-        <IoClose
-          size="20"
-          className="text-black cursor-pointer"
-          onClick={() => {
-            setTransferData({
-              isOTPSentForTransfer: false,
-              amount: 0,
-              from_wallet: "ROI",
-              toUserId: "",
-              fromUserId: "",
-              to_wallet: "ROI",
-              securityPin: "",
-              otp: "",
-              isLoading: false,
-            });
-            setIsTransferModalOpen(false);
-          }}
-        />
-      </div>
-      <div className="w-full">
-        <p className="text-2xl text-white font-semibold leading-tighter">
-          Transfer Fund
-        </p>
-      </div>
-      <div className="w-full mt-4">
-        <label className="block text-[#fff] font-normal">From Wallet</label>
-        <Select
-          options={[
-            {
-              label: "R&B Wallet",
-              value: "R&B",
-            },
-            {
-              label: "ROI Wallet",
-              value: "ROI",
-            },
-            {
-              label: "Extra Inome Wallet",
-              value: "Interest",
-            },
-          ]}
-          customStyles={customStyles}
-          onChange={(val) => handleTransferDataChange("from_wallet", val)}
-          value={transferData.from_wallet}
-        />
-      </div>
-      <div className="w-full mt-4">
-        <label className="block text-[#fff] font-normal">To Wallet</label>
-        <Select
-          options={[
-            {
-              label: "R&B Wallet",
-              value: "R&B",
-            },
-            {
-              label: "ROI Wallet",
-              value: "ROI",
-            },
-            {
-              label: "Extra Inome Wallet",
-              value: "Interest",
-            },
-          ]}
-          customStyles={customStyles}
-          onChange={(val) => handleTransferDataChange("to_wallet", val)}
-          value={transferData.to_wallet}
-        />
-      </div>
-      <div className="w-full mt-4">
-        <label className="block text-[#fff] font-normal">Enter Amount</label>
-        <input
-          type="text"
-          name="amount"
-          className="w-full bg-white px-2.5 py-2 border rounded-md text-black border-solid border-slate-200 outline-none mt-1 !ml-0"
-          onChange={(e) => handleTransferDataChange("amount", e.target.value)}
-          value={transferData.amount}
-        />
-      </div>
-      <div className="w-full mt-4">
-        <label className="block text-[#fff] font-normal">From user</label>
-        <Select
-          options={downlines}
-          customStyles={customStyles}
-          onChange={(val) => handleTransferDataChange("fromUserId", val)}
-          value={transferData.fromUserId}
-        />
-      </div>
-      <div className="w-full mt-4">
-        <label className="block text-[#fff] font-normal">To user</label>
-        <Select
-          options={downlines}
-          customStyles={customStyles}
-          onChange={(val) => handleTransferDataChange("toUserId", val)}
-          value={transferData.toUserId}
-        />
-      </div>
-      <div className="w-full mt-4">
-        <label className="block text-[#fff] font-normal">
-          Enter Your Security Pin
-        </label>
-        <input
-          type="text"
-          name="securityPin"
-          className="w-full bg-white px-2.5 py-2 border rounded-md border-solid border-slate-200 text-black outline-none mt-1 !ml-0"
-          value={transferData.securityPin}
-          onChange={(e) =>
-            handleTransferDataChange("securityPin", e.target.value)
-          }
-        />
-      </div>
-
-      {transferData.isOTPSentForTransfer && (
-        <div className="w-full mt-4">
-          <label className="block text-[#fff] font-normal">Enter OTP</label>
-          <input
-            type="text"
-            name="otp"
-            className="w-full bg-white px-2.5 py-2 border rounded-md border-solid border-slate-200 outline-none mt-1 text-black !ml-0"
-            value={transferData.otp}
-            onChange={(e) => handleTransferDataChange("otp", e.target.value)}
+    <Modal
+      isOpen={isTransferModalOpen}
+      handleClose={() => {
+        setIsTransferModalOpen(false);
+      }}
+    >
+      <div className="mt-4 flex flex-col text-white items-center justify-end">
+        <div className="flex w-full items-center justify-end">
+          <IoClose
+            size="20"
+            className="text-black cursor-pointer"
+            onClick={() => {
+              setTransferData({
+                isOTPSentForTransfer: false,
+                amount: 0,
+                from_wallet: "ROI",
+                toUserId: "",
+                fromUserId: "",
+                to_wallet: "ROI",
+                securityPin: "",
+                otp: "",
+                isLoading: false,
+              });
+              setIsTransferModalOpen(false);
+            }}
           />
         </div>
-      )}
-      <Button
-        className="mt-3"
-        onClick={handleTransferSubmit}
-        loading={transferData.isLoading}
-      >
-        Submit
-      </Button>
-    </div>
-    // </Modal>
+        <div className="w-full">
+          <p className="text-2xl text-white font-semibold leading-tighter">
+            Transfer Fund
+          </p>
+        </div>
+        <div className="w-full mt-4">
+          <label className="block text-[#fff] font-normal">From Wallet</label>
+          <Select
+            options={[
+              {
+                label: "R&B Wallet",
+                value: "R&B",
+              },
+              {
+                label: "ROI Wallet",
+                value: "ROI",
+              },
+              {
+                label: "Extra Inome Wallet",
+                value: "Interest",
+              },
+            ]}
+            customStyles={customStyles}
+            onChange={(val) => handleTransferDataChange("from_wallet", val)}
+            value={transferData.from_wallet}
+          />
+        </div>
+        <div className="w-full mt-4">
+          <label className="block text-[#fff] font-normal">To Wallet</label>
+          <Select
+            options={[
+              {
+                label: "R&B Wallet",
+                value: "R&B",
+              },
+              {
+                label: "ROI Wallet",
+                value: "ROI",
+              },
+              {
+                label: "Extra Inome Wallet",
+                value: "Interest",
+              },
+            ]}
+            customStyles={customStyles}
+            onChange={(val) => handleTransferDataChange("to_wallet", val)}
+            value={transferData.to_wallet}
+          />
+        </div>
+        <div className="w-full mt-4">
+          <label className="block text-[#fff] font-normal">Enter Amount</label>
+          <input
+            type="text"
+            name="amount"
+            className="w-full bg-white px-2.5 py-2 border rounded-md text-black border-solid border-slate-200 outline-none mt-1 !ml-0"
+            onChange={(e) => handleTransferDataChange("amount", e.target.value)}
+            value={transferData.amount}
+          />
+        </div>
+        <div className="w-full mt-4">
+          <label className="block text-[#fff] font-normal">From user</label>
+          <Select
+            options={downlines}
+            customStyles={customStyles}
+            onChange={(val) => handleTransferDataChange("fromUserId", val)}
+            value={transferData.fromUserId}
+          />
+        </div>
+        <div className="w-full mt-4">
+          <label className="block text-[#fff] font-normal">To user</label>
+          <Select
+            options={downlines}
+            customStyles={customStyles}
+            onChange={(val) => handleTransferDataChange("toUserId", val)}
+            value={transferData.toUserId}
+          />
+        </div>
+        <div className="w-full mt-4">
+          <label className="block text-[#fff] font-normal">
+            Enter Your Security Pin
+          </label>
+          <input
+            type="text"
+            name="securityPin"
+            className="w-full bg-white px-2.5 py-2 border rounded-md border-solid border-slate-200 text-black outline-none mt-1 !ml-0"
+            value={transferData.securityPin}
+            onChange={(e) =>
+              handleTransferDataChange("securityPin", e.target.value)
+            }
+          />
+        </div>
+
+        {transferData.isOTPSentForTransfer && (
+          <div className="w-full mt-4">
+            <label className="block text-[#fff] font-normal">Enter OTP</label>
+            <input
+              type="text"
+              name="otp"
+              className="w-full bg-white px-2.5 py-2 border rounded-md border-solid border-slate-200 outline-none mt-1 text-black !ml-0"
+              value={transferData.otp}
+              onChange={(e) => handleTransferDataChange("otp", e.target.value)}
+            />
+          </div>
+        )}
+        <Button
+          className="mt-3"
+          onClick={handleTransferSubmit}
+          loading={transferData.isLoading}
+        >
+          Submit
+        </Button>
+      </div>
+    </Modal>
   );
 };
 

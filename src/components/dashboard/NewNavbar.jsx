@@ -99,15 +99,13 @@ export default function NewNavbar() {
               <div className="text-black absolute top-10 z-50 sm:top-14 font-normal bg-white rounded shadow-sm mt-2 py-2 w-40 md:w-52 right-0 text-sm">
                 <div
                   className="cursor-pointer px-3 py-1.5 hover:bg-gray-200"
-                  onClick={() => handleNavigate("/dashboard/settings/profile")}
+                  onClick={() => navigate("/dashboard/settings/profile")}
                 >
                   Settings
                 </div>
                 <div
                   className="cursor-pointer px-3 py-1.5 hover:bg-gray-200"
-                  onClick={() =>
-                    handleNavigate("/dashboard/tickets/submit-ticket")
-                  }
+                  onClick={() => navigate("/dashboard/tickets/submit-ticket")}
                 >
                   Help & Support
                 </div>

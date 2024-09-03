@@ -71,15 +71,15 @@ export default function KYCSettings() {
   return (
     <div className="mt-4">
       <h1 className="text-2xl ">KYC Settings</h1>
-      <p className="text-white text-sm mt-1">
+      <p className="text-black text-sm mt-1">
         To adhere to regulatory requirements, all users must complete identity
         verification to prevent fraudulent activities. You have not yet
         submitted the required documents for this process. To continue your
         investments, please verify your identity.
       </p>
 
-      <div className="w-full mt-6 text-white">
-        <p className="text-2xl text-white font-semibold leading-tighter">
+      <div className="w-full mt-6 text-black">
+        <p className="text-2xl text-black font-semibold leading-tighter">
           Upload Document
         </p>
         <p className="leading-tight mt-1">

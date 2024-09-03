@@ -88,6 +88,7 @@ export default function Home() {
         setIsDataLoaded(false);
         const response = await dashboardService.getDashboardData(user);
         const { success, data } = response?.data;
+        console.log(data);
         if (success) {
           if (data) {
             let lWidth =
@@ -168,78 +169,76 @@ export default function Home() {
             selectedWallet={selectedWallet}
             setSelectedWallet={(value) => setSelectedWallet(value)}
             cardsData={cardsData}
+            allData={allData}
           />
         </div>
         <div className="flex w-full md:w-3/4  flex-col">
-          {!isWithdrawalModalOpen && !isTransferModalOpen && (
-            <>
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
-                <WalletCard
-                  title="ROI Wallet"
-                  amount="128,320"
-                  borderColor="bg-blue-500"
-                />
-                <WalletCard
-                  title="R&B Wallet"
-                  amount="128,320"
-                  borderColor="bg-green-500"
-                />
-                <WalletCard
-                  title="Extra income wallet"
-                  amount="128,320"
-                  borderColor="bg-yellow-500"
-                />
-                <WalletCard
-                  title="Coupons"
-                  amount="128,320"
-                  borderColor="bg-orange-500"
-                />
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
+            <WalletCard
+              title="ROI Wallet"
+              amount={parseFloat(allData?.roi_wallet).toFixed(2)}
+              borderColor="bg-blue-500"
+            />
+            <WalletCard
+              title="R&B Wallet"
+              amount={parseFloat(allData?.referral_binary_wallet).toFixed(2)}
+              borderColor="bg-green-500"
+            />
+            <WalletCard
+              title="Extra income wallet"
+              amount={parseFloat(allData?.interest_wallet).toFixed(2)}
+              borderColor="bg-yellow-500"
+            />
+            <WalletCard
+              title="Coupons"
+              amount={parseFloat(allData?.toal_voucher_generated).toFixed(2)}
+              borderColor="bg-orange-500"
+            />
+          </div>
 
-              {!disbledUserIds?.includes(user?.user?.userId) && (
-                <button
-                  className="rounded-full w-full px-4 py-2.5 w-full bg-gradient-to-l from-[#8011E8] to-[#CD6AFB] text-white text-base font-normal disabled:bg-gray-900 "
-                  onClick={() => setIsWithdrawalModalOpen(true)}
-                >
-                  <div className="flex flex-row justify-center gap-4 w-full items-center ">
-                    <div className="">Withdraw</div>
-                    <div className="w-10 h-10 sm:w-10 sm:h-10 bg-[#242424] rounded-full flex items-center justify-center cursor-pointer">
-                      <GoArrowDownLeft />
-                    </div>
-                  </div>
-                </button>
-              )}
-
-              <button
-                className="mt-2 rounded-full px-4 py-2.5 w-full bg-gradient-to-l from-[#FA895F] to-[#E753AE] text-white text-base font-normal"
-                onClick={() => handleNavigate("/dashboard/vouchers/create")}
-              >
-                <div className="flex flex-row justify-center gap-4 w-full items-center ">
-                  <div className="">Reinvest</div>
-                  <div className="w-10 h-10 sm:w-10 sm:h-10 bg-[#242424] rounded-full flex items-center justify-center cursor-pointer">
-                    <MdArrowOutward />
-                  </div>
+          {!disbledUserIds?.includes(user?.user?.userId) && (
+            <button
+              className="rounded-full w-full px-4 py-2.5 w-full bg-gradient-to-l from-[#8011E8] to-[#CD6AFB] text-white text-base font-normal disabled:bg-gray-900 "
+              onClick={() => setIsWithdrawalModalOpen(true)}
+            >
+              <div className="flex flex-row justify-center gap-4 w-full items-center ">
+                <div className="">Withdraw</div>
+                <div className="w-10 h-10 sm:w-10 sm:h-10 bg-[#242424] rounded-full flex items-center justify-center cursor-pointer">
+                  <GoArrowDownLeft />
                 </div>
-              </button>
-              {allowedTransferId === user?.user?.userId && (
-                <button
-                  className="rounded-full w-full px-4 py-2.5 w-full bg-gradient-to-l from-[#8011E8] to-[#CD6AFB] text-white text-base font-normal disabled:bg-gray-900 "
-                  onClick={() => setIsTransferModalOpen(true)}
-                >
-                  <div className="flex flex-row justify-center gap-4 w-full items-center ">
-                    <div className="">Transfer</div>
-                    <div className="w-10 h-10 sm:w-10 sm:h-10 bg-[#242424] rounded-full flex items-center justify-center cursor-pointer">
-                      <GoArrowDownLeft />
-                    </div>
-                  </div>
-                </button>
-              )}
-              <div className="flex flex-row w-full items-center gap-4 justify-center mt-12">
-                <WalletFeartures />
-                <HomeTabComponent allData={allData} />
               </div>
-            </>
+            </button>
           )}
+
+          <button
+            className="mt-2 rounded-full px-4 py-2.5 w-full bg-gradient-to-l from-[#FA895F] to-[#E753AE] text-white text-base font-normal"
+            onClick={() => handleNavigate("/dashboard/vouchers/create")}
+          >
+            <div className="flex flex-row justify-center gap-4 w-full items-center ">
+              <div className="">Reinvest</div>
+              <div className="w-10 h-10 sm:w-10 sm:h-10 bg-[#242424] rounded-full flex items-center justify-center cursor-pointer">
+                <MdArrowOutward />
+              </div>
+            </div>
+          </button>
+          {allowedTransferId === user?.user?.userId && (
+            <button
+              className="rounded-full w-full px-4 py-2.5 w-full bg-gradient-to-l from-[#8011E8] to-[#CD6AFB] text-white text-base font-normal disabled:bg-gray-900 "
+              onClick={() => setIsTransferModalOpen(true)}
+            >
+              <div className="flex flex-row justify-center gap-4 w-full items-center ">
+                <div className="">Transfer</div>
+                <div className="w-10 h-10 sm:w-10 sm:h-10 bg-[#242424] rounded-full flex items-center justify-center cursor-pointer">
+                  <GoArrowDownLeft />
+                </div>
+              </div>
+            </button>
+          )}
+          <div className="flex flex-row w-full items-center gap-4 justify-center mt-12">
+            <WalletFeartures />
+            <HomeTabComponent allData={allData} />
+          </div>
+
           {isWithdrawalModalOpen && (
             <WithdrawalModal
               isWithdrawalModalOpen={isWithdrawalModalOpen}
@@ -251,6 +250,7 @@ export default function Home() {
           )}
           {isTransferModalOpen && (
             <TransferModal
+              isTransferModalOpen={isTransferModalOpen}
               setIsTransferModalOpen={setIsTransferModalOpen}
               setRender={setRender}
             />

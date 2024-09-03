@@ -76,11 +76,11 @@ export default function SubmitTicket() {
   };
 
   return (
-    <div className="mt-4 w-full text-white">
+    <div className="mt-4 w-full text-black">
       <h4 className="text-xl">Submit Ticket</h4>
       <div className="mt-2 w-full">
         <div className="w-full">
-          <label className="block text-[#fff] font-normal">
+          <label className="block text-black font-normal">
             Select Department
           </label>
           <CustomSelect
@@ -97,9 +97,7 @@ export default function SubmitTicket() {
           />
         </div>
         <div className="mt-4 w-full">
-          <label className="block text-[#fff] font-normal">
-            Select Service
-          </label>
+          <label className="block text-black font-normal">Select Service</label>
           <CustomSelect
             className="w-full"
             options={[
@@ -116,7 +114,7 @@ export default function SubmitTicket() {
         </div>
         <div className="w-full mt-4 ">
           <div className="w-full">
-            <label className="block text-[#fff] font-normal">Subject</label>
+            <label className="block text-black font-normal">Subject</label>
             <input
               type="text"
               className="w-full text-sm bg-transparent text-gray-500 border border-secondary px-2.5 py-2.5 rounded-md  outline-none mt-1 !ml-0"
@@ -127,7 +125,7 @@ export default function SubmitTicket() {
             />
           </div>
           <div className="w-full mt-4">
-            <label className="block text-[#fff] font-normal">Description</label>
+            <label className="block text-black font-normal">Description</label>
             <textarea
               type="text"
               className="w-full text-sm bg-transparent text-gray-500 border border-secondary px-2.5 py-2.5 rounded-md  outline-none mt-1 !ml-0"
@@ -140,7 +138,7 @@ export default function SubmitTicket() {
             />
           </div>
           <div className="w-full mt-4">
-            <label className="block text-[#fff] font-normal">
+            <label className="block text-black font-normal">
               Attachment (optional)
             </label>
             <input

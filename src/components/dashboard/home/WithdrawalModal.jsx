@@ -147,8 +147,16 @@ const WithdrawalModal = ({
     }
   };
   return (
-    <div className="mt-4 flex flex-col text-white items-center justify-end">
-      <div className="flex w-full items-center justify-end">
+    <Modal
+      isOpen={isWithdrawalModalOpen}
+      handleClose={() => {
+        setIsWithdrawalModalOpen(false);
+      }}
+    >
+      <div className="flex flex-row w-full items-center justify-between text-black">
+        <p className="text-2xl text-black font-semibold leading-tighter">
+          Withdraw Fund
+        </p>
         <IoClose
           size="20"
           className="text-black cursor-pointer"
@@ -173,16 +181,13 @@ const WithdrawalModal = ({
         />
       </div>
       <div className="w-full">
-        <p className="text-2xl text-white font-semibold leading-tighter">
-          Withdraw Fund
-        </p>
         <p className="text-base">
           Enter the amount you wish to withdraw from your account. Please note
           that the withdrawal request will be approved within 0 to 8 hours
         </p>
       </div>
       <div className="w-full mt-6">
-        <label className="block text-[#fff] font-normal">Select Wallet</label>
+        <label className="block text-black font-normal">Select Wallet</label>
         <Select
           options={[
             {
@@ -204,7 +209,7 @@ const WithdrawalModal = ({
         />
       </div>
       <div className="w-full mt-6">
-        <label className="block text-[#fff] font-normal">Enter Amount</label>
+        <label className="block text-black font-normal">Enter Amount</label>
         <input
           type="text"
           name="amount"
@@ -214,7 +219,7 @@ const WithdrawalModal = ({
         />
       </div>
       {/* <div className="w-full mt-4">
-        <label className="block text-[#fff] font-normal">
+        <label className="block text-black font-normal">
           Select Crypto Currency
         </label>
         <Select
@@ -225,7 +230,7 @@ const WithdrawalModal = ({
         />
       </div> */}
       <div className="w-full mt-6">
-        <label className="block text-[#fff] font-normal">
+        <label className="block text-black font-normal">
           Enter Your Security Pin
         </label>
         <input
@@ -241,7 +246,7 @@ const WithdrawalModal = ({
 
       {withdrawalData.isOTPSentForWithdrawal && (
         <div className="w-full mt-4">
-          <label className="block text-[#fff] font-normal">Enter OTP</label>
+          <label className="block text-black font-normal">Enter OTP</label>
           <input
             type="text"
             name="otp"
@@ -258,8 +263,7 @@ const WithdrawalModal = ({
       >
         Submit
       </Button>
-    </div>
-    // </Modal>
+    </Modal>
   );
 };
 

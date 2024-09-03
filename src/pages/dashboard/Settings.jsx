@@ -96,7 +96,7 @@ const Settings = () => {
   ];
 
   return (
-    <div className="max-w-full w-full md:max-w-[80%] mx-auto text-white">
+    <div className="max-w-full w-full md:max-w-[80%] mx-auto text-black">
       <div className="w-full h-[200px] md:h-[240px] lg:h-[280px] relative ">
         <input
           type="file"
@@ -140,10 +140,10 @@ const Settings = () => {
           <h1 className="font-semibold  text-2xl md:text-3xl">
             {user?.user?.name}
           </h1>
-          <p className="text-[#fff] font-semibold text-md ">
+          <p className="text-black font-semibold text-md ">
             USER ID - {user?.user?.userId}
           </p>
-          <p className="text-[#fff] font-semibold text-md">
+          <p className="text-black font-semibold text-md">
             PIN - {user?.user?.security_pin}
           </p>
         </div>

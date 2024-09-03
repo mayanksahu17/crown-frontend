@@ -73,7 +73,7 @@ export default function AllTicket() {
   ];
 
   return (
-    <div className="w-full mt-4 text-white">
+    <div className="w-full mt-4 text-black">
       <h4 className="text-xl">All Tickets</h4>
 
       <Table
