@@ -14,7 +14,7 @@ const Member = ({
 }) => {
   return (
     <li
-      className="jos rounded-[20px] bg-colorLinenRuffle p-[20px] w-full md:w-1/3"
+      className="jos flex flex-row items-center justify-center rounded-[20px] bg-colorLinenRuffle p-[20px] w-full"
       data-jos_animation="flip"
       data-jos_delay="0.1"
     >

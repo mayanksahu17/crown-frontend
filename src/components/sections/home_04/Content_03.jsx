@@ -3,8 +3,9 @@ import { useState } from "react";
 import Social from "../../contact/Social";
 
 const Content_03 = () => {
-  // To open the lightbox change the value of the "toggler" prop.
+  // To open the lightbox, change the value of the "toggler" prop.
   const [toggler, setToggler] = useState(false);
+
   return (
     <section id="content-section-3">
       {/* Section Spacer */}
@@ -36,10 +37,14 @@ const Content_03 = () => {
               </h2>
             </div>
           </div>
+
+          {/* Lightbox with Video File */}
           <FsLightbox
             toggler={toggler}
-            sources={["https://youtu.be/u-Q4siIGJQ8"]}
+            sources={["/assets/img/home.mp4"]}
+            type="video"
           />
+
           <div className="flex w-full justify-end mt-4">
             <Social />
           </div>

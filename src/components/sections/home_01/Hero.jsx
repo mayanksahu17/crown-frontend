@@ -55,8 +55,8 @@ const Hero = () => {
                   lineHeight: "35px",
                 }}
               >
-                Invest & Enjoy with Our Exclusive Crypto Card Rewards!
-                Partner with
+                Crown Bankers: Officially Partnered with Visa, Mastercard,
+                Binance, and Alchemy Pay.
               </p>
             </div>
             <div className="jos brand-slider" data-jos_animation="fade">

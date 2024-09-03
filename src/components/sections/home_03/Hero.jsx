@@ -16,8 +16,12 @@ const Hero = () => {
             className="relative h-auto w-full"
           />
           <div className="absolute bottom-[20%] md:bottom-[50%] right-[25%] md:right-[42%] flex justify-center items-center flex-col gap-2">
-            <img src="assets/img/logoname.png" alt="center-img" className="" />
-            <h1 className="font-bold text-black text-4xl">Business Plan</h1>
+            <img
+              src="assets/img/logoname.png"
+              alt="center-img"
+              className="w-32"
+            />
+            <h1 className="font-bold text-colorBlue text-4xl">Business Plan</h1>
           </div>
         </div>
         <div className="global-container mt-12 flex flex-col justify-center w-full items-center">

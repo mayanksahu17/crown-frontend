@@ -1,13 +1,89 @@
 import React from "react";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+const iconData = [
+  {
+    src: "assets/img/th-1/icon/1.png",
+    alt: "brand-1",
+    width: 180,
+    height: 20,
+    extraClass: "",
+  },
+  {
+    src: "assets/img/th-1/icon/2.png",
+    alt: "brand-2",
+    width: 180,
+    height: 20,
+    extraClass: "",
+  },
+  {
+    src: "assets/img/th-1/icon/3.png",
+    alt: "brand-3",
+    width: 180,
+    height: 20,
+    extraClass: "",
+  },
+  {
+    src: "assets/img/th-1/icon/4.png",
+    alt: "brand-4",
+    width: 180,
+    height: 20,
+    extraClass: "",
+  },
+  {
+    src: "assets/img/th-1/icon/5.png",
+    alt: "brand-5",
+    width: 180,
+    height: 20,
+    extraClass: "",
+  },
+  {
+    src: "assets/img/th-1/icon/6.png",
+    alt: "brand-6",
+    width: 180,
+    height: 20,
+    extraClass: "",
+  },
+];
 const ImageSlider = () => {
   return (
     <div className="">
       <div className="">
-        <div className="jos mx-auto mb-12 text-center lg:mb-16 pt-4 flex justify-center w-full items-center flex-col">
-          <p className="text-lg">Cryptocurrency supported by crown bankers</p>
-          <img src="assets/img/th-1/11.png" className="w-[70%]"></img>
+        <div className="jos brand-slider" data-jos_animation="fade">
+          <div className="jos mx-auto m-12 text-center lg:mb-16 pt-4 w-full ">
+            <Swiper
+              slidesPerView={2}
+              spaceBetween={105}
+              autoplay={{
+                delay: 4000,
+                disableOnInteraction: false,
+              }}
+              modules={[Autoplay]}
+              breakpoints={{
+                768: {
+                  slidesPerView: 3,
+                },
+                992: {
+                  slidesPerView: 4,
+                },
+                1200: {
+                  slidesPerView: 5,
+                },
+              }}
+            >
+              {iconData.map((icon, index) => (
+                <SwiperSlide key={index}>
+                  <img
+                    src={icon.src}
+                    alt={icon.alt}
+                    width={icon.width}
+                    height={icon.height}
+                    className={`max-w-full ${icon.extraClass}`}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </div>
       </div>
       <div className="bg-colorBlack">
@@ -20,7 +96,8 @@ const ImageSlider = () => {
               lineHeight: "35px",
             }}
           >
-            Invest & Enjoy with Our Exclusive Crypto Card Rewards! Partner with
+            Crown Bankers: Officially Partnered with Visa, Mastercard, Binance,
+            and Alchemy Pay.
           </p>
         </div>
         <div className="jos brand-slider" data-jos_animation="fade">

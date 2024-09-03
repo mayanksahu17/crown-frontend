@@ -66,7 +66,7 @@ const Service = () => {
               </p>
               <div className="">
                 <img
-                  src="assets/img/th-1/8.png"
+                  src="assets/img/th-1/13.png"
                   alt="icon-green-service"
                   className="h-full w-[500px]"
                 />

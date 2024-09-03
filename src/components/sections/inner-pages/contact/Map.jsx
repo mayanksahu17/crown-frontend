@@ -19,15 +19,39 @@ const Map = () => {
                 Bankers. Below are our official certificates for both the UK and
                 New Zealand.
               </p>
-              <img src="/assets/img/th-1/uk.png" alt="uk" className="mt-6" />
-              <div className="rounded-lg bg-[#FFEBD8] text-black w-24 mt-6 text-center">
-                <a
-                  href="/assets/img/th-1/Certificate of Incorporation.pdf"
-                  download
-                  className="w-full"
-                >
-                  View
-                </a>
+              <div className="flex w-full items-center  gap-6 justify-center">
+                <div className="flex flex-col justify-center items-center">
+                  <img
+                    src="/assets/img/th-1/uk.png"
+                    alt="uk"
+                    className="mt-6"
+                  />
+                  <div className="rounded-lg bg-[#FFEBD8] text-black w-24 mt-6 text-center">
+                    <a
+                      href="/assets/img/th-1/Certificate of Incorporation.pdf"
+                      download
+                      className="w-full"
+                    >
+                      View
+                    </a>
+                  </div>
+                </div>
+                <div className="flex flex-col justify-center items-center">
+                  <img
+                    src="/assets/img/th-1/new-zealand.png"
+                    alt="uk"
+                    className="mt-6 h-12 w-16"
+                  />
+                  <div className="rounded-lg bg-[#FFEBD8] text-black w-24 mt-6 text-center">
+                    <a
+                      href="/assets/img/th-1/Certificate of Incorporation- New Zealand.pdf"
+                      download
+                      className="w-full"
+                    >
+                      View
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -71,7 +95,42 @@ const Map = () => {
                 </div>
               </div>
             </div>
+            <div className="group absolute hidden sm:flex gap-2 sm:top-[82%] sm:left-[96%]">
+              <div className="relative w-[50px] h-[50px]">
+                <button className="group flex justify-center items-center w-[50px] h-[50px] relative transition-all duration-300">
+                  <img
+                    src="assets/img/th-1/icon-gray-location-marker.svg"
+                    alt="icon-gray-location-marker"
+                    width={35}
+                    height={35}
+                    className="opacity-100 group-hover:opacity-0 transition-all duration-300"
+                  />
+                  <img
+                    src="assets/img/th-1/icon-orange-location-marker.svg"
+                    alt="icon-gray-location-marker"
+                    width={50}
+                    height={50}
+                    className="absolute opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300"
+                  />
+                </button>
+                <div className="absolute bg-white rounded-[8px] p-4 text-sm w-[170px] bottom-0 right-0 xl:right-[50px] xxl:right-auto xxl:left-[50px] opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 xl:translate-y-12 group-hover:translate-y-0">
+                  <div className="flex gap-1 font-bold pb-3">
+                    <img
+                      src="assets/img/th-1/icon-black-location-marker.svg"
+                      alt="icon-black-location-marker"
+                      width={17}
+                      height={17}
+                    />
+                    New Zealand
+                  </div>
+                  <address className="not-italic font-semibold">
+                    {/* Line 1: House/Flat 208, Venue Street */}
+                  </address>
+                </div>
+              </div>
+            </div>
           </div>
+
           {/* Map Block */}
         </div>
         {/* Section Container */}

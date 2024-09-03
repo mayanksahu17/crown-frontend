@@ -12,7 +12,7 @@ const Content_05 = () => {
               data-jos_animation="fade-left"
             >
               <img
-                src="assets/img/th-1/forvbes-500.png"
+                src="assets/img/th-1/23.jpg"
                 alt="content-image-2"
                 width={526}
                 height={450}
@@ -29,7 +29,7 @@ const Content_05 = () => {
               <br />
               <div>
                 <h3 style={{ fontSize: "30px" }}>
-                Invest in the Best with Crown Bankers
+                  Invest in the Best with Crown Bankers
                 </h3>
               </div>
               <br />
@@ -37,8 +37,10 @@ const Content_05 = () => {
 
               <h4>Forbes Top 500 Companies</h4>
               <p className="text-lg">
-                  Crown Bankers strategically invests in the Forbes Global 500, including industry giants like Apple, Amazon, and Microsoft. This approach ensures
-                  </p>
+                Crown Bankers strategically invests in the Forbes Global 500,
+                including industry giants like Apple, Amazon, and Microsoft.
+                This approach ensures
+              </p>
               <ul className="mt-8 grid gap-x-6 gap-y-8 sm:grid-cols-2 md:grid-cols-1 xl:mt-14 xl:grid-cols-2">
                 <li className="flex flex-col gap-y-4">
                   <div className="h-[50px] w-[50px]">
@@ -53,7 +55,9 @@ const Content_05 = () => {
 
                   <h5>Stability and Growth</h5>
                   <p className="text-lg">
-                  Leveraging established titans to mitigate risk and secure steady returns</p>
+                    Leveraging established titans to mitigate risk and secure
+                    steady returns
+                  </p>
                 </li>
                 <li className="flex flex-col gap-y-4">
                   <div className="h-[50px] w-[50px]">
@@ -67,8 +71,8 @@ const Content_05 = () => {
                   </div>
                   <h5>Diverse Market Exposure</h5>
                   <p className="text-lg">
-                  Capitalizing on diverse industry sectors for balanced investment opportunities.
-
+                    Capitalizing on diverse industry sectors for balanced
+                    investment opportunities.
                   </p>
                 </li>
               </ul>
@@ -86,8 +90,9 @@ const Content_05 = () => {
                   </div>
 
                   <h5>Innovation Integration</h5>
-                  <p className="text-lg">Investing in companies leading technological advancements for long-term growth.
-
+                  <p className="text-lg">
+                    Investing in companies leading technological advancements
+                    for long-term growth.
                   </p>
                 </li>
                 <li className="flex flex-col gap-y-4">
@@ -102,13 +107,18 @@ const Content_05 = () => {
                   </div>
                   <h5>Global Economic Impact</h5>
                   <p className="text-lg">
-                  Participating in a significant portion of the global economy's revenue generation.
+                    Participating in a significant portion of the global
+                    economy's revenue generation.
                   </p>
                 </li>
               </ul>
-              <br /><br />
+              <br />
+              <br />
               <h4>Join Crown Bankers Today!</h4>
-              <p className="text-lg">Benefit from our strategic approach to Forbes 500 investments and unlock your investment potential.</p>
+              <p className="text-lg">
+                Benefit from our strategic approach to Forbes 500 investments
+                and unlock your investment potential.
+              </p>
             </div>
             {/* Content Right Block */}
           </div>

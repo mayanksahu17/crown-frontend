@@ -104,7 +104,7 @@ const Footer_01 = () => {
                 </li>
                 <li>
                   <Link
-                    to="/services"
+                    to="/service-details"
                     className="transition-all duration-300 ease-linear hover:text-colorOrangyRed"
                   >
                     Services
@@ -217,8 +217,8 @@ const Footer_01 = () => {
           {/* Footer Bottom */}
           <div className="py-9 text-center">
             <p>
-              © Copyright {new Date().getFullYear()}, All Rights Reserved by
-              CrownBankers
+              Copyright 2024, Crown Bankers. All Rights Reserved by CROWNQUEST
+              ASSET MANAGEMENT LIMITED.
             </p>
           </div>
           {/* Footer Bottom */}

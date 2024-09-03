@@ -566,8 +566,8 @@ const Signup = () => {
 
         {/* Overlayed Login Image */}
         <img
-          src="/assets/Login.png"
-          className="absolute top-0 left-0 w-full h-[80%]"
+          src="/assets/img/th-1/15.png"
+          className="absolute top-[6%] left-[10%] w-[80%] h-[88%]"
           alt="Login"
         />
       </div>
