@@ -45,6 +45,8 @@ import LoginToUserDashboard from "./pages/common/LoginToUserDashboard";
 import Calculator from "./components/dashboard/calculator/Calculator";
 import NowPayment from "./components/dashboard/investments/NowPayment";
 import Dashboard from "./components/dashboard/home/Dashboard";
+import TradeView from "./components/tradeview/TradeView";
+import TradingReport from "./components/dashboard/reports/TradingReport";
 function App() {
   // Init JOS Animation
   useJOSAnimation();
@@ -64,6 +66,8 @@ function App() {
             path="login-to-user-dashboard/:userid"
             element={<LoginToUserDashboard />}
           />
+          <Route path="trade-view" element={<TradeView />} />
+          <Route path="trade-report" element={<TradingReport />} />
 
           <Route path="contact" element={<Contact />} />
           <Route path="about" element={<About />} />

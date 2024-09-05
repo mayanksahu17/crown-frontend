@@ -32,6 +32,10 @@ const getWithdrawalReport = (user) => {
   return axios.get(`withdrawal/user?email=${user?.user?.email}`);
 };
 
+const getTradeReport = (user) => {
+  return axios.get(`kyc/report?email=${user?.user?.email}`);
+};
+
 const reportService = {
   getROIReport,
   getBIReport,
@@ -40,6 +44,7 @@ const reportService = {
   getExtraIncomeReport,
   getTokenReport,
   getWithdrawalReport,
+  getTradeReport,
 };
 
 export default reportService;

@@ -156,6 +156,57 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
               </li>
             </ul>
           </li>
+          <li
+            onClick={(e) => handleSubMenu(e, 3)}
+            className="nav-item nav-item-has-children"
+          >
+            <Link to="#" className="nav-link-item drop-trigger">
+              Reports
+              <FaChevronRight className="dropdown-icon" size={16} />
+            </Link>
+            <ul
+              className={`sub-menu ${mobileSubMenu === 3 && "active"}`}
+              id="submenu-3"
+            >
+              <li className="sub-menu--item"></li>
+              <li
+                onClick={(e) => handleSubMenuSub(e, 5)}
+                className="sub-menu--item nav-item-has-children"
+              >
+                <Link
+                  to="/trade-report"
+                  data-menu-get="h3"
+                  className="drop-trigger"
+                >
+                  Trade Report
+                </Link>
+              </li>
+              <li
+                onClick={(e) => handleSubMenuSub(e, 5)}
+                className="sub-menu--item nav-item-has-children"
+              >
+                <Link
+                  to="/solar-report"
+                  data-menu-get="h3"
+                  className="drop-trigger"
+                >
+                  Solar Purchase Document
+                </Link>
+              </li>
+              <li
+                onClick={(e) => handleSubMenuSub(e, 5)}
+                className="sub-menu--item nav-item-has-children"
+              >
+                <Link
+                  to="/trade-view"
+                  data-menu-get="h3"
+                  className="drop-trigger"
+                >
+                  Trade View
+                </Link>
+              </li>
+            </ul>
+          </li>
           <li className="nav-item">
             <Link to="/contact" className="nav-link-item">
               Contact
