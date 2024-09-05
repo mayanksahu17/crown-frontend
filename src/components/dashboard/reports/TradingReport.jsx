@@ -5,7 +5,6 @@ import toast from "react-hot-toast";
 
 const TradingReport = () => {
   const columns = [
-    { accessor: "TradeId", Header: "Trade ID", type: "increment" },
     { accessor: "TradeDate", Header: "Trade Date" },
     { accessor: "Pair", Header: "Pair" },
     { accessor: "BuyingPrice", Header: "Buying Price ($)", prepend: "$" },
@@ -41,7 +40,8 @@ const TradingReport = () => {
   }));
   return (
     <div className="w-full p-32">
-      <Table columns={columns} data={formattedData} heading="Trading Report" />
+      <h1 className="text-4xl text-center mb-2">Trade Report</h1>
+      <Table columns={columns} data={formattedData} />
     </div>
   );
 };
