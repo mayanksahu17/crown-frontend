@@ -215,11 +215,11 @@ const ResetPassword = () => {
       </div>
       <div className="relative w-full md:w-1/2 h-[600px] md:h-screen ">
         {/* Background Image */}
-        <img
+        {/* <img
           src="/assets/LoginBg.png"
           className="w-full h-full"
           alt="Background"
-        />
+        /> */}
 
         {/* Overlayed Login Image */}
         <img
