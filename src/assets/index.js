@@ -38,9 +38,9 @@ export { default as EllipseSix } from "./packages/EMPTY.png";
 export { default as VerifiedImage } from "./packages/VERFIFIED.png";
 
 // Investments Images
-export { default as BeginImage } from "./investments/begin.png";
-export { default as GrowImage } from "./investments/grow.png";
-export { default as ThriveImage } from "./investments/thrive.png";
+export { default as BeginImage } from "/assets/img/th-1/31.png";
+export { default as GrowImage } from "/assets/img/th-1/32.png";
+export { default as ThriveImage } from "/assets/img/th-1/33.png";
 
 // Calculator Icons
 export { default as CalIcon1 } from "./calculator/1.png";

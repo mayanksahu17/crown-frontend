@@ -84,27 +84,11 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
               Home
             </Link>
           </li>
-          {/* <li className="nav-item">
-            <Link to="/about" className="nav-link-item">
-              About
-            </Link>
-          </li> */}
-          <li
-            onClick={(e) => handleSubMenu(e, 2)}
-            className="nav-item nav-item-has-children"
-          >
-            <Link to="#" className="nav-link-item drop-trigger">
+
+          <li className="nav-item">
+            <Link to="/service-details" className="nav-link-item">
               Services
-              <FaChevronRight className="dropdown-icon" size={16} />
             </Link>
-            <ul
-              className={`sub-menu ${mobileSubMenu === 2 && "active"}`}
-              id="submenu-2"
-            >
-              <li className="sub-menu--item">
-                <Link to="/service-details">Service Details</Link>
-              </li>
-            </ul>
           </li>
           <li
             onClick={(e) => handleSubMenu(e, 3)}

@@ -13,17 +13,17 @@ const Content7 = () => {
                 </h4>
                 <div className="flex flex-row gap-8">
                   <img
-                    src="assets/img/plan/p1.png"
+                    src="assets/img/th-1/31.png"
                     alt="hero-img"
                     className="relative h-auto w-full"
                   />
                   <img
-                    src="assets/img/plan/p2.png"
+                    src="assets/img/th-1/32.png"
                     alt="hero-img"
                     className="relative h-auto w-full"
                   />
                   <img
-                    src="assets/img/plan/p3.png"
+                    src="assets/img/th-1/33.png"
                     alt="hero-img"
                     className="relative h-auto w-full"
                   />
