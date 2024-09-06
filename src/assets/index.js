@@ -30,12 +30,12 @@ export { default as PackageImage } from "./imgs/PackageImage.png";
 export { default as ForgotImage } from "./images/forogot.png";
 
 // Packages Images
-export { default as PackageOne } from "./packages/BEGIN.png";
-export { default as PackageTwo } from "./packages/GROW.png";
-export { default as PackageThree } from "./packages/THRIVE.png";
-export { default as EllipseFive } from "./packages/UNVERIFIED.png";
-export { default as EllipseSix } from "./packages/EMPTY.png";
-export { default as VerifiedImage } from "./packages/VERFIFIED.png";
+export { default as PackageOne } from "/assets/img/th-1/16.png";
+export { default as PackageTwo } from "/assets/img/th-1/17.png";
+export { default as PackageThree } from "/assets/img/th-1/18.png";
+export { default as EllipseSix } from "/assets/img/th-1/empty.png";
+export { default as EllipseFive } from "/assets/img/th-1/unverified.png";
+export { default as VerifiedImage } from "/assets/img/th-1/verified.png";
 
 // Investments Images
 export { default as BeginImage } from "/assets/img/th-1/31.png";

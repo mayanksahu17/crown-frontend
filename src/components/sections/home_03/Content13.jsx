@@ -22,7 +22,7 @@ const Content13 = () => {
               </div>
               <div className="jos" data-jos_animation="fade-right">
                 <img
-                  src="assets/img/plan/13.png"
+                  src="assets/img/plan/13.jpg"
                   alt="hero-img"
                   className="relative h-auto w-full"
                 />
