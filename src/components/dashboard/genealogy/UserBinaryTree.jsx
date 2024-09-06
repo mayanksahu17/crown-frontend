@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useAuth } from "../../../hooks/useAuth";
 import BinaryNode from "./binarytree/BinaryNode";
 import clsx from "clsx";
+import BinaryIcons from "./BinaryIcons";
 
 export default function UserBinaryTree() {
   const { userId } = useParams();
@@ -146,6 +147,7 @@ export default function UserBinaryTree() {
             </div>
           </div>
         </div>
+        <BinaryIcons />
       </div>
     )
   );

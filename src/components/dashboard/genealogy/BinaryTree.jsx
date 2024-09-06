@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import BinaryNode from "./binarytree/BinaryNode";
 import { useNavigate } from "react-router-dom";
+import BinaryIcons from "./BinaryIcons";
 
 export default function BinaryTree({ data }) {
   const containerRef = useRef(null);
@@ -86,6 +87,7 @@ export default function BinaryTree({ data }) {
           </div>
         </div>
       )}
+      <BinaryIcons />
     </>
   );
 }
