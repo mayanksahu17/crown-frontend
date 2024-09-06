@@ -138,20 +138,6 @@ const TradeView = () => {
           <hr className="my-[60px] border-0 border-b-[1px] border-solid border-gray" />
         </div>
         {/* third */}
-        <div className="flex flex-col">
-          <Header
-            color="bg-colorBlue"
-            title="Cryptocurrency Market."
-            description="Some text below the heading. Describe more about your real-time charts here."
-            content="The Cryptocurrency Market is a decentralized digital marketplace where various cryptocurrencies are traded. It enables individuals and institutions to buy, sell, and exchange digital assets like Bitcoin, Ethereum, and others."
-          />
-          <CryptoCurrencyMarket
-            colorTheme="light"
-            width="100%"
-            height={400}
-          ></CryptoCurrencyMarket>
-          {/* <hr className="my-[60px] border-0 border-b-[1px] border-solid border-gray" /> */}
-        </div>
       </div>
     </div>
   );

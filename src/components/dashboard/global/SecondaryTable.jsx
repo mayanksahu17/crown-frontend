@@ -23,62 +23,82 @@ export default function SecondaryTable({ className, columns, data, heading }) {
     usePagination
   );
 
+  // Helper function for conditional formatting
+  const getColorClass = (value) => {
+    return value >= 0 ? "text-green-500" : "text-red-500";
+  };
+
   return (
-    <div className="w-full overflow-auto">
+    <div className="w-full overflow-auto bg-gray-800 rounded-2xl">
       {heading && (
-        <div className="mb-2 text-xl font-normal text-black">{heading}</div>
+        <div className="mb-2 text-xl font-normal text-white">{heading}</div>
       )}
       <table
         className={clsx(
-          "table-auto w-full border border-solid border-slate-200",
+          "table-auto w-full border border-solid border-slate-700",
           className
         )}
         {...getTableProps()}
       >
         <thead>
-          {headerGroups.map((el) => (
+          {headerGroups.map((headerGroup) => (
             <tr
-              {...el.getHeaderGroupProps()}
-              className="bg-black text-white"
-              key={el.id}
+              {...headerGroup.getHeaderGroupProps()}
+              className="text-white"
+              key={headerGroup.id}
             >
-              {el.headers.map((currElem) => (
+              {headerGroup.headers.map((column) => (
                 <th
-                  {...currElem.getHeaderProps()}
-                  className="py-2 px-4 font-normal uppercase sm:py-3 sm:px-6 md:py-4 md:px-8 text-center"
-                  key={currElem.id}
+                  {...column.getHeaderProps()}
+                  className="py-3 px-4 text-center uppercase font-semibold border-b border-slate-700"
+                  key={column.id}
                 >
-                  {currElem.render("Header")}
+                  {column.render("Header")}
                 </th>
               ))}
             </tr>
           ))}
         </thead>
-        <tbody {...getTableBodyProps()} className="w-full text-black">
+        <tbody {...getTableBodyProps()} className="text-white">
           {!(data?.length < 1) ? (
-            page.map((el) => {
-              prepareRow(el);
+            page.map((row) => {
+              prepareRow(row);
               return (
                 <tr
-                  {...el.getRowProps()}
-                  className="border-b border-slate-200"
-                  key={el.id}
+                  {...row.getRowProps()}
+                  className="border-b border-slate-700"
+                  key={row.id}
                 >
-                  {el.cells.map((currElem) => (
+                  {row.cells.map((cell) => (
                     <td
-                      {...currElem.getCellProps()}
-                      className="py-2 px-4 font-normal sm:py-3 sm:px-6 md:py-4 md:px-8 text-center"
-                      key={currElem.id}
+                      {...cell.getCellProps()}
+                      className={clsx(
+                        "px-2  py-1 text-center",
+                        getColorClass(cell.value)
+                      )}
+                      key={cell.id}
                     >
-                      {currElem.render("Cell")}
+                      {cell.column.id === "priceGraph" ? (
+                        <img
+                          src="path-to-your-graph-icon"
+                          alt="price trend"
+                          className="w-8 h-8 inline-block"
+                        />
+                      ) : cell.column.id === "arrowIcon" ? (
+                        <span className="inline-block">
+                          ➡️ {/* Replace with actual icon */}
+                        </span>
+                      ) : (
+                        cell.render("Cell")
+                      )}
                     </td>
                   ))}
                 </tr>
               );
             })
           ) : (
-            <tr className="border-b border-slate-200 ">
-              <td className="py-2 px-4 font-normal sm:py-3 sm:px-6 md:py-4 md:px-8 text-center">
+            <tr className="border-b border-slate-700">
+              <td className="py-3 px-4 text-center" colSpan={columns.length}>
                 No Data
               </td>
             </tr>
@@ -86,8 +106,8 @@ export default function SecondaryTable({ className, columns, data, heading }) {
         </tbody>
       </table>
 
-      <div className="flex items-center justify-between border-t border-gray-200 bg-colorBlue px-4 mt-4 py-2 text-black">
-        <div className="text-sm ">
+      <div className="flex items-center justify-between border-t border-gray-900 bg-gray-700 px-4 mt-4 py-2 text-white">
+        <div className="text-sm">
           Showing{" "}
           <span className="font-medium">
             {pageIndex * 10 + 1}-{Math.min((pageIndex + 1) * 10, data.length)}
@@ -104,15 +124,12 @@ export default function SecondaryTable({ className, columns, data, heading }) {
           onPageChange={(data) => {
             gotoPage(data.selected);
           }}
-          containerClassName={"flex !text-sm text-black items-center"}
-          subContainerClassName={"px-3 py-1.5 text-black"}
-          activeClassName={"bg-white text-black rounded-md"}
-          pageClassName={"text-black py-1.5"}
-          pageLinkClassName={"px-3 text-black"}
-          previousClassName={"px-3 text-white hover:!text-black"}
-          nextClassName={"px-3 py-1.5 text-white hover:!text-black"}
-          previousLinkClassName={"text-white hover:!text-black"}
-          nextLinkClassName={"text-white hover:!text-black"}
+          containerClassName={"flex space-x-2 !text-sm text-white items-center"}
+          activeClassName={"bg-green-600 text-white rounded-md px-3 py-1.5"}
+          pageClassName={"text-white py-1.5"}
+          pageLinkClassName={"px-3 py-1.5 hover:bg-gray-700 rounded"}
+          previousClassName={"px-3 py-1.5 text-white hover:bg-gray-700"}
+          nextClassName={"px-3 py-1.5 text-white hover:bg-gray-700"}
         />
       </div>
     </div>
