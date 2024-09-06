@@ -102,29 +102,6 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
               className={`sub-menu ${mobileSubMenu === 3 && "active"}`}
               id="submenu-3"
             >
-              {/* <li
-                onClick={(e) => handleSubMenuSub(e, 2)}
-                className="sub-menu--item nav-item-has-children"
-              >
-                <Link to="#" data-menu-get="h3" className="drop-trigger">
-                  Team
-                  <FaChevronRight className="dropdown-icon" size={16} />
-                </Link>
-                <ul
-                  className={`sub-menu shape-none ${
-                    mobileSubMenuSub === 2 && "active"
-                  } bg-black`}
-                  id="submenu-5"
-                >
-                  <li className="sub-menu--item">
-                    <Link to="/team">Team</Link>
-                  </li>
-                   <li className="sub-menu--item">
-                    <Link to="/media">Team Photos</Link>
-                  </li> 
-                </ul>
-              </li> */}
-
               <li className="sub-menu--item"></li>
               <li
                 onClick={(e) => handleSubMenuSub(e, 5)}
@@ -157,7 +134,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
             </ul>
           </li>
           <li
-            onClick={(e) => handleSubMenu(e, 3)}
+            onClick={(e) => handleSubMenu(e, 4)}
             className="nav-item nav-item-has-children"
           >
             <Link to="#" className="nav-link-item drop-trigger">
@@ -165,8 +142,8 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
               <FaChevronRight className="dropdown-icon" size={16} />
             </Link>
             <ul
-              className={`sub-menu ${mobileSubMenu === 3 && "active"}`}
-              id="submenu-3"
+              className={`sub-menu ${mobileSubMenu === 4 && "active"}`}
+              id="submenu-2"
             >
               <li className="sub-menu--item"></li>
               <li

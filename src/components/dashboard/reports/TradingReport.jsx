@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Table from "../global/Table";
 import reportService from "../../../services/reportService";
 import toast from "react-hot-toast";
+import SecondaryTable from "../global/SecondaryTable";
 
 const TradingReport = () => {
   const columns = [
@@ -41,7 +41,7 @@ const TradingReport = () => {
   return (
     <div className="w-full p-32">
       <h1 className="text-4xl text-center mb-2">Trade Report</h1>
-      <Table columns={columns} data={formattedData} />
+      <SecondaryTable columns={columns} data={formattedData} />
     </div>
   );
 };

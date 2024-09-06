@@ -11,7 +11,7 @@ const Hero = () => {
         {/* Hero Image */}
         <div className="relative" data-jos_animation="zoom">
           <img
-            src="assets/img/plan/bg.png"
+            src="assets/img/plan/bg.jpg"
             alt="hero-img"
             className="relative h-auto w-full"
           />
