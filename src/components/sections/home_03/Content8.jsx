@@ -1,5 +1,10 @@
 import { Link } from "react-router-dom";
-
+import {
+  FaChartLine,
+  FaFileAlt,
+  FaUserFriends,
+  FaUserPlus,
+} from "react-icons/fa";
 const Content8 = () => {
   return (
     <section id="section-working-process">
@@ -40,11 +45,7 @@ const Content8 = () => {
                     <div className="flex  flex-col md:flex-row justify-center gap-10">
                       <div className="w-60 h-60 rounded-xl bg-[#242424] p-6 flex flex-col gap-6 relative">
                         <div className="relative flex items-center jusify-center gap-8">
-                          <img
-                            src="assets/img/plan/s1.png"
-                            alt="hero-img"
-                            className="relative h-8 w-8"
-                          />
+                          <FaChartLine className="text-colorBlue text-2xl" />
                           <div className="relative text-white  text-sm ">
                             Returns on investment
                           </div>
@@ -57,11 +58,8 @@ const Content8 = () => {
                       </div>
                       <div className="w-60 h-60 rounded-xl bg-[#242424] p-6 flex flex-col gap-6 relative">
                         <div className="relative flex items-center jusify-center gap-8">
-                          <img
-                            src="assets/img/plan/s2.png"
-                            alt="hero-img"
-                            className="relative h-8 w-8"
-                          />
+                          <FaUserFriends className="text-colorBlue text-2xl" />
+
                           <div className="relative text-white  text-sm ">
                             Referral bonus
                           </div>
@@ -76,11 +74,8 @@ const Content8 = () => {
                     <div className="flex  flex-col md:flex-row justify-center gap-10">
                       <div className="w-60 h-60 rounded-xl bg-[#242424] p-6 flex flex-col gap-6 relative">
                         <div className="relative flex items-center jusify-center gap-8">
-                          <img
-                            src="assets/img/plan/s3.png"
-                            alt="hero-img"
-                            className="relative h-8 w-8"
-                          />
+                          <FaUserPlus className="text-colorBlue text-2xl" />
+
                           <div className="relative text-white  text-sm ">
                             Binary bonus
                           </div>
@@ -93,11 +88,8 @@ const Content8 = () => {
                       </div>
                       <div className="w-60 h-60 rounded-xl bg-[#242424] p-6 flex flex-col gap-6 relative">
                         <div className="relative flex items-center jusify-center gap-8">
-                          <img
-                            src="assets/img/plan/s4.png"
-                            alt="hero-img"
-                            className="relative h-8 w-8"
-                          />
+                          <FaFileAlt className="text-colorBlue text-2xl" />
+
                           <div className="relative text-white text-sm ">
                             Crown Rewards
                           </div>
