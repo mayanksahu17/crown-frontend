@@ -21,9 +21,9 @@ const Content_03 = () => {
         <h2 className="text-colorBlue font-bold text-2xl md:text-4xl">
           Crown Bankers
         </h2>
-        <h2 className="text-white font-spaceGrotesk text-2xl md:text-4xl font-medium leading-[1.06] -tracking-[2px] sm:text-[44px] lg:text-[56px] xl:text-[70px] align-start flex w-full">
+        <div className="text-white font-spaceGrotesk text-2xl md:text-6xl font-medium align-start flex w-full">
           An Alternative <br /> Energy Source
-        </h2>
+        </div>
       </div>
 
       <video autoPlay loop muted className="relative w-full h-full mt-20">
