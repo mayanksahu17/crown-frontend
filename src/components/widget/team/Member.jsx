@@ -14,7 +14,7 @@ const Member = ({
 }) => {
   return (
     <li
-      className="jos flex flex-row items-center justify-center rounded-[20px] bg-colorLinenRuffle p-[20px] w-full"
+      className="jos flex flex-col md:flex-row items-center justify-center rounded-[20px] bg-colorLinenRuffle p-[20px] w-full"
       data-jos_animation="flip"
       data-jos_delay="0.1"
     >
@@ -34,7 +34,7 @@ const Member = ({
         >
           {name}
         </Link>
-        <div className="mt-3 flex flex-col justify-center gap-3 xxl:flex-row xxl:flex-wrap xxl:items-center">
+        <div className="mt-3 flex flex-col justify-center gap-3 items-center">
           <span className="text-center text-[21px]">{info}</span>
           {
             <Team_Social
@@ -46,7 +46,7 @@ const Member = ({
             />
           }
         </div>
-        <div>
+        <div className="max-w-full">
           Adrian Cadiz is the dynamic CEO of Crown Bankers, leading the company
           with a strong vision and strategic expertise. A native of the UK,
           Adrian's leadership will drive our operations over the next three

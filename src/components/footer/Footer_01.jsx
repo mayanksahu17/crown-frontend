@@ -198,7 +198,7 @@ const Footer_01 = () => {
                     <Link
                       rel="noopener noreferrer"
                       target="_blank"
-                      to="https://chat.whatsapp.com/IjNiWEBDuoo7hmTCgynB9T"
+                      to="https://chat.whatsapp.com/K0pOZclpfH9DsLxvTyeY5q"
                       className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-full bg-white hover:bg-colorOrangyRed"
                     >
                       <FaWhatsapp
@@ -215,7 +215,7 @@ const Footer_01 = () => {
           {/* Footer Center */}
           <div className="h-[1px] w-full bg-[#DBD6CF]" />
           {/* Footer Bottom */}
-          <div className="py-9 text-center">
+          <div className="py-4 mb-8 text-center">
             <p>
               Copyright 2024, Crown Bankers. All Rights Reserved by CROWNQUEST
               ASSET MANAGEMENT LIMITED.

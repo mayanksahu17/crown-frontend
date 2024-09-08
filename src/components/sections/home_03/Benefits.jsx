@@ -66,7 +66,7 @@ const Benefits = () => {
                   </div>
                   <div className="mt-0 md:mt-24">
                     <BoxComponent
-                      text="Progress through Bronze to White Diamond levels in Crown rewards."
+                      text="Progress through Sunstone to Celestial levels in Crown rewards."
                       img={"assets/img/th-1/41.png"}
                     />
                   </div>

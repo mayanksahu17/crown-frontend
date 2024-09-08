@@ -36,14 +36,13 @@ const Content_02 = () => {
                 <li>
                   <h4 className="mb-[10px]">Referral bonus</h4>
                   <p className="mb-7 last:mb-0">
-                    Referral Bonus at Our company Multiply Your Prosperity Our
-                    company believes in the power of community-driven success,
-                    and our Referral Bonus is a testament to that ethos. When
-                    you refer new investors to Crown Bankers, you not only share
-                    the benefits of financial growth but also earn a Referral
-                    Bonus. This bonus, ranging from 7% to 9%, is a direct
-                    acknowledgment of your role in expanding our investment
-                    family
+                    At Crown Bankers, we value the power of community and shared
+                    success. Our Referral Bonus program is designed to reward
+                    your efforts in bringing new investors into our network. By
+                    referring others, you not only help them unlock financial
+                    growth but also earn a bonus of 7% to 9% as a thank-you for
+                    growing our investment family. Together, we can achieve
+                    more!
                   </p>
                 </li>
               </ul>

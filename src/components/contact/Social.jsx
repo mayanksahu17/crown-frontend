@@ -35,7 +35,7 @@ const Social = () => {
         <Link
           rel="noopener noreferrer"
           target="_blank"
-          to="https://chat.whatsapp.com/IjNiWEBDuoo7hmTCgynB9T"
+          to="https://chat.whatsapp.com/K0pOZclpfH9DsLxvTyeY5q"
           className="group relative flex h-[30px] w-[30px] items-center justify-center rounded-full bg-white hover:bg-colorOrangyRed"
         >
           <FaWhatsapp
