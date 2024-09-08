@@ -108,7 +108,7 @@ const Content_02 = () => {
         {/* Section Container */}
       </div>
       <div className="w-full flex items-center justify-center mb-20">
-        <img src="assets/img/th-1/table1.png" alt="" className="" />
+        <img src="assets/img/plan/11.2.png" alt="" className="" />
       </div>
       {/* Section Spacer */}
     </section>
