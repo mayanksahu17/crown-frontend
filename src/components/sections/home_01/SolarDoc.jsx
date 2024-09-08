@@ -6,7 +6,7 @@ const SolarDoc = ({}) => {
           <div className="global-container">
             <div className="jos mb-10 text-center lg:mb-16 xl:mb-20">
               <div className="mx-auto md:max-w-xs lg:max-w-xl xl:max-w-[746px]">
-                <h2>Solar Purchase Doc</h2>
+                <h2>Solar Purchase Invoice</h2>
               </div>
             </div>
             <li
