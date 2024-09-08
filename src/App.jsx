@@ -47,6 +47,7 @@ import NowPayment from "./components/dashboard/investments/NowPayment";
 import Dashboard from "./components/dashboard/home/Dashboard";
 import TradeView from "./components/tradeview/TradeView";
 import TradingReport from "./components/dashboard/reports/TradingReport";
+import SolarDoc from "./components/sections/home_01/SolarDoc";
 function App() {
   // Init JOS Animation
   useJOSAnimation();
@@ -68,6 +69,7 @@ function App() {
           />
           <Route path="trade-view" element={<TradeView />} />
           <Route path="trade-report" element={<TradingReport />} />
+          <Route path="solar-report" element={<SolarDoc />} />
 
           <Route path="contact" element={<Contact />} />
           <Route path="about" element={<About />} />
