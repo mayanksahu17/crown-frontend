@@ -54,7 +54,7 @@ const TradingReport = () => {
     id: index + 1,
   }));
   return (
-    <div className="w-full p-32">
+    <div className="w-full p-4 pt-8 md:p-32">
       <h1 className="text-4xl text-center mb-2">Trade Report</h1>
       <SecondaryTable columns={columns} data={formattedData} />
       <div className="flex flex-col mt-12">

@@ -234,7 +234,7 @@ export default function Home() {
               </div>
             </button>
           )}
-          <div className="flex flex-row w-full items-center gap-4 justify-center mt-12">
+          <div className="flex flex-col md:flex-row w-full items-center gap-4 justify-center mt-12">
             <WalletFeartures />
             <HomeTabComponent allData={allData} />
           </div>

@@ -17,7 +17,7 @@ const WalletFeartures = () => {
     user?.user?.userId?.split("-")[1] +
     "&position=right";
   return (
-    <div className="w-1/2 rounded-2xl border border-2">
+    <div className="w-full md:w-1/2 rounded-2xl border border-2">
       <div className="w-full p-3 rounded-lg">
         <div className="text-black text-xl">Referral Link</div>
         <div className="mt-3 w-full flex flex-col  gap-4 ">

@@ -11,7 +11,7 @@ const Content7 = () => {
                 <h4 className="mb-4 text-colorOrangyRed ">
                   Investment Packages and Return
                 </h4>
-                <div className="flex flex-row gap-8">
+                <div className="flex flex-col md:flex-row gap-8">
                   <img
                     src="assets/img/th-1/31.png"
                     alt="hero-img"
