@@ -221,6 +221,18 @@ export default function Investment({ data }) {
               }}
               value={allData.amount}
             />
+            <div className="text-colorBlue font-bold pt-4 text-center">
+              Pacakge will be activated for $
+              {parseFloat(allData?.deposit_amount) +
+                parseFloat(allData?.deposit_amount) *
+                  (allData?.selectedModalPackage?.id === 1
+                    ? 0.01
+                    : allData?.selectedModalPackage?.id === 2
+                    ? 0.02
+                    : allData?.selectedModalPackage?.id === 3
+                    ? 0.03
+                    : 0)}
+            </div>
           </div>
 
           {allData.isVoucherClicked && (
