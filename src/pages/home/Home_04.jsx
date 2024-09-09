@@ -14,11 +14,43 @@ import Cta from "../../components/sections/home_04/Cta";
 import Calculator from "../../components/dashboard/calculator/Calculator";
 import ImageSlider from "../../components/sections/home_04/ImageSlider";
 import CEOSection from "../../components/sections/home_04/CEOSection";
+import { Popup } from "../../components/dashboard/Popup";
+import { useState } from "react";
 
 const Home_04 = () => {
+  const [popups, setPopups] = useState([
+    // { imageSrc: "/images/11march.jpeg", visible: true },
+    { imageSrc: "assets/img/popups/9sept.jpeg", visible: true },
+    // { imageSrc: "/images/10apr2.png", visible: false },
+    // { imageSrc: "/images/4march3.jpeg", visible: false },
+  ]);
+  const closePopup = (index) => {
+    const updatedPopups = [...popups];
+    updatedPopups[index].visible = false;
+    setPopups(updatedPopups);
+  };
+
+  const nextPopup = (index) => {
+    if (index < popups.length - 1) {
+      const updatedPopups = [...popups];
+      updatedPopups[index + 1].visible = true;
+      setPopups(updatedPopups);
+    }
+  };
   return (
     <>
       <div className="page-wrapper relative z-[1] bg-black text-white">
+        {popups.map(
+          (popup, index) =>
+            popup.visible && (
+              <Popup
+                key={index}
+                imageSrc={popup.imageSrc}
+                closePopup={() => closePopup(index)}
+                nextPopup={() => nextPopup(index)}
+              />
+            )
+        )}
         <main className="main-wrapper relative overflow-hidden">
           <Content_03 />
           <Content_01 />
