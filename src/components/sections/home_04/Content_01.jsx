@@ -4,7 +4,7 @@ import GradientLayout from "./GradientLayout";
 const Content_01 = () => {
   return (
     <section id="section-content-1">
-      <div className="global-container pb-10">
+      <div className="global-container py-16">
         <div className="grid items-center gap-10 md:grid-cols-[minmax(0,_1fr)_1.3fr] lg:gap-[60px] xl:gap-x-[94px]">
           <div className="jos" data-jos_animation="fade-left">
             <div className="overflow-hidden rounded-[10px]">

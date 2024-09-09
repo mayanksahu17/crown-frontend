@@ -7,15 +7,9 @@ const Content_02 = () => {
         <div className="global-container">
           <div className="grid items-center gap-10 md:grid-cols-[1.1fr_minmax(0,_1fr)] lg:gap-[60px] xl:gap-x-[110px]">
             <div className="jos order-2" data-jos_animation="fade-left">
-              <div className="overflow-hidden rounded-[10px]">
-                <img
-                  src="assets/img/th-1/6.png"
-                  alt="content-img-2"
-                  width={550}
-                  height={550}
-                  className="h-auto w-full"
-                />
-              </div>
+              <video autoPlay loop muted className="relative w-full h-full">
+                <source src="/assets/img/th-1/cc.mp4" type="video/mp4" />
+              </video>
             </div>
             <div className="jos order-1" data-jos_animation="fade-right">
               {/* Section Content Block */}

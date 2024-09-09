@@ -12,12 +12,12 @@ const CEOSection = () => {
       {/* Content */}
       <div className="flex flex-col lg:flex-row items-center px-6 md:px-20">
         {/* CEO Image */}
-        <div className="mb-8 lg:mb-0 lg:mr-8">
+        <div className="w-[600px]">
           <img src="assets/img/th-1/12.png" alt="CEO" className="rounded-lg" />
         </div>
 
         {/* CEO Quote Section */}
-        <div className="bg-gray-900 text-white rounded-lg p-8 flex-1">
+        <div className="bg-gray-900 text-white rounded-lg p-8">
           <div className="mb-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"

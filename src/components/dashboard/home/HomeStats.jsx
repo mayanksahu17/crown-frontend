@@ -14,7 +14,7 @@ export default function HomeStats({
   return (
     <div className="flex flex-col items-center md:items-start w-full h-full md:min-h-screen px-4">
       <div className="flex flex-col w-full space-y-4 ">
-        <img src="/assets/img/th-1/19.png" className="" />
+        {/* <img src="/assets/img/th-1/19.png" className="" /> */}
         <div className="space-y-2 px-6">
           <div className="flex justify-between items-center">
             <span className="text-gray-500">User ID</span>
