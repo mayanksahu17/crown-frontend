@@ -58,20 +58,20 @@ export default function Investment({ data }) {
     custom[1] = allData.packageType.value;
     custom[2] = user?.user?.userId;
     custom[3] = allData.selectedModalPackage?.id;
-    custom[4] = parseInt(allData.amount);
-    custom[5] = parseInt(allData.deposit_amount);
-    custom[6] = parseInt(allData.voucher_amount);
+    custom[4] = parseFloat(allData.amount);
+    custom[5] = parseFloat(allData.deposit_amount);
+    custom[6] = parseFloat(allData.voucher_amount);
     custom[7] = allData.selectedVoucher ? allData.selectedVoucher?.value : "NA";
 
     try {
       const data = {
         to_currency: allData.selectedToken?.value,
-        amount: parseInt(allData.deposit_amount),
+        amount: parseFloat(allData.deposit_amount),
         buyer_name: user?.user?.name,
         buyer_email: user?.user?.email,
         custom: JSON.stringify(custom),
       };
-
+      console.log(data);
       const res = await investmentService.createInvestment(user, data);
       if (res.status === 200) {
         const checkoutUrl = res?.data?.data.checkout_url;
