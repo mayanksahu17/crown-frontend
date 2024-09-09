@@ -33,7 +33,7 @@ const Signup = () => {
   const [formData, setFormData] = useState({
     hasSponsor: true,
     position: "left",
-    sponsorId: "CROWN-000000",
+    sponsorId: "CROWN-100012",
     sponsorName: "CROWN",
     firstName: "",
     country: null,
@@ -203,7 +203,7 @@ const Signup = () => {
         ...formData,
         referrer_id: formData.sponsorId
           ? `${formData.sponsorId}`
-          : "CROWN-000000",
+          : "CROWN-100012",
         phone: formData.phoneNumber,
         // withdrawal_wallet: formData.withdrawal_wallet,
         username: `${formData.firstName} `,
@@ -220,7 +220,7 @@ const Signup = () => {
         setFormData({
           hasSponsor: true,
           position: "left",
-          sponsorId: "CROWN-000000",
+          sponsorId: "CROWN-100012",
           sponsorName: "CROWN",
           firstName: "",
           country: null,
