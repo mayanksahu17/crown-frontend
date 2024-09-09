@@ -24,7 +24,6 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
       const content = e.target.parentElement.textContent;
       setMenuTitle(content);
     }
-    handleMenu();
   };
 
   const handleSubMenuSub = (e, id) => {
@@ -110,7 +109,10 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
             >
               <li className="sub-menu--item"></li>
               <li
-                onClick={(e) => handleSubMenuSub(e, 5)}
+                onClick={(e) => {
+                  handleSubMenuSub(e, 5);
+                  handleMenu();
+                }}
                 className="sub-menu--item nav-item-has-children"
               >
                 <Link to="/team" data-menu-get="h3" className="drop-trigger">
@@ -118,7 +120,10 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                 </Link>
               </li>
               <li
-                onClick={(e) => handleSubMenuSub(e, 5)}
+                onClick={(e) => {
+                  handleSubMenuSub(e, 5);
+                  handleMenu();
+                }}
                 className="sub-menu--item nav-item-has-children"
               >
                 <Link
@@ -130,7 +135,10 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                 </Link>
               </li>
               <li
-                onClick={(e) => handleSubMenuSub(e, 5)}
+                onClick={(e) => {
+                  handleSubMenuSub(e, 5);
+                  handleMenu();
+                }}
                 className="sub-menu--item nav-item-has-children"
               >
                 <Link to="/map" data-menu-get="h3" className="drop-trigger">
@@ -140,7 +148,9 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
             </ul>
           </li>
           <li
-            onClick={(e) => handleSubMenu(e, 4)}
+            onClick={(e) => {
+              handleSubMenu(e, 4);
+            }}
             className="nav-item nav-item-has-children"
           >
             <Link to="#" className="nav-link-item drop-trigger">
@@ -153,7 +163,10 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
             >
               <li className="sub-menu--item"></li>
               <li
-                onClick={(e) => handleSubMenuSub(e, 5)}
+                onClick={(e) => {
+                  handleSubMenuSub(e, 5);
+                  handleMenu();
+                }}
                 className="sub-menu--item nav-item-has-children"
               >
                 <Link
@@ -165,7 +178,10 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                 </Link>
               </li>
               <li
-                onClick={(e) => handleSubMenuSub(e, 5)}
+                onClick={(e) => {
+                  handleSubMenuSub(e, 5);
+                  handleMenu();
+                }}
                 className="sub-menu--item nav-item-has-children"
               >
                 <Link
@@ -177,7 +193,10 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                 </Link>
               </li>
               <li
-                onClick={(e) => handleSubMenuSub(e, 5)}
+                onClick={(e) => {
+                  handleSubMenuSub(e, 5);
+                  handleMenu();
+                }}
                 className="sub-menu--item nav-item-has-children"
               >
                 <Link
@@ -190,17 +209,17 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
               </li>
             </ul>
           </li>
-          <li className="nav-item">
+          <li className="nav-item" onClick={handleMenu}>
             <Link to="/contact" className="nav-link-item">
               Contact
             </Link>
           </li>
-          <li className="md:hidden">
+          <li className="md:hidden" onClick={handleMenu}>
             <Link to="/login" className="nav-link-item">
               Login
             </Link>
           </li>
-          <li className="md:hidden">
+          <li className="md:hidden" onClick={handleMenu}>
             <Link to="/signup" className="nav-link-item">
               Sign up
             </Link>
