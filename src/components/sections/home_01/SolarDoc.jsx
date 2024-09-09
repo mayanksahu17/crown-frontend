@@ -6,7 +6,7 @@ const SolarDoc = ({}) => {
           <div className="global-container">
             <div className="jos mb-10 text-center lg:mb-16 xl:mb-20">
               <div className="mx-auto md:max-w-xs lg:max-w-xl xl:max-w-[746px]">
-                <h2>Solar Purchase Invoice</h2>
+                <h2>Solar Equipment Purchase Agreement</h2>
               </div>
             </div>
             <li
@@ -14,13 +14,63 @@ const SolarDoc = ({}) => {
               data-jos_animation="flip"
               data-jos_delay="0.1"
             >
-              <div className="mt-5 text-center text-black">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Excepturi quas voluptate ex unde odit tempora explicabo tenetur
-                voluptatem facilis minima quis iusto repudiandae quia, ipsa
-                quae, hic consequatur facere qui veritatis quam? Iste cum sint
-                odit accusantium aperiam quam blanditiis iusto officia? Corrupti
-                ab, dignissimos officia praesentium ipsam quia facilis.
+              <div className="mt-5 text-black">
+                <span className="font-bold">
+                  Crown Bankers’ Commitment to Renewable Energy
+                </span>
+                <br /> At Crown Bankers, our mission is to integrate sustainable
+                energy solutions with financial innovation. As part of our
+                ongoing efforts to expand our solar energy infrastructure, we
+                are proud to share details of a recent purchase agreement with
+                Wuxi Sunket New Energy Technology Co., Ltd. This acquisition
+                strengthens our goal of advancing solar energy adoption
+                globally.
+                <br />
+                <br />
+                <span className="font-bold">Agreement Summary</span>
+                <br />
+                This agreement marks the procurement of key equipment required
+                for the expansion of our solar power plants. The purchase
+                includes:
+                <li>
+                  50,000 mono solar panels (400W capacity each) to enhance
+                  energy production capacity.
+                </li>{" "}
+                <li>
+                  {" "}
+                  Inverters, DC cables, batteries, and other necessary
+                  components for efficient energy storage and distribution.
+                </li>{" "}
+                <li>
+                  {" "}
+                  Shipment and delivery arrangements to ensure the timely
+                  completion of the solar plant's expansion.
+                </li>
+                <br />
+                <br />
+                <span className="font-bold">Impact on Our Solar Projects </span>
+                <br />
+                The acquired equipment will contribute significantly to Crown
+                Bankers’ solar energy projects, including those that will power
+                thousands of households and industries globally. This
+                procurement is part of our long-term plan to foster green energy
+                initiatives and reduce our carbon footprint.
+                <br />
+                <br />
+                <span className="font-bold">
+                  Supporting a Sustainable Future
+                </span>
+                <br />
+                By investing in cutting-edge solar technologies, Crown Bankers
+                is driving the shift towards renewable energy. This purchase
+                will help us build more efficient solar plants, ensuring
+                sustainable energy supply to our growing network of partners and
+                clients.
+                <br />
+                <br />
+                <div className="text-center">
+                  You can view the detailed purchase document below:
+                </div>
               </div>
               <div className="rounded-lg bg-colorBlue text-white w-24 mt-6 text-center">
                 <a
