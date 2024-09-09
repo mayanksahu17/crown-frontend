@@ -24,6 +24,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
       const content = e.target.parentElement.textContent;
       setMenuTitle(content);
     }
+    handleMenu();
   };
 
   const handleSubMenuSub = (e, id) => {
@@ -85,7 +86,12 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
             </Link>
           </li>
 
-          <li className="nav-item">
+          <li
+            className="nav-item"
+            onClick={(e) => {
+              handleMenu();
+            }}
+          >
             <Link to="/service-details" className="nav-link-item">
               Services
             </Link>

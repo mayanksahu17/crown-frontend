@@ -38,7 +38,7 @@ const Content9 = () => {
                 />
               </div>
             </div>
-            <img src="assets/img/th-1/table1.png" />
+            {/* <img src="assets/img/th-1/table1.png" /> */}
           </div>
         </div>
       </div>
