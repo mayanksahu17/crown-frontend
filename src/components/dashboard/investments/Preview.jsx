@@ -78,7 +78,7 @@ const Preview = () => {
             className="w-full bg-white px-2.5 py-1 border rounded-md border-solid border-slate-200 outline-none mt-1 "
             readOnly
             value={`$${calculateCompoundedAmount(
-              parseInt(allData?.amount),
+              parseFloat(allData?.amount),
               allData?.selectedModalPackage?.dailyReturns,
               allData?.selectedModalPackage?.durationInDays
             )}`}
