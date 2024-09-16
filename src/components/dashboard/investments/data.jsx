@@ -1,7 +1,7 @@
 import { BeginImage, GrowImage, ThriveImage } from "../../../assets";
 export const packageData = [
   {
-    name: "Solar Starter Package",
+    name: "Solar Starter",
     image: BeginImage,
     minAmount: 25,
     maxAmount: 2499,
@@ -11,7 +11,7 @@ export const packageData = [
     id: 1,
   },
   {
-    name: "Power Growth Package",
+    name: "Power Growth",
     image: GrowImage,
     minAmount: 2500,
     maxAmount: 19999,
@@ -22,7 +22,7 @@ export const packageData = [
     id: 2,
   },
   {
-    name: "Elite Energy Package",
+    name: "Elite Energy",
     image: ThriveImage,
     minAmount: 20000,
     maxAmount: 50000,

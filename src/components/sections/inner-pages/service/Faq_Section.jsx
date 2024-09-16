@@ -87,10 +87,10 @@ const Faq_Section = () => {
                   <div className="accordion-content text-[#ffeffa]">
                     <p>
                       Crown Bankers offers three investment packages - Solar
-                      Starter Package, Power Growth Package, and Elite Energy
-                      Package, with different investment ranges, durations, and
-                      returns. Investors choose a package based on their
-                      investment preferences.
+                      Starter Package, Power Growth, and Elite Energy, with
+                      different investment ranges, durations, and returns.
+                      Investors choose a package based on their investment
+                      preferences.
                     </p>
                   </div>
                 </li>

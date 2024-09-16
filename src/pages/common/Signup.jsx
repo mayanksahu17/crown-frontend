@@ -31,10 +31,10 @@ const Signup = () => {
   const paramPosition = searchParams.get("position");
 
   const [formData, setFormData] = useState({
-    hasSponsor: true,
+    hasSponsor: false,
     position: "left",
-    sponsorId: "CROWN-100012",
-    sponsorName: "CROWN",
+    sponsorId: "CROWN-",
+    sponsorName: "",
     firstName: "",
     country: null,
     phoneNumber: "",
@@ -218,10 +218,10 @@ const Signup = () => {
         console.log(emailResponse);
         // if (emailResponse?.status === 200) {
         setFormData({
-          hasSponsor: true,
+          hasSponsor: false,
           position: "left",
-          sponsorId: "CROWN-100012",
-          sponsorName: "CROWN",
+          sponsorId: "CROWN-",
+          sponsorName: "",
           firstName: "",
           country: null,
           phoneNumber: "",

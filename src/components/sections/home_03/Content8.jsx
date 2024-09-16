@@ -51,9 +51,9 @@ const Content8 = () => {
                           </div>
                         </div>
                         <div className="relative text-white font-thin text-sm mt-4">
-                          Choose from Solar Starter Package, Power Growth
-                          Package, Special packages with returns of 1.5% to 2.4%
-                          over 130 to 150 days, ensuring steady wealth growth.
+                          Choose from Solar Starter, Power Growth, Special
+                          packages with returns of 1.5% to 2.4% over 130 to 150
+                          days, ensuring steady wealth growth.
                         </div>
                       </div>
                       <div className="w-60 h-60 rounded-xl bg-[#242424] p-6 flex flex-col gap-6 relative">

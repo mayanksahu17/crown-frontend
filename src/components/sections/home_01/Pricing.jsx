@@ -62,7 +62,7 @@ const Pricing = () => {
                       data-jos_delay="0"
                     >
                       <h3 className="font-dmSans text-[28px] font-bold leading-[1.28] tracking-tighter text-black transition-all duration-300 ease-linear group-hover:text-white">
-                        Solar Starter Package
+                        Solar Starter
                       </h3>
                       <span className="text-lg text-black transition-all duration-300 ease-linear group-hover:text-white">
                         Up to 10 members
@@ -167,7 +167,7 @@ const Pricing = () => {
                       data-jos_delay="0"
                     >
                       <h3 className="font-dmSans text-[28px] font-bold leading-[1.28] tracking-tighter text-black transition-all duration-300 ease-linear group-hover:text-white">
-                        Solar Starter Package
+                        Solar Starter
                       </h3>
                       <span className="text-lg text-black transition-all duration-300 ease-linear group-hover:text-white">
                         Up to 10 members

@@ -17,16 +17,16 @@ const Content9 = () => {
                 <div className="flex mt-2 flex-row gap-4">
                   <p className="mb-8 text-lg leading-[1.33] last:mb-0 mt-4">
                     Our service offers three investment packages - Solar Starter
-                    Package, Power Growth Package, Elite Energy Package - each
-                    with varying investment ranges, return rates, and durations.
-                    Investors receive returns ranging from 1.5% to 2.4% over
-                    periods of 130 to 150 days. The principle is partially
-                    returned, with higher-return packages providing a full
-                    return of the initial investment. This income stream allows
-                    investors to grow their wealth steadily, offering
-                    flexibility and transparency in alignment with Our company
-                    commitment to financial innovation and strategic investment
-                    in the digital landscape
+                    Package, Power Growth, Elite Energy - each with varying
+                    investment ranges, return rates, and durations. Investors
+                    receive returns ranging from 1.5% to 2.4% over periods of
+                    130 to 150 days. The principle is partially returned, with
+                    higher-return packages providing a full return of the
+                    initial investment. This income stream allows investors to
+                    grow their wealth steadily, offering flexibility and
+                    transparency in alignment with Our company commitment to
+                    financial innovation and strategic investment in the digital
+                    landscape
                   </p>
                 </div>
               </div>
