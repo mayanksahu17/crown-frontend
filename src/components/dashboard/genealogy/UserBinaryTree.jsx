@@ -10,6 +10,7 @@ export default function UserBinaryTree() {
   const { userId } = useParams();
   const { user } = useAuth();
   const [inputData, setInputData] = useState();
+  const [isDataLoaded, setIsDataLoaded] = useState(false);
   if (userId < user?.user?.userId) {
     return;
   }
@@ -30,11 +31,13 @@ export default function UserBinaryTree() {
   }, []);
   useEffect(() => {
     (async () => {
+      setIsDataLoaded(false);
       const response = await genealogyService.getBinaryTreeDataById(
         userId,
         user
       );
       setAllData((prev) => ({ ...prev, binaryTreeData: response?.data?.data }));
+      setIsDataLoaded(true);
     })();
   }, [userId]);
 
@@ -61,7 +64,8 @@ export default function UserBinaryTree() {
   ];
 
   return (
-    allData.binaryTreeData?.length > 0 && (
+    isDataLoaded &&
+    (allData.binaryTreeData?.length > 0 ? (
       <div className="w-full">
         <div className="flex items-center gap-4 justify-end  mt-8">
           <input
@@ -149,6 +153,12 @@ export default function UserBinaryTree() {
         </div>
         <BinaryIcons />
       </div>
-    )
+    ) : (
+      <>
+        <div className="flex justify-center items-center">
+          The user is not part of your binary tree
+        </div>
+      </>
+    ))
   );
 }
