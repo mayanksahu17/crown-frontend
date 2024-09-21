@@ -241,7 +241,7 @@ export const reportWithdrawalColumns = [
   {
     Header: "Charges",
     accessor: "charges",
-    Cell: ({ value }) => <span>${value}</span>,
+    Cell: ({ value }) => <span>{value}%</span>,
   },
   {
     Header: "Merchant",
