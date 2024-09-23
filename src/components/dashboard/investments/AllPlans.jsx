@@ -221,6 +221,11 @@ export default function Investment({ data }) {
               }}
               value={allData.amount}
             />
+            <div className="text-colorBlue font-bold pt-4 text-center">
+              Pacakge will be activated for $
+              {parseFloat(allData?.deposit_amount) +
+                parseFloat(allData?.deposit_amount) * 0.02}
+            </div>
           </div>
 
           {allData.isVoucherClicked && (
