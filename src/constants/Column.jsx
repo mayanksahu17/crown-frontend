@@ -244,6 +244,10 @@ export const reportWithdrawalColumns = [
     Cell: ({ value }) => <span>{value}%</span>,
   },
   {
+    Header: "Withdrawal Method",
+    accessor: "withdrawalMethod",
+  },
+  {
     Header: "Merchant",
     accessor: "merchant",
   },

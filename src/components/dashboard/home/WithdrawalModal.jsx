@@ -34,6 +34,10 @@ const WithdrawalModal = ({
           ? "ROI"
           : "Interest",
     },
+    withdrawalMethod: {
+      label: "Virtual Card",
+      value: "card",
+    },
     securityPin: "",
     currency: {
       label: "Bitcoin",
@@ -113,6 +117,7 @@ const WithdrawalModal = ({
           from_wallet: withdrawalData.fromWallet?.value,
           security_pin: withdrawalData.securityPin,
           otp: withdrawalData.otp,
+          withdrawalMethod: withdrawalData?.withdrawalMethod?.value,
         };
 
         handleWithdrawalDataChange("isLoading", true);
@@ -127,6 +132,10 @@ const WithdrawalModal = ({
             fromWallet: {
               label: "R&B Wallet",
               value: "R&B",
+            },
+            withdrawalMethod: {
+              label: "Virtual Card",
+              value: "card",
             },
             securityPin: "",
             currency: {
@@ -168,6 +177,10 @@ const WithdrawalModal = ({
                 label: "R&B Wallet",
                 value: "R&B",
               },
+              withdrawalMethod: {
+                label: "Virtual Card",
+                value: "card",
+              },
               securityPin: "",
               currency: {
                 label: "Bitcoin",
@@ -206,6 +219,28 @@ const WithdrawalModal = ({
           customStyles={customStyles}
           onChange={(val) => handleWithdrawalDataChange("fromWallet", val)}
           value={withdrawalData.fromWallet}
+        />
+      </div>
+      <div className="w-full mt-6">
+        <label className="block text-black font-normal">
+          Withdrawal Method
+        </label>
+        <Select
+          options={[
+            {
+              label: "Virtual Card",
+              value: "card",
+            },
+            {
+              label: "Withdrawal Wallet",
+              value: "regular",
+            },
+          ]}
+          customStyles={customStyles}
+          onChange={(val) =>
+            handleWithdrawalDataChange("withdrawalMethod", val)
+          }
+          value={withdrawalData.withdrawalMethod}
         />
       </div>
       <div className="w-full mt-6">
