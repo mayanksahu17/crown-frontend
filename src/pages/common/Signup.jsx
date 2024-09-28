@@ -232,7 +232,8 @@ const Signup = () => {
           acceptTerms: false,
         });
         toast.success(
-          "Verification link sent to your email. Please check your inbox."
+          // "Verification link sent to your email. Please check your inbox."
+          "Welcome to Crown Bankers!. Check the email for credentials."
         );
         handleNavigate("/login");
         //  }
