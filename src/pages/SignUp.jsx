@@ -204,10 +204,10 @@ export default function SignUp() {
       });
 
       if (response?.data?.success) {
-        const emailResponse = await authService.sendVerificationEmail({
-          email: formData.email,
-          userId: response?.data?.data?.userId,
-        });
+        // const emailResponse = await authService.sendVerificationEmail({
+        //   email: formData.email,
+        //   userId: response?.data?.data?.userId,
+        // });
         // if (emailResponse?.status === 200) {
         setFormData({
           hasSponsor: false,

@@ -211,11 +211,11 @@ const Signup = () => {
       });
 
       if (response?.data?.success) {
-        const emailResponse = await authService.sendVerificationEmail({
-          email: formData.email,
-          userId: response?.data?.data?.userId,
-        });
-        console.log(emailResponse);
+        // const emailResponse = await authService.sendVerificationEmail({
+        //   email: formData.email,
+        //   userId: response?.data?.data?.userId,
+        // });
+        // console.log(emailResponse);
         // if (emailResponse?.status === 200) {
         setFormData({
           hasSponsor: false,
