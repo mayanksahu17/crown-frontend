@@ -20,7 +20,7 @@ import { useState } from "react";
 const Home_04 = () => {
   const [popups, setPopups] = useState([
     // { imageSrc: "/images/11march.jpeg", visible: true },
-    { imageSrc: "assets/img/popups/23sept.jpeg", visible: false },
+    { imageSrc: "assets/img/popups/23oct.jpeg", visible: true },
     // { imageSrc: "/images/10apr2.png", visible: false },
     // { imageSrc: "/images/4march3.jpeg", visible: false },
   ]);
