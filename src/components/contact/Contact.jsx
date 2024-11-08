@@ -67,7 +67,7 @@ const Contact = () => {
                     href="tel:+44 7452 217071"
                     className="text-white hover:text-colorOrangyRed"
                   > */}
-                  +44 7452237526
+                  +44 7452237405
                   {/* </a> */}
                 </li>
               </ul>

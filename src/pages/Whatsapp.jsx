@@ -33,7 +33,7 @@ const Whatsapp = () => {
       <div class="flex flex-col justify-center items-center gap-[0.5em] relative ">
         <Link
           className="whatsapp-btn flex justify-center align-center"
-          to="https://api.whatsapp.com/send?phone=447452237526"
+          to="https://api.whatsapp.com/send?phone=447452237405"
           target="_blank"
           style={isMobile ? { left: "140px" } : { left: "120px" }}
         >
