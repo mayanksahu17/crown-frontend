@@ -72,7 +72,7 @@ function App() {
           <Route path="solar-report" element={<SolarDoc />} />
 
           <Route path="contact" element={<Contact />} />
-          <Route path="about" element={<About />} />
+          {/* <Route path="about" element={<About />} /> */}
           <Route path="blog" element={<Blog />} />
           <Route path="blog-details" element={<Blog_details />} />
           <Route path="portfolio" element={<Portfolio />} />
