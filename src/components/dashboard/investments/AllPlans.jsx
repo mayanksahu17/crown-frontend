@@ -221,16 +221,16 @@ export default function Investment({ data }) {
               }}
               value={allData.amount}
             />
-            {/* <div className="text-colorBlue font-bold pt-4 text-center">
+            <div className="text-colorBlue font-bold pt-4 text-center">
               Package will be activated for $
               {parseFloat(allData?.deposit_amount) +
                 parseFloat(allData?.deposit_amount) *
                   (allData?.package === 1
-                    ? 0.02
+                    ? 0.05
                     : allData?.package === 4
-                    ? 0.04
-                    : 0.06)}
-            </div> */}
+                    ? 0.05
+                    : 0.05)}
+            </div>
           </div>
 
           {allData.isVoucherClicked && (
