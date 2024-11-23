@@ -226,10 +226,10 @@ export default function Investment({ data }) {
               {parseFloat(allData?.deposit_amount) +
                 parseFloat(allData?.deposit_amount) *
                   (allData?.package === 1
-                    ? 0.05
+                    ? 0.1
                     : allData?.package === 4
-                    ? 0.05
-                    : 0.05)}
+                    ? 0.1
+                    : 0.1)}
             </div>
           </div>
 
