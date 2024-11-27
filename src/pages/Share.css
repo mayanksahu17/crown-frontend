@@ -20,8 +20,8 @@
   transition: 0.2s ease-in-out;
   scale: 0.8;
   padding: 10px;
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   z-index: 10;
   /* animation: blink 2s infinite; */
     /* 1s is the duration of one cycle of animation. You can adjust it as you like. */
@@ -255,8 +255,8 @@
   /* transition: 0.2s ease-in-out; */
   scale: 0.8;
   padding: 10px;
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   z-index: 10;
   /* right:1100px; */
   /* right: 10%; */
@@ -276,8 +276,8 @@
   /* transition: 0.2s ease-in-out; */
   scale: 0.8;
   padding: 10px;
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   /* right:1100px; */
   /* right: 10%; */
   animation: blink 2s infinite;

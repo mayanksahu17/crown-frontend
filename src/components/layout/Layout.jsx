@@ -7,7 +7,7 @@ import { TickerTape } from "react-ts-tradingview-widgets";
 const Layout = () => {
   return (
     <div className="page-wrapper relative z-[1] bg-white">
-      <div className="z-20 fixed bottom-[-31px] w-full">
+      <div className="z-20 fixed h-20 md:h-20 bottom-[-31px] w-full">
         <TickerTape colorTheme="light"></TickerTape>
       </div>
       {/*...::: Header Start :::... */}
