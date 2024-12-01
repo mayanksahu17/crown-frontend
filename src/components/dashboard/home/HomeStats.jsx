@@ -35,7 +35,14 @@ export default function HomeStats({
               ).toFixed(2)}
             </span>
           </div>
-
+          <div className="flex justify-between items-center">
+            <span className="text-gray-500">Sponsor Name</span>
+            <span className="font-medium">{allData?.sponsor_name}</span>
+          </div>
+          <div className="flex justify-between items-center">
+            <span className="text-gray-500">Sponsor Email</span>
+            <span className="font-medium">{allData?.sponsor_email}</span>
+          </div>
           <div className="flex justify-between items-center">
             <span className="text-gray-500">Currency</span>
             <span className="font-medium">US Dollar</span>

@@ -15,6 +15,7 @@ import WithdrawalModal from "../../components/dashboard/home/WithdrawalModal";
 import dashboardService from "../../services/dashboardService";
 import TransferModal from "../../components/dashboard/home/TransferSection";
 import { allowedTransferId, disbledUserIds } from "../../constants/tokens";
+import Calculator from "../../components/dashboard/calculator/Calculator";
 
 export default function Home() {
   const { user, updateUserDetails } = useAuth();
@@ -127,6 +128,8 @@ export default function Home() {
               rightWidth: rWidth * 100,
               target: data?.binary_next_level_business,
               binary_career_level: data?.binary_career_level,
+              sponsor_email: data?.sponsor_email,
+              sponsor_name: data?.sponsor_name,
             }));
           }
         }
@@ -238,7 +241,6 @@ export default function Home() {
             <WalletFeartures />
             <HomeTabComponent allData={allData} />
           </div>
-
           {isWithdrawalModalOpen && (
             <WithdrawalModal
               isWithdrawalModalOpen={isWithdrawalModalOpen}
@@ -255,6 +257,7 @@ export default function Home() {
               setRender={setRender}
             />
           )}
+          {/* <Calculator /> */}
         </div>
       </div>
     </>
