@@ -41,6 +41,7 @@ export { default as VerifiedImage } from "/assets/img/th-1/verified.png";
 export { default as BeginImage } from "/assets/img/th-1/31.png";
 export { default as GrowImage } from "/assets/img/th-1/32.png";
 export { default as ThriveImage } from "/assets/img/th-1/33.png";
+export { default as TurboImage } from "/assets/img/th-1/45.jpg";
 
 // Calculator Icons
 export { default as CalIcon1 } from "./calculator/1.png";

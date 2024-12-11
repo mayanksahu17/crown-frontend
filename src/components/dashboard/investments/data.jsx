@@ -1,4 +1,9 @@
-import { BeginImage, GrowImage, ThriveImage } from "../../../assets";
+import {
+  BeginImage,
+  GrowImage,
+  ThriveImage,
+  TurboImage,
+} from "../../../assets";
 export const packageData = [
   {
     name: "Solar Starter",
@@ -31,6 +36,18 @@ export const packageData = [
     dailyReturns: "2.1%",
     durationInDays: 130,
     id: 3,
+  },
+
+  {
+    name: "Turbo Watt",
+    image: TurboImage,
+    minAmount: 5000,
+    maxAmount: 5000,
+    description:
+      "Take your investments to the next level with our professional package.",
+    dailyReturns: "2%",
+    durationInDays: 100,
+    id: 4,
   },
 ];
 export const customStyles = {

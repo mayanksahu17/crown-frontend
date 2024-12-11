@@ -51,7 +51,7 @@ const Whatsapp = () => {
         {/* Telegram Link */}
         <Link
           className="telegram-btn flex justify-center align-center"
-          to="https://t.me/crownbankersadmin"
+          to="https://t.me/crownbankers_admin"
           target="_blank"
           style={isMobile ? { left: "70px" } : { left: "40px" }}
         >
