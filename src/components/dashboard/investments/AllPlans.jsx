@@ -10,7 +10,7 @@ import moment from "moment/moment";
 import { tokens } from "../../../constants/tokens";
 import investmentService from "../../../services/investmentService";
 import { customStyles, packageData } from "./data";
-
+import axios from "axios";
 export default function Investment({ data }) {
   const { user } = useAuth();
 
@@ -35,6 +35,22 @@ export default function Investment({ data }) {
 
   const handleDataChange = (name, value) =>
     setAllData((prev) => ({ ...prev, [name]: value }));
+
+  const createInvestment = (user, data) => {
+    // Direct hardcoded API call for this service
+    return axios.post(
+      `http://13.200.167.179:5000/api/payment/create_transaction`,
+      {
+        ...data,
+        email: user?.user?.email,
+      },
+      {
+        headers: {
+          Authorization: user?.token,
+        },
+      }
+    );
+  };
 
   useEffect(() => {
     (async () => {
@@ -72,7 +88,7 @@ export default function Investment({ data }) {
         custom: JSON.stringify(custom),
       };
       console.log(data);
-      const res = await investmentService.createInvestment(user, data);
+      const res = await createInvestment(user, data);
       if (res.status === 200) {
         const checkoutUrl = res?.data?.data.checkout_url;
         setAllData({
