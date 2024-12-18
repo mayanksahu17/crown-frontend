@@ -33,7 +33,7 @@ const Whatsapp = () => {
       <div class="flex flex-col justify-center items-center gap-[0.5em] relative ">
         <Link
           className="whatsapp-btn flex justify-center align-center"
-          to="https://api.whatsapp.com/send?phone=447452237405"
+          to="https://api.whatsapp.com/send?phone=447452176974"
           target="_blank"
           style={isMobile ? { left: "140px" } : { left: "120px" }}
         >
@@ -49,7 +49,7 @@ const Whatsapp = () => {
           </svg>
         </Link>
         {/* Telegram Link */}
-        <Link
+        {/* <Link
           className="telegram-btn flex justify-center align-center"
           to="https://t.me/crownbankers_admin"
           target="_blank"
@@ -65,7 +65,7 @@ const Whatsapp = () => {
           >
             <path d="M16 3.077a.5.5 0 0 0-.584-.195L.9 7.12c-.162.056-.29.163-.372.304-.08.14-.094.304-.039.458a.552.552 0 0 0 .309.361l3.64 1.293 1.076 3.66c.052.172.177.312.342.384a.566.566 0 0 0 .24.053.533.533 0 0 0 .36-.142l2.1-2.057 3.913 3.675c.21.197.504.197.715 0a.515.515 0 0 0 .13-.22l1.867-10.572a.547.547 0 0 0-.067-.442.538.538 0 0 0-.361-.229zM6.625 8.174L2.85 6.901l10.373-4.096-6.598 5.37zm.651 1.44 1.642 1.417-.868 1.156-.774-2.573z" />
           </svg>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );
