@@ -3,6 +3,7 @@ import {
   GrowImage,
   ThriveImage,
   TurboImage,
+  MiniImage,
 } from "../../../assets";
 export const packageData = [
   {
@@ -36,6 +37,17 @@ export const packageData = [
     dailyReturns: "2.1%",
     durationInDays: 130,
     id: 3,
+  },
+  {
+    name: "Solar Mini",
+    image: MiniImage,
+    minAmount: 10,
+    maxAmount: 10,
+    description:
+      "Take your investments to the next level with our professional package.",
+    dailyReturns: "1.2%",
+    durationInDays: 110,
+    id: 5,
   },
 ];
 export const customStyles = {
