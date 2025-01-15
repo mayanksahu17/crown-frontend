@@ -39,7 +39,7 @@ export default function Investment({ data }) {
   const createInvestment = (user, data) => {
     // Direct hardcoded API call for this service
     return axios.post(
-      `https://crownquest.site/api/payment/create_transaction`,
+      `https://crownbankers.com/api/payment/create_transaction`,
       {
         ...data,
         email: user?.user?.email,
