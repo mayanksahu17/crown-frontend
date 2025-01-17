@@ -74,8 +74,8 @@ const WithdrawalModal = ({
     }),
   };
   const handleWithdrawalSubmit = async () => {
-    if (parseFloat(withdrawalData?.amount) < 15) {
-      toast.error("Withdrawal amount has to be greater than $15");
+    if (parseFloat(withdrawalData?.amount) < 20) {
+      toast.error("Withdrawal amount has to be greater than $20");
       return;
     }
     if (
