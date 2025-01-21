@@ -29,7 +29,8 @@ const Signup = () => {
   };
   const paramSponsorId = searchParams.get("sponsorId");
   const paramPosition = searchParams.get("position");
-
+  const [state, setState] = useState("");
+  const [city, setCity] = useState("");
   const [formData, setFormData] = useState({
     hasSponsor: false,
     position: "left",
@@ -208,6 +209,8 @@ const Signup = () => {
         // withdrawal_wallet: formData.withdrawal_wallet,
         username: `${formData.firstName} `,
         country: formData?.country?.label,
+        state: state,
+        city: city,
       });
 
       if (response?.data?.success) {
@@ -412,6 +415,33 @@ const Signup = () => {
               />
               <ErrorMessage error={errors.country} touched={touched.country} />
             </div>
+
+            {formData.country?.value === "NG" && (
+              <div className="w-full flex flex-col md:flex-row gap-2">
+                <div className="flex flex-col w-full md:w-1/2">
+                  <input
+                    type="text"
+                    name="state"
+                    value={state || ""}
+                    placeholder="Enter State"
+                    onChange={(e) => setState(e.target.value)}
+                    className="h-12 rounded-[10px] border border-secondary bg-white px-3 py-3 text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
+                  />
+                </div>
+
+                {/* City Input */}
+                <div className="flex flex-col w-full md:w-1/2">
+                  <input
+                    type="text"
+                    name="city"
+                    placeholder="Enter City"
+                    value={city || ""}
+                    onChange={(e) => setCity(e.target.value)}
+                    className="h-12 rounded-[10px] border border-secondary bg-white px-3 py-3 text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
+                  />
+                </div>
+              </div>
+            )}
             <div className="w-full flex flex-col md:flex-row gap-2">
               <div className="flex flex-col w-full md:w-1/2">
                 <input
