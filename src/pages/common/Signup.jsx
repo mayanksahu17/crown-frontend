@@ -416,7 +416,7 @@ const Signup = () => {
               <ErrorMessage error={errors.country} touched={touched.country} />
             </div>
 
-            {formData.country?.value === "NG" && (
+            {/* {formData.country?.value === "NG" && (
               <div className="w-full flex flex-col md:flex-row gap-2">
                 <div className="flex flex-col w-full md:w-1/2">
                   <input
@@ -429,7 +429,6 @@ const Signup = () => {
                   />
                 </div>
 
-                {/* City Input */}
                 <div className="flex flex-col w-full md:w-1/2">
                   <input
                     type="text"
@@ -441,7 +440,7 @@ const Signup = () => {
                   />
                 </div>
               </div>
-            )}
+            )} */}
             <div className="w-full flex flex-col md:flex-row gap-2">
               <div className="flex flex-col w-full md:w-1/2">
                 <input
