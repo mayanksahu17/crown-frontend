@@ -176,7 +176,7 @@ export default function Home() {
           />
         </div>
         <div className="flex w-full md:w-3/4  flex-col">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
             <WalletCard
               title="ROI Wallet"
               amount={parseFloat(allData?.roi_wallet).toFixed(2)}
@@ -196,6 +196,16 @@ export default function Home() {
               title="Coupons"
               amount={parseFloat(allData?.toal_voucher_generated).toFixed(2)}
               borderColor="bg-orange-500"
+            />
+            <WalletCard
+              title="Total Investment"
+              amount={parseFloat(allData?.totalInvestment).toFixed(2)}
+              borderColor="bg-gray-500"
+            />
+            <WalletCard
+              title="Total Withdrawal"
+              amount={parseFloat(allData?.totalWithdrawal).toFixed(2)}
+              borderColor="bg-red-500"
             />
           </div>
 
