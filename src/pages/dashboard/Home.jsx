@@ -157,7 +157,7 @@ export default function Home() {
       value: "extra",
     },
     {
-      name: "Coupons",
+      name: "Vouchers",
       icon: CouponsIcon,
       value: "coupons",
     },

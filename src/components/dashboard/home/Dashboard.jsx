@@ -67,7 +67,7 @@ export default function Dashboard() {
               <span className="font-bold">$128,320</span>
             </div>
             <div className="flex justify-between items-center">
-              <span>Coupons</span>
+              <span>Vouchers</span>
               <span className="font-bold">$128,320</span>
             </div>
           </div>

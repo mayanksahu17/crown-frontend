@@ -48,7 +48,7 @@ const notificationType = [
   },
   {
     type: "token",
-    title: "Token Report",
+    title: "Voucher Report",
     redirect: "/dashboard/vouchers/all",
   },
   {
