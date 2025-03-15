@@ -51,8 +51,8 @@ export default function CreateVoucher() {
   };
 
   return (
-    <div className="w-full flex items-center justify-center my-2">
-      <div className="bg-white max-w-4xl w-full rounded-md p-4 ">
+    <div className="flex items-center justify-center w-full my-2">
+      <div className="w-full max-w-4xl p-4 bg-white rounded-md ">
         <h1 className="mb-2 text-xl ">Generate Voucher Card</h1>
         <div className="w-full mb-3">
           <label className="block text-[#07153D] font-normal">
@@ -81,7 +81,7 @@ export default function CreateVoucher() {
                 value: "roi",
               },
               {
-                label: "Extra Inome Wallet",
+                label: "Extra Income Wallet",
                 value: "interest",
               },
             ]}

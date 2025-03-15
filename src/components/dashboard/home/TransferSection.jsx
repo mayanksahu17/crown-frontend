@@ -137,8 +137,8 @@ const TransferModal = ({ setIsTransferModalOpen, isTransferModalOpen }) => {
         setIsTransferModalOpen(false);
       }}
     >
-      <div className="mt-4 flex flex-col text-white items-center justify-end">
-        <div className="flex w-full items-center justify-end">
+      <div className="flex flex-col items-center justify-end mt-4 text-white">
+        <div className="flex items-center justify-end w-full">
           <IoClose
             size="20"
             className="text-black cursor-pointer"
@@ -159,7 +159,7 @@ const TransferModal = ({ setIsTransferModalOpen, isTransferModalOpen }) => {
           />
         </div>
         <div className="w-full">
-          <p className="text-2xl text-white font-semibold leading-tighter">
+          <p className="text-2xl font-semibold text-white leading-tighter">
             Transfer Fund
           </p>
         </div>
@@ -176,7 +176,7 @@ const TransferModal = ({ setIsTransferModalOpen, isTransferModalOpen }) => {
                 value: "ROI",
               },
               {
-                label: "Extra Inome Wallet",
+                label: "Extra Income Wallet",
                 value: "Interest",
               },
             ]}
@@ -198,7 +198,7 @@ const TransferModal = ({ setIsTransferModalOpen, isTransferModalOpen }) => {
                 value: "ROI",
               },
               {
-                label: "Extra Inome Wallet",
+                label: "Extra Income Wallet",
                 value: "Interest",
               },
             ]}
