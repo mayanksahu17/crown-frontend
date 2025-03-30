@@ -3,6 +3,7 @@ import About from "./pages/common/About";
 import Home_02 from "./pages/home/Home_02";
 import Home_03 from "./pages/home/Home_03";
 import Home_04 from "./pages/home/Home_04";
+import Home_05 from "./pages/home/Home_05";
 import Blog_details from "./pages/common/Blog_details";
 import Blog from "./pages/common/Blog";
 import Contact from "./pages/common/Contact";
@@ -61,7 +62,7 @@ function App() {
 
         <Route exact path="signup/:sponsorId/:position" element={<Signup />} />
         <Route element={<Layout />}>
-          <Route path="/" element={<Home_04 />} />
+          <Route path="/" element={<Home_05 />} />
           <Route
             exact
             path="login-to-user-dashboard/:userid"

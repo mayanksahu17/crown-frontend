@@ -1,54 +1,81 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: "class",
+  darkMode: ["class"],
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    screens: {
-      sm: "576px",
-      // => @media (min-width: 576px) { ... }
-
-      md: "768px",
-      // => @media (min-width: 768px) { ... }
-
-      lg: "992px",
-      // => @media (min-width: 992px) { ... }
-
-      xl: "1200px",
-      // => @media (min-width: 1200px) { ... }
-
-      xxl: "1400px",
-      // => @media (min-width: 1400px) { ... }
-    },
     extend: {
       fontFamily: {
-        // Add your custom fonts
-        dmSans: ["DM Sans", "sans-serif"],
-        clashDisplay: ["Clash Display", "sans-serif"],
-        raleway: ["Raleway", "sans-serif"],
-        spaceGrotesk: ["Space Grotesk", "sans-serif"],
-        body: ["Inter", "sans-serif"],
+        bethany: ["Bethany Elingston", "sans-serif"],
       },
-
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
       colors: {
-        colorCodGray: "#191919",
-        colorOrangyRed: "#00B3FF",
-        colorLinenRuffle: "#EFEAE3",
-        colorViolet: "#321CA4",
-        colorGreen: "#39FF14",
-        bgblue: "#000000",
-        textred: "#FA895F",
-        textwhite: "#FFFFFF",
-        themeColor: "#D5AA6D",
-        primary: "#315DFF",
-        secondary: "#093AED",
-        colorBlack: "#020804",
-        colorBlue: "#12CEF9",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        chart: {
+          1: "hsl(var(--chart-1))",
+          2: "hsl(var(--chart-2))",
+          3: "hsl(var(--chart-3))",
+          4: "hsl(var(--chart-4))",
+          5: "hsl(var(--chart-5))",
+        },
       },
-      backgroundImage: {
-        "custom-eclipse":
-          "linear-gradient(134.15deg, #FEFFFE -1.52%, #F4FBFF 100%)",
+      animation: {
+        "border-draw": "borderDraw 1.8s linear infinite",
+      },
+      keyframes: {
+        borderDraw: {
+          "0%": {
+            borderWidth: "4px",
+            borderStyle: "dashed",
+            borderColor: "#22c55e", // green-500
+            borderDasharray: "0 200",
+            borderDashoffset: "0",
+          },
+          "100%": {
+            borderWidth: "4px",
+            borderStyle: "dashed",
+            borderColor: "#22c55e",
+            borderDasharray: "200 200",
+            borderDashoffset: "-200",
+          },
+        },
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };

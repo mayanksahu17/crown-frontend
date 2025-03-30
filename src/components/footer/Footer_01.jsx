@@ -165,7 +165,7 @@ const Footer_01 = () => {
             {/* Footer Widget */}
             {/* Footer Widget */}
             <div className="flex flex-col gap-y-6">
-              <li className="flex flex-col gap-y-4 text-2xl font-bold">
+              <li className="flex flex-col text-2xl font-bold gap-y-4">
                 Follow us:
                 <ul className="mt-auto flex gap-x-[15px]">
                   <li>

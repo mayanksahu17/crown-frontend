@@ -12,22 +12,12 @@ export default function DashboardLayout() {
   }
 
   return (
-    <>
-      <div className="flex h-full flex-col">
-        <NewNavbar />
-        <div className="w-full bg-white min-h-screen h-full">
-          <div className="w-full flex h-full relative">
-            <div className="bg-white w-full">
-              <div className="p-3 lg:p-4 w-full h-full">
-                <div className="min-h-screen h-full">
-                  <Outlet />
-                  <Whatsapp />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+    <div className="flex flex-col min-h-screen">
+      <NewNavbar />
+      <main className="flex-1 bg-white">
+        <Outlet />
+        <Whatsapp />
+      </main>
+    </div>
   );
 }

@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Footer_01 from "../footer/Footer_01";
+import Footer_05 from "../footer/Footer_05";
 import Header from "../header/Header";
 import Whatsapp from "../../pages/Whatsapp";
 import { TickerTape } from "react-ts-tradingview-widgets";
@@ -23,7 +23,7 @@ const Layout = () => {
       {/*...::: Main End :::... */}
 
       {/*...::: Footer Start :::... */}
-      <Footer_01 />
+      {/* <Footer_05 /> */}
       {/*...::: Footer End :::... */}
       <Whatsapp />
     </div>
