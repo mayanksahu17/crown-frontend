@@ -67,9 +67,9 @@ function App() {
             path="login-to-user-dashboard/:userid"
             element={<LoginToUserDashboard />}
           />
-          <Route path="trade-view" element={<TradeView />} />
-          <Route path="trade-report" element={<TradingReport />} />
-          <Route path="solar-report" element={<SolarDoc />} />
+          <Route path="reports/trade-view" element={<TradeView />} />
+          <Route path="reports/trade-report" element={<TradingReport />} />
+          <Route path="reports/solar-report" element={<SolarDoc />} />
 
           <Route path="contact" element={<Contact />} />
           {/* <Route path="about" element={<About />} /> */}
@@ -79,9 +79,9 @@ function App() {
           <Route path="portfolio-details" element={<Portfolio_details />} />
           <Route path="faq" element={<Faq_01 />} />
           <Route path="faq-2" element={<Faq_02 />} />
-          <Route path="team" element={<Team />} />
+          <Route path="pages/team" element={<Team />} />
           {/* <Route path="media" element={<TeamPhotos />} /> */}
-          <Route path="map" element={<Map />} />
+          <Route path="pages/map" element={<Map />} />
 
           <Route path="team-details" element={<Team_details />} />
           <Route path="pricing" element={<Pricing />} />

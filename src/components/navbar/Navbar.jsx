@@ -1,6 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FaChevronRight } from "react-icons/fa";
+import { FiMessageCircle } from "react-icons/fi";
+import { ChevronDown } from "lucide-react"; // or whichever icon set you are using
+import RoundButton from "./RoundButton";
+import WhiteRoundButton from "./WhiteRoundButton";
 // eslint-disable-next-line react/prop-types
 const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
   const [mobileSubMenu, setMobileSubMenu] = useState("");
@@ -49,183 +53,393 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
     }
   };
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+  const location = useLocation();
+  const { pathname } = location;
+
+  const toggleDropdown = (menu) => {
+    if (activeDropdown === menu) {
+      setActiveDropdown(null);
+    } else {
+      setActiveDropdown(menu);
+    }
+  };
+
+  const isActive = (path) => {
+    if (path === "/") {
+      return pathname === "/";
+    }
+    return pathname.startsWith(path);
+  };
+
   return (
-    <div className="menu-block-wrapper">
-      <div
-        onClick={handleMenu}
-        className={`menu-overlay ${mobileMenu && "active"}`}
-      />
-      <nav
-        className={`menu-block ${mobileMenu && "active"}`}
-        id="append-menu-header"
-      >
-        <div className={`mobile-menu-head ${mobileSubMenu && "active"}`}>
-          <div onClick={handleGoBack} className="go-back">
-            <img
-              className="dropdown-icon"
-              src="assets/img/icon-black-long-arrow-right.svg"
-              alt="cheveron-right"
-              width={16}
-              height={16}
-            />
-          </div>
-          <div className="current-menu-title">{menuTitle}</div>
-          <div onClick={handleMenu} className="mobile-menu-close">
-            ×
+    <div>
+      {/* Main navigation */}
+      <div className="flex items-center justify-between px-4 text-lg bg-white ">
+        <div className="flex items-center">
+          <Link to="/" className="flex items-center">
+            <div className="relative h-18 w-36">
+              <div className="flex items-center">
+                <div className="flex items-center justify-center bg-white rounded-md ">
+                  <img
+                    src="https://res.cloudinary.com/dygdftjr8/image/upload/v1742818322/logo1_mp91bc.png"
+                    alt="logo1"
+                    height={300}
+                    width={350}
+                  />
+                </div>
+                <div>
+                  {/* <div className="text-xs text-gray-500">Invest Owen Risk</div> */}
+                </div>
+              </div>
+            </div>
+          </Link>
+
+          <nav className="hidden ml-8 lg:flex">
+            <ul className="flex space-x-1">
+              <li>
+                <Link
+                  to="/"
+                  className={`flex items-center px-4 py-2 ${
+                    isActive("/")
+                      ? "text-green-500 border-b-2 border-green-500"
+                      : "text-gray-700 hover:text-green-500"
+                  }`}
+                >
+                  Home
+                  {/* <ChevronDown className="w-4 h-4 ml-1" /> */}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services"
+                  className={`flex items-center px-4 py-2 ${
+                    isActive("/services")
+                      ? "text-green-500 border-b-2 border-green-500"
+                      : "text-gray-700 hover:text-green-500"
+                  }`}
+                >
+                  Services
+                  {/* <ChevronDown className="w-4 h-4 ml-1" /> */}
+                </Link>
+              </li>
+              <li className="relative">
+                <button
+                  onClick={() => toggleDropdown("services")}
+                  className={`flex items-center px-4 py-2 ${
+                    isActive("/pages")
+                      ? "text-green-500 border-b-2 border-green-500"
+                      : "text-gray-700 hover:text-green-500"
+                  }`}
+                >
+                  Pages
+                  <ChevronDown
+                    className={`ml-1 h-4 w-4 transition-transform ${
+                      activeDropdown === "services" ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                {activeDropdown === "services" && (
+                  <div className="absolute left-0 z-10 w-48 py-2 bg-white rounded-md shadow-md top-full">
+                    <Link
+                      to="/pages/team"
+                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-green-500"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Team
+                    </Link>
+                    <Link
+                      to="/"
+                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-green-500"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Business Plan
+                    </Link>
+                    <Link
+                      to="/pages/map"
+                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-green-500"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      legal
+                    </Link>
+                  </div>
+                )}
+              </li>
+              <li className="relative">
+                <button
+                  onClick={() => toggleDropdown("projects")}
+                  className={`flex items-center px-4 py-2 ${
+                    isActive("/reports")
+                      ? "text-green-500 border-b-2 border-green-500"
+                      : "text-gray-700 hover:text-green-500"
+                  }`}
+                >
+                  Reports
+                  <ChevronDown
+                    className={`ml-1 h-4 w-4 transition-transform ${
+                      activeDropdown === "projects" ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                {activeDropdown === "projects" && (
+                  <div className="absolute left-0 z-10 w-48 py-2 bg-white rounded-md shadow-md top-full">
+                    <Link
+                      to="/reports/trade-report"
+                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-green-500"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Trade Report
+                    </Link>
+                    <Link
+                      to="/reports/trade-view"
+                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-green-500"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Trade View
+                    </Link>
+                    <Link
+                      to="/reports/solar-report"
+                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-green-500"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Solar Purchase Document
+                    </Link>
+                  </div>
+                )}
+              </li>
+
+              <li>
+                <Link
+                  to="/contact"
+                  className={`flex items-center px-4 py-2 ${
+                    isActive("/contact")
+                      ? "text-green-500 border-b-2 border-green-500"
+                      : "text-gray-700 hover:text-green-500"
+                  }`}
+                >
+                  Contact Us
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div className="items-center hidden ml-72 lg:flex">
+          <div className="flex justify-start space-x-2">
+            <Link to="/login">
+              <WhiteRoundButton className="" text="Login" />
+            </Link>
+            <Link to="/signup">
+              <RoundButton className="" text="Sign Up" />
+            </Link>
           </div>
         </div>
-        <ul className={`site-menu-main ${color}`}>
-          {/* Global navbar */}
-          <li
-            onClick={(e) => handleSubMenu(e, 1)}
-            className="nav-item nav-item-has-children"
+        {/* ---------------------------------------------------------------------------------*/}
+        {/* Mobile menu button */}
+        <button
+          className="flex items-center lg:hidden"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <svg
+            className="w-6 h-6 text-gray-700"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
           >
-            <Link to="/" className="nav-link-item drop-trigger">
-              Home
-            </Link>
-          </li>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d={
+                isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"
+              }
+            />
+          </svg>
+        </button>
+      </div>
 
-          <li
-            className="nav-item"
-            onClick={(e) => {
-              handleMenu();
-            }}
-          >
-            <Link to="/service-details" className="nav-link-item">
-              Services
-            </Link>
-          </li>
-          <li
-            onClick={(e) => handleSubMenu(e, 3)}
-            className="nav-item nav-item-has-children"
-          >
-            <Link to="#" className="nav-link-item drop-trigger">
-              Pages
-              <FaChevronRight className="dropdown-icon" size={16} />
-            </Link>
-            <ul
-              className={`sub-menu ${mobileSubMenu === 3 && "active"}`}
-              id="submenu-3"
-            >
-              <li className="sub-menu--item"></li>
-              <li
-                onClick={(e) => {
-                  handleSubMenuSub(e, 5);
-                  handleMenu();
-                }}
-                className="sub-menu--item nav-item-has-children"
+      {/* Mobile menu */}
+      {isMenuOpen && (
+        <div className="pb-6 overflow-y-auto bg-white lg:hidden">
+          <div className="px-5 pt-4">
+            <nav className="grid gap-y-2">
+              <Link
+                to="/"
+                className={`-m-3 p-3 flex items-center rounded-md ${
+                  isActive("/")
+                    ? "text-green-500 font-medium"
+                    : "text-gray-700 hover:text-green-500"
+                }`}
+                onClick={() => setIsMenuOpen(false)}
               >
-                <Link to="/team" data-menu-get="h3" className="drop-trigger">
-                  Team
-                </Link>
-              </li>
-              <li
-                onClick={(e) => {
-                  handleSubMenuSub(e, 5);
-                  handleMenu();
-                }}
-                className="sub-menu--item nav-item-has-children"
+                Home
+              </Link>
+              <Link
+                to="/services"
+                className={`-m-3 p-3 flex items-center rounded-md ${
+                  isActive("/services")
+                    ? "text-green-500 font-medium"
+                    : "text-gray-700 hover:text-green-500"
+                }`}
+                onClick={() => setIsMenuOpen(false)}
               >
-                <Link
-                  to="/business-plan"
-                  data-menu-get="h3"
-                  className="drop-trigger"
+                Services
+              </Link>
+
+              <div className="relative">
+                <button
+                  onClick={() => toggleDropdown("mobile-services")}
+                  className={`-m-3 p-3 flex items-center rounded-md w-full text-left ${
+                    isActive("/pages")
+                      ? "text-green-500 font-medium"
+                      : "text-gray-700 hover:text-green-500"
+                  }`}
                 >
-                  Business Plan
-                </Link>
-              </li>
-              <li
-                onClick={(e) => {
-                  handleSubMenuSub(e, 5);
-                  handleMenu();
-                }}
-                className="sub-menu--item nav-item-has-children"
-              >
-                <Link to="/map" data-menu-get="h3" className="drop-trigger">
-                  Legal
-                </Link>
-              </li>
-            </ul>
-          </li>
-          <li
-            onClick={(e) => {
-              handleSubMenu(e, 4);
-            }}
-            className="nav-item nav-item-has-children"
-          >
-            <Link to="#" className="nav-link-item drop-trigger">
-              Reports
-              <FaChevronRight className="dropdown-icon" size={16} />
-            </Link>
-            <ul
-              className={`sub-menu ${mobileSubMenu === 4 && "active"}`}
-              id="submenu-2"
-            >
-              <li className="sub-menu--item"></li>
-              <li
-                onClick={(e) => {
-                  handleSubMenuSub(e, 5);
-                  handleMenu();
-                }}
-                className="sub-menu--item nav-item-has-children"
-              >
-                <Link
-                  to="/trade-report"
-                  data-menu-get="h3"
-                  className="drop-trigger"
+                  Pages
+                  <ChevronDown
+                    className={`ml-2 h-4 w-4 transition-transform ${
+                      activeDropdown === "mobile-services" ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                {activeDropdown === "mobile-services" && (
+                  <div className="pl-4 mt-2 space-y-2">
+                    <Link
+                      to="/pages/team"
+                      className={`block px-3 py-2 rounded-md text-base ${
+                        isActive("/pages/team")
+                          ? "text-green-500 font-medium"
+                          : "text-gray-700 hover:text-green-500"
+                      }`}
+                      onClick={() => {
+                        setActiveDropdown(null);
+                        setIsMenuOpen(false);
+                      }}
+                    >
+                      Team
+                    </Link>
+                    <Link
+                      to="/pages/business-plan"
+                      className={`block px-3 py-2 rounded-md text-base ${
+                        isActive("/pages/business-plan")
+                          ? "text-green-500 font-medium"
+                          : "text-gray-700 hover:text-green-500"
+                      }`}
+                      onClick={() => {
+                        setActiveDropdown(null);
+                        setIsMenuOpen(false);
+                      }}
+                    >
+                      Business Plan
+                    </Link>
+                    <Link
+                      to="/pages/legal"
+                      className={`block px-3 py-2 rounded-md text-base ${
+                        isActive("/pages/legal")
+                          ? "text-green-500 font-medium"
+                          : "text-gray-700 hover:text-green-500"
+                      }`}
+                      onClick={() => {
+                        setActiveDropdown(null);
+                        setIsMenuOpen(false);
+                      }}
+                    >
+                      Legal
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+              <div className="relative">
+                <button
+                  onClick={() => toggleDropdown("mobile-projects")}
+                  className={`-m-3 p-3 flex items-center rounded-md w-full text-left ${
+                    isActive("/reports")
+                      ? "text-green-500 font-medium"
+                      : "text-gray-700 hover:text-green-500"
+                  }`}
                 >
-                  Trade Report
-                </Link>
-              </li>
-              <li
-                onClick={(e) => {
-                  handleSubMenuSub(e, 5);
-                  handleMenu();
-                }}
-                className="sub-menu--item nav-item-has-children"
+                  Reports
+                  <ChevronDown
+                    className={`ml-2 h-4 w-4 transition-transform ${
+                      activeDropdown === "mobile-projects" ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                {activeDropdown === "mobile-projects" && (
+                  <div className="pl-4 mt-2 space-y-2">
+                    <Link
+                      to="/reports/trade-report"
+                      className={`block px-3 py-2 rounded-md text-base ${
+                        isActive("/reports/trade-report")
+                          ? "text-green-500 font-medium"
+                          : "text-gray-700 hover:text-green-500"
+                      }`}
+                      onClick={() => {
+                        setActiveDropdown(null);
+                        setIsMenuOpen(false);
+                      }}
+                    >
+                      Trade Report
+                    </Link>
+                    <Link
+                      to="/reports/trade-view"
+                      className={`block px-3 py-2 rounded-md text-base ${
+                        isActive("/reports/trade-view")
+                          ? "text-green-500 font-medium"
+                          : "text-gray-700 hover:text-green-500"
+                      }`}
+                      onClick={() => {
+                        setActiveDropdown(null);
+                        setIsMenuOpen(false);
+                      }}
+                    >
+                      Trade View
+                    </Link>
+                    <Link
+                      to="/reports/solar-purchase-document"
+                      className={`block px-3 py-2 rounded-md text-base ${
+                        isActive("/reports/solar-purchase-document")
+                          ? "text-green-500 font-medium"
+                          : "text-gray-700 hover:text-green-500"
+                      }`}
+                      onClick={() => {
+                        setActiveDropdown(null);
+                        setIsMenuOpen(false);
+                      }}
+                    >
+                      Solar Purchase Document
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+              <Link
+                to="/contact"
+                className={`-m-3 p-3 flex items-center rounded-md ${
+                  isActive("/contact")
+                    ? "text-green-500 font-medium"
+                    : "text-gray-700 hover:text-green-500"
+                }`}
+                onClick={() => setIsMenuOpen(false)}
               >
-                <Link
-                  to="/solar-report"
-                  data-menu-get="h3"
-                  className="drop-trigger"
-                >
-                  Solar Purchase Document
-                </Link>
-              </li>
-              <li
-                onClick={(e) => {
-                  handleSubMenuSub(e, 5);
-                  handleMenu();
-                }}
-                className="sub-menu--item nav-item-has-children"
-              >
-                <Link
-                  to="/trade-view"
-                  data-menu-get="h3"
-                  className="drop-trigger"
-                >
-                  Trade View
-                </Link>
-              </li>
-            </ul>
-          </li>
-          <li className="nav-item" onClick={handleMenu}>
-            <Link to="/contact" className="nav-link-item">
-              Contact
-            </Link>
-          </li>
-          <li className="md:hidden" onClick={handleMenu}>
-            <Link to="/login" className="nav-link-item">
-              Login
-            </Link>
-          </li>
-          <li className="md:hidden" onClick={handleMenu}>
-            <Link to="/signup" className="nav-link-item">
-              Sign up
-            </Link>
-          </li>
-        </ul>
-      </nav>
+                Contact Us
+              </Link>
+            </nav>
+
+            {/* Mobile menu buttons */}
+            <div className="flex pt-2 space-x-2 border-gray-100">
+              <Link to="/login" className="flex-1">
+                <WhiteRoundButton text="Login" className="w-full" />
+              </Link>
+              <Link to="/signup" className="flex-1">
+                <RoundButton text="Sign Up" className="w-full" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
