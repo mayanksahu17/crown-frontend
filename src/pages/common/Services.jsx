@@ -315,9 +315,9 @@ const Services = () => {
         <div className="absolute inset-0"></div>
         <div className="relative max-w-6xl px-4 mx-auto md:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="mb-6 text-4xl text-white sm:text-5xl lg:text-6xl font-bethany">
+            <label className="mb-6 text-4xl text-white sm:text-5xl lg:text-6xl font-bethany">
               Ride the Wave to Financial Freedom with Crown Bankers
-            </h1>
+            </label>
             <p className="mx-auto text-base leading-relaxed text-white sm:text-lg lg:text-xl">
               At Crown Bankers, we're dedicated to helping you capitalize on the
               most exciting investment opportunities in today's market. Our

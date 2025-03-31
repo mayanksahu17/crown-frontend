@@ -49,6 +49,8 @@ import Dashboard from "./components/dashboard/home/Dashboard";
 import TradeView from "./components/tradeview/TradeView";
 import TradingReport from "./components/dashboard/reports/TradingReport";
 import SolarDoc from "./components/sections/home_01/SolarDoc";
+import Smoothscrolls from "./components/Smoothscrolls";
+
 function App() {
   // Init JOS Animation
   useJOSAnimation();
@@ -62,7 +64,14 @@ function App() {
 
         <Route exact path="signup/:sponsorId/:position" element={<Signup />} />
         <Route element={<Layout />}>
-          <Route path="/" element={<Home_05 />} />
+          <Route
+            path="/"
+            element={
+              <Smoothscrolls>
+                <Home_05 />
+              </Smoothscrolls>
+            }
+          />
           <Route
             exact
             path="login-to-user-dashboard/:userid"
@@ -70,9 +79,23 @@ function App() {
           />
           <Route path="reports/trade-view" element={<TradeView />} />
           <Route path="reports/trade-report" element={<TradingReport />} />
-          <Route path="reports/solar-report" element={<SolarDoc />} />
+          <Route
+            path="reports/solar-report"
+            element={
+              <Smoothscrolls>
+                <SolarDoc />
+              </Smoothscrolls>
+            }
+          />
 
-          <Route path="contact" element={<Contact />} />
+          <Route
+            path="contact"
+            element={
+              <Smoothscrolls>
+                <Contact />
+              </Smoothscrolls>
+            }
+          />
           {/* <Route path="about" element={<About />} /> */}
           <Route path="blog" element={<Blog />} />
           <Route path="blog-details" element={<Blog_details />} />
@@ -80,14 +103,28 @@ function App() {
           <Route path="portfolio-details" element={<Portfolio_details />} />
           <Route path="faq" element={<Faq_01 />} />
           <Route path="faq-2" element={<Faq_02 />} />
-          <Route path="pages/team" element={<Team />} />
+          <Route
+            path="pages/team"
+            element={
+              <Smoothscrolls>
+                <Team />
+              </Smoothscrolls>
+            }
+          />
           {/* <Route path="media" element={<TeamPhotos />} /> */}
           <Route path="pages/legal" element={<Map />} />
 
           <Route path="team-details" element={<Team_details />} />
           <Route path="pricing" element={<Pricing />} />
           <Route path="PrivacyPolicies" element={<PrivacyPolicies />} />
-          <Route path="services" element={<Services />} />
+          <Route
+            path="services"
+            element={
+              <Smoothscrolls>
+                <Services />
+              </Smoothscrolls>
+            }
+          />
           <Route path="service-details" element={<Services_Details />} />
           <Route path="TermsandCondition" element={<TermsandCondition />} />
           <Route path="verify/:token" element={<Verify />} />

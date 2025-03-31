@@ -123,9 +123,9 @@ export default function Contact() {
           <div ref={leftColumnRef} className="bg-[#e8f5e9] rounded-lg p-8">
             <div ref={headingRef} className="space-y-8">
               <div>
-                <h3 className="text-4xl font-medium text-gray-800 mb-4 font-['Rubik']">
+                <label className="text-4xl font-medium text-gray-800 mb-4 font-['Rubik']">
                   Get in touch with us directly
-                </h3>
+                </label>
                 <p className="text-gray-600 font-['Roboto']">
                   We are here to help you! Tell us how we can help & we'll be in
                   touch with an expert within the next 24 hours.
@@ -135,17 +135,17 @@ export default function Contact() {
 
             <div ref={infoItemsRef} className="mt-8 space-y-8">
               <div>
-                <h3 className="text-xl font-medium text-gray-800 mb-4 font-['Rubik']">
+                <label className="text-xl font-medium text-gray-800 mb-4 font-['Rubik']">
                   Send us an email:
-                </h3>
+                </label>
                 <p className="text-gray-600 font-['Roboto']">
                   support@crownbankers.com
                 </p>
               </div>
               <div>
-                <h3 className="text-xl font-medium text-gray-800 mb-4 font-['Rubik']">
+                <label className="text-xl font-medium text-gray-800 mb-4 font-['Rubik']">
                   Give us a call:
-                </h3>
+                </label>
                 <p className="text-gray-600 font-['Roboto']">+44 7452237405</p>
               </div>
               <button
@@ -162,9 +162,9 @@ export default function Contact() {
             ref={rightColumnRef}
             className="p-6 bg-white border-4 border-green-500 shadow-xl rounded-xl"
           >
-            <h2 className="text-4xl font-semibold text-gray-800 mb-4 font-['Rubik']">
+            <label className="text-4xl font-semibold text-gray-800 mb-4 font-['Rubik']">
               Get In Touch
-            </h2>
+            </label>
             <p className="text-gray-600 mb-8 font-['Roboto']">
               We value your inquiries and are committed to providing you with
               the best assistance. Fill out the form, and we'll respond as soon

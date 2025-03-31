@@ -17,7 +17,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
           {/* Quick Contact */}
           <div>
-            <h3 className="mb-6 text-xl font-bold">Quick Contact</h3>
+            <p className="mb-6 text-xl font-bold">Quick Contact</p>
             <p className="mb-6 text-gray-300">
               Your Gateway to Prosperity. Experience strategic investing,
               innovative solutions, and financial excellence with us.
@@ -34,7 +34,7 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="mb-6 text-xl font-bold">Company</h3>
+            <p className="mb-6 text-xl font-bold">Company</p>
             <ul className="space-y-3">
               <li>
                 <Link
@@ -47,7 +47,7 @@ export default function Footer() {
 
               <li>
                 <Link
-                  to="/faqs"
+                  to="/faq"
                   className="text-gray-300 transition-colors hover:text-white"
                 >
                   FAQs
@@ -74,7 +74,7 @@ export default function Footer() {
 
           {/* Support */}
           <div>
-            <h3 className="mb-6 text-xl font-bold">Support</h3>
+            <p className="mb-6 text-xl font-bold">Support</p>
             <ul className="space-y-3">
               <li>
                 <Link
@@ -105,7 +105,7 @@ export default function Footer() {
 
           {/* Products Catalogue */}
           <div>
-            <h3 className="mb-6 text-xl font-bold">Products Catalogue</h3>
+            <p className="mb-6 text-xl font-bold">Products Catalogue</p>
             <Link
               to="/catalogue"
               className="inline-flex items-center px-6 py-3 font-bold text-white transition-colors bg-green-500 rounded-md hover:bg-green-600"
