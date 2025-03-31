@@ -150,14 +150,14 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                       Team
                     </Link>
                     <Link
-                      to="/"
+                      to="/pages/business-plan"
                       className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-green-500"
                       onClick={() => setActiveDropdown(null)}
                     >
                       Business Plan
                     </Link>
                     <Link
-                      to="/pages/map"
+                      to="/pages/legal"
                       className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-green-500"
                       onClick={() => setActiveDropdown(null)}
                     >
@@ -225,7 +225,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
           </nav>
         </div>
 
-        <div className="items-center hidden ml-72 lg:flex">
+        <div className="items-center hidden lg:ml-72 lg:flex">
           <div className="flex justify-start space-x-2">
             <Link to="/login">
               <WhiteRoundButton className="" text="Login" />
@@ -238,7 +238,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
         {/* ---------------------------------------------------------------------------------*/}
         {/* Mobile menu button */}
         <button
-          className="flex items-center lg:hidden"
+          className="flex items-center border border-gray-900 lg:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <svg

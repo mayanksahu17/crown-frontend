@@ -22,7 +22,7 @@ import Team from "./pages/common/team/Team";
 import useJOSAnimation from "./hooks/useJOSAnimation";
 import Layout from "./components/layout/Layout";
 import Faq_01 from "./pages/common/faq/faq_01/Faq_01";
-
+import BusinessPlan from "./pages/busines-plan/business-plan";
 // Dashboard Pages
 import {
   Home,
@@ -82,7 +82,7 @@ function App() {
           <Route path="faq-2" element={<Faq_02 />} />
           <Route path="pages/team" element={<Team />} />
           {/* <Route path="media" element={<TeamPhotos />} /> */}
-          <Route path="pages/map" element={<Map />} />
+          <Route path="pages/legal" element={<Map />} />
 
           <Route path="team-details" element={<Team_details />} />
           <Route path="pricing" element={<Pricing />} />
@@ -91,7 +91,7 @@ function App() {
           <Route path="service-details" element={<Services_Details />} />
           <Route path="TermsandCondition" element={<TermsandCondition />} />
           <Route path="verify/:token" element={<Verify />} />
-          <Route path="business-plan" element={<Home_03 />} />
+          <Route path="pages/business-plan" element={<BusinessPlan />} />
           {/* <Route path="home-4" element={<Home_04 />} /> */}
         </Route>
         <Route path="home-2" element={<Home_02 />} />

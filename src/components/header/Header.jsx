@@ -91,7 +91,7 @@ const Header = ({ loginCSS, signupCSS, navColor, light }) => {
       </div>
 
       <div className="global-container">
-        <div className="flex items-center justify-between gap-x-8">
+        <div className="">
           {/* Header Logo */}
           {/* <Link to="/" className="flex items-center">
             <div className="relative h-18 w-36">

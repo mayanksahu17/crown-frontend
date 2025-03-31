@@ -1,279 +1,183 @@
-const Map = () => {
-  return (
-    <section className="map-section">
-      <div className="bg-black pb-40 pt-20 xl:pb-[200px] xl:pt-[130px]">
-        <div className="global-container">
-          <div className="mb-10 items-start flex lg:mb-16 xl:mb-20 ">
-            <div className="mx-auto md:max-w-xs lg:max-w-xl xl:max-w-[950px]">
-              <h2 className="text-white">Legal Compliance and Verification</h2>
-              <p className="text-white font-light mt-6">
-                Crown Bankers is fully compliant with legal and regulatory
-                requirements in both the UK and New Zealand. Our company is
-                officially registered in these countries, and our credentials
-                can be verified on government-owned websites. We are committed
-                to maintaining the highest standards of transparency and
-                integrity in all aspects of our operations. Our certifications
-                are issued under the name 'CROWNQUEST ASSET MANAGEMENT LIMITED'
-                due to regulatory and administrative reasons. This name is used
-                for official purposes and represents the same entity as Crown
-                Bankers. Below are our official certificates for both the UK and
-                New Zealand.
-              </p>
-              <div className="flex w-full items-center  gap-6 justify-center">
-                <div className="flex flex-col justify-center items-center">
-                  <img
-                    src="/assets/img/th-1/uk.png"
-                    alt="uk"
-                    className="mt-6"
-                  />
-                  <div className="rounded-lg bg-[#FFEBD8] text-black w-24 mt-6 text-center">
-                    <a
-                      href="/assets/img/th-1/Certificate of Incorporation.pdf"
-                      download
-                      className="w-full"
-                    >
-                      View
-                    </a>
-                  </div>
-                </div>
-                <div className="flex flex-col justify-center items-center">
-                  <img
-                    src="/assets/img/th-1/new-zealand.png"
-                    alt="uk"
-                    className="mt-6 h-12 w-16"
-                  />
-                  <div className="rounded-lg bg-[#FFEBD8] text-black w-24 mt-6 text-center">
-                    <a
-                      href="/assets/img/th-1/Certificate of Incorporation- New Zealand.pdf"
-                      download
-                      className="w-full"
-                    >
-                      View
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="relative">
-            <img
-              src="assets/img/th-1/mapbase.svg"
-              alt="mapbase"
-              className="h-auto w-full"
-            />
-            <div className="group absolute hidden sm:flex gap-2 sm:top-[10%] sm:left-[38%]">
-              <div className="relative w-[50px] h-[50px]">
-                <button className="group flex justify-center items-center w-[50px] h-[50px] relative transition-all duration-300">
-                  <img
-                    src="assets/img/th-1/icon-gray-location-marker.svg"
-                    alt="icon-gray-location-marker"
-                    width={35}
-                    height={35}
-                    className="opacity-100 group-hover:opacity-0 transition-all duration-300"
-                  />
-                  <img
-                    src="assets/img/th-1/icon-orange-location-marker.svg"
-                    alt="icon-gray-location-marker"
-                    width={50}
-                    height={50}
-                    className="absolute opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300"
-                  />
-                </button>
-                <div className="absolute bg-white rounded-[8px] p-4 text-sm w-[170px] bottom-0 right-0 xl:right-[50px] xxl:right-auto xxl:left-[50px] opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 xl:translate-y-12 group-hover:translate-y-0">
-                  <div className="flex gap-1 font-bold pb-3">
-                    <img
-                      src="assets/img/th-1/icon-black-location-marker.svg"
-                      alt="icon-black-location-marker"
-                      width={17}
-                      height={17}
-                    />
-                    United Kingdom
-                  </div>
-                  <address className="not-italic font-semibold">
-                    {/* Line 1: House/Flat 208, Venue Street */}
-                  </address>
-                </div>
-              </div>
-            </div>
-            <div className="group absolute hidden sm:flex gap-2 sm:top-[82%] sm:left-[96%]">
-              <div className="relative w-[50px] h-[50px]">
-                <button className="group flex justify-center items-center w-[50px] h-[50px] relative transition-all duration-300">
-                  <img
-                    src="assets/img/th-1/icon-gray-location-marker.svg"
-                    alt="icon-gray-location-marker"
-                    width={35}
-                    height={35}
-                    className="opacity-100 group-hover:opacity-0 transition-all duration-300"
-                  />
-                  <img
-                    src="assets/img/th-1/icon-orange-location-marker.svg"
-                    alt="icon-gray-location-marker"
-                    width={50}
-                    height={50}
-                    className="absolute opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300"
-                  />
-                </button>
-                <div className="absolute bg-white rounded-[8px] p-4 text-sm w-[170px] bottom-0 right-0 xl:right-[50px] xxl:right-auto xxl:left-[50px] opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 xl:translate-y-12 group-hover:translate-y-0">
-                  <div className="flex gap-1 font-bold pb-3">
-                    <img
-                      src="assets/img/th-1/icon-black-location-marker.svg"
-                      alt="icon-black-location-marker"
-                      width={17}
-                      height={17}
-                    />
-                    New Zealand
-                  </div>
-                  <address className="not-italic font-semibold">
-                    {/* Line 1: House/Flat 208, Venue Street */}
-                  </address>
-                </div>
-              </div>
-            </div>
-          </div>
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import greenBackground from "../../../../assets/images/backgrounds/greenBackground.jpg";
+import Footer from "../../../footer/Footer_05";
+// Register ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
 
-          {/* Map Block */}
+const LegalCompliance = () => {
+  // Refs for animation
+  const titleRef = useRef(null);
+  const complianceCardRef = useRef(null);
+  const descriptionRef = useRef(null);
+  const buttonsRef = useRef(null);
+  const mapRef = useRef(null);
+
+  useEffect(() => {
+    // Common animation settings for smoothness
+    const defaults = {
+      ease: "power3.out",
+      duration: 1.2,
+    };
+
+    // Title fade-in
+    if (titleRef.current) {
+      gsap.fromTo(
+        titleRef.current,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power3.out",
+        }
+      );
+    }
+
+    // Compliance Card fade-in
+    if (complianceCardRef.current) {
+      gsap.fromTo(
+        complianceCardRef.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          ...defaults,
+          delay: 0.2,
+        }
+      );
+    }
+
+    // Description fade-in
+    if (descriptionRef.current) {
+      gsap.fromTo(
+        descriptionRef.current,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          ...defaults,
+          delay: 0.4,
+        }
+      );
+    }
+
+    // Buttons fade-in
+    if (buttonsRef.current) {
+      const buttonElements = buttonsRef.current.children;
+      gsap.fromTo(
+        buttonElements,
+        { opacity: 0, scale: 0.9 },
+        {
+          opacity: 1,
+          scale: 1,
+          ...defaults,
+          stagger: 0.15,
+          delay: 0.6,
+        }
+      );
+    }
+
+    // Map fade-in with scale
+    if (mapRef.current) {
+      gsap.fromTo(
+        mapRef.current,
+        { opacity: 0, scale: 0.8 },
+        {
+          opacity: 1,
+          scale: 1,
+          ...defaults,
+          delay: 0.8,
+        }
+      );
+    }
+
+    // Cleanup ScrollTriggers on unmount
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
+
+  return (
+    <div
+      className="min-h-screen bg-center bg-cover lg:pt-32"
+      style={{ backgroundImage: `url(${greenBackground})` }}
+    >
+      <section className="py-8 md:py-12">
+        <div className="max-w-6xl px-4 mx-auto sm:px-6 lg:px-8">
+          {/* Section Title */}
+          <h2
+            ref={titleRef}
+            className="mb-8 text-3xl font-extrabold text-center text-white sm:text-4xl md:mb-12"
+          >
+            Legal Compliance and Verification
+          </h2>
+
+          {/* Compliance Card */}
+          <div
+            ref={complianceCardRef}
+            className="bg-[#e8f5e9] backdrop-blur-md rounded-lg shadow-2xl p-4 sm:p-6 md:p-8"
+          >
+            {/* Description */}
+            <p
+              ref={descriptionRef}
+              className="mb-6 text-sm leading-relaxed text-center text-gray-700 sm:text-base md:text-xl md:mx-8 lg:mx-16"
+            >
+              Crown Bankers is fully compliant with the legal regulatory
+              requirements in both the UK and New Zealand. Our company is
+              officially registered in those countries, and our credentials can
+              be verified on government-owned websites. We are committed to
+              maintaining the highest standards of transparency and integrity in
+              all aspects of our operations. Our certificates are issued under
+              the name 'CROWNQUEST ASSET MANAGEMENT LIMITED' due to regulatory
+              and administrative reasons. This name is used for official
+              purposes and represents the same entity as Crown Bankers. Below
+              are our official certificates for both the UK and New Zealand.
+            </p>
+
+            {/* Buttons with Flags */}
+            <div
+              ref={buttonsRef}
+              className="flex flex-col items-center justify-center gap-4 mb-8 sm:flex-row sm:gap-6"
+            >
+              <div className="flex items-center gap-3">
+                <img
+                  src="https://crownbankers.com/assets/img/th-1/uk.png"
+                  alt="UK Flag"
+                  className="w-16 sm:w-20"
+                />
+                <button className="flex items-center px-4 py-2 font-semibold text-white transition-colors bg-green-500 rounded hover:bg-green-600">
+                  <span className="mr-2">🇬🇧</span> View
+                </button>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <img
+                  src="https://crownbankers.com/assets/img/th-1/new-zealand.png"
+                  alt="New Zealand Flag"
+                  className="w-16 sm:w-20"
+                />
+                <button className="flex items-center px-4 py-2 font-semibold text-white transition-colors bg-green-500 rounded hover:bg-green-600">
+                  <span className="mr-2">🇳🇿</span> View
+                </button>
+              </div>
+            </div>
+
+            {/* SVG Map */}
+            <div ref={mapRef} className="w-full max-w-4xl px-2 mx-auto sm:px-4">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/2/29/Blank_world_map_%28green_color%29.svg"
+                alt="world map"
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
         </div>
-        {/* Section Container */}
-      </div>
-      {/* Section Spacer */}
-    </section>
+      </section>
+      <Footer />
+    </div>
   );
 };
 
-export default Map;
-/*      <div className="group absolute hidden sm:flex gap-2 sm:top-[65%] sm:left-[18%]">
-              <div className="relative w-[50px] h-[50px]">
-                <button className="group flex justify-center items-center w-[50px] h-[50px] relative transition-all duration-300">
-                  <img
-                    src="assets/img/th-1/icon-gray-location-marker.svg"
-                    alt="icon-gray-location-marker"
-                    width={35}
-                    height={35}
-                    className="opacity-100 group-hover:opacity-0 transition-all duration-300"
-                  />
-                  <img
-                    src="assets/img/th-1/icon-orange-location-marker.svg"
-                    alt="icon-gray-location-marker"
-                    width={50}
-                    height={50}
-                    className="absolute opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300"
-                  />
-                </button>
-                <div className="absolute bg-white rounded-[8px] p-4 text-sm w-[170px] bottom-0 right-0 xl:right-[50px] xxl:right-auto xxl:left-[50px] opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 xl:translate-y-12 group-hover:translate-y-0">
-                  <div className="flex gap-1 font-bold pb-3">
-                    <img
-                      src="assets/img/th-1/icon-black-location-marker.svg"
-                      alt="icon-black-location-marker"
-                      width={17}
-                      height={17}
-                    />
-                    Sao Paulo, Brazil
-                  </div>
-                  <address className="not-italic font-semibold">
-                    Line 1: House/Flat 208, Venue Street
-                  </address>
-                </div>
-              </div>
-            </div>
-            <div className="group absolute hidden sm:flex gap-2 sm:top-[38%] sm:left-[38%]">
-              <div className="relative w-[50px] h-[50px]">
-                <button className="group flex justify-center items-center w-[50px] h-[50px] relative transition-all duration-300">
-                  <img
-                    src="assets/img/th-1/icon-gray-location-marker.svg"
-                    alt="icon-gray-location-marker"
-                    width={35}
-                    height={35}
-                    className="opacity-100 group-hover:opacity-0 transition-all duration-300"
-                  />
-                  <img
-                    src="assets/img/th-1/icon-orange-location-marker.svg"
-                    alt="icon-gray-location-marker"
-                    width={50}
-                    height={50}
-                    className="absolute opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300"
-                  />
-                </button>
-                <div className="absolute bg-white rounded-[8px] p-4 text-sm w-[170px] bottom-0 right-0 xl:right-[50px] xxl:right-auto xxl:left-[50px] opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 xl:translate-y-12 group-hover:translate-y-0">
-                  <div className="flex gap-1 font-bold pb-3">
-                    <img
-                      src="assets/img/th-1/icon-black-location-marker.svg"
-                      alt="icon-black-location-marker"
-                      width={17}
-                      height={17}
-                    />
-                    Bamako, Mali
-                  </div>
-                  <address className="not-italic font-semibold">
-                    Line 1: House/Flat 208, Venue Street
-                  </address>
-                </div>
-              </div>
-            </div>
-            <div className="group absolute hidden sm:flex gap-2 sm:top-[5%]  sm:left-[61%]">
-              <div className="relative w-[50px] h-[50px]">
-                <button className="group flex justify-center items-center w-[50px] h-[50px] relative transition-all duration-300">
-                  <img
-                    src="assets/img/th-1/icon-gray-location-marker.svg"
-                    alt="icon-gray-location-marker"
-                    width={35}
-                    height={35}
-                    className="opacity-100 group-hover:opacity-0 transition-all duration-300"
-                  />
-                  <img
-                    src="assets/img/th-1/icon-orange-location-marker.svg"
-                    alt="icon-gray-location-marker"
-                    width={50}
-                    height={50}
-                    className="absolute opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300"
-                  />
-                </button>
-                <div className="absolute bg-white rounded-[8px] p-4 text-sm w-[170px] bottom-0 right-0 xl:right-[50px] xxl:right-auto xxl:left-[50px] opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 xl:translate-y-12 group-hover:translate-y-0">
-                  <div className="flex gap-1 font-bold pb-3">
-                    <img
-                      src="assets/img/th-1/icon-black-location-marker.svg"
-                      alt="icon-black-location-marker"
-                      width={17}
-                      height={17}
-                    />
-                    Noril'sk, Russia
-                  </div>
-                  <address className="not-italic font-semibold">
-                    Line 1: House/Flat 208, Venue Street
-                  </address>
-                </div>
-              </div>
-            </div>
-            <div className="group absolute hidden sm:flex gap-2 sm:top-[72%] sm:left-[88%]">
-              <div className="relative w-[50px] h-[50px]">
-                <button className="group flex justify-center items-center w-[50px] h-[50px] relative transition-all duration-300">
-                  <img
-                    src="assets/img/th-1/icon-gray-location-marker.svg"
-                    alt="icon-gray-location-marker"
-                    width={35}
-                    height={35}
-                    className="opacity-100 group-hover:opacity-0 transition-all duration-300"
-                  />
-                  <img
-                    src="assets/img/th-1/icon-orange-location-marker.svg"
-                    alt="icon-gray-location-marker"
-                    width={50}
-                    height={50}
-                    className="absolute opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300"
-                  />
-                </button>
-                <div className="absolute bg-white rounded-[8px] p-4 text-sm w-[170px] bottom-0 right-0 xl:right-[50px] xxl:right-auto xxl:left-[50px] opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 xl:translate-y-12 group-hover:translate-y-0">
-                  <div className="flex gap-1 font-bold pb-3">
-                    <img
-                      src="assets/img/th-1/icon-black-location-marker.svg"
-                      alt="icon-black-location-marker"
-                      width={17}
-                      height={17}
-                    />
-                    Lake Eyre, Australia
-                  </div>
-                  <address className="not-italic font-semibold">
-                    Line 1: House/Flat 208, Venue Street
-                  </address>
-                </div>
-              </div>
-            </div>*/
+export default LegalCompliance;
