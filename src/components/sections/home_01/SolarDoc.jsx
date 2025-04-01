@@ -109,9 +109,9 @@ const SolarAgreement = () => {
             <div ref={sectionsRef}>
               {/* Section 1: Commitment to Renewable Energy */}
               <div>
-                <h3 className="mb-4 text-2xl font-semibold text-gray-900">
+                <p className="mb-4 text-2xl font-semibold text-gray-900">
                   Crown Bankers' Commitment to Renewable Energy
-                </h3>
+                </p>
                 <p className="mb-6 text-base leading-relaxed text-gray-700 sm:text-lg">
                   At Crown Bankers, our mission is to integrate sustainable
                   energy solutions with financial innovation. As part of our
@@ -125,9 +125,9 @@ const SolarAgreement = () => {
 
               {/* Section 2: Agreement Summary */}
               <div>
-                <h3 className="mb-4 text-2xl font-semibold text-gray-900">
+                <p className="mb-4 text-2xl font-semibold text-gray-900">
                   Agreement Summary
-                </h3>
+                </p>
                 <p className="mb-4 text-base leading-relaxed text-gray-700 sm:text-lg">
                   This agreement marks the procurement of key equipment required
                   for the expansion of our solar power plants. The purchase
@@ -151,9 +151,9 @@ const SolarAgreement = () => {
 
               {/* Section 3: Impact on Our Solar Projects */}
               <div>
-                <h3 className="mb-4 text-2xl font-semibold text-gray-900">
+                <p className="mb-4 text-2xl font-semibold text-gray-900">
                   Impact on Our Solar Projects
-                </h3>
+                </p>
                 <p className="mb-6 text-base leading-relaxed text-gray-700 sm:text-lg">
                   The acquired equipment will contribute significantly to Crown
                   Bankers' solar energy projects, including those that will

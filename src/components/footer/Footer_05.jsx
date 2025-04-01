@@ -78,7 +78,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link
-                  to="/terms"
+                  to="/TermsandCondition"
                   className="text-gray-300 transition-colors hover:text-white"
                 >
                   Terms & Conditions
@@ -86,7 +86,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  to="/privacy"
+                  to="/PrivacyPolicies"
                   className="text-gray-300 transition-colors hover:text-white"
                 >
                   Policy

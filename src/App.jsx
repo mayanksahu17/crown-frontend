@@ -126,7 +126,7 @@ function App() {
             }
           />
           <Route path="service-details" element={<Services_Details />} />
-          <Route path="TermsandCondition" element={<TermsandCondition />} />
+          <Route path="/TermsandCondition" element={<TermsandCondition />} />
           <Route path="verify/:token" element={<Verify />} />
           <Route path="pages/business-plan" element={<BusinessPlan />} />
           {/* <Route path="home-4" element={<Home_04 />} /> */}
