@@ -8,7 +8,7 @@ import {
 export const packageData = [
   {
     name: "Solar Starter",
-    image: BeginImage,
+    image: "https://res.cloudinary.com/dygdftjr8/image/upload/v1742887535/1_12_jpiwyg.png",
     minAmount: 25,
     maxAmount: 2499,
     description: "Get started with our entry-level investment package.",
@@ -18,7 +18,7 @@ export const packageData = [
   },
   {
     name: "Power Growth",
-    image: GrowImage,
+    image: "https://res.cloudinary.com/dygdftjr8/image/upload/v1742811539/cards2_x8jow0.png",
     minAmount: 2500,
     maxAmount: 19999,
     description:
@@ -29,7 +29,7 @@ export const packageData = [
   },
   {
     name: "Elite Energy",
-    image: ThriveImage,
+    image: "https://res.cloudinary.com/dygdftjr8/image/upload/v1742811539/cards1_ugv0p4.png",
     minAmount: 20000,
     maxAmount: 50000,
     description:
@@ -38,17 +38,7 @@ export const packageData = [
     durationInDays: 130,
     id: 3,
   },
-  {
-    name: "Solar Mini",
-    image: MiniImage,
-    minAmount: 10,
-    maxAmount: 10,
-    description:
-      "Take your investments to the next level with our professional package.",
-    dailyReturns: "1.2%",
-    durationInDays: 110,
-    id: 5,
-  },
+
 ];
 export const customStyles = {
   control: (provided) => ({

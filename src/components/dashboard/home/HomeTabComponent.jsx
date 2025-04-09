@@ -4,7 +4,7 @@ import ProgressBar from "@ramonak/react-progress-bar";
 const HomeTabComponent = ({ allData }) => {
   return (
     <>
-      <div className=" rounded-lg border border-2 p-2 w-full md:w-1/2 ">
+      <div className=" rounded-lg border-2 p-2 w-full md:w-1/2 ">
         <div className="w-full flex flex-row">
           <div className="w-full text-lg lg:text-xl font-semibold text-black">
             My Career : Level {allData?.binary_career_level || 0} -{" "}

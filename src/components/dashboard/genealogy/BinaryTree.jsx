@@ -5,8 +5,9 @@ import BinaryIcons from "./BinaryIcons";
 
 export default function BinaryTree({ data }) {
   const containerRef = useRef(null);
-  const [inputData, setInputData] = useState();
-  const handleNavigate = useNavigate();
+  const [inputData, setInputData] = useState("");
+  const navigate = useNavigate();
+  
   useEffect(() => {
     if (containerRef.current) {
       // Scroll to the middle of the container
@@ -19,47 +20,53 @@ export default function BinaryTree({ data }) {
   const getNodeById = (id) => data?.find((el) => el?.i === id);
 
   return (
-    <>
-      <div className="flex items-center gap-4 justify-end">
-        <input
-          id="user_id"
-          className="bg-gray-50 border-secondary text-textColor text-sm rounded-md   block
-                p-2 ring-1 ring-gray-300 focus:ring-2 focus:ring-primaryColor outline-none"
-          value={inputData}
-          name="userId"
-          type="text"
-          placeholder="User ID"
-          onChange={(e) => {
-            setInputData(e.target.value);
-          }}
-        />
-        <button
-          className="w-[300px] py-1 border-r bg-primary text-white rounded-xl border-gray-200 hover:bg-colorBlue last:border-none font-medium"
-          onClick={() => {
-            handleNavigate(`/dashboard/genealogy/binary/${inputData}`);
-          }}
-        >
-          Continue
-        </button>
+    <div className="space-y-6">
+      <div className="flex flex-col md:flex-row gap-4 items-center justify-between bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+        <p className="text-gray-700 dark:text-gray-300 text-sm">
+          Search for a specific user in your network
+        </p>
+        <div className="flex gap-3 w-full md:w-auto">
+          <input
+            id="user_id"
+            className="flex-1 md:w-64 p-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none"
+            value={inputData}
+            name="userId"
+            type="text"
+            placeholder="Enter User ID"
+            onChange={(e) => setInputData(e.target.value)}
+          />
+          <button
+            className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors disabled:opacity-50"
+            onClick={() => {
+              if (inputData.trim()) {
+                navigate(`/dashboard/genealogy/binary/${inputData}`);
+              }
+            }}
+            disabled={!inputData.trim()}
+          >
+            Search
+          </button>
+        </div>
       </div>
-      {data?.length > 0 && (
+
+      {data?.length > 0 ? (
         <div
-          className="overflow-x-auto min-h-[100vh] py-40 w-full md:px-12 md:mt-0"
+          className="overflow-x-auto py-10 w-full border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-800"
           ref={containerRef}
         >
           <div className="mx-auto max-w-[100vw] px-[800px] lg:px-0">
             <div className="flex flex-col items-center justify-center">
               <BinaryNode data={getNodeById(1)} first />
               <div className="flex items-center justify-center">
-                <div className="h-[2px] bg-gray-300 w-[528px]" />
+                <div className="h-[2px] bg-gray-300 dark:bg-gray-600 w-[528px]" />
               </div>
               <div className="flex gap-[406px]">
                 <BinaryNode data={getNodeById(2)} />
                 <BinaryNode data={getNodeById(3)} />
               </div>
               <div className="flex relative" style={{ gap: 338, marginTop: 0 }}>
-                <div className="h-[2px] bg-gray-300 absolute w-[270px] right-[135px]" />
-                <div className="h-[2px] bg-gray-300 absolute w-[272px] left-[135px]" />
+                <div className="h-[2px] bg-gray-300 dark:bg-gray-600 absolute w-[270px] right-[135px]" />
+                <div className="h-[2px] bg-gray-300 dark:bg-gray-600 absolute w-[272px] left-[135px]" />
               </div>
               <div className="flex gap-[151px]">
                 <BinaryNode data={getNodeById(4)} side />
@@ -68,10 +75,10 @@ export default function BinaryTree({ data }) {
                 <BinaryNode data={getNodeById(7)} />
               </div>
               <div className="flex relative gap-[157px]">
-                <div className="h-[2px] bg-gray-300 absolute w-[143px] right-[360px]" />
-                <div className="h-[2px] bg-gray-300 absolute w-[145px] right-[71px]" />
-                <div className="h-[2px] bg-gray-300 absolute w-[142px] left-[73px]" />
-                <div className="h-[2px] bg-gray-300 absolute w-[145px] left-[360px]" />
+                <div className="h-[2px] bg-gray-300 dark:bg-gray-600 absolute w-[143px] right-[360px]" />
+                <div className="h-[2px] bg-gray-300 dark:bg-gray-600 absolute w-[145px] right-[71px]" />
+                <div className="h-[2px] bg-gray-300 dark:bg-gray-600 absolute w-[142px] left-[73px]" />
+                <div className="h-[2px] bg-gray-300 dark:bg-gray-600 absolute w-[145px] left-[360px]" />
               </div>
               <div className="flex gap-6 px-0">
                 <BinaryNode last data={getNodeById(8)} side />
@@ -86,8 +93,15 @@ export default function BinaryTree({ data }) {
             </div>
           </div>
         </div>
+      ) : (
+        <div className="py-16 text-center bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+          <p className="text-gray-600 dark:text-gray-400">No binary tree data found</p>
+        </div>
       )}
-      <BinaryIcons />
-    </>
+      
+      <div className="mt-4">
+        <BinaryIcons />
+      </div>
+    </div>
   );
 }

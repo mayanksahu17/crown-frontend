@@ -1,42 +1,35 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import swal from "sweetalert";
-import countryList from "react-select-country-list";
-import { useMemo } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
-import toast from "react-hot-toast";
-import { useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import axios from "axios";
+import toast from "react-hot-toast";
+import countryList from "react-select-country-list";
+import { CgSpinner } from "react-icons/cg";
+import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { baseURL } from "../../constants/baseURL";
 import authService from "../../services/authService";
 import { ErrorMessage, Select } from "../../components";
-import { CgSpinner } from "react-icons/cg";
-import { FaEye, FaEyeSlash } from "react-icons/fa6";
-const Signup = () => {
+import RoundButton from "../../components/navbar/RoundButton";
+
+function Signup() {
   const [searchParams, setSearchParams] = useSearchParams({
     sponsorId: "",
     position: "left",
   });
-  const [showPassword, setShowPassword] = useState(false);
-
-  const togglePasswordVisibility = () => {
-    setShowPassword((prevShowPassword) => !prevShowPassword);
-  };
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
-  const toggleConfirmPasswordVisibility = () => {
-    setShowConfirmPassword((prevShowPassword) => !prevShowPassword);
-  };
   const paramSponsorId = searchParams.get("sponsorId");
   const paramPosition = searchParams.get("position");
+  
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [state, setState] = useState("");
   const [city, setCity] = useState("");
+  
   const [formData, setFormData] = useState({
     hasSponsor: false,
     position: "left",
     sponsorId: "CROWN-",
     sponsorName: "",
     firstName: "",
+    lastName: "",
     country: null,
     phoneNumber: "",
     email: "",
@@ -44,188 +37,182 @@ const Signup = () => {
     password: "",
     confirmPassword: "",
     acceptTerms: false,
-    // withdrawal_wallet: "",
   });
-
+  
   const [errors, setErrors] = useState({
     firstName: "",
+    lastName: "",
     country: "",
-    // phoneNumber: "",
+    phoneNumber: "",
     email: "",
     confirmEmail: "",
     password: "",
     confirmPassword: "",
     acceptTerms: "",
-    // withdrawal_wallet: "",
   });
-
+  
   const [touched, setTouched] = useState({
     firstName: false,
+    lastName: false,
     country: false,
-    // phoneNumber: false,
+    phoneNumber: false,
     email: false,
     confirmEmail: false,
     password: false,
     confirmPassword: false,
     acceptTerms: false,
-    // withdrawal_wallet: "",
   });
-
+  
+  const [loadingStates, setLoadingStates] = useState({
+    isSignUpLoading: false,
+  });
+  
+  const navigate = useNavigate();
+  const options = useMemo(() => countryList().getData(), []);
+  
+  const togglePasswordVisibility = () => {
+    setShowPassword(prev => !prev);
+  };
+  
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword(prev => !prev);
+  };
+  
   const handleBlur = (name) => {
-    setTouched((prev) => ({ ...prev, [name]: true }));
+    setTouched(prev => ({ ...prev, [name]: true }));
     validateInput(name, formData[name]);
   };
-
+  
   const validateInput = (name, value) => {
     let error = "";
-
+    
     switch (name) {
       case "firstName":
+      case "lastName":
         error = value.trim() === "" ? `${name} is required` : "";
         break;
       case "country":
-        console.log(value);
         error = value ? "" : "Please select a country";
         break;
-      case "withdrawal_wallet":
-        error = value ? "" : "Please enter the withdrawal wallet";
+      case "phoneNumber":
+        error = value.trim() === "" ? "Phone number is required" : "";
         break;
-      // case "withdrawal_wallet":
-      //   error = value ? "" : "Please enter the withdrawal wallet";
-      //   break;
-      // case "phoneNumber":
-      //   error = /^\d{10,15}$/.test(value) ? "" : "Invalid phone number";
-      //   break;
       case "email":
-        error = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
-          ? ""
-          : "Invalid email address";
+        error = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? "" : "Invalid email address";
         break;
       case "confirmEmail":
         error = value === formData.email ? "" : "Emails do not match";
         break;
       case "password":
-        error =
-          value.length >= 3 ? "" : "Password must be at least 3 characters";
+        error = value.length >= 3 ? "" : "Password must be at least 3 characters";
         break;
       case "confirmPassword":
         error = value === formData.password ? "" : "Passwords do not match";
         break;
       case "acceptTerms":
-        error = formData.acceptTerms
-          ? ""
-          : "You must accept the terms and conditions";
+        error = value ? "" : "You must accept the terms and conditions";
         break;
       default:
         break;
     }
-
-    setErrors((prev) => ({ ...prev, [name]: error }));
+    
+    setErrors(prev => ({ ...prev, [name]: error }));
   };
-
-  const [loadingStates, setLoadingStates] = useState({
-    isSignUpLoading: false,
-  });
-
-  const handleRadioChange = (e) => {
-    const { name } = e.target;
-    setFormData({
-      ...formData,
-      [name]: !formData[name],
-    });
-  };
-
-  const handleCheckboxChange = (e) => {
-    const { name, checked } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: !prev[name] }));
-    validateInput(name, checked);
-  };
-
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData(prev => ({ ...prev, [name]: value }));
     if (touched[name]) {
       validateInput(name, value);
     }
   };
-
-  const options = useMemo(() => countryList().getData(), []);
-
-  const handleNavigate = useNavigate();
-
-  const customStyles = {
-    control: (provided) => ({
-      ...provided,
-      backgroundColor: "transparent",
-      border: "1px solid #000",
-      borderRadius: "8px",
-      padding: "1px",
-    }),
-    input: (provided) => ({
-      ...provided,
-      color: "#000 !important",
-    }),
-    singleValue: (provided) => ({
-      ...provided,
-      color: "#000",
-    }),
-    option: (provided) => ({
-      ...provided,
-      backgroundColor: "#fff",
-      color: "#000",
-    }),
+  
+  const handleCheckboxChange = (e) => {
+    const { name, checked } = e.target;
+    setFormData(prev => ({ ...prev, [name]: checked }));
+    validateInput(name, checked);
   };
-
+  
+  const handleRadioChange = (e) => {
+    const { name } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: !prev[name],
+    }));
+  };
+  
+  const changeLoadingStates = (name, value) => {
+    setLoadingStates(prev => ({ ...prev, [name]: value }));
+  };
+  
   useEffect(() => {
-    if (formData.sponsorId.length == 12) {
+    if (formData.sponsorId.length === 12) {
       fetchSponsorName(formData.sponsorId);
     }
   }, [formData.sponsorId]);
-
+  
+  useEffect(() => {
+    if (paramSponsorId) {
+      setFormData(prev => ({
+        ...prev,
+        sponsorId: paramSponsorId,
+        hasSponsor: true,
+      }));
+    }
+    
+    if (paramPosition) {
+      setFormData(prev => ({ 
+        ...prev, 
+        position: paramPosition 
+      }));
+    }
+  }, [paramPosition, paramSponsorId]);
+  
   const fetchSponsorName = async (id) => {
     try {
       const { data } = await axios.get(baseURL + "/users/name/" + id);
       if (data?.success) {
-        setFormData((prev) => ({ ...prev, sponsorName: data?.data?.name }));
+        setFormData(prev => ({ ...prev, sponsorName: data?.data?.name }));
       }
     } catch (error) {
-      setFormData((prev) => ({ ...prev, sponsorName: "CROWN" }));
+      setFormData(prev => ({ ...prev, sponsorName: "CROWN" }));
     }
   };
-
-  const changeLoadingStates = (name, value) => {
-    setLoadingStates((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async () => {
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    // Validate all fields before submission
+    Object.keys(formData).forEach(key => {
+      validateInput(key, formData[key]);
+      setTouched(prev => ({ ...prev, [key]: true }));
+    });
+    
+    // Check if there are any errors
+    if (Object.values(errors).some(error => error !== "")) {
+      return;
+    }
+    
     try {
       changeLoadingStates("isSignUpLoading", true);
       const response = await authService.signUpUser({
         ...formData,
-        referrer_id: formData.sponsorId
-          ? `${formData.sponsorId}`
-          : "CROWN-100012",
+        referrer_id: formData.sponsorId ? `${formData.sponsorId}` : "CROWN-100012",
         phone: formData.phoneNumber,
-        // withdrawal_wallet: formData.withdrawal_wallet,
-        username: `${formData.firstName} `,
+        username: `${formData.firstName} ${formData.lastName}`,
         country: formData?.country?.label,
         state: state,
         city: city,
       });
-
+      
       if (response?.data?.success) {
-        // const emailResponse = await authService.sendVerificationEmail({
-        //   email: formData.email,
-        //   userId: response?.data?.data?.userId,
-        // });
-        // console.log(emailResponse);
-        // if (emailResponse?.status === 200) {
         setFormData({
           hasSponsor: false,
           position: "left",
           sponsorId: "CROWN-",
           sponsorName: "",
           firstName: "",
+          lastName: "",
           country: null,
           phoneNumber: "",
           email: "",
@@ -234,376 +221,410 @@ const Signup = () => {
           confirmPassword: "",
           acceptTerms: false,
         });
-        toast.success(
-          // "Verification link sent to your email. Please check your inbox."
-          "Welcome to Crown Bankers!. Check the email for credentials."
-        );
-        handleNavigate("/login");
-        //  }
+        toast.success("Welcome to Crown Bankers! Check your email for credentials.");
+        navigate("/login");
       }
     } catch (error) {
-      console.log(error);
-      toast.error(
-        "Error while registering with us. Please try after some time"
-      );
+      console.error(error);
+      toast.error("Error while registering with us. Please try again later.");
     } finally {
       changeLoadingStates("isSignUpLoading", false);
     }
   };
-
-  // const queryParams = new URLSearchParams(window.location.search);
-
-  useEffect(() => {
-    if (paramSponsorId) {
-      setFormData((prev) => ({
-        ...prev,
-        sponsorId: paramSponsorId,
-        hasSponsor: true,
-      }));
-    }
-
-    if (paramPosition) {
-      setFormData((prev) => ({ ...prev, position: paramPosition }));
-    }
-  }, [paramPosition, paramSponsorId]);
-
+  
   const validationFilteredStates = Object.keys(formData).filter(
-    (el) => el !== "hasSponsor" && el !== "sponsorId" && el !== "sponsorName"
+    el => el !== "hasSponsor" && el !== "sponsorId" && el !== "sponsorName"
   );
-
-  const isButtonDisabled = useMemo(
-    () =>
-      Object.values(errors).some((error) => error !== "") ||
-      validationFilteredStates.filter((el) => formData[el] === "")?.length > 0,
-    [errors, formData]
-  );
+  
+  const isButtonDisabled = Object.values(errors).some(error => error !== "") ||
+    validationFilteredStates.some(key => !formData[key]);
 
   return (
-    <div
-      className="w-full flex flex-col md:flex-row h-full bg-custom-eclipse"
-      style={{ fontFamily: "Monument Extended" }}
-    >
-      <div className="mx-auto w-full md:w-1/2 text-center flex flex-col justify-center px-2 md:px-24 mt-4 md:mt-0">
-        <div className=" text-center flex flex-row justify-center gap-6 mb-12 items-center ">
-          <a href="/">
-            <img src="/assets/img/logoname.png" className="w-16" />
-          </a>
-          <a href="/">
-            <div className="font-bold text-4xl">Crown Bankers</div>
-          </a>
-        </div>
-        <div className="block rounded-lg text-left ">
-          <div className="flex flex-col gap-6 font-bold">
-            <div className="flex items-center gap-4">
-              <label className="text-3xl font-bold">
-                Do you have a sponsor ?
-              </label>
-              <div className="flex items-center gap-4 text-xl">
-                <input
-                  type="radio"
-                  name="hasSponsor"
-                  checked={formData.hasSponsor}
-                  onChange={handleRadioChange}
-                />
-                <label className="">Yes</label>
-                <input
-                  type="radio"
-                  name="hasSponsor"
-                  checked={!formData.hasSponsor}
-                  onChange={handleRadioChange}
-                  className=""
-                />
-                <label className="">No</label>
-              </div>
-            </div>
-            {formData.hasSponsor && (
-              <div className="w-full flex flex-col md:flex-row gap-2">
-                <div className="w-full md:w-1/2 ">
-                  <input
-                    type="text"
-                    name="sponsorId"
-                    value={formData.sponsorId}
-                    onChange={handleChange}
-                    placeholder="Sponsor ID"
-                    className="h-12 rounded-[10px] border border-secondary bg-white px-3 py-3 text-black outline-none transition-all focus:border-colorOrangyRed placeholder:text-slate-500 w-full"
-                  />
-                </div>
-                <div className="w-full md:w-1/2">
-                  <input
-                    type="text"
-                    name="sponsorName"
-                    value={formData.sponsorName}
-                    readOnly
-                    placeholder="Sponsor Name"
-                    className="h-12 rounded-[10px] border border-secondary bg-white px-3 py-3 text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed w-full"
-                  />
-                </div>
-              </div>
-            )}
-            <div className="flex items-center space-x-4">
-              <label className="">Position</label>
-              <div className="flex items-center gap-4">
-                <input
-                  type="radio"
-                  checked={paramPosition === "right"}
-                  onChange={() =>
-                    setSearchParams((prev) => ({
-                      ...prev,
-                      sponsorId: paramSponsorId,
-                      position: "right",
-                    }))
-                  }
-                />
-                <label className="">Right</label>
-                <input
-                  type="radio"
-                  checked={paramPosition === "left"}
-                  onChange={() =>
-                    setSearchParams((prev) => ({
-                      ...prev,
-                      sponsorId: paramSponsorId,
-                      position: "left",
-                    }))
-                  }
-                  className=""
-                />
-                <label className="">Left</label>
-              </div>
-            </div>
-            <div className="w-full flex flex-col md:flex-row gap-2">
-              <div className="flex flex-col w-full md:w-1/2">
-                <input
-                  type="text"
-                  name="firstName"
-                  value={formData.firstName}
-                  onChange={handleChange}
-                  placeholder="Enter name"
-                  className="h-12 rounded-[10px] border border-secondary bg-white px-3 py-3 text-black outline-none transition-all placeholder:text-gray-500 focus:border-colorOrangyRed"
-                  onBlur={() => handleBlur("firstName")}
-                />
-                <ErrorMessage
-                  error={errors.firstName}
-                  touched={touched.firstName}
-                />
-              </div>
-              <div className="flex flex-col w-full md:w-1/2">
-                <input
-                  type="text"
-                  name="phoneNumber"
-                  value={formData.phoneNumber}
-                  onBlur={() => handleBlur("phoneNumber")}
-                  onChange={handleChange}
-                  placeholder="Enter phone"
-                  className="h-12 rounded-[10px] border border-secondary bg-white px-3 py-3 text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
-                />
-                <ErrorMessage
-                  error={errors.phoneNumber}
-                  touched={touched.phoneNumber}
-                />
-              </div>
-            </div>
-            <div className="flex flex-col w-full">
-              <Select
-                options={options}
-                customStyles={customStyles}
-                value={formData.country}
-                placeHolder={"Select your country"}
-                onChange={(value) => {
-                  setFormData((prev) => ({ ...prev, country: value }));
-                }}
-                onBlur={() => handleBlur("country")}
-              />
-              <ErrorMessage error={errors.country} touched={touched.country} />
-            </div>
-
-            {/* {formData.country?.value === "NG" && (
-              <div className="w-full flex flex-col md:flex-row gap-2">
-                <div className="flex flex-col w-full md:w-1/2">
-                  <input
-                    type="text"
-                    name="state"
-                    value={state || ""}
-                    placeholder="Enter State"
-                    onChange={(e) => setState(e.target.value)}
-                    className="h-12 rounded-[10px] border border-secondary bg-white px-3 py-3 text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
-                  />
-                </div>
-
-                <div className="flex flex-col w-full md:w-1/2">
-                  <input
-                    type="text"
-                    name="city"
-                    placeholder="Enter City"
-                    value={city || ""}
-                    onChange={(e) => setCity(e.target.value)}
-                    className="h-12 rounded-[10px] border border-secondary bg-white px-3 py-3 text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
-                  />
-                </div>
-              </div>
-            )} */}
-            <div className="w-full flex flex-col md:flex-row gap-2">
-              <div className="flex flex-col w-full md:w-1/2">
-                <input
-                  type="t"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Enter email"
-                  className="h-12 rounded-[10px] border border-secondary bg-white px-3 py-3 text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
-                  onBlur={() => handleBlur("email")}
-                />
-                <ErrorMessage error={errors.email} touched={touched.email} />
-              </div>
-              <div className="flex flex-col w-full md:w-1/2">
-                <input
-                  type="confirmEmail"
-                  name="confirmEmail"
-                  value={formData.confirmEmail}
-                  onChange={handleChange}
-                  onBlur={() => handleBlur("confirmEmail")}
-                  placeholder="Confirm email"
-                  className="h-12 rounded-[10px] border border-secondary bg-white px-3 py-3 text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
-                />
-                <ErrorMessage
-                  error={errors.confirmEmail}
-                  touched={touched.confirmEmail}
-                />
-              </div>
-            </div>
-            <div className="w-full flex flex-col md:flex-row gap-2">
-              <div className="flex flex-col w-full md:w-1/2">
-                <div className="flex relative flex-column justify-between h-12 rounded-[10px] border border-secondary bg-white px-3 py-3 text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed">
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    name="password"
-                    value={formData.password}
-                    onBlur={() => handleBlur("password")}
-                    onChange={handleChange}
-                    id="signup-password"
-                    placeholder="Enter Password"
-                    className="outline-none"
-                    required=""
-                  />
-                  <div
-                    className="absolute top-3 right-2 flex items-center cursor-pointer"
-                    onClick={togglePasswordVisibility}
-                  >
-                    {showPassword ? (
-                      <FaEyeSlash color="#000" size={18} />
-                    ) : (
-                      <FaEye color="#000" size={18} />
-                    )}
-                  </div>
-                </div>
-                <ErrorMessage
-                  error={errors.password}
-                  touched={touched.password}
-                />
-              </div>
-              <div className="flex flex-col w-full md:w-1/2">
-                <div className="flex relative flex-column justify-between h-12 rounded-[10px] border border-secondary bg-white px-3 py-3 text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed">
-                  <input
-                    type={showConfirmPassword ? "text" : "password"}
-                    name="confirmPassword"
-                    value={formData.confirmPassword}
-                    onBlur={() => handleBlur("confirmPassword")}
-                    onChange={handleChange}
-                    placeholder="Confirm Password"
-                    className="outline-none"
-                  />
-                  <div
-                    className="absolute flex items-center top-3 right-2 cursor-pointer"
-                    onClick={toggleConfirmPasswordVisibility}
-                  >
-                    {showConfirmPassword ? (
-                      <FaEyeSlash color="#000" size={18} />
-                    ) : (
-                      <FaEye color="#000" size={18} />
-                    )}
-                  </div>
-                </div>
-                <ErrorMessage
-                  error={errors.confirmPassword}
-                  touched={touched.confirmPassword}
-                />
-              </div>
-            </div>
-            {/* Form Single Input */}
-            {/* Form Single Input */}
-            <div className="flex gap-x-8">
-              <input
-                className="relative appearance-none after:absolute after:left-0 after:top-[6px] after:h-4 after:w-4 after:rounded-[3px] after:border after:border-[#7F8995] after:bg-white after:text-white after:transition-all after:delay-300 checked:after:border-colorOrangyRed checked:after:bg-colorOrangyRed checked:after:bg-[url('/assets/img/th-1/icon-white-checkmark-filled.svg')]"
-                type="checkbox"
-                name="acceptTerms"
-                checked={!formData.acceptTerms}
-                onChange={handleCheckboxChange}
-              />
-              <label htmlFor="signup-check" className="text-xl font-normal">
-                I have read and accept the &nbsp;
-                <a
-                  href="/TermsandCondition"
-                  className="font-bold hover:text-colorOrangyRed"
-                >
-                  Terms &amp; Conditions
-                </a>
-                &nbsp; and &nbsp;
-                <a
-                  href="/PrivacyPolicies"
-                  className="font-bold hover:text-colorOrangyRed"
-                >
-                  Privacy Policy
-                </a>
-              </label>
-              <ErrorMessage
-                error={errors.acceptTerms}
-                touched={touched.acceptTerms}
-              />
-            </div>
-            {/* Form Single Input */}
+    <div className="h-screen w-screen flex flex-col">
+      <div className="flex-grow flex bg-gray-900">
+        {/* Left Column - Form */}
+        <div className="w-full md:w-1/2 flex flex-col items-center justify-center md:mx-24">
+          <div className="mt-1">
+            <img
+              className="h-24 w-auto"
+              src="/assets/logo1.png"
+              alt="Crown Bankers Logo"
+            />
           </div>
-          <button
-            onClick={handleSubmit}
-            disabled={isButtonDisabled}
-            className="button mt-7 block rounded-[50px] border-2 border-black bg-primary w-full py-4 text-white text-2xl after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white"
-          >
-            {loadingStates.isSignUpLoading && (
-              <span className="absolute inset-0 flex items-center justify-center">
-                <CgSpinner className="animate-spin" size={20} />
-              </span>
-            )}
-            {!loadingStates.isSignUpLoading && "Create Account"}
-          </button>
-
-          {/* API Signup */}
-          <div className="mt-10 text-center">
-            Already have an account? &nbsp;
-            <Link
-              to="/login"
-              className="text-base font-semibold hover:text-colorOrangyRed"
+          
+          <div className="w-full max-w-lg px-6">
+            <form
+              className="space-y-1 border border-green-400 px-4 py-2 rounded-md"
+              onSubmit={handleSubmit}
             >
-              Log in here
-            </Link>
+              <h2 className="text-4xl font-bold text-white">Create a new account</h2>
+              
+              <div className="mt-2 rounded-md shadow-sm space-y-2">
+                {/* Sponsor Section */}
+                <div className="flex items-center">
+                  <p className="text-white text-sm mr-2">Do you have a sponsor?</p>
+                  <div className="flex items-center space-x-4">
+                    <label className="inline-flex items-center">
+                      <input
+                        type="radio"
+                        name="hasSponsor"
+                        checked={formData.hasSponsor}
+                        onChange={handleRadioChange}
+                        className="h-4 w-4 text-green-500 focus:ring-green-500"
+                      />
+                      <span className="ml-2 text-white text-xs">Yes</span>
+                    </label>
+                    <label className="inline-flex items-center">
+                      <input
+                        type="radio"
+                        name="hasSponsor"
+                        checked={!formData.hasSponsor}
+                        onChange={handleRadioChange}
+                        className="h-4 w-4 text-green-500 focus:ring-green-500" 
+                      />
+                      <span className="ml-2 text-white text-xs">No</span>
+                    </label>
+                  </div>
+                </div>
+                
+                {formData.hasSponsor && (
+                  <div className="grid grid-cols-2 gap-3">
+                    <input
+                      name="sponsorId"
+                      type="text"
+                      className="appearance-none bg-gray-800 block w-full px-3 py-3 border border-gray-500 placeholder-gray-500 text-gray-100 focus:outline-none focus:ring-[#4CAF50] focus:border-[#4CAF50] sm:text-sm"
+                      placeholder="Sponsor ID"
+                      value={formData.sponsorId}
+                      onChange={handleChange}
+                    />
+                    <input
+                      name="sponsorName"
+                      type="text"
+                      readOnly
+                      className="appearance-none bg-gray-800 block w-full px-3 py-3 border border-gray-500 placeholder-gray-500 text-gray-100 focus:outline-none focus:ring-[#4CAF50] focus:border-[#4CAF50] sm:text-sm"
+                      placeholder="Sponsor Name"
+                      value={formData.sponsorName}
+                    />
+                  </div>
+                )}
+                
+                {/* Position selection */}
+                <div className="flex items-center">
+                  <p className="text-white text-sm mr-2">Position:</p>
+                  <div className="flex items-center space-x-4">
+                    <label className="inline-flex items-center">
+                      <input
+                        type="radio"
+                        checked={paramPosition === "right"}
+                        onChange={() => 
+                          setSearchParams(prev => ({
+                            ...prev,
+                            sponsorId: paramSponsorId || "",
+                            position: "right"
+                          }))
+                        }
+                        className="h-4 w-4 text-green-500 focus:ring-green-500"
+                      />
+                      <span className="ml-2 text-white text-xs">Right</span>
+                    </label>
+                    <label className="inline-flex items-center">
+                      <input
+                        type="radio"
+                        checked={paramPosition === "left"}
+                        onChange={() => 
+                          setSearchParams(prev => ({
+                            ...prev,
+                            sponsorId: paramSponsorId || "",
+                            position: "left"
+                          }))
+                        }
+                        className="h-4 w-4 text-green-500 focus:ring-green-500"
+                      />
+                      <span className="ml-2 text-white text-xs">Left</span>
+                    </label>
+                  </div>
+                </div>
+                
+                {/* Name inputs */}
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="relative">
+                    <input
+                      name="firstName"
+                      type="text"
+                      required
+                      className="appearance-none bg-gray-800 block w-full px-3 py-3 border border-gray-500 placeholder-gray-500 text-gray-100 focus:outline-none focus:ring-[#4CAF50] focus:border-[#4CAF50] sm:text-sm"
+                      placeholder="First Name"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      onBlur={() => handleBlur("firstName")}
+                    />
+                    {touched.firstName && errors.firstName && (
+                      <p className="text-red-500 text-xs mt-1">{errors.firstName}</p>
+                    )}
+                  </div>
+                  
+                  <div className="relative">
+                    <input
+                      name="lastName"
+                      type="text"
+                      required
+                      className="appearance-none bg-gray-800 block w-full px-3 py-3 border border-gray-500 placeholder-gray-500 text-gray-100 focus:outline-none focus:ring-[#4CAF50] focus:border-[#4CAF50] sm:text-sm"
+                      placeholder="Last Name"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      onBlur={() => handleBlur("lastName")}
+                    />
+                    {touched.lastName && errors.lastName && (
+                      <p className="text-red-500 text-xs mt-1">{errors.lastName}</p>
+                    )}
+                  </div>
+                </div>
+                
+                {/* Phone and Country */}
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="relative">
+                    <input
+                      name="phoneNumber"
+                      type="tel"
+                      required
+                      className="appearance-none bg-gray-800 block w-full px-3 py-3 border border-gray-500 placeholder-gray-500 text-gray-100 focus:outline-none focus:ring-[#4CAF50] focus:border-[#4CAF50] sm:text-sm"
+                      placeholder="Phone"
+                      value={formData.phoneNumber}
+                      onChange={handleChange}
+                      onBlur={() => handleBlur("phoneNumber")}
+                    />
+                    {touched.phoneNumber && errors.phoneNumber && (
+                      <p className="text-red-500 text-xs mt-1">{errors.phoneNumber}</p>
+                    )}
+                  </div>
+                  
+                  <div className="relative">
+                    <Select
+                      options={options}
+                      value={formData.country}
+                      onChange={(value) => {
+                        setFormData(prev => ({ ...prev, country: value }));
+                        if (touched.country) {
+                          validateInput("country", value);
+                        }
+                      }}
+                      onBlur={() => handleBlur("country")}
+                      placeHolder="Select Country"
+                      customStyles={{
+                        control: (provided) => ({
+                          ...provided,
+                          backgroundColor: "#1f2937",
+                          border: "1px solid #6b7280",
+                          borderRadius: "4px",
+                          padding: "1px",
+                          color: "white",
+                          height: "42px"
+                        }),
+                        input: (provided) => ({
+                          ...provided,
+                          color: "#f9fafb"
+                        }),
+                        singleValue: (provided) => ({
+                          ...provided,
+                          color: "#f9fafb"
+                        }),
+                        option: (provided) => ({
+                          ...provided,
+                          backgroundColor: "#1f2937",
+                          color: "#f9fafb"
+                        }),
+                        menu: (provided) => ({
+                          ...provided,
+                          backgroundColor: "#1f2937"
+                        })
+                      }}
+                    />
+                    {touched.country && errors.country && (
+                      <p className="text-red-500 text-xs mt-1">{errors.country}</p>
+                    )}
+                  </div>
+                </div>
+                
+                {/* State and City for Nigeria */}
+                {formData.country?.value === "NG" && (
+                  <div className="grid grid-cols-2 gap-3">
+                    <input
+                      name="state"
+                      type="text"
+                      className="appearance-none bg-gray-800 block w-full px-3 py-3 border border-gray-500 placeholder-gray-500 text-gray-100 focus:outline-none focus:ring-[#4CAF50] focus:border-[#4CAF50] sm:text-sm"
+                      placeholder="State"
+                      value={state}
+                      onChange={(e) => setState(e.target.value)}
+                    />
+                    <input
+                      name="city"
+                      type="text"
+                      className="appearance-none bg-gray-800 block w-full px-3 py-3 border border-gray-500 placeholder-gray-500 text-gray-100 focus:outline-none focus:ring-[#4CAF50] focus:border-[#4CAF50] sm:text-sm"
+                      placeholder="City"
+                      value={city}
+                      onChange={(e) => setCity(e.target.value)}
+                    />
+                  </div>
+                )}
+                
+                {/* Email fields */}
+                <div className="relative">
+                  <input
+                    name="email"
+                    type="email"
+                    required
+                    className="appearance-none bg-gray-800 block w-full px-3 py-3 border border-gray-500 placeholder-gray-500 text-gray-100 focus:outline-none focus:ring-[#4CAF50] focus:border-[#4CAF50] sm:text-sm"
+                    placeholder="Email address"
+                    value={formData.email}
+                    onChange={handleChange}
+                    onBlur={() => handleBlur("email")}
+                  />
+                  {touched.email && errors.email && (
+                    <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+                  )}
+                </div>
+                
+                <div className="relative">
+                  <input
+                    name="confirmEmail"
+                    type="email"
+                    required
+                    className="appearance-none bg-gray-800 block w-full px-3 py-3 border border-gray-500 placeholder-gray-500 text-gray-100 focus:outline-none focus:ring-[#4CAF50] focus:border-[#4CAF50] sm:text-sm"
+                    placeholder="Confirm Email"
+                    value={formData.confirmEmail}
+                    onChange={handleChange}
+                    onBlur={() => handleBlur("confirmEmail")}
+                  />
+                  {touched.confirmEmail && errors.confirmEmail && (
+                    <p className="text-red-500 text-xs mt-1">{errors.confirmEmail}</p>
+                  )}
+                </div>
+                
+                {/* Password fields */}
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="relative">
+                    <div className="relative">
+                      <input
+                        name="password"
+                        type={showPassword ? "text" : "password"}
+                        required
+                        className="appearance-none bg-gray-800 block w-full px-3 py-3 border border-gray-500 placeholder-gray-500 text-gray-100 focus:outline-none focus:ring-[#4CAF50] focus:border-[#4CAF50] sm:text-sm pr-10"
+                        placeholder="Password"
+                        value={formData.password}
+                        onChange={handleChange}
+                        onBlur={() => handleBlur("password")}
+                      />
+                      <button
+                        type="button"
+                        className="absolute inset-y-0 right-0 flex items-center px-3 text-gray-400"
+                        onClick={togglePasswordVisibility}
+                      >
+                        {showPassword ? <FaEyeSlash size={16} /> : <FaEye size={16} />}
+                      </button>
+                    </div>
+                    {touched.password && errors.password && (
+                      <p className="text-red-500 text-xs mt-1">{errors.password}</p>
+                    )}
+                  </div>
+                  
+                  <div className="relative">
+                    <div className="relative">
+                      <input
+                        name="confirmPassword"
+                        type={showConfirmPassword ? "text" : "password"}
+                        required
+                        className="appearance-none bg-gray-800 block w-full px-3 py-3 border border-gray-500 placeholder-gray-500 text-gray-100 focus:outline-none focus:ring-[#4CAF50] focus:border-[#4CAF50] sm:text-sm pr-10"
+                        placeholder="Confirm"
+                        value={formData.confirmPassword}
+                        onChange={handleChange}
+                        onBlur={() => handleBlur("confirmPassword")}
+                      />
+                      <button
+                        type="button"
+                        className="absolute inset-y-0 right-0 flex items-center px-3 text-gray-400"
+                        onClick={toggleConfirmPasswordVisibility}
+                      >
+                        {showConfirmPassword ? <FaEyeSlash size={16} /> : <FaEye size={16} />}
+                      </button>
+                    </div>
+                    {touched.confirmPassword && errors.confirmPassword && (
+                      <p className="text-red-500 text-xs mt-1">{errors.confirmPassword}</p>
+                    )}
+                  </div>
+                </div>
+              </div>
+              
+              {/* Terms and conditions checkbox */}
+              <div className="flex items-center mt-4">
+                <input
+                  id="acceptTerms"
+                  name="acceptTerms"
+                  type="checkbox"
+                  checked={formData.acceptTerms}
+                  onChange={handleCheckboxChange}
+                  onBlur={() => handleBlur("acceptTerms")}
+                  className="h-4 w-4 text-[#4CAF50] focus:ring-[#4CAF50] border-gray-300 rounded"
+                />
+                <label htmlFor="acceptTerms" className="ml-2 text-xs text-white">
+                  I agree to{" "}
+                  <Link to="/terms" className="text-[#4CAF50] hover:text-[#3d9140]">
+                    Terms
+                  </Link>{" "}
+                  &{" "}
+                  <Link to="/privacy" className="text-[#4CAF50] hover:text-[#3d9140]">
+                    Privacy
+                  </Link>
+                </label>
+              </div>
+              {touched.acceptTerms && errors.acceptTerms && (
+                <p className="text-red-500 text-xs mt-1">{errors.acceptTerms}</p>
+              )}
+              
+              {/* Submit button */}
+              <RoundButton
+                 text={
+                   loadingStates.isSignUpLoading ? (
+                     <span className="flex items-center justify-center gap-2">
+                       <CgSpinner className="animate-spin h-5 w-5" />
+                       Creating...
+                     </span>
+                   ) : (
+                     "Create Account"
+                   )
+                 }
+                 type="submit"
+                 disabled={isButtonDisabled || loadingStates.isSignUpLoading}
+                 className={`w-full py-3 text-sm ${
+                   isButtonDisabled || loadingStates.isSignUpLoading
+                     ? "bg-green-500"
+                     : "bg-[#4CAF50] hover:bg-[#3d9140]"
+                 } transition duration-150 ease-in-out text-white`}
+               />
+
+              
+              <p className="text-xs text-gray-300 mt-4 text-center">
+                Have an account?{" "}
+                <Link to="/login" className="font-medium text-[#4CAF50] hover:text-[#3d9140]">
+                  Log in
+                </Link>
+              </p>
+            </form>
+          </div>
+        </div>
+        
+        {/* Right Column - Image */}
+        <div className="hidden md:flex md:w-1/2 bg-white">
+          <div className="w-full h-full flex items-center justify-center">
+            <img
+              src="https://imgs.search.brave.com/G9Kif04I3Rr-UuTWYeQ9QIE4HJIbqvIDff65uEDdz5I/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuZnJlZWltYWdl/cy5jb20vaW1hZ2Vz/L2xhcmdlLXByZXZp/ZXdzL2YwOS9zb2xh/ci1wb3dlcmVkLWZh/Y3RvcnktaWxsdXN0/cmF0aW9uLTA0MTAt/NTcwMDI0MS5qcGc_/Zm10"
+              alt="Secure Banking"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </div>
-      <div className="relative w-full md:w-1/2 h-[600px] md:h-screen ">
-        {/* Background Image */}
-        {/* <img
-          src="/assets/LoginBg.png"
-          className="w-full h-full"
-          alt="Background"
-        /> */}
-
-        {/* Overlayed Login Image */}
-        <img
-          src="/assets/img/th-1/15.png"
-          className="absolute top-[6%] left-[10%] w-[80%] h-[88%]"
-          alt="Login"
-        />
-      </div>
-      {/* Section Container */}
     </div>
   );
-};
+}
 
 export default Signup;

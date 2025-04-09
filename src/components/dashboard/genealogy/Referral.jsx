@@ -1,5 +1,5 @@
 import countryList from "react-select-country-list";
-import { Select, Button, Table } from "../..";
+import { Select, Table } from "../..";
 import { genealogyColumns } from "../../../constants/Column";
 import { useMemo, useState } from "react";
 
@@ -11,29 +11,6 @@ export default function Referral({ data }) {
     userId: "",
     userEmailVerification: null,
   });
-
-  const customStyles = {
-    control: (provided) => ({
-      ...provided,
-      backgroundColor: "white",
-      border: "1px solid #000",
-      borderRadius: "8px",
-      padding: "1px",
-    }),
-    input: (provided) => ({
-      ...provided,
-      color: "#000 !important",
-    }),
-    singleValue: (provided) => ({
-      ...provided,
-      color: "#000",
-    }),
-    option: (provided) => ({
-      ...provided,
-      backgroundColor: "#fff",
-      color: "#000",
-    }),
-  };
 
   const handleAllFiltersChange = (name, value) =>
     setAllFilters((prev) => ({ ...prev, [name]: value }));
@@ -78,51 +55,39 @@ export default function Referral({ data }) {
   };
 
   return (
-    <div className="mt-4 w-full text-black">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        <div className="w-full">
-          <label className="block text-black font-normal">
+    <div>
+      {/* Search Section */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div>
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             Search User's ID
           </label>
           <input
             type="text"
-            name="confirmEmail"
-            className="w-full bg-white px-2.5 py-[7px] border text-black rounded-md border-solid border-slate-200 outline-none mt-1 !ml-0"
+            className="w-full p-2 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+            placeholder="Search User's ID"
             value={allFilters.userId}
             onChange={(e) => handleAllFiltersChange("userId", e.target.value)}
           />
         </div>
-        <div className="w-full">
-          <label className="block text-black font-normal mb-1">
+        <div>
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             Search User's Country
           </label>
           <Select
-            customStyles={customStyles}
             options={options}
             value={allFilters.userCountry}
             onChange={(value) => {
               handleAllFiltersChange("userCountry", value);
             }}
+            className="w-full p-2 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
           />
         </div>
-        {/* <div className="w-full">
-          <label className="block text-black font-normal mb-1">
-            Search User's Status
-          </label>
-          <Select
-            customStyles={customStyles}
-            options={[
-              { label: "Active", value: "active" },
-              { label: "InActive", value: "inActive" },
-            ]}
-          />
-        </div> */}
-        <div className="w-full">
-          <label className="block text-black font-normal mb-1">
+        <div>
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             Search User's Email Verification
           </label>
           <Select
-            customStyles={customStyles}
             options={[
               { label: "Verified", value: 1 },
               { label: "Not Verified", value: 0 },
@@ -131,12 +96,20 @@ export default function Referral({ data }) {
             onChange={(value) =>
               handleAllFiltersChange("userEmailVerification", value)
             }
+            className="w-full p-2 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
           />
         </div>
       </div>
-      <div className="flex items-center gap-4 max-w-full mt-4">
-        <Button onClick={handleSubmit}>Submit</Button>
-        <Button
+
+      {/* Buttons */}
+      <div className="flex space-x-4 mb-6 max-w-xs">
+        <button 
+          onClick={handleSubmit}
+          className="flex-1 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
+        >
+          Submit
+        </button>
+        <button 
           onClick={() => {
             setSubmitClicked(false);
             setAllFilters({
@@ -145,24 +118,30 @@ export default function Referral({ data }) {
               userEmailVerification: null,
             });
           }}
+          className="flex-1 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
         >
           Reset
-        </Button>
+        </button>
       </div>
 
-      <div className="mt-10">
-        {submitClicked ? (
+      {/* Referral Details Table */}
+      <div>
+        <h4 className="text-md font-medium text-gray-800 dark:text-white mb-2">
+          Referral Details
+        </h4>
+        <div className="overflow-x-auto">
           <Table
             columns={genealogyColumns}
-            data={filteredData}
-            heading="Referral Details"
+            data={submitClicked ? filteredData : formattedData}
+            heading=""
           />
-        ) : (
-          <Table
-            columns={genealogyColumns}
-            data={formattedData}
-            heading="Referral Details"
-          />
+        </div>
+        {formattedData?.length > 0 && (
+          <div className="flex justify-between items-center mt-4">
+            <span className="text-sm text-gray-500 dark:text-gray-400">
+              Showing {submitClicked ? filteredData.length : formattedData.length} results
+            </span>
+          </div>
         )}
       </div>
     </div>

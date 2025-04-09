@@ -339,25 +339,25 @@ export default function Investment({ data }) {
           </Button>
         </div>
       </Modal>
-      <div className="mt-10 flex w-full justify-center mb-20 sm:mb-0">
-        <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-20 lg:gap-4 w-full max-w-full lg:max-w-[80%]">
+      
+      <div className="p-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {packageData?.map((el, index) => (
-            <div key={index} className="w-full h-[80%]">
+            <div key={index} className="relative group">
               <img
-                src={el?.image}
-                alt="Package Image"
-                className="h-full w-full "
+                src={el.image}
+                alt={el.name}
+                className="w-full h-auto rounded-lg shadow-lg"
               />
-              <Button
-                className=" flex items-center justify-center rounded-md w-full mt-2 text-white font-normal "
-                // disabled={true}
+              <button
                 onClick={() => {
                   handleDataChange("isOpenModal", true);
                   handleDataChange("selectedModalPackage", el);
                 }}
+                className="w-full bg-green-500 text-white py-3 px-6 rounded-lg mt-4 font-semibold hover:bg-green-600 transition-colors duration-200"
               >
                 Purchase
-              </Button>
+              </button>
             </div>
           ))}
         </div>

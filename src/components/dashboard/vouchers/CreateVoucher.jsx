@@ -36,7 +36,7 @@ export default function CreateVoucher() {
       });
       if (res.status === 201) {
         handleLoadingState("isVoucherLoading", false);
-        toast.success("Vocuher created successfully");
+        toast.success("Voucher created successfully");
         handleNavigate("/dashboard/vouchers/all");
         setFormData({
           selectedWallet: "",
@@ -51,56 +51,52 @@ export default function CreateVoucher() {
   };
 
   return (
-    <div className="flex items-center justify-center w-full my-2">
-      <div className="w-full max-w-4xl p-4 bg-white rounded-md ">
-        <h1 className="mb-2 text-xl ">Generate Voucher Card</h1>
-        <div className="w-full mb-3">
-          <label className="block text-[#07153D] font-normal">
-            Enter Amount
-          </label>
-          <input
-            type="text"
-            className="w-full bg-white px-2.5 py-1 border rounded-md border-solid border-slate-200 outline-none mt-1 !ml-0"
-            onChange={(e) => handleFromDataChange("amount", e.target.value)}
-            value={formData.amount}
-          />
-        </div>
-
-        <div>
-          <label className="block text-[#07153D] font-normal">
-            Select Wallet
-          </label>
-          <CustomSelect
-            options={[
-              {
-                label: "R&B Wallet",
-                value: "rnb",
-              },
-              {
-                label: "ROI Wallet",
-                value: "roi",
-              },
-              {
-                label: "Extra Income Wallet",
-                value: "interest",
-              },
-            ]}
-            placeHolder="Select Wallet"
-            handleChange={(value) =>
-              handleFromDataChange("selectedWallet", value)
-            }
-            value={formData.selectedWallet}
-          />
-        </div>
-
-        <Button
-          className="mt-4"
-          loading={loadingStates.isVoucherLoading}
-          onClick={handleVoucherSubmit}
-        >
-          Generate Voucher
-        </Button>
+    <div className="bg-[#2D3748] p-6 rounded-lg max-w-2xl mx-auto">
+      <h2 className="text-xl font-semibold text-white mb-6">Generate Voucher Card</h2>
+      
+      <div className="mb-4">
+        <label className="block text-gray-300 mb-2">Enter Amount</label>
+        <input
+          type="number"
+          className="w-full bg-[#1E293B] text-white px-4 py-2 rounded-md border border-gray-700 focus:outline-none focus:ring-1 focus:ring-green-500"
+          onChange={(e) => handleFromDataChange("amount", e.target.value)}
+          value={formData.amount}
+        />
       </div>
+
+      <div className="mb-6">
+        <label className="block text-gray-300 mb-2">Select Wallet</label>
+        <CustomSelect
+          options={[
+            {
+              label: "R&B Wallet",
+              value: "rnb",
+            },
+            {
+              label: "ROI Wallet",
+              value: "roi",
+            },
+            {
+              label: "Extra Income Wallet",
+              value: "interest",
+            },
+          ]}
+          placeHolder="Select Wallet"
+          handleChange={(value) =>
+            handleFromDataChange("selectedWallet", value)
+          }
+          value={formData.selectedWallet}
+          className="bg-[#1E293B] text-white border-gray-700"
+        />
+      </div>
+
+      <Button
+        className="w-full bg-green-500 hover:bg-green-600"
+        loading={loadingStates.isVoucherLoading}
+        onClick={handleVoucherSubmit}
+      >
+        Generate Voucher
+      </Button>
     </div>
   );
 }

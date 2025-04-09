@@ -1,17 +1,18 @@
 import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { ErrorMessage, PasswordInput } from "../../components";
+import { ErrorMessage } from "../../components";
 import toast from "react-hot-toast";
 import { useAuth } from "../../hooks/useAuth";
 import { Navigate, useNavigate } from "react-router-dom";
 import authService from "../../services/authService";
 import { CgSpinner } from "react-icons/cg";
-import { FaEye, FaEyeSlash } from "react-icons/fa6";
+import RoundButton from "../../components/navbar/RoundButton";
 
 const Login = () => {
   const handleNavigate = useNavigate();
   const { user, updateUser } = useAuth();
   const [showOTPInput, setShowOTPInput] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
 
   const [formData, setFormData] = useState({
     userId: "CROWN-",
@@ -44,7 +45,6 @@ const Login = () => {
       case "password":
         error = value ? "" : "Password is required";
         break;
-
       case "otp":
         error = value ? "" : "OTP is required";
         break;
@@ -74,32 +74,16 @@ const Login = () => {
     setLoadingStates((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async () => {
-    console.log("first");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
     try {
-      // if (!showOTPInput) {
-      //   changeLoadingStates("isSignInLoading", true);
-      //   const response = await authService.sendLoginOTP({
-      //     userId: `${formData.userId}`,
-      //     password: formData.password,
-      //   });
-      //   if (response?.data?.success) {
-      //     changeLoadingStates("isSignInLoading", false);
-      //     // updateUser({
-      //     //   user: response?.data?.data,
-      //     //   token: response?.data?.token,
-      //     // });
-      //     // handleNavigate("/dashboard");
-      //     setShowOTPInput(true);
-      //   }
-      // } else {
       changeLoadingStates("isSignInLoading", true);
       const response = await authService.loginUser({
         userId: `${formData.userId}`,
         password: formData.password,
-        // otp: formData.otp,
       });
-      console.log(response);
+      
       if (response?.data?.success) {
         changeLoadingStates("isSignInLoading", false);
         updateUser({
@@ -108,7 +92,6 @@ const Login = () => {
         });
         handleNavigate("/dashboard");
       }
-      // }
     } catch (error) {
       console.log(error);
       changeLoadingStates("isSignInLoading", false);
@@ -136,137 +119,172 @@ const Login = () => {
   const togglePasswordVisibility = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
-  return (
-    <div className="w-full flex flex-col md:flex-row h-full bg-custom-eclipse">
-      <div className="mx-auto w-full md:w-1/2 text-center flex flex-col justify-center px-6 md:px-32 mt-4 md:mt-0">
-        <div className=" text-center flex flex-row justify-center gap-6 mb-12 items-center ">
-          <a href="/">
-            <img src="/assets/img/logoname.png" className="w-16" />
-          </a>
-          <a href="/">
-            <div className="font-bold text-4xl">Crown Bankers</div>
-          </a>
-        </div>
-        <div className="block rounded-lg py-[50px] text-left px-0 md:px-10">
-          <div className="grid grid-cols-1 gap-6">
-            <div className="flex flex-col gap-y-[10px]">
-              <label
-                htmlFor="login-email"
-                className="text-2xl font-bold leading-[1.6]"
-              >
-                User ID
-              </label>
-              <input
-                type="text"
-                name="userId"
-                value={formData.userId}
-                onChange={handleChange}
-                className="rounded-[10px] border border-secondary bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
-                onBlur={() => handleBlur("userId")}
-              />
-              <ErrorMessage error={errors.userId} touched={touched.userId} />
-            </div>
-            {!showOTPInput && (
-              <div className="flex flex-col gap-y-[10px]">
-                <label
-                  htmlFor="login-password"
-                  className="text-2xl font-bold leading-[1.6]"
-                >
-                  Enter Password
-                </label>
-                <div className="flex flex-column justify-between rounded-[10px] border border-secondary bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed">
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    name="password"
-                    value={formData.password}
-                    onChange={handleChange}
-                    id="login-password"
-                    placeholder="............"
-                    className="outline-none"
-                  />
 
-                  <div
-                    className="  flex items-center pr-2 cursor-pointer"
-                    onClick={togglePasswordVisibility}
-                  >
-                    {showPassword ? (
-                      <FaEyeSlash color="#000" size={18} />
-                    ) : (
-                      <FaEye color="#000" size={18} />
+  return (
+    <div className="min-h-screen flex flex-col bg-gray-900">
+      <div className="flex-grow flex py-4">
+        {/* Left Column - Form */}
+        <div
+          className="w-full items-center justify-center md:w-1/2 flex flex-col p-8 md:p-16"
+        >
+          <div className="mb-8">
+            <div className="flex items-center">
+              <img
+                className="h-24 w-auto"
+                src="/assets/logo1.png"
+                alt="Crown Bankers Logo"
+              />
+              {/* <span className="ml-2 text-2xl font-bold text-white">BankCo</span> */}
+            </div>
+          </div>
+
+          <div className="flex-grow flex flex-col px-4 rounded-md justify-center max-w-md border border-green-800 animate-">
+            <div className="p-4 rounded-t-md">
+              <h2 className="text-3xl font-bold text-white">
+                Sign in to Crown Banker.
+              </h2>
+            </div>
+
+            <div className="bg-gray-900 py-8">
+              <div className="flex items-center justify-center mb-6">
+                {/* <div className="flex-grow border-t border-gray-700"></div> */}
+                {/* <div className="flex-grow border-t border-gray-700"></div> */}
+              </div>
+
+              <form onSubmit={handleSubmit}>
+                <div className="space-y-4">
+                  <div>
+                    <input
+                      name="userId"
+                      type="text"
+                      className="w-full bg-gray-800 border border-gray-700 rounded-md px-4 py-3 text-white placeholder-gray-400"
+                      placeholder="Username or email"
+                      value={formData.userId}
+                      onChange={handleChange}
+                      onBlur={() => handleBlur("userId")}
+                    />
+                    {errors.userId && touched.userId && (
+                      <p className="text-red-500 text-sm mt-1">{errors.userId}</p>
                     )}
                   </div>
+
+                  {!showOTPInput && (
+                    <div className="relative">
+                      <input
+                        name="password"
+                        type={showPassword ? "text" : "password"}
+                        className="w-full bg-gray-800 border border-gray-700 rounded-md px-4 py-3 text-white placeholder-gray-400"
+                        placeholder="Password"
+                        value={formData.password}
+                        onChange={handleChange}
+                        onBlur={() => handleBlur("password")}
+                      />
+                      <button
+                        type="button"
+                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                        onClick={togglePasswordVisibility}
+                      >
+                        <svg
+                          xmlns=""
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                          <circle cx="12" cy="12" r="3"></circle>
+                          {!showPassword && <line x1="4" y1="20" x2="20" y2="4"></line>}
+                        </svg>
+                      </button>
+                      {errors.password && touched.password && (
+                        <p className="text-red-500 text-sm mt-1">{errors.password}</p>
+                      )}
+                    </div>
+                  )}
+
+                  {showOTPInput && (
+                    <div>
+                      <input
+                        name="otp"
+                        type="text"
+                        className="w-full bg-gray-800 border border-gray-700 rounded-md px-4 py-3 text-white placeholder-gray-400"
+                        placeholder="Enter OTP"
+                        value={formData.otp}
+                        onChange={handleChange}
+                      />
+                      {errors.otp && (
+                        <p className="text-red-500 text-sm mt-1">{errors.otp}</p>
+                      )}
+                    </div>
+                  )}
+
+                  <div className="flex justify-between items-center">
+                    <div className="flex items-center">
+                      <input
+                        id="remember-me"
+                        name="remember-me"
+                        type="checkbox"
+                        className="h-4 w-4 rounded border-gray-700 bg-gray-800 text-green-500 focus:ring-green-500"
+                        checked={rememberMe}
+                        onChange={(e) => setRememberMe(e.target.checked)}
+                      />
+                      <label
+                        htmlFor="remember-me"
+                        className="ml-2 text-sm text-white"
+                      >
+                        Remember me
+                      </label>
+                    </div>
+                    <Link
+                      to="/reset-password"
+                      className="text-sm font-medium text-green-500 hover:text-green-400"
+                    >
+                      Forgot Password?
+                    </Link>
+                  </div>
+
+                  <RoundButton
+                    text={loadingStates.isSignInLoading ? (
+                      <span className="flex items-center justify-center">
+                        <CgSpinner className="animate-spin mr-2" size={18} />
+                        {!showOTPInput ? "Signing in..." : "Verifying..."}
+                      </span>
+                    ) : !showOTPInput ? "Sign in" : "Verify OTP"}
+                    type="submit"
+                    className="w-full py-3 text-sm"
+                    disabled={isButtonDisabled || loadingStates.isSignInLoading}
+                  />
+                  
+                  <p className="mt-1 flex items-center text-base text-gray-300">
+                    Create account? {/* Or{" "} */}
+                    <Link
+                      to="/signup"
+                      className="font-medium text-[#4CAF50] hover:text-[#3d9140] ml-1"
+                    >
+                      sign up
+                    </Link>
+                  </p>
                 </div>
-              </div>
-            )}
-            {showOTPInput && (
-              <div className="flex flex-col gap-y-[10px]">
-                <label
-                  htmlFor="login-password"
-                  className="text-2xl font-bold leading-[1.6]"
-                >
-                  Enter OTP
-                </label>
-                <input
-                  type="text"
-                  name="otp"
-                  value={formData.otp}
-                  onChange={handleChange}
-                  placeholder="............"
-                  className="rounded-[10px] border border-secondary bg-white px-6 py-[18px] font-bold text-black outline-none transition-all placeholder:text-slate-500 focus:border-colorOrangyRed"
-                  required=""
-                />
-              </div>
-            )}
-            {/* Form Single Input */}
-            <div className="flex flex-wrap justify-between gap-x-10 gap-y-4">
-              <Link
-                to="/reset-password"
-                className="text-lg hover:text-colorOrangyRed"
-              >
-                Forgot password?
-              </Link>
+              </form>
             </div>
           </div>
-          <button
-            type="submit"
-            onClick={handleSubmit}
-            className="button mt-7 block rounded-[50px] border-2 border-white bg-primary py- text-white text-2xl after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white w-full"
-          >
-            {loadingStates.isSignInLoading && (
-              <span className="absolute inset-0 flex items-center justify-center">
-                <CgSpinner className="animate-spin" size={20} />
-              </span>
-            )}
-            {!showOTPInput ? "Sign in" : "Verify OTP"}
-          </button>
+        </div>
 
-          <div className="mt-10 text-center">
-            Don't have an account? &nbsp;
-            <Link
-              to="/signup"
-              className="text-2xl font-semibold hover:text-colorOrangyRed"
-            >
-              Sign Up here
-            </Link>
+        {/* Right Column - Image */}
+        <div className="hidden md:flex md:w-1/2 bg-white">
+          <div className="w-full h-full flex items-center justify-center">
+            <img
+              src="https://imgs.search.brave.com/WcifV_h_w633-PcRZo_n5SiaRnNeF77jTglDj7nCvWE/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9zdC5k/ZXBvc2l0cGhvdG9z/LmNvbS8xNDExMTYx/LzEyNzMvaS80NTAv/ZGVwb3NpdHBob3Rv/c18xMjczNjE3MC1z/dG9jay1waG90by1y/ZW5ld2FibGUtZW5l/cmd5LmpwZw"
+              alt="Secure Banking"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </div>
-      <div className="relative w-full md:w-1/2 h-[600px] md:h-screen ">
-        {/* Background Image */}
-        {/* <img
-          src="/assets/LoginBg.png"
-          className="w-full h-full"
-          alt="Background"
-        /> */}
-
-        {/* Overlayed Login Image */}
-        <img
-          src="/assets/img/th-1/14.png"
-          className="absolute top-[6%] left-[10%] w-[80%] h-[88%]"
-          alt="Login"
-        />
-      </div>
-      {/* Section Container */}
     </div>
   );
 };
