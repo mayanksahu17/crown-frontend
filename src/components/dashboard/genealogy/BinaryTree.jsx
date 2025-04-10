@@ -36,7 +36,7 @@ export default function BinaryTree({ data }) {
             onChange={(e) => setInputData(e.target.value)}
           />
           <button
-            className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors disabled:opacity-50"
+            className="px-4 py-2 bg-green-400 text-white rounded-md hover:bg-green-700 transition-colors disabled:opacity-50"
             onClick={() => {
               if (inputData.trim()) {
                 navigate(`/dashboard/genealogy/binary/${inputData}`);

@@ -15,8 +15,8 @@ export default function Tickets() {
   ];
 
   return (
-    <div className="w-full mt-4">
-      <div className=" w-full">
+    <div className="w-full mt-4 text-gray-900 dark:text-gray-100">
+      <div className="w-full bg-white dark:bg-gray-900 rounded-lg shadow-md p-4">
         <Tab data={data} />
       </div>
     </div>

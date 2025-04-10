@@ -12,43 +12,49 @@ export default function CustomSelect({
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOptionClick = (option) => {
-    setIsOpen((prev) => !prev);
+    setIsOpen(false);
     handleChange(option);
   };
 
   return (
     <div className={clsx("relative inline-block w-full", className)}>
+      {/* Select Box */}
       <div
         onClick={() => setIsOpen(!isOpen)}
         className={clsx(
-          "cursor-pointer border rounded-md px-3 py-2 z-10 text-sm leading-tight flex items-center justify-between font-normal",
-          className?.includes("bg-[#1E293B]") && "bg-[#1E293B] border-gray-700 text-white"
+          "cursor-pointer border rounded-md px-3 py-2 text-sm flex items-center justify-between font-normal transition-all",
+          "bg-white text-gray-900 border-gray-300", // Light theme
+          "dark:bg-[#1E293B] dark:text-white dark:border-gray-700"
         )}
       >
         <span>
-          {value ? value.label : placeHolder ? placeHolder : "Select"}
+          {value ? value.label : placeHolder || "Select"}
         </span>
         <IoMdArrowDropdown
-          className={`${
-            isOpen ? "transform duration-300 ease-in-out rotate-180" : ""
-          } ${className?.includes("text-white") ? "text-white" : "text-gray-500"}`}
-          size="22"
+          className={clsx(
+            "transition-transform",
+            isOpen ? "rotate-180" : "",
+            "text-gray-500 dark:text-white"
+          )}
+          size={22}
         />
       </div>
+
+      {/* Dropdown Options */}
       {isOpen && (
-        <div className={clsx(
-          "absolute mt-2 w-full text-sm border z-50 rounded-md shadow-md",
-          className?.includes("bg-[#1E293B]") ? 
-            "bg-[#1E293B] border-gray-700 text-white" : 
-            "bg-white border-secondary text-black"
-        )}>
+        <div
+          className={clsx(
+            "absolute mt-2 w-full border rounded-md shadow-md z-50 overflow-hidden text-sm",
+            "bg-white text-gray-900 border-gray-300", // Light theme
+            "dark:bg-[#1E293B] dark:text-white dark:border-gray-700"
+          )}
+        >
           {options.map((option) => (
             <div
               key={option.value}
               onClick={() => handleOptionClick(option)}
               className={clsx(
-                "cursor-pointer px-3 py-2 text-sm font-normal w-full hover:bg-opacity-10",
-                className?.includes("bg-[#1E293B]") ? "hover:bg-gray-500" : "hover:bg-gray-100"
+                "cursor-pointer px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
               )}
             >
               {option.label}

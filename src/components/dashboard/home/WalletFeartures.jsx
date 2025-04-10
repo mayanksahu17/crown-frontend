@@ -17,15 +17,15 @@ const WalletFeartures = () => {
     user?.user?.userId?.split("-")[1] +
     "&position=right";
   return (
-    <div className="w-full md:w-1/2 rounded-2xl border border-2">
+    <div className="w-full md:w-1/2 rounded-2xl  border-2">
       <div className="w-full p-3 rounded-lg">
-        <div className="text-black text-xl">Referral Link</div>
+        <div className="text-black text-xl ">Referral Link</div>
         <div className="mt-3 w-full flex flex-col  gap-4 ">
           <div className="w-full bg-white rounded-md p-2">
             <p className="opacity-80 text-black font-normal text-xs">
               Left link
             </p>
-            <div className="flex justify-between w-full space-x-3 mt-2 border border-2 border-black bg-white p-2 rounded-2xl">
+            <div className="flex justify-between w-full space-x-3 mt-2 border-2 border-black bg-white p-2 rounded-2xl">
               <input
                 type="text"
                 className="w-4/6 bg-white rounded-xl text-xs px-2 py-1 text-opacity-80 text-black"
@@ -47,7 +47,7 @@ const WalletFeartures = () => {
             <p className="opacity-80 text-black font-normal text-xs">
               Right link
             </p>
-            <div className="flex justify-between w-full space-x-3 mt-2 bg-white p-2  border border-2 border-black rounded-2xl">
+            <div className="flex justify-between w-full space-x-3 mt-2 bg-white p-2  border-2 border-black rounded-2xl">
               <input
                 type="text"
                 className="w-4/6 bg-white text-xs px-2 py-1 text-opacity-80 text-black"

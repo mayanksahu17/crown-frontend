@@ -14,27 +14,33 @@ export default function Tab({ data }) {
 
   return (
     <>
-      <div className={clsx("flex items-center overflow-auto")}>
-        {data.map(({ name, route }, index, arr) => (
-          <div
-            key={index}
-            className={clsx(
-              "py-1 px-2 md:px-4  cursor-pointer",
-              selectedTab === route?.split("/")?.findLast((el) => el)
-                ? " border-b-4  font-bold text-black border-black"
-                : "text-gray-700",
-              arr.length - 1 === index && "rounded-tr-lg rounded-br-lg",
-              index === 0 && "rounded-tl-lg rounded-bl-lg"
-            )}
-            onClick={() => {
-              handleNavigate(route);
-            }}
-          >
-            {name}
-          </div>
-        ))}
+      <div className="flex items-center overflow-auto bg-gray-100 dark:bg-gray-800 rounded-t-md">
+        {data.map(({ name, route }, index, arr) => {
+          const isSelected =
+            selectedTab === route?.split("/")?.findLast((el) => el);
+
+          return (
+            <div
+              key={index}
+              className={clsx(
+                "py-2 px-4 cursor-pointer transition-all",
+                isSelected
+                  ? "border-b-4 font-bold text-black dark:text-white border-green-500 bg-white dark:bg-gray-900"
+                  : "text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700",
+                arr.length - 1 === index && "rounded-tr-md",
+                index === 0 && "rounded-tl-md"
+              )}
+              onClick={() => handleNavigate(route)}
+            >
+              {name}
+            </div>
+          );
+        })}
       </div>
-      <div className="mt-2">{children}</div>
+
+      <div className="mt-2 bg-white dark:bg-gray-800 p-4 rounded-b-md shadow">
+        {children}
+      </div>
     </>
   );
 }

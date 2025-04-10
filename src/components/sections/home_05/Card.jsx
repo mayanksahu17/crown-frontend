@@ -12,7 +12,7 @@ export default function SolarEnergycards() {
                 Driving The Future Of Solar Energy
               </h2>
               <p className="font-medium text-white">
-                With over 20 years of expertise, we are at the forefront of
+                With over 7 years of expertise, we are at the forefront of
                 solar innovation and sustainable energy solutions, ensuring a
                 greener and brighter future for all.
               </p>

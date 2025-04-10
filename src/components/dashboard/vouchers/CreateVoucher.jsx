@@ -51,42 +51,39 @@ export default function CreateVoucher() {
   };
 
   return (
-    <div className="bg-[#2D3748] p-6 rounded-lg max-w-2xl mx-auto">
-      <h2 className="text-xl font-semibold text-white mb-6">Generate Voucher Card</h2>
-      
+    <div className="bg-white dark:bg-[#2D3748] p-6 rounded-lg max-w-2xl mx-auto shadow">
+      <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+        Generate Voucher Card
+      </h2>
+
       <div className="mb-4">
-        <label className="block text-gray-300 mb-2">Enter Amount</label>
+        <label className="block text-gray-700 dark:text-gray-300 mb-2">
+          Enter Amount
+        </label>
         <input
           type="number"
-          className="w-full bg-[#1E293B] text-white px-4 py-2 rounded-md border border-gray-700 focus:outline-none focus:ring-1 focus:ring-green-500"
+          className="w-full bg-gray-100 dark:bg-[#1E293B] text-gray-900 dark:text-white px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-1 focus:ring-green-500"
           onChange={(e) => handleFromDataChange("amount", e.target.value)}
           value={formData.amount}
         />
       </div>
 
       <div className="mb-6">
-        <label className="block text-gray-300 mb-2">Select Wallet</label>
+        <label className="block text-gray-700 dark:text-gray-300 mb-2">
+          Select Wallet
+        </label>
         <CustomSelect
           options={[
-            {
-              label: "R&B Wallet",
-              value: "rnb",
-            },
-            {
-              label: "ROI Wallet",
-              value: "roi",
-            },
-            {
-              label: "Extra Income Wallet",
-              value: "interest",
-            },
+            { label: "R&B Wallet", value: "rnb" },
+            { label: "ROI Wallet", value: "roi" },
+            { label: "Extra Income Wallet", value: "interest" },
           ]}
           placeHolder="Select Wallet"
           handleChange={(value) =>
             handleFromDataChange("selectedWallet", value)
           }
           value={formData.selectedWallet}
-          className="bg-[#1E293B] text-white border-gray-700"
+          className="bg-gray-100 dark:bg-[#1E293B] text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700"
         />
       </div>
 

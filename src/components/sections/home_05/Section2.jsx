@@ -47,7 +47,7 @@ const BankingInvestmentSection = () => {
 
       <div className="flex gap-4 mt-6 place-items-end">
         <Link to="/login">
-          <WhiteRoundButton className="" text="Get Start ->" />
+          <WhiteRoundButton className="" text="Get Started ->" />
         </Link>
         {/* <button className="flex items-center gap-2 px-6 py-3 text-white bg-black rounded-md">
           Get Started <ArrowRight />

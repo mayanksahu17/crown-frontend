@@ -202,7 +202,7 @@ export default function Home() {
       {/* Wallets section */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2 bg-white dark:bg-gray-800 rounded-lg shadow p-6">
-          <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">
+          <h3 className="text-lg font-semibold tracking-wide text-gray-800 dark:text-white mb-4">
             Wallet Overview
           </h3>
           <div className="grid grid-cols-2 gap-4">
@@ -262,7 +262,7 @@ export default function Home() {
         </div>
 
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
-          <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">
+          <h3 className="text-lg font-semibold text-gray-800 tracking-wide dark:text-white mb-4">
             Wallet Settings
           </h3>
           <div className="space-y-4">
@@ -289,7 +289,7 @@ export default function Home() {
             <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-3">
               <Award className="text-green-500" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
+            <h3 className="text-lg font-semibold tracking-wide text-gray-800 dark:text-white">
               Career Progress
             </h3>
           </div>
@@ -353,7 +353,7 @@ export default function Home() {
             <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-3">
               <Link className="text-green-500" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
+            <h3 className="text-lg font-semibold text-gray-800 tracking-wide dark:text-white">
               Referral Links
             </h3>
           </div>
@@ -429,7 +429,7 @@ const StatCard = ({ title, value, change, period, icon }) => {
         <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-3">
           {icon}
         </div>
-        <h3 className="text-lg font-medium text-gray-700 dark:text-gray-300">
+        <h3 className="text-lg font-medium text-gray-700 tracking-wide dark:text-gray-300">
           {title}
         </h3>
       </div>

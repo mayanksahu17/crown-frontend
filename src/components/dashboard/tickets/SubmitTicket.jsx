@@ -76,11 +76,11 @@ export default function SubmitTicket() {
   };
 
   return (
-    <div className="mt-4 w-full text-black">
-      <h4 className="text-xl">Submit Ticket</h4>
+    <div className="mt-4 w-full text-gray-900 dark:text-gray-100">
+      <h4 className="text-xl font-semibold">Submit Ticket</h4>
       <div className="mt-2 w-full">
-        <div className="w-full">
-          <label className="block text-black font-normal">
+        <div className="mb-4">
+          <label className="block font-medium mb-1 text-gray-700 dark:text-gray-200">
             Select Department
           </label>
           <CustomSelect
@@ -96,8 +96,11 @@ export default function SubmitTicket() {
             value={allInputs.selectedDepartment}
           />
         </div>
-        <div className="mt-4 w-full">
-          <label className="block text-black font-normal">Select Service</label>
+
+        <div className="mb-4">
+          <label className="block font-medium mb-1 text-gray-700 dark:text-gray-200">
+            Select Service
+          </label>
           <CustomSelect
             className="w-full"
             options={[
@@ -112,52 +115,64 @@ export default function SubmitTicket() {
             value={allInputs.selectedService}
           />
         </div>
-        <div className="w-full mt-4 ">
-          <div className="w-full">
-            <label className="block text-black font-normal">Subject</label>
-            <input
-              type="text"
-              className="w-full text-sm bg-transparent text-gray-500 border border-secondary px-2.5 py-2.5 rounded-md  outline-none mt-1 !ml-0"
-              placeholder="Write a Subject"
-              name="subject"
-              value={allInputs.subject}
-              onChange={(e) => handleAllInputsChange("subject", e.target.value)}
-            />
-          </div>
-          <div className="w-full mt-4">
-            <label className="block text-black font-normal">Description</label>
-            <textarea
-              type="text"
-              className="w-full text-sm bg-transparent text-gray-500 border border-secondary px-2.5 py-2.5 rounded-md  outline-none mt-1 !ml-0"
-              placeholder="Write description"
-              rows="2"
-              onChange={(e) =>
-                handleAllInputsChange("description", e.target.value)
-              }
-              value={allInputs.description}
-            />
-          </div>
-          <div className="w-full mt-4">
-            <label className="block text-black font-normal">
-              Attachment (optional)
-            </label>
-            <input
-              type="file"
-              className="w-full text-sm bg-transparent px-1  rounded-md  outline-none mt-1 !ml-0"
-              onChange={(e) => {
-                const selectedFile = e.target.files[0];
-                if (selectedFile) {
-                  setAllInputs((prev) => ({
-                    ...prev,
-                    selectedAttachment: selectedFile,
-                  }));
-                }
-              }}
-            />
-          </div>
+
+        <div className="mb-4">
+          <label className="block font-medium mb-1 text-gray-700 dark:text-gray-200">
+            Subject
+          </label>
+          <input
+            type="text"
+            className="w-full text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-600 placeholder-gray-400 dark:placeholder-gray-500 px-3 py-2 rounded-md outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Write a subject"
+            name="subject"
+            value={allInputs.subject}
+            onChange={(e) => handleAllInputsChange("subject", e.target.value)}
+          />
         </div>
+
+        <div className="mb-4">
+          <label className="block font-medium mb-1 text-gray-700 dark:text-gray-200">
+            Description
+          </label>
+          <textarea
+            rows="4"
+            className="w-full text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-600 placeholder-gray-400 dark:placeholder-gray-500 px-3 py-2 rounded-md outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Write description"
+            value={allInputs.description}
+            onChange={(e) =>
+              handleAllInputsChange("description", e.target.value)
+            }
+          />
+        </div>
+
+        <div className="mb-4">
+          <label className="block font-medium mb-1 text-gray-700 dark:text-gray-200">
+            Attachment (optional)
+          </label>
+          <input
+  type="file"
+  className="w-full text-sm file:mr-4 file:py-2 file:px-4
+             file:rounded-md file:border-0
+             file:text-sm file:font-semibold
+             file:bg-blue-50 file:text-blue-700
+             hover:file:bg-blue-100
+             dark:file:bg-gray-700 dark:file:text-gray-100
+             dark:hover:file:bg-gray-600
+             bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
+             border border-gray-300 dark:border-gray-600
+             px-2 py-2 rounded-md outline-none"
+
+            onChange={(e) => {
+              const selectedFile = e.target.files[0];
+              if (selectedFile) {
+                handleAllInputsChange("selectedAttachment", selectedFile);
+              }
+            }}
+          />
+        </div>
+
         <Button
-          className="mt-4 "
+          className="mt-4"
           onClick={handleTicketSubmit}
           loading={allInputs.isLoading}
         >

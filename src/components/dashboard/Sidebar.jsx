@@ -64,7 +64,7 @@ export default function Sidebar({ isOpen, toggleSidebar }) {
         <div className="flex flex-col gap-3">
           {/* Support */}
           <button
-            onClick={() => navigate("/support")}
+            onClick={() => navigate("/dashboard/tickets/submit-ticket")}
             className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-green-500 transition"
           >
             <svg

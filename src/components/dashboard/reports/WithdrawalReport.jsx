@@ -70,7 +70,7 @@ export default function ({ data }) {
           <thead className="border-b border-gray-700">
             <tr>
               {customColumns.map((column) => (
-                <th key={column.Header} className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
+                <th key={column.Header} className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                   {column.Header}
                 </th>
               ))}

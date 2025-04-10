@@ -1,107 +1,41 @@
-import React, { useEffect, useRef, useState } from "react";
-import { GrNotification } from "react-icons/gr";
+import React, { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 import notificationService from "../../services/notificationService";
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
+
 const notificationType = [
-  {
-    type: "fund_management",
-    title: "Fund Report",
-    redirect: "/dashboard",
-  },
-  {
-    type: "powerleg",
-    title: "Powerleg",
-    redirect: "/dashboard/investments/package-activation",
-  },
-  {
-    type: "free",
-    title: "Free",
-    redirect: "/dashboard/investments/package-activation",
-  },
-  {
-    type: "coinpayment",
-    title: "Coinpayment Report",
-    redirect: "/dashboard/investments/package-activation",
-  },
-  {
-    type: "investment",
-    title: "Investment Report",
-    redirect: "/dashboard/investments/package-activation",
-  },
-  {
-    type: "rb_withdrawal",
-    title: "R&B Withdrawal",
-    redirect: "/dashboard/reports/withdrawal",
-  },
-  {
-    type: "roi_withdrawal",
-    title: "ROI Withdrawal",
-    redirect: "/dashboard/reports/withdrawal",
-  },
-  {
-    type: "interest_withdrawal",
-    title: "Interest Withdrawal",
-    redirect: "/dashboard/reports/withdrawal",
-  },
-  {
-    type: "token",
-    title: "Voucher Report",
-    redirect: "/dashboard/vouchers/all",
-  },
-  {
-    type: "kyc",
-    title: "KYC",
-    redirect: "/dashboard/settings/kyc",
-  },
-  {
-    type: "ticket",
-    title: "Ticket",
-    redirect: "/dashboard/tickets/all",
-  },
-  {
-    type: "binary",
-    title: "Binary Report",
-    redirect: "/dashboard/reports/bi",
-  },
-  {
-    type: "referral",
-    title: "Referral Report",
-    redirect: "/dashboard/reports/ri",
-  },
-  {
-    type: "career",
-    title: "Extra Income Report",
-    redirect: "/dashboard/reports/extra-income",
-  },
-  {
-    type: "roi",
-    title: "ROI Report",
-    redirect: "/dashboard/reports/roi",
-  },
+  { type: "fund_management", title: "Fund Report", redirect: "/dashboard" },
+  { type: "powerleg", title: "Powerleg", redirect: "/dashboard/investments/package-activation" },
+  { type: "free", title: "Free", redirect: "/dashboard/investments/package-activation" },
+  { type: "coinpayment", title: "Coinpayment Report", redirect: "/dashboard/investments/package-activation" },
+  { type: "investment", title: "Investment Report", redirect: "/dashboard/investments/package-activation" },
+  { type: "rb_withdrawal", title: "R&B Withdrawal", redirect: "/dashboard/reports/withdrawal" },
+  { type: "roi_withdrawal", title: "ROI Withdrawal", redirect: "/dashboard/reports/withdrawal" },
+  { type: "interest_withdrawal", title: "Interest Withdrawal", redirect: "/dashboard/reports/withdrawal" },
+  { type: "token", title: "Voucher Report", redirect: "/dashboard/vouchers/all" },
+  { type: "kyc", title: "KYC", redirect: "/dashboard/settings/kyc" },
+  { type: "ticket", title: "Ticket", redirect: "/dashboard/tickets/all" },
+  { type: "binary", title: "Binary Report", redirect: "/dashboard/reports/bi" },
+  { type: "referral", title: "Referral Report", redirect: "/dashboard/reports/ri" },
+  { type: "career", title: "Extra Income Report", redirect: "/dashboard/reports/extra-income" },
+  { type: "roi", title: "ROI Report", redirect: "/dashboard/reports/roi" },
 ];
+
 const Notifications = () => {
   const { user } = useAuth();
-
-  const notificationRef = useRef(null);
-  const notificationBtnRef = useRef(null);
-  const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   const [allNotifications, setAllNotifications] = useState([]);
   const [render, setRender] = useState(false);
-  //'misc','ticket','fund_management','powerleg','free','coinpayment','investment','rb_withdrawal','roi_withdrawal','interest_withdrawal','token','kyc','binary','referral','roi'
-  useEffect(() => {
-    // const socket = io("http://localhost:5000");
-    const socket = io("https://crownbankers.com");
-    // Emit user ID to the server
-    socket.emit("userId", user?.user?.userId);
-    socket.on("newUserNotification", (data) => {});
 
-    return () => {
-      socket.disconnect();
-    };
-  }, []);
+  useEffect(() => {
+    const socket = io("https://crownbankers.com");
+    socket.emit("userId", user?.user?.userId);
+    socket.on("newUserNotification", () => {
+      setRender((prev) => !prev); // trigger refresh
+    });
+    return () => socket.disconnect();
+  }, [user]);
 
   useEffect(() => {
     (async () => {
@@ -115,127 +49,77 @@ const Notifications = () => {
       }
     })();
   }, [render]);
+
   const markNotification = async (id) => {
     try {
-      const response = await notificationService.markNotificationAsSeen(
-        {
-          ids: [id],
-          status: 1,
-        },
+      await notificationService.markNotificationAsSeen(
+        { ids: [id], status: 1 },
         user
       );
-      if ((response.status = 200)) {
-        setRender((prev) => !prev);
-      }
+      setRender((prev) => !prev);
     } catch (error) {
       console.log(error);
     }
   };
+
   const markAllNotificationsAsRead = async () => {
     try {
-      setIsNotificationOpen(false);
+      if (!allNotifications.length) return;
 
-      if (allNotifications?.length === 0) {
-        return;
-      }
-
-      const notificationIds = allNotifications.map(
-        (notification) => notification.id
-      );
-      const response = await notificationService.markNotificationAsSeen(
-        {
-          ids: notificationIds,
-          status: 1,
-        },
+      const ids = allNotifications.map((n) => n.id);
+      await notificationService.markNotificationAsSeen(
+        { ids, status: 1 },
         user
       );
-      if ((response.status = 200)) {
-        setRender((prev) => !prev);
-      }
+      setRender((prev) => !prev);
     } catch (error) {
       console.log(error);
     }
   };
-  useEffect(() => {
-    const handleOutsideClick = (event) => {
-      if (event.target.id !== "notification-btn") {
-        if (
-          notificationBtnRef.current &&
-          !notificationBtnRef.current.contains(event.target) &&
-          notificationRef.current &&
-          !notificationRef.current.contains(event.target)
-        ) {
-          setIsNotificationOpen(false);
-        }
-      }
-    };
-
-    document.addEventListener("click", handleOutsideClick);
-
-    return () => {
-      document.removeEventListener("click", handleOutsideClick);
-    };
-  }, []);
 
   return (
-    <div className="relative text-black">
-      <button
-        className="w-10 h-10 sm:w-10 sm:h-10 bg-black rounded-full flex items-center justify-center cursor-pointer"
-        ref={notificationBtnRef}
-        onClick={() => setIsNotificationOpen((prev) => !prev)}
-      >
-        <GrNotification size={16} color="#fff" />
-      </button>
-      {isNotificationOpen && (
-        <div
-          ref={notificationRef}
-          className="absolute right-5 z-50 top-10 font-normal bg-white rounded shadow-sm mt-2 py-2 w-64 md:w-80 h-[30rem] text-sm overflow-y-auto"
+    <div className="z-50 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md shadow-md w-72 max-h-[320px] overflow-y-auto">
+      <div className="flex items-center justify-between px-3 py-2 border-b border-gray-200 dark:border-gray-700">
+        <h2 className="text-sm font-semibold tracking-wide text-gray-800 dark:text-white">Notifications</h2>
+        <p
+          className="text-xs text-blue-600 hover:underline cursor-pointer"
+          onClick={markAllNotificationsAsRead}
         >
-          <div className="flex items-center justify-between px-3">
-            <h2 className="text-base text-black sm:text-lg">Notifications</h2>
-            <p
-              className="text-xs cursor-pointer hover:underline"
-              onClick={markAllNotificationsAsRead}
-            >
-              MARK ALL AS READ
-            </p>
-          </div>
+          MARK ALL AS READ
+        </p>
+      </div>
 
-          <div className="mt-1 md:mt-4">
-            {allNotifications.length > 0 ? (
-              allNotifications.map((el, index) => (
-                <Link
-                  to={
-                    notificationType.filter((ele) => ele.type === el.type)[0]
-                      ?.redirect
-                  }
-                  onClick={() => {
-                    markNotification(el?.id);
-                    setRender((prev) => !prev);
-
-                    setIsNotificationOpen(false);
-                  }}
-                >
-                  <div
-                    className="cursor-pointer px-3 py-2 hover:bg-gray-200 flex items-start gap-4"
-                    key={index}
-                  >
-                    {!el?.is_seen && (
-                      <div className="bg-green-500 w-2 h-2 rounded-full" />
-                    )}
-                    <div className="w-full">
-                      <p className="text-black">{el?.message}</p>
-                      <p className="text-xs mt-1">{el?.created_date}</p>
-                    </div>
+      <div className="divide-y divide-gray-200 dark:divide-gray-700">
+        {allNotifications.length > 0 ? (
+          allNotifications.map((el, index) => {
+            const route =
+              notificationType.find((n) => n.type === el.type)?.redirect || "/";
+            return (
+              <Link
+                to={route}
+                onClick={() => markNotification(el?.id)}
+                key={index}
+              >
+                <div className="px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-start gap-3">
+                  {!el?.is_seen && (
+                    <div className="mt-1 bg-green-500 w-2 h-2 rounded-full flex-shrink-0" />
+                  )}
+                  <div className="text-sm text-gray-800 dark:text-white w-full">
+                    <p>{el?.message}</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                      {el?.created_date}
+                    </p>
                   </div>
-                </Link>
-              ))
-            ) : (
-              <p className="p-3">No Notifications</p>
-            )}
-          </div>
-        </div>
-      )}
+                </div>
+              </Link>
+            );
+          })
+        ) : (
+          <p className="p-4 text-sm text-gray-500 dark:text-gray-400">
+            No Notifications
+          </p>
+        )}
+      </div>
     </div>
   );
 };
