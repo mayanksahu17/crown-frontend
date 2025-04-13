@@ -1,13 +1,13 @@
-// import { FaArrowRight } from "react-icons/fa";
 import { ArrowRight } from "lucide-react";
 import WhiteRoundButton from "../../navbar/WhiteRoundButton";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useEffect, useRef } from "react";
 
 const services = [
   {
-    title: " EV Investments & Infrastructure GrowthStrategic",
+    title: "EV Investments & <br/>Infrastructure GrowthStrategic",
     description:
-      " Investment opportunities in the booming EV sector, including charging networks, battery technology, and smart mobility…",
+      "Investment opportunities in the booming EV sector, including charging networks, battery technology, and smart mobility…",
     icon: "🚗",
   },
   {
@@ -23,14 +23,50 @@ const services = [
     icon: "🔗",
   },
   {
-    title: "Solar Energy Investments & Green Returns",
+    title: "Solar Energy Investments <br/> & Green Returns",
     description:
-      " Profitable investment avenues in solar energy, from large-scale solar farms to innovative renewable tech solutions…",
+      "Profitable investment avenues in solar energy, from large-scale solar farms to innovative renewable tech solutions…",
     icon: "☀️",
+  },
+  {
+    title: "AI in Finance & Automation",
+    description:
+      "Transforming financial operations with AI-driven analytics, fraud detection, and intelligent automation solutions...",
+    icon: "🤖",
   },
 ];
 
+// Clone the services list to simulate an infinite loop
+const loopedServices = [...services, ...services];
+
 const BankingInvestmentSection = () => {
+  const scrollRef = useRef();
+
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    let scrollInterval;
+
+    const scrollSpeed = 1; // pixels per step
+    const scrollDelay = 20; // ms per step
+
+    if (scrollContainer) {
+      scrollInterval = setInterval(() => {
+        // Move scroll position forward
+        scrollContainer.scrollLeft += scrollSpeed;
+
+        // When we reach halfway, reset back to the start seamlessly
+        if (
+          scrollContainer.scrollLeft >=
+          scrollContainer.scrollWidth / 2
+        ) {
+          scrollContainer.scrollLeft = 0;
+        }
+      }, scrollDelay);
+    }
+
+    return () => clearInterval(scrollInterval);
+  }, []);
+
   return (
     <div className="px-6 py-12 bg-white md:px-24">
       <h3 className="text-[#4CAF50] text-5xl font-bold">
@@ -49,26 +85,34 @@ const BankingInvestmentSection = () => {
         <Link to="/login">
           <WhiteRoundButton className="" text="Get Started ->" />
         </Link>
-        {/* <button className="flex items-center gap-2 px-6 py-3 text-white bg-black rounded-md">
-          Get Started <ArrowRight />
-        </button> */}
       </div>
 
-      <div className="grid grid-cols-1 gap-6 mt-10 sm:grid-cols-2 lg:grid-cols-4">
-        {services.map((service, index) => (
-          <div
+      {/* Looping horizontal scroll */}
+      <div
+        className="mt-10 overflow-x-auto scrollbar-hide"
+        ref={scrollRef}
+        style={{ whiteSpace: "nowrap" }}
+      >
+        <div className="flex space-x-6 px-2 md:px-0">
+          {loopedServices.map((service, index) => (
+            <div
             key={index}
-            className="bg-green-50  shadow-xl p-6 rounded-lg text-center border-4 border-[#4CAF50] hover:bg-[#4CAF50] group"
+            className="min-w-[300px] max-w-sm flex-shrink-0 bg-green-50 shadow-xl p-6 rounded-lg text-center border-4 border-[#4CAF50] hover:bg-[#4CAF50] group transition-all duration-300 flex flex-col justify-between h-[360px]"
           >
-            <div className="mb-3 text-4xl text-green-500 group-hover:text-white">
-              {service.icon}
+            <div>
+              <div className="mb-3 text-4xl text-green-500 group-hover:text-white">
+                {service.icon}
+              </div>
+              <h4
+                  className="text-lg font-semibold text-gray-900 group-hover:text-white leading-snug"
+                  dangerouslySetInnerHTML={{ __html: service.title }}
+                />
+
+              <p className="mt-2 text-sm text-gray-500 group-hover:text-white whitespace-normal break-words leading-relaxed">
+                {service.description}
+              </p>
+
             </div>
-            <h4 className="text-lg font-semibold text-gray-900 group-hover:text-white">
-              {service.title}
-            </h4>
-            <p className="mt-2 text-sm text-gray-500 group-hover:text-white">
-              {service.description}
-            </p>
             <a
               href="/Services"
               className="flex items-center justify-center mt-4 font-semibold text-green-600 group-hover:text-white"
@@ -77,7 +121,9 @@ const BankingInvestmentSection = () => {
               <ArrowRight className="ml-1" />
             </a>
           </div>
-        ))}
+          
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -31,7 +31,7 @@ const Header = ({ loginCSS, signupCSS, navColor, light }) => {
         <div className="flex items-center space-x-6 text-sm text-gray-600">
           <div className="flex items-center gap-2">
             <Mail className="w-4 h-4" />
-            <span>Email: crownbankers.com</span>
+            <span>Email: crownbankers.com@gmail.com </span>
           </div>
           {/* <div className="flex items-center gap-2">
                   <Clock className="w-4 h-4" />
@@ -51,16 +51,16 @@ const Header = ({ loginCSS, signupCSS, navColor, light }) => {
 
           <div className="text-right">
             <Link
-              to="tel:+44 7452237405"
+              to="tel:+44 7452 176974"
               className="text-xl font-bold text-gray-800"
             >
-              +44 7452237405
+              +44 7452 176974
             </Link>
           </div>
 
           <div className="flex items-center space-x-2">
             <Link
-              to="https://www.facebook.com/crownbankersofficial"
+              to="https://www.facebook.com/realcrownbankers"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-full bg-[#4CAF50] p-1.5 flex items-center justify-center"

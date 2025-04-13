@@ -22,10 +22,10 @@ export default function Footer() {
               Your Gateway to Prosperity. Experience strategic investing,
               innovative solutions, and financial excellence with us.
             </p>
-            <p className="mb-2 font-bold">Support@Crownbankers.Com</p>
+            <p className="mb-2 font-bold">crownbankers.com@gmail.com</p>
             <div className="flex items-center mb-4 text-green-500">
               <Phone className="mr-2" size={20} />
-              <span className="text-lg">+44 7452237405</span>
+              <span className="text-lg">+44 7452 176974</span>
             </div>
             <div className="flex items-center text-gray-400">
               {/* <MapPin className="mr-2" size={20} /> */}
@@ -92,27 +92,27 @@ export default function Footer() {
                   Policy
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   to="/"
                   className="text-gray-300 transition-colors hover:text-white"
                 >
                   Returns
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
 
           {/* Products Catalogue */}
           <div>
-            <p className="mb-6 text-xl font-bold">Products Catalogue</p>
-            <Link
+            {/* <p className="mb-6 text-xl font-bold">Products Catalogue</p> */}
+            {/* <Link
               to="/catalogue"
               className="inline-flex items-center px-6 py-3 font-bold text-white transition-colors bg-green-500 rounded-md hover:bg-green-600"
             >
               <Download className="mr-2" size={20} />
               Download PDF
-            </Link>
+            </Link> */}
           </div>
         </div>
 

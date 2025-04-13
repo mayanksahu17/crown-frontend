@@ -309,41 +309,44 @@ function Signup() {
                 )}
                 
                 {/* Position selection */}
-                <div className="flex items-center">
+                <div className="flex items-center justify-between">
                   <p className="text-white text-sm mr-2">Position:</p>
-                  <div className="flex items-center space-x-4">
+                  <div className="flex items-center space-x-8">
                     <label className="inline-flex items-center">
                       <input
                         type="radio"
-                        checked={paramPosition === "right"}
-                        onChange={() => 
-                          setSearchParams(prev => ({
-                            ...prev,
-                            sponsorId: paramSponsorId || "",
-                            position: "right"
-                          }))
-                        }
-                        className="h-4 w-4 text-green-500 focus:ring-green-500"
-                      />
-                      <span className="ml-2 text-white text-xs">Right</span>
-                    </label>
-                    <label className="inline-flex items-center">
-                      <input
-                        type="radio"
+                        name="position"
+                        value="left"
                         checked={paramPosition === "left"}
-                        onChange={() => 
-                          setSearchParams(prev => ({
-                            ...prev,
+                        onChange={() =>
+                          setSearchParams({
                             sponsorId: paramSponsorId || "",
                             position: "left"
-                          }))
+                          })
                         }
                         className="h-4 w-4 text-green-500 focus:ring-green-500"
                       />
                       <span className="ml-2 text-white text-xs">Left</span>
                     </label>
+                    <label className="inline-flex items-center">
+                      <input
+                        type="radio"
+                        name="position"
+                        value="right"
+                        checked={paramPosition === "right"}
+                        onChange={() =>
+                          setSearchParams({
+                            sponsorId: paramSponsorId || "",
+                            position: "right"
+                          })
+                        }
+                        className="h-4 w-4 text-green-500 focus:ring-green-500"
+                      />
+                      <span className="ml-2 text-white text-xs">Right</span>
+                    </label>
                   </div>
                 </div>
+
                 
                 {/* Name inputs */}
                 <div className="grid grid-cols-2 gap-3">

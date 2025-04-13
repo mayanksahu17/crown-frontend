@@ -141,7 +141,7 @@ const Login = () => {
           <div className="flex-grow flex flex-col px-4 rounded-md justify-center max-w-md border border-green-800 animate-">
             <div className="p-4 rounded-t-md">
               <h2 className="text-3xl font-bold text-white">
-                Sign in to Crown Banker.
+                Sign in to Crown Bankers.
               </h2>
             </div>
 

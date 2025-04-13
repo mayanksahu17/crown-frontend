@@ -50,6 +50,7 @@ import TradeView from "./components/tradeview/TradeView";
 import TradingReport from "./components/dashboard/reports/TradingReport";
 import SolarDoc from "./components/sections/home_01/SolarDoc";
 import Smoothscrolls from "./components/Smoothscrolls";
+import PDFDownloads from "./pages/common/PDFDownloads";
 
 function App() {
   // Init JOS Animation
@@ -96,6 +97,8 @@ function App() {
               </Smoothscrolls>
             }
           />
+          <Route path="/pdf-downloads" element={<PDFDownloads />} />
+
           {/* <Route path="about" element={<About />} /> */}
           <Route path="blog" element={<Blog />} />
           <Route path="blog-details" element={<Blog_details />} />

@@ -10,6 +10,7 @@ import BankingInvestmentSection from "../../components/sections/home_05/Section2
 import BankingHeroSection from "../../components/sections/home_05/Section3";
 import CryptoCard from "../../components/sections/home_05/Section4";
 import QuoteRequestSection from "../../components/sections/home_05/Section5";
+import ReviewSection from "../../components/sections/home_05/Section6";
 
 // Register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
@@ -180,6 +181,10 @@ function Home() {
       <div ref={quoteRef}>
         <QuoteRequestSection />
       </div>
+      <div ref={quoteRef}>
+        <ReviewSection />
+      </div>
+      
       <Footer />
     </div>
   );

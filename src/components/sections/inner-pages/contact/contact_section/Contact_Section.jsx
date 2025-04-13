@@ -139,14 +139,14 @@ export default function Contact() {
                   Send us an email:
                 </label>
                 <p className="text-gray-600 font-['Roboto']">
-                  support@crownbankers.com
+                  crownbankers.com@gmail.com
                 </p>
               </div>
               <div>
                 <label className="text-xl font-medium text-gray-800 mb-4 font-['Rubik']">
                   Give us a call:
                 </label>
-                <p className="text-gray-600 font-['Roboto']">+44 7452237405</p>
+                <p className="text-gray-600 font-['Roboto']">+44 7452 176974</p>
               </div>
               <button
                 ref={buttonRef}

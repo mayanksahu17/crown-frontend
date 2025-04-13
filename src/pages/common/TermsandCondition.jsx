@@ -217,10 +217,10 @@ function Term() {
             <p className="mb-6 text-base leading-relaxed text-gray-700 sm:text-lg">
               Users are encouraged to promptly reach out at{" "}
               <a
-                href="mailto:support@crownbankers.com"
+                href="mailto:crownbankers.com@gmail.com"
                 className="text-green-600 transition-colors hover:text-green-500"
               >
-                support@crownbankers.com
+                crownbankers.com@gmail.com
               </a>{" "}
               to report issues and obtain solutions.
             </p>

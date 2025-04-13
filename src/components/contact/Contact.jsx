@@ -55,10 +55,10 @@ const Contact = () => {
                 <li className="flex flex-col gap-x-2 leading-tight text-colorOrangyRed lg:flex-row lg:leading-normal">
                   Email:
                   <a
-                    href="mailto:support@crownbankers.com"
+                    href="mailto:crownbankers.com@gmail.com"
                     className="text-white hover:text-colorOrangyRed"
                   >
-                    support@crownbankers.com
+                    crownbankers.com@gmail.com
                   </a>
                 </li>
                 <li className="flex flex-col gap-x-2 leading-tight text-colorOrangyRed lg:flex-row lg:leading-normal">
@@ -67,7 +67,7 @@ const Contact = () => {
                     href="tel:+44 7452 217071"
                     className="text-white hover:text-colorOrangyRed"
                   > */}
-                  +44 7452237405
+                  +44 7452 176974
                   {/* </a> */}
                 </li>
               </ul>

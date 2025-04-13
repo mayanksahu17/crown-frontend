@@ -76,7 +76,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
   return (
     <div>
       {/* Main navigation */}
-      <div className="flex items-center justify-between px-4 text-lg bg-white ">
+      <div className="flex items-center justify-between px-4 text-lg bg-white  ">
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
             <div className="relative h-18 w-36">
@@ -124,90 +124,107 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                   {/* <ChevronDown className="w-4 h-4 ml-1" /> */}
                 </Link>
               </li>
-              <li className="relative">
-                <button
-                  onClick={() => toggleDropdown("services")}
-                  className={`flex items-center px-4 py-2 ${
-                    isActive("/pages")
-                      ? "text-green-500 border-b-2 border-green-500"
-                      : "text-gray-700 hover:text-green-500"
-                  }`}
+
+            <li
+                  className="relative"
+                  onMouseEnter={() => setActiveDropdown("services")}
+                  onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  Pages
-                  <ChevronDown
-                    className={`ml-1 h-4 w-4 transition-transform ${
-                      activeDropdown === "services" ? "rotate-180" : ""
+                  <button
+                    className={`flex items-center px-4 py-2 ${
+                      isActive("/pages")
+                        ? "text-green-500 border-b-2 border-green-500"
+                        : "text-gray-700 hover:text-green-500"
                     }`}
-                  />
-                </button>
-                {activeDropdown === "services" && (
-                  <div className="absolute left-0 z-10 w-48 py-2 bg-white rounded-md shadow-md top-full">
-                    <Link
-                      to="/pages/team"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-green-500"
-                      onClick={() => setActiveDropdown(null)}
-                    >
-                      Team
-                    </Link>
-                    <Link
-                      to="/pages/business-plan"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-green-500"
-                      onClick={() => setActiveDropdown(null)}
-                    >
-                      Business Plan
-                    </Link>
-                    <Link
-                      to="/pages/legal"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-green-500"
-                      onClick={() => setActiveDropdown(null)}
-                    >
-                      legal
-                    </Link>
-                  </div>
-                )}
+                  >
+                    Pages
+                    <ChevronDown
+                      className={`ml-1 h-4 w-4 transition-transform ${
+                        activeDropdown === "services" ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                  {activeDropdown === "services" && (
+                    <div className="absolute left-0 z-10 w-48 py-2 bg-white rounded-md shadow-md top-full">
+                      <Link
+                        to="/pages/team"
+                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-green-500"
+                        onClick={() => setActiveDropdown(null)}
+                      >
+                        Team
+                      </Link>
+                      <Link
+                        to="/pages/business-plan"
+                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-green-500"
+                        onClick={() => setActiveDropdown(null)}
+                      >
+                        Business Plan
+                      </Link>
+                      <Link
+                        to="/pages/legal"
+                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-green-500"
+                        onClick={() => setActiveDropdown(null)}
+                      >
+                        Legal
+                      </Link>
+                    </div>
+                  )}
               </li>
-              <li className="relative">
-                <button
-                  onClick={() => toggleDropdown("projects")}
-                  className={`flex items-center px-4 py-2 ${
-                    isActive("/reports")
-                      ? "text-green-500 border-b-2 border-green-500"
-                      : "text-gray-700 hover:text-green-500"
-                  }`}
+
+
+
+              <li
+                  className="relative"
+                  onMouseEnter={() => setActiveDropdown("projects")}
+                  onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  Reports
-                  <ChevronDown
-                    className={`ml-1 h-4 w-4 transition-transform ${
-                      activeDropdown === "projects" ? "rotate-180" : ""
+                  <button
+                    className={`flex items-center px-4 py-2 ${
+                      isActive("/reports")
+                        ? "text-green-500 border-b-2 border-green-500"
+                        : "text-gray-700 hover:text-green-500"
                     }`}
-                  />
-                </button>
-                {activeDropdown === "projects" && (
-                  <div className="absolute left-0 z-10 w-48 py-2 bg-white rounded-md shadow-md top-full">
-                    <Link
-                      to="/reports/trade-report"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-green-500"
-                      onClick={() => setActiveDropdown(null)}
-                    >
-                      Trade Report
-                    </Link>
-                    <Link
-                      to="/reports/trade-view"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-green-500"
-                      onClick={() => setActiveDropdown(null)}
-                    >
-                      Trade View
-                    </Link>
-                    <Link
-                      to="/reports/solar-report"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-green-500"
-                      onClick={() => setActiveDropdown(null)}
-                    >
-                      Solar Purchase Document
-                    </Link>
-                  </div>
-                )}
-              </li>
+                  >
+                    Reports
+                    <ChevronDown
+                      className={`ml-1 h-4 w-4 transition-transform ${
+                        activeDropdown === "projects" ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                  {activeDropdown === "projects" && (
+                    <div className="absolute left-0 z-10 w-56 py-2 bg-white rounded-md shadow-md top-full">
+                      <Link
+                        to="/reports/trade-view"
+                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-green-500"
+                        onClick={() => setActiveDropdown(null)}
+                      >
+                        Trade View
+                      </Link>
+                      <Link
+                        to="/reports/solar-report"
+                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-green-500"
+                        onClick={() => setActiveDropdown(null)}
+                      >
+                        Solar Purchase Document
+                      </Link>
+                    </div>
+                  )}
+                </li>
+                
+                {/* Add PDF Downloads to mobile menu */}
+              <Link
+                to="/pdf-downloads"
+                className={`-m-3 p-3 flex items-center rounded-md ${
+                  isActive("/pdf-downloads")
+                    ? "text-green-500 font-medium"
+                    : "text-gray-700 hover:text-green-500"
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                PDF Downloads
+              </Link>
+
 
               <li>
                 <Link
@@ -225,7 +242,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
           </nav>
         </div>
 
-        <div className="items-center hidden lg:ml-72 lg:flex">
+        <div className="items-center hidden  lg:flex">
           <div className="flex justify-start space-x-2">
             <Link to="/login">
               <WhiteRoundButton className="" text="Login" />
@@ -285,6 +302,20 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Services
+              </Link>
+
+
+
+              <Link
+                to="/pdf-downloads"
+                className={`-m-3 p-3 flex items-center rounded-md ${
+                  isActive("/pdf-downloads")
+                    ? "text-green-500 font-medium"
+                    : "text-gray-700 hover:text-green-500"
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                PDF Downloads
               </Link>
 
               <div className="relative">

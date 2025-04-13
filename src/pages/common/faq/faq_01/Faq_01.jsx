@@ -40,7 +40,7 @@ function Fqa() {
     {
       question: "If I have questions, where can I find answers?",
       answer:
-        "You can find answers in our Help Center on the website, or you can reach out to our support team at support@crownbankers.com. We’re here to assist you with any questions you may have.",
+        "You can find answers in our Help Center on the website, or you can reach out to our support team at crownbankers.com@gmail.com. We’re here to assist you with any questions you may have.",
     },
   ];
 

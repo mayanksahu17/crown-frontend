@@ -160,7 +160,7 @@ export default function Home() {
     },
     career: {
       currentLevel: allData?.binary_career_level || 0,
-      nextLevel: `${(allData?.binary_career_level || 0) + 1} - ${allData?.binary_next_level_name || "Bronze"}`,
+      nextLevel: `${(allData?.binary_career_level || 0) + 1} - ${allData?.binary_next_level_name || "Celestial"}`,
       leftBusiness: { 
         current: `$${parseFloat(allData?.leftBusiness || 0).toFixed(2)}`, 
         target: `$${parseFloat(allData?.target || 0).toFixed(2)}` 
@@ -179,22 +179,22 @@ export default function Home() {
         <StatCard
           title="Your Balance"
           value={userData.balance}
-          change="0%"
-          period="Current"
+          // change="0%"
+          // period="Current"
           icon={<DollarSign className="text-green-500" />}
         />
         <StatCard
           title="Total Investment"
           value={userData.totals.investment}
-          change="0%"
-          period="All time"
+          // change="0%"
+          // period="All time"
           icon={<Wallet className="text-green-500" />}
         />
         <StatCard
           title="Total Withdrawal"
           value={userData.totals.withdrawal}
-          change="0%"
-          period="All time"
+          // change="0%"
+          // period="All time"
           icon={<TrendingUp className="text-green-500" />}
         />
       </div>
@@ -236,19 +236,21 @@ export default function Home() {
             </div>
             <div className="col-span-2 flex justify-center items-center mt-4">
               {!disbledUserIds?.includes(user?.user?.userId) && (
-                <button
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md text-lg font-semibold"
+               <button
+               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md text-lg font-semibold ml-10"
+
+               onClick={() => navigate("/dashboard/investments/all-plans")}
+             >
+               Invest
+             </button>
+              )}
+              <button
+                  className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-md text-lg font-semibold ml-4"
                   onClick={() => setIsWithdrawalModalOpen(true)}
                 >
                   Withdraw
                 </button>
-              )}
-              <button
-                className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-md text-lg font-semibold ml-4"
-                onClick={() => navigate("/dashboard/investments/all-plans")}
-              >
-                Reinvest
-              </button>
+
               {allowedTransferId === user?.user?.userId && (
                 <button
                   className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-md text-lg font-semibold ml-4"
@@ -308,7 +310,7 @@ export default function Home() {
                   Next Level
                 </p>
                 <p className="text-lg font-semibold">
-                  {userData.career.nextLevel}
+                  {userData.career.nextLevel}/dashboard/settings/profile
                 </p>
               </div>
             </div>

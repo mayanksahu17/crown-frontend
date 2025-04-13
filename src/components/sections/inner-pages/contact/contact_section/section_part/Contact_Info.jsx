@@ -20,10 +20,10 @@ const Contact_Info = () => {
           <li className="flex flex-col gap-y-4 text-2xl font-bold">
             Send us an email:
             <a
-              href="mailto:support@crownbankers.com"
+              href="mailto:crownbankers.com@gmail.com"
               className="text-2xl font-normal leading-loose hover:text-colorOrangyRed lg:text-3xl"
             >
-              support@crownbankers.com
+              crownbankers.com@gmail.com
             </a>
           </li>
           <li className="flex flex-col gap-y-4 text-2xl font-bold">

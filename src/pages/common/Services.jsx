@@ -853,10 +853,10 @@ const Services = () => {
                   <div>
                     <p className="text-[#4CAF50] text-sm">Email</p>
                     <a
-                      href="mailto:support@crownbankers.com"
+                      href="mailto:crownbankers.com@gmail.com"
                       className="text-[#4CAF50] hover:text-green-200 transition-colors duration-300"
                     >
-                      support@crownbankers.com
+                      crownbankers.com@gmail.com
                     </a>
                   </div>
                 </div>
@@ -882,10 +882,10 @@ const Services = () => {
                   <div>
                     <p className="text-[#4CAF50] text-sm">Phone</p>
                     <a
-                      href="tel:+44 7452237405"
+                      href="tel:+44 7452 176974"
                       className="text-[#4CAF50] hover:text-green-200 transition-colors duration-300"
                     >
-                      +44 7452237405
+                      +44 7452 176974
                     </a>
                   </div>
                 </div>
