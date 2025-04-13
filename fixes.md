@@ -20,3 +20,6 @@ fixed : 25
 fixed : 26
 fix   : 27 TODO : backend changes 
 
+
+rest of the TODO fix  are mentionedd in this notion page : https://www.notion.so/Crown-Bankers-1d1fa556825f801d845bfd7bdeaa9c41 
+
