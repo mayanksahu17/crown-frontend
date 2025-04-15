@@ -79,12 +79,12 @@ export default function BinaryNode({ data, last, first, ofTwo, side }) {
       </div>
       <div
         className={clsx(
-          "flex flex-col justify-center items-center p-0 md:p-2 border border-gray-600 rounded-lg relative",
-          ofTwo ? "h-[100px] w-[120px]" : "h-[120px] w-[120px]"
+          "flex flex-col justify-center items-center p-0 md:p-1 border border-gray-600 rounded-lg relative",
+          ofTwo ? "h-[80px] w-[100px]" : "h-[90px] w-[100px]"
         )}
       >
         <div
-          className="w-12 h-12 bg-[#373737] flex items-center justify-center rounded-full "
+          className="w-10 h-10 bg-[#373737] flex items-center justify-center rounded-full "
           onMouseEnter={() => setShowTree(true)}
           onMouseLeave={() => setShowTree(false)}
           onClick={() => setShowTree((prev) => !prev)}
@@ -92,7 +92,7 @@ export default function BinaryNode({ data, last, first, ofTwo, side }) {
           {renderImageByPackage()}
           {showTree && data && !first && side && (
             <div
-              className="absolute bottom-20 left-[200px] w-[450px] rounded-2xl transform -translate-x-1/2 -mt-40 -500 bg-gray-900 z-100 "
+              className="absolute bottom-16 left-[180px] w-[400px] rounded-2xl transform -translate-x-1/2 -mt-40 -500 bg-gray-900 z-100 "
               style={{ zIndex: 1000 }}
             >
               <Tree data={data} />
@@ -100,7 +100,7 @@ export default function BinaryNode({ data, last, first, ofTwo, side }) {
           )}
           {showTree && data && !first && !side && (
             <div
-              className="absolute bottom-20 left-[30px] w-[450px] rounded-2xl transform -translate-x-1/2 -mt-40 -500  bg-gray-900 z-100 "
+              className="absolute bottom-16 left-[20px] w-[400px] rounded-2xl transform -translate-x-1/2 -mt-40 -500  bg-gray-900 z-100 "
               style={{ zIndex: 1000 }}
             >
               <Tree data={data} />
@@ -108,7 +108,7 @@ export default function BinaryNode({ data, last, first, ofTwo, side }) {
           )}
           {showTree && data && first && (
             <div
-              className="absolute top-[0] left-[330px] w-[450px] rounded-2xl transform -translate-x-1/2 -mt-40 -500  bg-gray-900 z-100"
+              className="absolute top-[0] left-[300px] w-[400px] rounded-2xl transform -translate-x-1/2 -mt-40 -500  bg-gray-900 z-100"
               style={{ zIndex: 1000 }}
             >
               <Tree data={data} />
@@ -116,8 +116,8 @@ export default function BinaryNode({ data, last, first, ofTwo, side }) {
           )}
         </div>
         <span
-          className={`text-center text-sm  ${
-            !data ? "text-primary mt-2 " : "text-primary font-semibold mt-2 "
+          className={`text-center text-xs ${
+            !data ? "text-primary mt-1 " : "text-primary font-semibold mt-1 "
           }`}
         >
           {data ? data.user_id : ""}

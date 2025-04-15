@@ -41,16 +41,52 @@ export const packageData = [
 
 ];
 export const customStyles = {
-  control: (provided) => ({
+  control: (provided, state) => ({
     ...provided,
-    backgroundColor: "white",
-    border: "1px solid #e2e8f0",
+    backgroundColor: "var(--bg-primary, white)",
+    border: "1px solid var(--border-color, #e2e8f0)",
     borderRadius: "8px",
     padding: "1px",
     fontWeight: "400",
+    boxShadow: state.isFocused ? "0 0 0 1px #3b82f6" : "none",
+    "&:hover": {
+      borderColor: "var(--border-hover, #cbd5e1)",
+    },
   }),
-  options: (provided) => ({
+  menu: (provided) => ({
     ...provided,
+    backgroundColor: "var(--bg-primary, white)",
+    border: "1px solid var(--border-color, #e2e8f0)",
+    borderRadius: "6px",
+    boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+  }),
+  option: (provided, state) => ({
+    ...provided,
+    backgroundColor: state.isSelected 
+      ? "var(--primary-color, #3b82f6)" 
+      : state.isFocused 
+        ? "var(--hover-bg, #f8fafc)" 
+        : "transparent",
+    color: state.isSelected 
+      ? "white" 
+      : "var(--text-primary, #1e293b)",
     fontWeight: "400",
+    "&:hover": {
+      backgroundColor: state.isSelected 
+        ? "var(--primary-color, #3b82f6)" 
+        : "var(--hover-bg, #f8fafc)",
+    },
+  }),
+  singleValue: (provided) => ({
+    ...provided,
+    color: "var(--text-primary, #1e293b)",
+  }),
+  input: (provided) => ({
+    ...provided,
+    color: "var(--text-primary, #1e293b)",
+  }),
+  placeholder: (provided) => ({
+    ...provided,
+    color: "var(--text-secondary, #64748b)",
   }),
 };

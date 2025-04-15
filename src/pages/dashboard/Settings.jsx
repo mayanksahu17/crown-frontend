@@ -96,8 +96,8 @@ const Settings = () => {
   ];
 
   return (
-    <div className="max-w-full w-full md:max-w-[80%] mx-auto text-black">
-      <div className="w-full h-[200px] md:h-[240px] lg:h-[280px] relative ">
+    <div className="max-w-full w-full md:max-w-[80%] mx-auto text-gray-800 dark:text-gray-200">
+      <div className="w-full h-[200px] md:h-[240px] lg:h-[280px] relative">
         <input
           type="file"
           className="hidden"
@@ -113,6 +113,7 @@ const Settings = () => {
               "linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)",
           }}
           src={allImages.profileCover}
+          alt="Profile Cover"
         />
 
         <input
@@ -124,31 +125,32 @@ const Settings = () => {
         />
         <img
           src={allImages.profileImage || UserAvatar}
-          className="absolute left-5 -bottom-[60px] cursor-pointer lg:-bottom-[90px] w-[120px] h-[120px] lg:w-[180px] lg:h-[180px] rounded-lg bg-gray-200 border-[4px] border-white object-cover"
+          alt="Profile"
+          className="absolute left-5 -bottom-[60px] cursor-pointer lg:-bottom-[90px] w-[120px] h-[120px] lg:w-[180px] lg:h-[180px] rounded-lg bg-gray-200 border-[4px] border-white dark:border-gray-700 object-cover shadow-md"
           onClick={handleImageIconClick(profileImageRef)}
         />
 
         <button
-          className="bg-white rounded-md flex items-center justify-center p-2 absolute right-5 bottom-5"
+          className="bg-white dark:bg-gray-800 rounded-md flex items-center justify-center p-2 absolute right-5 bottom-5 shadow-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
           onClick={handleImageIconClick(profileCoverRef)}
         >
-          <LuImagePlus size={22} color="#000" />
+          <LuImagePlus size={22} className="text-gray-800 dark:text-gray-200" />
         </button>
       </div>
       <div className="flex justify-between h-full">
-        <div className="mt-16 lg:mt-24  text-left">
-          <h1 className="font-semibold  text-2xl md:text-3xl">
+        <div className="mt-16 lg:mt-24 text-left">
+          <h1 className="font-semibold text-2xl md:text-3xl text-gray-900 dark:text-white">
             {user?.user?.name}
           </h1>
-          <p className="text-black font-semibold text-md ">
+          <p className="text-gray-700 dark:text-gray-300 font-semibold text-md">
             USER ID - {user?.user?.userId}
           </p>
-          <p className="text-black font-semibold text-md">
+          <p className="text-gray-700 dark:text-gray-300 font-semibold text-md">
             PIN - {user?.user?.security_pin}
           </p>
         </div>
       </div>
-      <div className="mt-6 w-full">
+      <div className="mt-6 w-full bg-white dark:bg-gray-800 rounded-lg shadow-sm">
         <Tab data={data} />
       </div>
     </div>

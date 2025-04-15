@@ -1,5 +1,5 @@
 import ReactSelect from "react-select";
-import { useTheme } from "../theme-provider"; // or your theme provider hook
+import { useTheme } from "../theme-provider"; // adjust if needed
 
 export default function Select({
   options,
@@ -14,103 +14,105 @@ export default function Select({
   isSearchable = true,
   isClearable = false,
 }) {
-  const { theme } = useTheme(); // Get current theme (remove if not using next-themes)
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
 
-  // Base styles that work for both themes
   const baseStyles = {
     control: (provided, state) => ({
       ...provided,
-      minHeight: '42px',
-      borderRadius: '8px',
-      borderWidth: '1px',
-      borderColor: state.isFocused 
-        ? '#3b82f6' 
-        : theme === 'dark' 
-          ? '#4b5563' 
-          : '#d1d5db',
-      boxShadow: state.isFocused 
-        ? `0 0 0 1px ${theme === 'dark' ? '#3b82f6' : '#3b82f6'}` 
-        : 'none',
-      backgroundColor: theme === 'dark' ? '#1f2937' : '#ffffff',
-      '&:hover': {
-        borderColor: theme === 'dark' ? '#6b7280' : '#9ca3af',
-      },
-    }),
-    option: (provided, state) => ({
-      ...provided,
-      backgroundColor: state.isSelected
-        ? '#3b82f6'
-        : state.isFocused
-        ? theme === 'dark' ? '#374151' : '#f3f4f6'
-        : 'transparent',
-      color: state.isSelected
-        ? 'white'
-        : theme === 'dark' ? '#f3f4f6' : '#111827',
-      '&:active': {
-        backgroundColor: theme === 'dark' ? '#4b5563' : '#e5e7eb',
+      minHeight: "42px",
+      borderRadius: "8px",
+      borderWidth: "1px",
+      borderColor: state.isFocused
+        ? "#3b82f6"
+        : isDark
+        ? "#4b5563"
+        : "#d1d5db",
+      boxShadow: state.isFocused ? `0 0 0 1px #3b82f6` : "none",
+      backgroundColor: isDark ? "#111827" : "#ffffff",
+      color: isDark ? "#ffffff" : "#111827",
+      "&:hover": {
+        borderColor: isDark ? "#6b7280" : "#9ca3af",
       },
     }),
     menu: (provided) => ({
       ...provided,
-      backgroundColor: theme === 'dark' ? '#1f2937' : '#ffffff',
-      borderColor: theme === 'dark' ? '#4b5563' : '#d1d5db',
-      borderWidth: '1px',
-      borderRadius: '8px',
-      boxShadow: theme === 'dark' 
-        ? '0 4px 6px -1px rgba(0, 0, 0, 0.5)' 
-        : '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+      backgroundColor: isDark ? "#111827" : "#ffffff",
+      borderColor: isDark ? "#4b5563" : "#d1d5db",
+      borderWidth: "1px",
+      borderRadius: "8px",
+      boxShadow: isDark
+        ? "0 4px 6px -1px rgba(0, 0, 0, 0.7)"
+        : "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+    }),
+    option: (provided, state) => ({
+      ...provided,
+      backgroundColor: state.isSelected
+        ? "#3b82f6"
+        : state.isFocused
+        ? isDark
+          ? "#1f2937"
+          : "#f3f4f6"
+        : "transparent",
+      color: state.isSelected
+        ? "#ffffff"
+        : isDark
+        ? "#f3f4f6"
+        : "#111827",
+      "&:active": {
+        backgroundColor: isDark ? "#374151" : "#e5e7eb",
+      },
     }),
     singleValue: (provided) => ({
       ...provided,
-      color: theme === 'dark' ? '#f3f4f6' : '#111827',
+      color: isDark ? "#ffffff" : "#111827",
     }),
     input: (provided) => ({
       ...provided,
-      color: theme === 'dark' ? '#f3f4f6' : '#111827',
+      color: isDark ? "#ffffff" : "#111827",
     }),
     placeholder: (provided) => ({
       ...provided,
-      color: theme === 'dark' ? '#9ca3af' : '#6b7280',
+      color: isDark ? "#9ca3af" : "#6b7280",
     }),
     dropdownIndicator: (provided) => ({
       ...provided,
-      color: theme === 'dark' ? '#9ca3af' : '#6b7280',
-      '&:hover': {
-        color: theme === 'dark' ? '#d1d5db' : '#4b5563',
+      color: isDark ? "#9ca3af" : "#6b7280",
+      "&:hover": {
+        color: isDark ? "#d1d5db" : "#4b5563",
       },
     }),
     clearIndicator: (provided) => ({
       ...provided,
-      color: theme === 'dark' ? '#9ca3af' : '#6b7280',
-      '&:hover': {
-        color: theme === 'dark' ? '#d1d5db' : '#4b5563',
+      color: isDark ? "#9ca3af" : "#6b7280",
+      "&:hover": {
+        color: isDark ? "#d1d5db" : "#4b5563",
       },
     }),
     indicatorSeparator: (provided) => ({
       ...provided,
-      backgroundColor: theme === 'dark' ? '#4b5563' : '#d1d5db',
+      backgroundColor: isDark ? "#4b5563" : "#d1d5db",
     }),
     multiValue: (provided) => ({
       ...provided,
-      backgroundColor: theme === 'dark' ? '#374151' : '#e5e7eb',
+      backgroundColor: isDark ? "#374151" : "#e5e7eb",
     }),
     multiValueLabel: (provided) => ({
       ...provided,
-      color: theme === 'dark' ? '#f3f4f6' : '#111827',
+      color: isDark ? "#f3f4f6" : "#111827",
     }),
     multiValueRemove: (provided) => ({
       ...provided,
-      color: theme === 'dark' ? '#9ca3af' : '#6b7280',
-      '&:hover': {
-        backgroundColor: theme === 'dark' ? '#6b7280' : '#d1d5db',
-        color: theme === 'dark' ? '#ffffff' : '#111827',
+      color: isDark ? "#9ca3af" : "#6b7280",
+      "&:hover": {
+        backgroundColor: isDark ? "#6b7280" : "#d1d5db",
+        color: isDark ? "#ffffff" : "#111827",
       },
     }),
   };
 
-  // Merge custom styles with base styles
-  const mergedStyles = customStyles 
-    ? { ...baseStyles, ...customStyles } 
+  const mergedStyles = customStyles
+    ? { ...baseStyles, ...customStyles }
     : baseStyles;
 
   return (
@@ -131,20 +133,20 @@ export default function Select({
         ...selectTheme,
         colors: {
           ...selectTheme.colors,
-          primary: '#3b82f6', // Primary color (blue-500)
-          primary25: theme === 'dark' ? '#374151' : '#f3f4f6', // Option hover
-          primary50: theme === 'dark' ? '#4b5563' : '#e5e7eb', // Option active
-          neutral0: theme === 'dark' ? '#1f2937' : '#ffffff', // Control background
-          neutral5: theme === 'dark' ? '#374151' : '#f3f4f6',
-          neutral10: theme === 'dark' ? '#4b5563' : '#e5e7eb',
-          neutral20: theme === 'dark' ? '#6b7280' : '#d1d5db', // Border, divider
-          neutral30: theme === 'dark' ? '#9ca3af' : '#9ca3af',
-          neutral40: theme === 'dark' ? '#d1d5db' : '#6b7280',
-          neutral50: theme === 'dark' ? '#9ca3af' : '#6b7280', // Placeholder
-          neutral60: theme === 'dark' ? '#d1d5db' : '#4b5563',
-          neutral70: theme === 'dark' ? '#e5e7eb' : '#374151',
-          neutral80: theme === 'dark' ? '#f3f4f6' : '#1f2937', // Text
-          neutral90: theme === 'dark' ? '#f9fafb' : '#111827',
+          primary: "#3b82f6",
+          primary25: isDark ? "#1f2937" : "#f3f4f6",
+          primary50: isDark ? "#4b5563" : "#e5e7eb",
+          neutral0: isDark ? "#111827" : "#ffffff",
+          neutral5: isDark ? "#1f2937" : "#f3f4f6",
+          neutral10: isDark ? "#374151" : "#e5e7eb",
+          neutral20: isDark ? "#4b5563" : "#d1d5db",
+          neutral30: isDark ? "#9ca3af" : "#9ca3af",
+          neutral40: isDark ? "#d1d5db" : "#6b7280",
+          neutral50: isDark ? "#9ca3af" : "#6b7280",
+          neutral60: isDark ? "#d1d5db" : "#4b5563",
+          neutral70: isDark ? "#e5e7eb" : "#374151",
+          neutral80: isDark ? "#f3f4f6" : "#1f2937",
+          neutral90: isDark ? "#f9fafb" : "#111827",
         },
       })}
     />

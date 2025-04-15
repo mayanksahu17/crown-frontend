@@ -16,7 +16,7 @@ export default function PasswordInput({
 
   return (
     <div className="w-full">
-      <label className="block text-textwhite">
+      <label className="block text-gray-700 dark:text-gray-300 font-medium mb-1">
         {label ? label : "Password"}
       </label>
       <div className="relative">
@@ -25,17 +25,19 @@ export default function PasswordInput({
           name={name}
           value={value}
           onChange={onChange}
-          className="w-full bg-transparent px-2.5 py-[7px] border rounded-md border-solid border-white mt-1 !ml-0"
+          className="w-full px-2.5 py-2 border rounded-md border-gray-300 dark:border-gray-600 
+                    bg-white dark:bg-gray-800 text-gray-900 dark:text-white outline-none focus:ring-2 
+                    focus:ring-blue-500 focus:border-transparent transition-colors !ml-0"
           onBlur={onBlur}
         />
         <div
-          className="absolute top-[54%] bottom-1/2 -translate-y-1/2 right-1 flex items-center pr-2 cursor-pointer"
+          className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
           onClick={togglePasswordVisibility}
         >
           {showPassword ? (
-            <FaEyeSlash color="#fff" size={18} />
+            <FaEyeSlash className="text-gray-600 dark:text-gray-400" size={18} />
           ) : (
-            <FaEye color="#fff" size={18} />
+            <FaEye className="text-gray-600 dark:text-gray-400" size={18} />
           )}
         </div>
       </div>

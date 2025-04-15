@@ -2,17 +2,17 @@ import TreeNode from "./TreeNode";
 
 export default function Tree({ data }) {
   return (
-    <div className="p-2 border border-solid rounded-md flex justify-center align-center">
-      <table className="w-full text-black gap-2 rounded bg-white">
+    <div className="p-1 border border-solid rounded-md flex justify-center align-center">
+      <table className="w-full text-black gap-1 rounded bg-white text-xs">
         <thead>
           <tr>
-            <th className="w-1/3 text-black text-center border border-gray-500 rounded-tl  font-semibold">
+            <th className="w-1/3 text-black text-center border border-gray-500 rounded-tl font-semibold py-1 px-1">
               {data?.name}
             </th>
-            <th className="w-1/3 text-black text-center px-4 border border-gray-500  font-semibold">
+            <th className="w-1/3 text-black text-center px-2 border border-gray-500 font-semibold py-1">
               Left
             </th>
-            <th className="w-1/3 text-black text-center px-4 border border-gray-500 rounded-tr  font-semibold">
+            <th className="w-1/3 text-black text-center px-2 border border-gray-500 rounded-tr font-semibold py-1">
               Right
             </th>
           </tr>

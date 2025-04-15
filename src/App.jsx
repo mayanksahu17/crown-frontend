@@ -51,6 +51,7 @@ import TradingReport from "./components/dashboard/reports/TradingReport";
 import SolarDoc from "./components/sections/home_01/SolarDoc";
 import Smoothscrolls from "./components/Smoothscrolls";
 import PDFDownloads from "./pages/common/PDFDownloads";
+import Deposit from "./pages/dashboard/Deposit";
 
 function App() {
   // Init JOS Animation
@@ -139,6 +140,7 @@ function App() {
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<Home />} />
           <Route path="investments/:selectedRoute" element={<Investment />} />
+          <Route path="deposit" element={<Deposit />} />
           <Route path="nowtry" element={<NowPayment />} />
           <Route path="one" element={<Dashboard />} />
           <Route path="settings/:selectedRoute" element={<Settings />} />

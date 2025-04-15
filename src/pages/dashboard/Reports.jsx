@@ -15,12 +15,10 @@ import {
   FaArrowUp,
 } from "react-icons/fa";
 import { CgArrowsExchange } from "react-icons/cg";
-import { BiFilterAlt } from "react-icons/bi";
 
 export default function Reports() {
   const { user } = useAuth();
   const [activeTab, setActiveTab] = useState("roi");
-  const [filterDays, setFilterDays] = useState(30);
 
   const [allData, setAllData] = useState({
     allROIData: [],
@@ -119,7 +117,7 @@ export default function Reports() {
         </div>
       </div>
 
-      {/* Tab header & filters */}
+      {/* Tab header */}
       <div className="bg-white dark:bg-[#1E293B] px-4 py-4 border-t border-gray-200 dark:border-gray-700 shadow-sm">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
           <h2 className="text-xl text-gray-900 dark:text-white font-medium">
@@ -131,23 +129,6 @@ export default function Reports() {
               withdrawal: "Withdrawal Report",
             }[activeTab]}
           </h2>
-
-          <div className="flex items-center gap-2">
-            <button className="bg-gray-100 dark:bg-[#2D3748] text-gray-700 dark:text-white px-3 py-2 rounded-md flex items-center text-sm hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-              <BiFilterAlt className="mr-2" />
-              All Reports
-            </button>
-            <button
-              onClick={() => setFilterDays(30)}
-              className={`px-3 py-2 rounded-md text-sm transition-colors ${
-                filterDays === 30
-                  ? "bg-green-500 text-white hover:bg-green-600"
-                  : "bg-gray-100 dark:bg-[#2D3748] text-gray-700 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
-              }`}
-            >
-              Last 30 Days
-            </button>
-          </div>
         </div>
       </div>
 

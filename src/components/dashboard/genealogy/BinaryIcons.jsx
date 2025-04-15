@@ -29,11 +29,11 @@ const BinaryIcons = () => {
 
   return (
     <div className="w-full flex justify-center">
-      <div className="flex gap-8 p-8 rounded-2xl border-2 border-gray-300 items-center justify-center w-[612px]">
+      <div className="flex flex-wrap gap-4 p-4 rounded-xl border border-gray-300 items-center justify-center max-w-[600px]">
         {icons.map((icon, index) => (
-          <div key={index} className="flex flex-col items-center gap-2">
-            <img src={icon.src} alt={icon.alt} className="w-12 h-12" />
-            <span>{icon.label}</span>
+          <div key={index} className="flex items-center gap-2 w-[150px]">
+            <img src={icon.src} alt={icon.alt} className="w-8 h-8" />
+            <span className="text-xs">{icon.label}</span>
           </div>
         ))}
       </div>

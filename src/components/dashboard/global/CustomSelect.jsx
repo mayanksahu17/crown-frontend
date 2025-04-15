@@ -23,8 +23,8 @@ export default function CustomSelect({
         onClick={() => setIsOpen(!isOpen)}
         className={clsx(
           "cursor-pointer border rounded-md px-3 py-2 text-sm flex items-center justify-between font-normal transition-all",
-          "bg-white text-gray-900 border-gray-300", // Light theme
-          "dark:bg-[#1E293B] dark:text-white dark:border-gray-700"
+          "bg-white text-gray-900 border-gray-300 focus:ring-2 focus:ring-blue-500", // Light theme
+          "dark:bg-gray-800 dark:text-gray-100 dark:border-gray-600" // Dark theme
         )}
       >
         <span>
@@ -34,7 +34,7 @@ export default function CustomSelect({
           className={clsx(
             "transition-transform",
             isOpen ? "rotate-180" : "",
-            "text-gray-500 dark:text-white"
+            "text-gray-500 dark:text-gray-300"
           )}
           size={22}
         />
@@ -46,7 +46,7 @@ export default function CustomSelect({
           className={clsx(
             "absolute mt-2 w-full border rounded-md shadow-md z-50 overflow-hidden text-sm",
             "bg-white text-gray-900 border-gray-300", // Light theme
-            "dark:bg-[#1E293B] dark:text-white dark:border-gray-700"
+            "dark:bg-gray-800 dark:text-gray-100 dark:border-gray-600" // Dark theme
           )}
         >
           {options.map((option) => (
@@ -54,7 +54,7 @@ export default function CustomSelect({
               key={option.value}
               onClick={() => handleOptionClick(option)}
               className={clsx(
-                "cursor-pointer px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
+                "cursor-pointer px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
               )}
             >
               {option.label}

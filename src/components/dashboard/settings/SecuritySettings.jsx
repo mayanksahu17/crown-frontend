@@ -142,10 +142,10 @@ export default function SecuritySettings() {
   };
 
   return (
-    <div className="my-4 space-y-4 text-black">
+    <div className="my-4 space-y-4 text-gray-800 dark:text-gray-200">
       <div className="flex flex-col gap-8 mb-8">
         <div className="flex flex-col gap-4 w-full items-center">
-          <h1 className="text-2xl ">Password Settings</h1>
+          <h1 className="text-2xl font-semibold text-gray-900 dark:text-white">Password Settings</h1>
           {inputData.map(({ label, name }, index) => (
             <PasswordInput
               key={index}
@@ -166,7 +166,7 @@ export default function SecuritySettings() {
           </div>
         </div>
         <div className="flex flex-col gap-4 w-full items-center">
-          <h1 className="text-2xl ">Pin Settings</h1>
+          <h1 className="text-2xl font-semibold text-gray-900 dark:text-white">Pin Settings</h1>
           {inputDataPin.map(({ label, name }, index) => (
             <PasswordInput
               key={index}
@@ -200,14 +200,16 @@ const PasswordInput = ({ label, name, value, onChange }) => {
 
   return (
     <div className="w-full">
-      <label className="block text-black font-normal mb-1 text-black">
+      <label className="block text-gray-700 dark:text-gray-300 font-medium mb-1">
         {label}
       </label>
       <div className="relative">
         <input
           type={showPassword ? "text" : "password"}
           name={name}
-          className="w-full  px-2.5 py-[7px] text-black border rounded-md border-solid border-slate-200 outline-none !ml-0"
+          className="w-full px-2.5 py-2 border rounded-md border-gray-300 dark:border-gray-600 
+          bg-white dark:bg-gray-800 text-gray-900 dark:text-white outline-none focus:ring-2 
+          focus:ring-blue-500 focus:border-transparent transition-colors !ml-0"
           value={value}
           onChange={onChange}
         />
@@ -216,9 +218,9 @@ const PasswordInput = ({ label, name, value, onChange }) => {
           onClick={togglePasswordVisibility}
         >
           {showPassword ? (
-            <RiEyeCloseLine className="text-black" />
+            <RiEyeCloseLine className="text-gray-600 dark:text-gray-400" />
           ) : (
-            <RiEyeLine className="text-black" />
+            <RiEyeLine className="text-gray-600 dark:text-gray-400" />
           )}
         </div>
       </div>
