@@ -9,30 +9,35 @@ const services = [
     description:
       "Investment opportunities in the booming EV sector, including charging networks, battery technology, and smart mobility…",
     icon: "🚗",
+    link: "/services/ev-investments",
   },
   {
     title: "Investment & Wealth Management",
     description:
       "Comprehensive wealth management services that help clients maximize returns...",
     icon: "📡",
+    link: "/services/wealth-management",
   },
   {
     title: "Crypto & Blockchain Solutions",
     description:
       "Blockchain-powered financial systems that ensure secure transactions, smart...",
     icon: "🔗",
+    link: "/services/crypto-blockchain",
   },
   {
     title: "Solar Energy Investments <br/> & Green Returns",
     description:
       "Profitable investment avenues in solar energy, from large-scale solar farms to innovative renewable tech solutions…",
     icon: "☀️",
+    link: "/services/solar-energy",
   },
   {
     title: "AI in Finance & Automation",
     description:
       "Transforming financial operations with AI-driven analytics, fraud detection, and intelligent automation solutions...",
     icon: "🤖",
+    link: "/services/ai-finance",
   },
 ];
 
@@ -113,13 +118,13 @@ const BankingInvestmentSection = () => {
               </p>
 
             </div>
-            <a
-              href="/Services"
+            <Link
+              to={service.link}
               className="flex items-center justify-center mt-4 font-semibold text-green-600 group-hover:text-white"
             >
               <span>Explore More</span>
               <ArrowRight className="ml-1" />
-            </a>
+            </Link>
           </div>
           
           ))}

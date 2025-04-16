@@ -1,14 +1,14 @@
 import clsx from "clsx";
 import { useAuth } from "../../../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Tree from "./Tree";
 import {
   EllipseFive,
   EllipseSix,
   PackageOne,
-  PackageThree,
   PackageTwo,
+  PackageThree,
   VerifiedImage,
 } from "../../../../assets";
 
@@ -18,6 +18,26 @@ export default function BinaryNode({ data, last, first, ofTwo, side }) {
   const isClickAble = data?.user_id !== user?.user?.userId;
 
   const [showTree, setShowTree] = useState(false);
+  const hoverTimeoutRef = useRef(null);
+
+  const handleMouseEnter = () => {
+    if (data) {
+      hoverTimeoutRef.current = setTimeout(() => {
+        setShowTree(true);
+      }, 300); // 300ms delay before showing
+    }
+  };
+
+  const handleMouseLeave = () => {
+    clearTimeout(hoverTimeoutRef.current);
+    setShowTree(false);
+  };
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(hoverTimeoutRef.current);
+    };
+  }, []);
 
   const handleClick = () => {
     if (isClickAble && data?.user_id) {
@@ -61,10 +81,20 @@ export default function BinaryNode({ data, last, first, ofTwo, side }) {
     }
   };
 
+  const getPopupPosition = () => {
+    if (first) {
+      return "top-full left-1/2 transform -translate-x-1/2 mt-2"; // Positioned below first node
+    } else if (side) {
+      return "top-0 -left-[410px]"; // Left side
+    } else {
+      return "top-0 -right-[410px]"; // Right side
+    }
+  };
+
   return (
     <div
       className={clsx(
-        "flex items-center justify-center flex-col realative",
+        "flex items-center justify-center flex-col relative",
         isClickAble && "cursor-pointer"
       )}
       onClick={handleClick}
@@ -84,32 +114,20 @@ export default function BinaryNode({ data, last, first, ofTwo, side }) {
         )}
       >
         <div
-          className="w-10 h-10 bg-[#373737] flex items-center justify-center rounded-full "
-          onMouseEnter={() => setShowTree(true)}
-          onMouseLeave={() => setShowTree(false)}
-          onClick={() => setShowTree((prev) => !prev)}
+          className="w-10 h-10 bg-[#373737] flex items-center justify-center rounded-full relative"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          onClick={(e) => {
+            e.stopPropagation();
+            setShowTree((prev) => !prev);
+          }}
         >
           {renderImageByPackage()}
-          {showTree && data && !first && side && (
-            <div
-              className="absolute bottom-16 left-[180px] w-[400px] rounded-2xl transform -translate-x-1/2 -mt-40 -500 bg-gray-900 z-100 "
-              style={{ zIndex: 1000 }}
-            >
-              <Tree data={data} />
-            </div>
-          )}
-          {showTree && data && !first && !side && (
-            <div
-              className="absolute bottom-16 left-[20px] w-[400px] rounded-2xl transform -translate-x-1/2 -mt-40 -500  bg-gray-900 z-100 "
-              style={{ zIndex: 1000 }}
-            >
-              <Tree data={data} />
-            </div>
-          )}
-          {showTree && data && first && (
-            <div
-              className="absolute top-[0] left-[300px] w-[400px] rounded-2xl transform -translate-x-1/2 -mt-40 -500  bg-gray-900 z-100"
-              style={{ zIndex: 1000 }}
+          {showTree && data && (
+            <div 
+              className={`absolute ${getPopupPosition()} w-[420px] shadow-xl rounded-lg z-[9999] 
+                          transition-opacity duration-200 opacity-100`}
+              onClick={(e) => e.stopPropagation()}
             >
               <Tree data={data} />
             </div>

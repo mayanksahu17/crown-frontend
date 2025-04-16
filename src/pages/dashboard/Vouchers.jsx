@@ -70,7 +70,7 @@ export default function Vouchers() {
       {/* Page Header */}
       <div className="mb-6">
         <h1 className="text-2xl font-semibold text-gray-900 dark:text-white">Voucher</h1>
-        <p className="text-gray-600 dark:text-gray-400">Let's check your update today</p>
+        <p className="text-gray-600 dark:text-gray-400">Manage your vouchers</p>
       </div>
 
       {/* Tabs */}

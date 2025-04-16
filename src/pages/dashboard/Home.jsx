@@ -74,20 +74,11 @@ export default function Home() {
         
         if (success) {
           if (data) {
-            let lWidth =
-              (parseFloat(data?.left_business) -
-                parseFloat(
-                  parseFloat(data?.binary_next_level_actual_required) -
-                    parseFloat(data?.binary_next_level_business)
-                )) /
-              parseFloat(data?.binary_next_level_business);
-            let rWidth =
-              (parseFloat(data?.right_business) -
-                parseFloat(
-                  parseFloat(data?.binary_next_level_actual_required) -
-                    parseFloat(data?.binary_next_level_business)
-                )) /
-              parseFloat(data?.binary_next_level_business);
+            // Calculate the width for progress bars (showing current level progress)
+            // According to new approach, each level starts from 0 to target amount
+            let lWidth = (parseFloat(data?.left_level_business || 0) / parseFloat(data?.binary_next_level_business || 1)) * 100;
+            let rWidth = (parseFloat(data?.right_level_business || 0) / parseFloat(data?.binary_next_level_business || 1)) * 100;
+            
             setAllData((prev) => ({
               ...prev,
               totalInvestment: data?.total_investment,
@@ -105,10 +96,14 @@ export default function Home() {
               isWithdrawalWalletUpdated: data?.isWithdrawalWalletUpdated,
               binary_current_level_name: data?.binary_current_level_name || getLevelName(data?.binary_career_level || 0),
               binary_next_level_name: data?.binary_next_level_name || getLevelName((data?.binary_career_level || 0) + 1),
-              leftBusiness: parseFloat(data?.left_business || 0)?.toFixed(2),
-              rightBusiness: parseFloat(data?.right_business || 0)?.toFixed(2),
-              leftWidth: lWidth * 100,
-              rightWidth: rWidth * 100,
+              // Total business values
+              totalLeftBusiness: parseFloat(data?.left_business || 0)?.toFixed(2),
+              totalRightBusiness: parseFloat(data?.right_business || 0)?.toFixed(2),
+              // Current level progress values
+              leftBusiness: parseFloat(data?.left_level_business || 0)?.toFixed(2),
+              rightBusiness: parseFloat(data?.right_level_business || 0)?.toFixed(2),
+              leftWidth: lWidth,
+              rightWidth: rWidth,
               target: data?.binary_next_level_business,
               binary_career_level: data?.binary_career_level,
               sponsor_email: data?.sponsor_email,
@@ -165,6 +160,10 @@ export default function Home() {
     career: {
       currentLevel: allData?.binary_current_level_name || "Sunstone",
       nextLevel: allData?.binary_next_level_name || "Moonstone",
+      // Total business across all levels
+      totalLeftBusiness: `$${parseFloat(allData?.totalLeftBusiness || 0).toFixed(2)}`,
+      totalRightBusiness: `$${parseFloat(allData?.totalRightBusiness || 0).toFixed(2)}`,
+      // Current level progress
       leftBusiness: { 
         current: `$${parseFloat(allData?.leftBusiness || 0).toFixed(2)}`, 
         target: `$${parseFloat(allData?.target || 0).toFixed(2)}` 
@@ -350,10 +349,35 @@ export default function Home() {
                 </p>
               </div>
             </div>
+            
+            {/* Total Business Summary */}
+            <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg mb-4">
+              <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Total Business</h4>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <p className="text-xs text-gray-600 dark:text-gray-400">
+                    Left Total
+                  </p>
+                  <p className="text-base font-semibold">
+                    {userData.career.totalLeftBusiness}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs text-gray-600 dark:text-gray-400">
+                    Right Total
+                  </p>
+                  <p className="text-base font-semibold">
+                    {userData.career.totalRightBusiness}
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Current Level Progress */}
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Left Business
+                  Left Business (Current Level)
                 </p>
                 <p className="text-lg font-semibold">
                   {userData.career.leftBusiness.current} /{" "}
@@ -368,7 +392,7 @@ export default function Home() {
               </div>
               <div>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Right Business
+                  Right Business (Current Level)
                 </p>
                 <p className="text-lg font-semibold">
                   {userData.career.rightBusiness.current} /{" "}
@@ -491,16 +515,16 @@ const StatCard = ({ title, value, change, period, icon }) => {
 // Helper function to get level name from level number
 const getLevelName = (level) => {
   const levelNames = [
-    "Sunstone",
-    "Moonstone",
+    "Celestial",
     "Starstone",
+    "Moonstone",
+    "Sunstone",
     "Meteorite",
     "Comet",
     "Nebula",
     "Galaxy",
     "Supernova",
-    "Quasar",
-    "Celestial"
+    "Quasar"
   ];
   
   return level >= 0 && level < levelNames.length 

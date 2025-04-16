@@ -9,23 +9,64 @@ import { useNavigate } from "react-router-dom";
 export default function CreateVoucher() {
   const { user } = useAuth();
   const handleNavigate = useNavigate();
+  const MIN_VOUCHER_AMOUNT = 12.5;
 
   const [formData, setFormData] = useState({
     selectedWallet: "",
     amount: 0,
   });
 
+  const [formErrors, setFormErrors] = useState({
+    amount: "",
+  });
+
   const [loadingStates, setLoadingStates] = useState({
     isVoucherLoading: false,
   });
 
-  const handleFromDataChange = (name, value) =>
+  const handleFromDataChange = (name, value) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
+    
+    // Validate amount if that's the field being changed
+    if (name === "amount") {
+      validateAmount(value);
+    }
+  };
+
+  const validateAmount = (amount) => {
+    if (!amount) {
+      setFormErrors(prev => ({ ...prev, amount: "Amount is required" }));
+      return false;
+    }
+    
+    if (parseFloat(amount) < MIN_VOUCHER_AMOUNT) {
+      setFormErrors(prev => ({ ...prev, amount: `Minimum voucher amount is $${MIN_VOUCHER_AMOUNT}` }));
+      return false;
+    }
+    
+    setFormErrors(prev => ({ ...prev, amount: "" }));
+    return true;
+  };
 
   const handleLoadingState = (name, value) =>
     setLoadingStates((prev) => ({ ...prev, [name]: value }));
 
+  const validateForm = () => {
+    const amountValid = validateAmount(formData.amount);
+    
+    if (!formData.selectedWallet) {
+      toast.error("Please select a wallet");
+      return false;
+    }
+    
+    return amountValid;
+  };
+
   const handleVoucherSubmit = async () => {
+    if (!validateForm()) {
+      return;
+    }
+    
     try {
       handleLoadingState("isVoucherLoading", true);
       const res = await vouchersService.createVoucher(user, {
@@ -58,14 +99,23 @@ export default function CreateVoucher() {
 
       <div className="mb-4">
         <label className="block text-gray-700 dark:text-gray-300 mb-2">
-          Enter Amount
+          Enter Amount <span className="text-sm text-gray-500">(Min: ${MIN_VOUCHER_AMOUNT})</span>
         </label>
         <input
           type="number"
-          className="w-full bg-gray-100 dark:bg-[#1E293B] text-gray-900 dark:text-white px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-1 focus:ring-green-500"
+          className={`w-full bg-gray-100 dark:bg-[#1E293B] text-gray-900 dark:text-white px-4 py-2 rounded-md border ${
+            formErrors.amount 
+              ? "border-red-500 focus:ring-red-500" 
+              : "border-gray-300 dark:border-gray-700 focus:ring-green-500"
+          } focus:outline-none focus:ring-1`}
           onChange={(e) => handleFromDataChange("amount", e.target.value)}
           value={formData.amount}
+          min={MIN_VOUCHER_AMOUNT}
+          step="0.5"
         />
+        {formErrors.amount && (
+          <p className="mt-1 text-sm text-red-500">{formErrors.amount}</p>
+        )}
       </div>
 
       <div className="mb-6">
@@ -91,6 +141,7 @@ export default function CreateVoucher() {
         className="w-full bg-green-500 hover:bg-green-600"
         loading={loadingStates.isVoucherLoading}
         onClick={handleVoucherSubmit}
+        disabled={!!formErrors.amount || !formData.selectedWallet}
       >
         Generate Voucher
       </Button>

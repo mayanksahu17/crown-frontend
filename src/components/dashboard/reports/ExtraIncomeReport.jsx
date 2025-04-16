@@ -1,8 +1,29 @@
+import { useState, useEffect } from "react";
 import { reportsExtraIncomeColumns } from "../../../constants/Column";
 import Table from "../global/Table";
 
-export default function ({ data }) {
-  const formattedData = data?.map((el, index) => ({
+export default function ExtraIncomeReport({ data }) {
+  const [filteredData, setFilteredData] = useState([]);
+  const [dateFilter, setDateFilter] = useState("all");
+
+  useEffect(() => {
+    filterData();
+  }, [data, dateFilter]);
+
+  const filterData = () => {
+    let filtered = [...(data || [])];
+    
+    // Apply date filter
+    if (dateFilter === "last30days") {
+      const thirtyDaysAgo = new Date();
+      thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+      filtered = filtered.filter(item => new Date(item.date) >= thirtyDaysAgo);
+    }
+    
+    setFilteredData(filtered);
+  };
+
+  const formattedData = filteredData?.map((el, index) => ({
     ...el,
     id: index + 1,
     rewardAmount: el?.reward_amount,
@@ -31,6 +52,31 @@ export default function ({ data }) {
   
   return (
     <div className="w-full">
+      <div className="flex justify-between items-center mb-4">
+        <div className="flex space-x-2">
+          <button
+            onClick={() => setDateFilter("all")}
+            className={`px-3 py-1 rounded ${
+              dateFilter === "all" 
+                ? "bg-green-500 text-white" 
+                : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
+            }`}
+          >
+            All Reports
+          </button>
+          <button
+            onClick={() => setDateFilter("last30days")}
+            className={`px-3 py-1 rounded ${
+              dateFilter === "last30days" 
+                ? "bg-green-500 text-white" 
+                : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
+            }`}
+          >
+            Last 30 Days
+          </button>
+        </div>
+      </div>
+    
       <div className="overflow-x-auto">
         <table className="min-w-full">
           <thead>

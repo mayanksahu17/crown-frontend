@@ -27,21 +27,21 @@ rest of the TODO fix  are mentionedd in this notion page : https://www.notion.so
 1:- new logo needed 
 2-7 fixed
 8:- icons needed
-9- has to be fixed
+9- done image neede section 3
 10:-new images needed 
 11:- fixed
-12:- has to be fixed
-13-23 fixed
-24:- has to check
+12:- fixed
+13-22 fixed
+23 ,24:- done need image 
 25,26:- done 
-27:- has to be fix
+27:- fixed
 28:- fixed and added
 29,30,31,32:- fixed
-33:- has to be change
-34:- need data for this
-35:-almost done
-36:-has to be done
-37:- almost done
+33:- fixed
+34:- fixed
+35:-done need data for testing
+36:-fixed
+37:- fixed
 dashboard all:- almost done
 
 
