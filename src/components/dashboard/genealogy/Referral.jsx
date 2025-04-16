@@ -1,5 +1,5 @@
 import countryList from "react-select-country-list";
-import { Select, Table } from "../..";
+import { Select, Table } from "../../index";
 import { genealogyColumns } from "../../../constants/Column";
 import { useMemo, useState } from "react";
 

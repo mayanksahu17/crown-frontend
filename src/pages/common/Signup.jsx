@@ -7,7 +7,7 @@ import { CgSpinner } from "react-icons/cg";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { baseURL } from "../../constants/baseURL";
 import authService from "../../services/authService";
-import { ErrorMessage, Select } from "../../components";
+import { Select } from "../../components";
 import RoundButton from "../../components/navbar/RoundButton";
 
 function Signup() {
