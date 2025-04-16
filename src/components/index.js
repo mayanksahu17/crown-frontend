@@ -1,17 +1,3 @@
-// Import all components from dashboard/reports
-import { Select } from "./dashboard/global/Select";
-import { AllPlans } from "./dashboard/investments/AllPlans";
-import { PackageActivation } from "./dashboard/investments/PackageActivation";
-import { DownlineActivation } from "./dashboard/investments/DownlineActivation";
-import {
-    KYCSettings,
-    NotificationSettings,
-    SecuritySettings,
-    ProfileSettings,
-    Tab,
-  } from "./dashboard/settings/ProfileSettings";
-  import { BinaryTree } from "../components/dashboard/genealogy/BinaryTree"
-  import { Referral } from "../components/dashboard/genealogy/Referral";
 
 // ROIReport
 export { default as ROIReport } from "./dashboard/reports/ROIReport";
