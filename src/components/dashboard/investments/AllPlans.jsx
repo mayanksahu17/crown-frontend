@@ -421,25 +421,62 @@ export default function Investment({ data }) {
 
       {/* Package Cards */}
       <div className="p-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {packageData?.map((el, index) => (
-            <div key={index} className="relative group">
-              <img
-                src={el.image}
-                alt={el.name}
-                className="w-full h-auto rounded-lg shadow-lg"
-              />
-              <button
-                onClick={() => {
-                  handleDataChange("isOpenModal", true);
-                  handleDataChange("selectedModalPackage", el);
-                }}
-                className="w-full bg-green-500 text-white py-3 px-6 rounded-lg mt-4 font-semibold hover:bg-green-600 transition-colors duration-200"
-              >
-                Purchase
-              </button>
-            </div>
-          ))}
+        <div className="relative">
+          {/* Single main package image */}
+          <img
+            src="/assets/img/price.png"
+            alt="Investment Packages"
+            className="w-full h-auto rounded-lg shadow-lg"
+          />
+          
+          {/* Individual buttons positioned exactly as in screenshot */}
+          <div className="absolute inset-0">
+            {/* Solar Starter Button */}
+            <button
+              onClick={() => {
+                handleDataChange("isOpenModal", true);
+                handleDataChange("selectedModalPackage", packageData[0]);
+              }}
+              className="absolute left-[16.5%] bottom-[6%] transform -translate-x-1/2 bg-[#42c977] hover:bg-[#37b569] text-white py-2.5 px-8 rounded-md font-medium transition-colors duration-200"
+            >
+              Purchase
+            </button>
+            
+            {/* Power Growth Button */}
+            <button
+              onClick={() => {
+                handleDataChange("isOpenModal", true);
+                handleDataChange("selectedModalPackage", packageData[1]);
+              }}
+              className="absolute left-[50%] bottom-[6%] transform -translate-x-1/2 bg-[#42c977] hover:bg-[#37b569] text-white py-2.5 px-8 rounded-md font-medium transition-colors duration-200"
+            >
+              Purchase
+            </button>
+            
+            {/* Elite Energy Button */}
+            <button
+              onClick={() => {
+                handleDataChange("isOpenModal", true);
+                handleDataChange("selectedModalPackage", packageData[2]);
+              }}
+              className="absolute left-[83.5%] bottom-[6%] transform -translate-x-1/2 bg-[#42c977] hover:bg-[#37b569] text-white py-2.5 px-8 rounded-md font-medium transition-colors duration-200"
+            >
+              Purchase
+            </button>
+          </div>
+        </div>
+        
+        {/* Package names as in screenshot */}
+        <div className="mt-8 flex justify-between px-16">
+          <div className="text-center font-semibold text-lg text-gray-800 dark:text-white">
+            Solar Starter
+          </div>
+          <div className="text-center font-semibold text-lg text-gray-800 dark:text-white">
+            Power Growth
+          </div>
+          <div className="text-center font-semibold text-lg text-gray-800 dark:text-white">
+            Elite Energy
+          </div>
         </div>
       </div>
     </>
