@@ -278,7 +278,7 @@ const Login = () => {
         <div className="hidden md:flex md:w-1/2 bg-white">
           <div className="w-full h-full flex items-center justify-center">
             <img
-              src="https://imgs.search.brave.com/WcifV_h_w633-PcRZo_n5SiaRnNeF77jTglDj7nCvWE/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9zdC5k/ZXBvc2l0cGhvdG9z/LmNvbS8xNDExMTYx/LzEyNzMvaS80NTAv/ZGVwb3NpdHBob3Rv/c18xMjczNjE3MC1z/dG9jay1waG90by1y/ZW5ld2FibGUtZW5l/cmd5LmpwZw"
+              src="/assets/img/solar.jpg"
               alt="Secure Banking"
               className="w-full h-full object-cover"
             />

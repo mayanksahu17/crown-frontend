@@ -570,11 +570,11 @@ function Signup() {
                 />
                 <label htmlFor="acceptTerms" className="ml-2 text-xs text-white">
                   I agree to{" "}
-                  <Link to="/terms" className="text-[#4CAF50] hover:text-[#3d9140]">
+                  <Link to="/TermsandCondition?tab=terms" className="text-[#4CAF50] hover:text-[#3d9140]">
                     Terms
                   </Link>{" "}
                   &{" "}
-                  <Link to="/privacy" className="text-[#4CAF50] hover:text-[#3d9140]">
+                  <Link to="/TermsandCondition?tab=privacy" className="text-[#4CAF50] hover:text-[#3d9140]">
                     Privacy
                   </Link>
                 </label>

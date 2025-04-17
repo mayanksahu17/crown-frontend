@@ -8,36 +8,46 @@ const services = [
     title: "EV Investments & <br/>Infrastructure GrowthStrategic",
     description:
       "Investment opportunities in the booming EV sector, including charging networks, battery technology, and smart mobility…",
-    icon: "🚗",
+    icon: "https://cdn-icons-png.flaticon.com/512/3097/3097180.png", // Electric car icon
+    alt: "Electric Vehicle Icon",
     link: "/services/ev-investments",
+    attribution: "https://www.flaticon.com/free-icons/electric-car",
   },
   {
     title: "Investment & Wealth Management",
     description:
       "Comprehensive wealth management services that help clients maximize returns...",
-    icon: "📡",
+    icon: "https://cdn-icons-png.flaticon.com/512/2300/2300424.png", // Wealth management icon
+    alt: "Wealth Management Icon",
     link: "/services/wealth-management",
+    attribution: "https://www.flaticon.com/free-icons/wealth-management",
   },
   {
     title: "Crypto & Blockchain Solutions",
     description:
       "Blockchain-powered financial systems that ensure secure transactions, smart...",
-    icon: "🔗",
+    icon: "https://cdn-icons-png.flaticon.com/512/2152/2152349.png", // Blockchain icon
+    alt: "Blockchain Icon",
     link: "/services/crypto-blockchain",
+    attribution: "https://www.flaticon.com/free-icons/blockchain",
   },
   {
     title: "Solar Energy Investments <br/> & Green Returns",
     description:
       "Profitable investment avenues in solar energy, from large-scale solar farms to innovative renewable tech solutions…",
-    icon: "☀️",
+    icon: "https://cdn-icons-png.flaticon.com/512/5341/5341450.png", // Solar panel icon
+    alt: "Solar Energy Icon",
     link: "/services/solar-energy",
+    attribution: "https://www.flaticon.com/free-icons/solar-panel",
   },
   {
     title: "AI in Finance & Automation",
     description:
       "Transforming financial operations with AI-driven analytics, fraud detection, and intelligent automation solutions...",
-    icon: "🤖",
+    icon: "https://cdn-icons-png.flaticon.com/512/3081/3081478.png", // AI robot icon
+    alt: "AI Robot Icon",
     link: "/services/ai-finance",
+    attribution: "https://www.flaticon.com/free-icons/artificial-intelligence",
   },
 ];
 
@@ -105,8 +115,12 @@ const BankingInvestmentSection = () => {
             className="min-w-[300px] max-w-sm flex-shrink-0 bg-green-50 shadow-xl p-6 rounded-lg text-center border-4 border-[#4CAF50] hover:bg-[#4CAF50] group transition-all duration-300 flex flex-col justify-between h-[360px]"
           >
             <div>
-              <div className="mb-3 text-4xl text-green-500 group-hover:text-white">
-                {service.icon}
+              <div className="mb-3 flex justify-center items-center h-16">
+                <img 
+                  src={service.icon} 
+                  alt={service.alt} 
+                  className="h-12 w-auto object-contain group-hover:brightness-0 group-hover:invert transition-all duration-300" 
+                />
               </div>
               <h4
                   className="text-lg font-semibold text-gray-900 group-hover:text-white leading-snug"
@@ -129,6 +143,10 @@ const BankingInvestmentSection = () => {
           
           ))}
         </div>
+      </div>
+      {/* Attribution notice at the bottom */}
+      <div className="mt-8 text-xs text-gray-400 text-center">
+        <p>Icons provided by <a href="https://www.flaticon.com/" className="underline hover:text-gray-600">Flaticon</a></p>
       </div>
     </div>
   );

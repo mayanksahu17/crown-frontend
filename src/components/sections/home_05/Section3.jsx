@@ -5,12 +5,12 @@ const BankingHeroSection = () => {
     <div className="flex flex-col md:flex-row items-stretch min-h-[600px] ">
       {/* Left Side - Background Image */}
       <div
-        className="w-full md:w-1/2 h-[300px] sm:h-[400px] md:h-auto bg-cover bg-center blur-sm md:blur-none"
-        style={{
-          backgroundImage:
-            "url('https://res.cloudinary.com/dygdftjr8/image/upload/v1742813799/34c9bc1d-e039-4bb8-be9d-ac431411d9d4_duqz6d.jpg')",
-        }}
-      ></div>
+       className="w-full md:w-1/2 h-[300px] sm:h-[400px] md:h-auto bg-cover bg-center blur-sm md:blur-none"
+      style={{
+      backgroundImage: "url('/assets/img/section3.jpg')",
+     }}
+    ></div>
+
 
       {/* Right Side - Green Section */}
       <div className="w-full md:w-1/2 bg-[#4CAF50] text-white p-6 sm:p-8 md:p-12 flex flex-col justify-center">
