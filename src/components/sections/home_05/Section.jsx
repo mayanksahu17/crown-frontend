@@ -55,10 +55,7 @@ const VideoBanner = () => {
                   making eco-conscious choices that benefit both people and the
                   planet. Join us in this vital journey.
                 </p>
-                <p className="text-gray-500">
-                  How can we meet the growing demand for electricity while
-                  protecting our climate and making the planet a better place?
-                </p>
+               
               </div>
             </div>
           </div>

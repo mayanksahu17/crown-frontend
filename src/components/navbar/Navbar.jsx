@@ -222,7 +222,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
-                PDF Downloads
+                PDF DOWNLOAD
               </Link>
 
 
@@ -315,7 +315,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
-                PDF Downloads
+                PDF DOWNLOAD
               </Link>
 
               <div className="relative">

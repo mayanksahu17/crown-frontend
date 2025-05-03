@@ -26,9 +26,17 @@ export default function Hero() {
       title: "Energize Society By Reliable Energy!",
       description:
         "With a strong roadmap for 2026, we are working towards becoming a global provider of solar solutions, empowering industries and communities worldwide.",
-      image:
-        "https://res.cloudinary.com/dfcbjgt3w/video/upload/v1742800328/NEW_CROWN_BANKERS_vqgvbs.mp4",
-    },
+      image: "/home.mp4", // Cloud video from public folder
+    }
+    // {
+    //   id: 2,
+    //   tagline: "Towards a Brighter Tomorrow – Preparing for Global Solar Reach",
+    //   title: "Energize Society By Reliable Energy!",
+    //   description:
+    //     "With a strong roadmap for 2026, we are working towards becoming a global provider of solar solutions, empowering industries and communities worldwide.",
+    //   image:
+    //     "https://res.cloudinary.com/dfcbjgt3w/video/upload/v1742800328/NEW_CROWN_BANKERS_vqgvbs.mp4",
+    // },
   ];
 
   const nextSlide = useCallback(() => {
@@ -141,7 +149,7 @@ export default function Hero() {
       </div>
 
       {/* Arrows */}
-      <button
+      {/* <button
         onClick={prevSlide}
         className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-black/20 hover:bg-black/40 text-white p-2 rounded-full transition-colors"
         aria-label="Previous slide"
@@ -155,7 +163,7 @@ export default function Hero() {
         aria-label="Next slide"
       >
         <ChevronRight size={30} />
-      </button>
+      </button> */}
 
       {/* Dots */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-2">
