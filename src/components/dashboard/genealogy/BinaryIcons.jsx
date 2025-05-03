@@ -27,15 +27,52 @@ const BinaryIcons = () => {
     },
   ];
 
+  // Business metrics explanations
+  const businessMetrics = [
+    {
+      label: "Total Business",
+      description: "Total accumulated business value across all levels",
+      color: "bg-gray-50",
+    },
+    {
+      label: "Level Business",
+      description: "Progress toward current level (resets for each level)",
+      color: "bg-blue-50",
+    },
+    {
+      label: "Carry",
+      description: "Carried business from weaker leg",
+      color: "bg-white",
+    },
+  ];
+
   return (
-    <div className="w-full flex justify-center">
-      <div className="flex gap-8 p-8 rounded-2xl border-2 border-gray-300 items-center justify-center w-[612px]">
-        {icons.map((icon, index) => (
-          <div key={index} className="flex flex-col items-center gap-2">
-            <img src={icon.src} alt={icon.alt} className="w-12 h-12" />
-            <span>{icon.label}</span>
-          </div>
-        ))}
+    <div className="space-y-6">
+      {/* Package & User Icons */}
+      <div className="w-full flex justify-center">
+        <div className="flex flex-wrap gap-4 p-4 rounded-xl border border-gray-300 items-center justify-center max-w-[600px]">
+          {icons.map((icon, index) => (
+            <div key={index} className="flex items-center gap-2 w-[150px]">
+              <img src={icon.src} alt={icon.alt} className="w-8 h-8" />
+              <span className="text-xs">{icon.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Business Metrics Explanations */}
+      <div className="w-full flex justify-center">
+        <div className="flex flex-wrap gap-4 p-4 rounded-xl border border-gray-300 items-center justify-center max-w-[600px]">
+          <h4 className="w-full text-center text-sm font-medium mb-2">Business Metrics Explained</h4>
+          {businessMetrics.map((metric, index) => (
+            <div key={index} className={`flex items-center gap-2 w-full sm:w-[180px] p-2 rounded-md ${metric.color}`}>
+              <div className="flex flex-col">
+                <span className="text-xs font-semibold">{metric.label}</span>
+                <span className="text-xs text-gray-600">{metric.description}</span>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -21,11 +21,19 @@ const createNowInvestment = (user, data) => {
   });
 };
 
+const activatePackageWithDepositWallet = (user, data) => {
+  return axios.post(`/payment/activate_with_deposit`, {
+    ...data,
+    email: user?.user?.email,
+  });
+};
+
 const investmentService = {
   getDownlineReport,
   getPackageReport,
   createInvestment,
   createNowInvestment,
+  activatePackageWithDepositWallet,
 };
 
 export default investmentService;

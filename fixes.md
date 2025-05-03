@@ -19,7 +19,31 @@ fix : 24 need high quality image
 fixed : 25 
 fixed : 26
 fix   : 27 TODO : backend changes 
+dashboard fixed done 
 
 
 rest of the TODO fix  are mentionedd in this notion page : https://www.notion.so/Crown-Bankers-1d1fa556825f801d845bfd7bdeaa9c41 
+
+1:- new logo needed 
+2-7 fixed
+8:- icons needed
+9- done image neede section 3
+10:-new images needed 
+11:- fixed
+12:- fixed
+13-22 fixed
+23 ,24:- done need image 
+25,26:- done 
+27:- fixed
+28:- fixed and added
+29,30,31,32:- fixed
+33:- fixed
+34:- fixed
+35:-done need data for testing
+36:-fixed
+37:- fixed
+dashboard all:- almost done
+
+
+
 

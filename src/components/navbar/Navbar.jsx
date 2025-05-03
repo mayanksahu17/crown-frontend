@@ -83,7 +83,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
               <div className="flex items-center">
                 <div className="flex items-center justify-center bg-white rounded-md ">
                   <img
-                    src="https://res.cloudinary.com/dygdftjr8/image/upload/v1742818322/logo1_mp91bc.png"
+                    src="/assets/logo1.png"
                     alt="logo1"
                     height={300}
                     width={350}

@@ -1,27 +1,57 @@
 import { useState } from "react";
 import moment from "moment";
-import { FaCalendarAlt, FaBox, FaClock, FaDollarSign, FaChartLine } from "react-icons/fa";
+import { FaCalendarAlt, FaBox, FaClock, FaDollarSign } from "react-icons/fa";
+import { packageData } from "./data";
 
 export default function PackageActivation({ data }) {
   const [sortField, setSortField] = useState("investmentDate");
   const [sortDirection, setSortDirection] = useState("desc");
 
-  const formattedData = data.map((el, index) => ({
-    ...el,
-    id: index + 1,
-    package: el?.package_name,
-    days: el?.duration,
-    invested: parseFloat(el?.invested_amount || 0)?.toFixed(2),
-    investmentDate: el?.investment_date,
-    expiry: el?.expires_on,
-    token: parseFloat(el?.token_amount || 0).toFixed(2),
-    progress: Math.min(
-      100,
-      Math.round(
-        (moment().diff(moment(el?.investment_date), "days") / el?.duration) * 100
-      )
-    ),
-  }));
+  const formattedData = data.map((el, index) => {
+    // Get the package details from packageData
+    const packageDetails = packageData.find(pkg => 
+      pkg.name.toLowerCase() === el?.package_name?.toLowerCase()
+    );
+    
+    // Calculate returns range based on package
+    let returnsRange = "";
+    if (packageDetails) {
+      const dailyReturn = parseFloat(packageDetails.dailyReturns);
+      const days = packageDetails.durationInDays;
+      const minReturn = Math.round(dailyReturn * days * 1.5);
+      const maxReturn = Math.round(dailyReturn * days * 1.8);
+      returnsRange = `${minReturn}% to ${maxReturn}%`;
+    } else {
+      // Fallback values if package not found
+      if (el?.package_name?.toLowerCase().includes("solar")) {
+        returnsRange = "225% to 270%";
+      } else if (el?.package_name?.toLowerCase().includes("power")) {
+        returnsRange = "252% to 294%";
+      } else if (el?.package_name?.toLowerCase().includes("elite")) {
+        returnsRange = "273% to 312%";
+      } else {
+        returnsRange = "0%";
+      }
+    }
+    
+    return {
+      ...el,
+      id: index + 1,
+      package: el?.package_name,
+      days: el?.duration,
+      invested: parseFloat(el?.invested_amount || 0)?.toFixed(2),
+      investmentDate: el?.investment_date,
+      expiry: el?.expires_on,
+      token: parseFloat(el?.token_amount || 0).toFixed(2),
+      returnsRange: returnsRange,
+      progress: Math.min(
+        100,
+        Math.round(
+          (moment().diff(moment(el?.investment_date), "days") / el?.duration) * 100
+        )
+      ),
+    };
+  });
 
   const sortedData = [...formattedData].sort((a, b) => {
     if (sortField === "invested") {
@@ -46,7 +76,7 @@ export default function PackageActivation({ data }) {
   return (
     <div className="p-6">
       {/* Summary Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
         {/* Total Packages */}
         <div className="bg-white dark:bg-[#1E293B] rounded-lg p-6 shadow">
           <div className="flex items-center justify-between">
@@ -89,21 +119,6 @@ export default function PackageActivation({ data }) {
             </div>
           </div>
         </div>
-
-        {/* Total Returns */}
-        <div className="bg-white dark:bg-[#1E293B] rounded-lg p-6 shadow">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-gray-500 dark:text-gray-400">Total Returns</p>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mt-2">
-                ${formattedData.reduce((sum, item) => sum + parseFloat(item.token), 0).toFixed(2)}
-              </h3>
-            </div>
-            <div className="bg-green-500/20 p-3 rounded-full">
-              <FaChartLine className="text-green-500 text-xl" />
-            </div>
-          </div>
-        </div>
       </div>
 
       {/* Package Cards */}
@@ -142,7 +157,7 @@ export default function PackageActivation({ data }) {
                   </div>
                   <div>
                     <p className="text-gray-500 dark:text-gray-400 text-sm">Returns</p>
-                    <p className="text-green-500">${item.token}</p>
+                    <p className="text-green-500">{item.returnsRange}</p>
                   </div>
                   <div>
                     <p className="text-gray-500 dark:text-gray-400 text-sm">Start Date</p>

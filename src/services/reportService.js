@@ -29,7 +29,41 @@ const getTokenReport = (user) => {
 };
 
 const getWithdrawalReport = (user) => {
-  return axios.get(`withdrawal/user?email=${user?.user?.email}`);
+  return axios.get(`withdrawal/user?email=${user?.user?.email}`)
+    .then(response => {
+      if (response.data && response.data.data) {
+        // Apply charges based on wallet source
+        const modifiedData = response.data.data.map(item => {
+          // Set wallet source if not present (for backward compatibility)
+          const walletSource = item.wallet_source || "ROI Wallet";
+          
+          // Apply charges based on wallet source
+          let charges = 0;
+          if (walletSource === "ROI Wallet") {
+            charges = 7.0;
+          } else if (walletSource === "R&B Wallet") {
+            charges = 0.0;
+          } else if (walletSource === "Extra Income Wallet") {
+            charges = 0.0;
+          }
+          
+          // Calculate final amount based on charges
+          const amount = parseFloat(item.amount);
+          const chargeAmount = (charges / 100) * amount;
+          const finalAmount = amount - chargeAmount;
+          
+          return {
+            ...item,
+            wallet_source: walletSource,
+            charges: charges,
+            final_amount: finalAmount.toFixed(2)
+          };
+        });
+        
+        response.data.data = modifiedData;
+      }
+      return response;
+    });
 };
 
 const getTradeReport = (user) => {

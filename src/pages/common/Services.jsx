@@ -638,7 +638,7 @@ const Services = () => {
                 {/* Main illustration */}
                 <div className="relative z-10 p-2 bg-white sm:p-4">
                   <img
-                    src="https://res.cloudinary.com/dygdftjr8/image/upload/v1742803595/card4_qpbykl.png"
+                    src="/assets/img/bonus.png"
                     width={400}
                     height={450}
                     alt="Referral bonus illustration"
@@ -741,7 +741,7 @@ const Services = () => {
               <div className="relative flex justify-center transition-all duration-500 transform binary-image">
                 <div className="relative z-10 p-6 shadow-2xl bg-gradient-to-br from-white/80 to-gray-100/90 rounded-2xl backdrop-blur-sm">
                   <img
-                    src="https://res.cloudinary.com/dygdftjr8/image/upload/v1742973175/2_14_tim2ok.png"
+                    src="\assets\img\binary.png"
                     width={450}
                     height={450}
                     alt="Binary bonus illustration"
@@ -760,7 +760,7 @@ const Services = () => {
       <section className="py-12 sm:py-16 lg:py-20 ">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 md:mx-24">
           <img
-            src="https://res.cloudinary.com/dygdftjr8/image/upload/v1742810209/cards_hj8jca.png"
+            src="\assets\img\CASH.png"
             alt="Crown Bankers"
             className="object-contain w-full h-auto"
           />

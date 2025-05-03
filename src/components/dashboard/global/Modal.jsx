@@ -32,7 +32,7 @@ export default function Modal({ isOpen, handleClose, children }) {
             >
               <Dialog.Panel
                 className={clsx(
-                  "w-full max-w-xl transform rounded-lg bg-white p-3 text-left align-middle shadow-xl transition-all"
+                  "w-full max-w-xl transform rounded-lg bg-white dark:bg-gray-900 p-3 text-left align-middle shadow-xl transition-all"
                 )}
               >
                 {children}

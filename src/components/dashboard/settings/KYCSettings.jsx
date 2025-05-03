@@ -69,26 +69,26 @@ export default function KYCSettings() {
   };
 
   return (
-    <div className="mt-4">
-      <h1 className="text-2xl ">KYC Settings</h1>
-      <p className="text-black text-sm mt-1">
+    <div className="mt-4 text-gray-800 dark:text-gray-200">
+      <h1 className="text-2xl font-semibold text-gray-900 dark:text-white">KYC Settings</h1>
+      <p className="text-gray-700 dark:text-gray-300 text-sm mt-1">
         To adhere to regulatory requirements, all users must complete identity
         verification to prevent fraudulent activities. You have not yet
         submitted the required documents for this process. To continue your
         investments, please verify your identity.
       </p>
 
-      <div className="w-full mt-6 text-black">
-        <p className="text-2xl text-black font-semibold leading-tighter">
+      <div className="w-full mt-6">
+        <p className="text-2xl text-gray-900 dark:text-white font-semibold leading-tighter">
           Upload Document
         </p>
-        <p className="leading-tight mt-1">
+        <p className="leading-tight mt-1 text-gray-700 dark:text-gray-300">
           In order to complete, please upload any one of the following personal
           documents
         </p>
       </div>
       <div className="mt-4">
-        <label className="block  font-normal">Select Document Type</label>
+        <label className="block text-gray-700 dark:text-gray-300 font-medium">Select Document Type</label>
         <CustomSelect
           options={[
             { label: "Passport", value: "PASSPORT" },
@@ -100,20 +100,21 @@ export default function KYCSettings() {
         />
       </div>
       <div className="mt-4">
-        <label className="block  font-normal">Add Document Image</label>
+        <label className="block text-gray-700 dark:text-gray-300 font-medium">Add Document Image</label>
         <div
           className={`py-1.5 px-4 border ${
-            formData.file ? "border-green-500" : "border-[#E7E8EB]"
-          } rounded-md h-[104px] flex flex-col items-center justify-center cursor-pointer w-full`}
+            formData.file ? "border-green-500" : "border-gray-300 dark:border-gray-600"
+          } rounded-md h-[104px] flex flex-col items-center justify-center cursor-pointer w-full
+          bg-white dark:bg-gray-800`}
           onClick={handleFileAttach}
           disabled={formData.file ? true : false}
         >
           <div className="flex flex-col items-center">
-            <FiUpload />
+            <FiUpload className="text-gray-500 dark:text-gray-400" />
             <p
-              className={`text-[#6D7785] text-[12px] ${
-                formData.file && "text-green-500"
-              }`}
+              className={`${
+                formData.file ? "text-green-500" : "text-gray-500 dark:text-gray-400"
+              } text-[12px]`}
             >
               {formData.file ? "Document Attached" : "Attach a Document File"}
             </p>
@@ -129,7 +130,7 @@ export default function KYCSettings() {
         </div>
       </div>
       <Button
-        className="w-full !px-6 !h-10 !mt-3  "
+        className="w-full !px-6 !h-10 !mt-3"
         disabled={!formData.file || !formData.docType}
         onClick={handleUpload}
         loading={formData.isUploadLoading}

@@ -2,148 +2,184 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../../../hooks/useAuth";
 import vouchersService from "../../../services/vouchersService";
 import toast from "react-hot-toast";
-import { FaSearch, FaPlus } from "react-icons/fa";
 import { RiTicketLine } from "react-icons/ri";
+import { FaClock, FaBox } from "react-icons/fa";
+import moment from "moment";
 
-export default function AllVouchers() {
+export default function AllVouchers({ vouchers = [], fetchVouchers }) {
   const { user } = useAuth();
-  const [vouchers, setVouchers] = useState([]);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [isRedeeming, setIsRedeeming] = useState(false);
-  const [redeemCode, setRedeemCode] = useState("");
+  const [activeTab, setActiveTab] = useState("active");
 
   useEffect(() => {
-    fetchVouchers();
-  }, []);
-
-  const fetchVouchers = async () => {
-    try {
-      const res = await vouchersService.getAllVouchers(user);
-      if (res.status === 200) {
-        setVouchers(res?.data?.data || []);
-      }
-    } catch (error) {
-      toast.error(error?.response?.data?.message || "Something went wrong");
+    if (!vouchers || vouchers.length === 0) {
+      fetchVouchers();
     }
-  };
-
-  const filteredVouchers = vouchers.filter(voucher =>
-    voucher.voucher_id?.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  }, []);
 
   const getVoucherStatus = (voucher) => {
     if (voucher.is_used) return "Used";
     if (voucher.expires_on && new Date(voucher.expires_on) < new Date()) return "Expired";
-    const index = vouchers.findIndex(v => v.voucher_id === voucher.voucher_id);
-    if (index % 3 === 0) return "Expires Soon";
     return "Active";
   };
 
-  const getVoucherUsage = (voucher) => {
-    const index = vouchers.findIndex(v => v.voucher_id === voucher.voucher_id);
-    if (index % 3 === 0) return "1/1";
-    if (index % 3 === 1) return "0/3";
-    return "0/1";
+  const getVoucherUsageInfo = (voucher) => {
+    if (voucher.usage_limit) {
+      return `${voucher.usage_count || 0}/${voucher.usage_limit} uses`;
+    }
+    return "Single use";
   };
+
+  const activeVouchers = vouchers.filter(v => getVoucherStatus(v) !== "Used");
+  const usedVouchers = vouchers.filter(v => getVoucherStatus(v) === "Used");
 
   return (
     <div>
-      {/* Search & Button */}
-      <div className="flex justify-between mb-5">
-        <div className="relative w-96">
-          <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-            <FaSearch className="text-gray-400" />
-          </div>
-          <input
-            type="text"
-            className="bg-white dark:bg-[#2D3748] border border-gray-300 dark:border-none text-gray-900 dark:text-white rounded-md pl-10 pr-4 py-2.5 w-full focus:outline-none focus:ring-1 focus:ring-blue-500"
-            placeholder="Search vouchers..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-        </div>
-        <button 
-          className="bg-green-500 text-white px-4 py-2 rounded-md flex items-center hover:bg-green-600"
-          onClick={() => window.location.href = "/dashboard/vouchers/create"}
-        >
-          <FaPlus className="mr-2" /> Create Voucher
-        </button>
+      {/* Tabs for Active and Used Vouchers */}
+      <div className="mb-6 border-b border-gray-200 dark:border-gray-700">
+        <ul className="flex flex-wrap -mb-px text-sm font-medium text-center">
+          <li className="mr-2">
+            <button
+              onClick={() => setActiveTab("active")}
+              className={`inline-block p-4 rounded-t-lg ${
+                activeTab === "active" 
+                  ? "text-green-600 border-b-2 border-green-600 dark:text-green-500 dark:border-green-500" 
+                  : "hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+              }`}
+            >
+              Active Vouchers
+            </button>
+          </li>
+          <li className="mr-2">
+            <button
+              onClick={() => setActiveTab("used")}
+              className={`inline-block p-4 rounded-t-lg ${
+                activeTab === "used" 
+                  ? "text-green-600 border-b-2 border-green-600 dark:text-green-500 dark:border-green-500" 
+                  : "hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+              }`}
+            >
+              Used Vouchers
+            </button>
+          </li>
+        </ul>
       </div>
 
-      {/* Vouchers */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredVouchers.length > 0 ? (
-          filteredVouchers.map((voucher, index) => (
-            <div key={index} className="bg-white dark:bg-[#2D3748] rounded-lg overflow-hidden shadow">
-              <div className="p-4 flex justify-between items-center bg-green-500">
-                <div className="flex items-center">
-                  <RiTicketLine className="text-white text-2xl mr-2" />
-                  <span className="text-white font-bold">{voucher.voucher_id}</span>
+      {/* Active Vouchers */}
+      {activeTab === "active" && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {activeVouchers.length > 0 ? (
+            activeVouchers.map((voucher, index) => (
+              <div key={index} className="bg-white dark:bg-[#2D3748] rounded-lg overflow-hidden shadow">
+                <div className="p-4 flex justify-between items-center bg-green-500">
+                  <div className="flex items-center">
+                    <RiTicketLine className="text-white text-2xl mr-2" />
+                    <span className="text-white font-bold">{voucher.voucher_id}</span>
+                  </div>
+                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                    getVoucherStatus(voucher) === "Active" ? "bg-white text-green-500" :
+                    getVoucherStatus(voucher) === "Expired" ? "bg-yellow-100 text-yellow-600" :
+                    "bg-gray-200 text-gray-600"
+                  }`}>
+                    {getVoucherStatus(voucher)}
+                  </span>
                 </div>
-                <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                  getVoucherStatus(voucher) === "Active" ? "bg-white text-green-500" :
-                  getVoucherStatus(voucher) === "Expires Soon" ? "bg-yellow-100 text-yellow-600" :
-                  "bg-gray-200 text-gray-600"
-                }`}>
-                  {getVoucherStatus(voucher)}
-                </span>
+
+                <div className="p-4 text-gray-900 dark:text-white">
+                  <div className="mb-3">
+                    <div className="text-gray-500 dark:text-gray-400">Value</div>
+                    <div className="text-xl font-bold">${voucher.amount}</div>
+                  </div>
+
+                  <div className="mb-3">
+                    <div className="text-gray-500 dark:text-gray-400">Created on</div>
+                    <div className="flex items-center">
+                      <FaClock className="mr-2 text-gray-400" />
+                      {moment(voucher.created_at).format("MMM DD, YYYY")}
+                    </div>
+                  </div>
+
+                  <div className="mb-4">
+                    <div className="text-gray-500 dark:text-gray-400">Usage</div>
+                    <div>{getVoucherUsageInfo(voucher)}</div>
+                  </div>
+
+                  <button 
+                    className="w-full py-2 text-center rounded-md transition bg-gray-100 dark:bg-[#374151] hover:bg-gray-200 dark:hover:bg-[#4B5563] text-gray-900 dark:text-white"
+                  >
+                    Use Voucher
+                  </button>
+                </div>
               </div>
-
-              <div className="p-4 text-gray-900 dark:text-white">
-                <div className="mb-3">
-                  <div className="text-gray-500 dark:text-gray-400">Discount</div>
-                  <div className="text-xl font-bold">{voucher.amount}% OFF</div>
-                </div>
-
-                <div className="mb-3">
-                  <div className="text-gray-500 dark:text-gray-400">Valid until</div>
-                  <div>Dec 31, 2023</div>
-                </div>
-
-                <div className="mb-4">
-                  <div className="text-gray-500 dark:text-gray-400">Usage</div>
-                  <div>{getVoucherUsage(voucher)}</div>
-                </div>
-
-                <button 
-                  className={`w-full py-2 text-center rounded-md transition ${
-                    getVoucherStatus(voucher) === "Used" 
-                      ? "bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-300 cursor-not-allowed"
-                      : "bg-gray-100 dark:bg-[#374151] hover:bg-gray-200 dark:hover:bg-[#4B5563] text-gray-900 dark:text-white"
-                  }`}
-                  disabled={getVoucherStatus(voucher) === "Used"}
-                >
-                  {getVoucherStatus(voucher) === "Used" ? "View Details" : "Use Voucher"}
-                </button>
-              </div>
+            ))
+          ) : (
+            <div className="col-span-3 text-center text-gray-500 dark:text-gray-400 py-10">
+              No active vouchers found
             </div>
-          ))
-        ) : (
-          <div className="col-span-3 text-center text-gray-500 dark:text-gray-400 py-10">
-            No vouchers found
-          </div>
-        )}
-      </div>
-
-      {/* Redeem section */}
-      <div className="mt-10 bg-white dark:bg-[#2D3748] p-6 rounded-lg shadow">
-        <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Redeem Voucher</h2>
-        <div className="flex gap-2">
-          <input
-            type="text"
-            className="flex-1 bg-gray-100 dark:bg-[#1E293B] border border-gray-300 dark:border-none text-gray-900 dark:text-white rounded-md px-4 py-2 focus:outline-none focus:ring-1 focus:ring-green-500"
-            placeholder="Enter voucher code"
-            value={redeemCode}
-            onChange={(e) => setRedeemCode(e.target.value)}
-          />
-          <button 
-            className="bg-green-500 text-white px-6 py-2 rounded-md hover:bg-green-600"
-            disabled={isRedeeming || !redeemCode}
-          >
-            Redeem
-          </button>
+          )}
         </div>
-      </div>
+      )}
+
+      {/* Used Vouchers */}
+      {activeTab === "used" && (
+        <div className="overflow-x-auto">
+          <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+            <thead className="bg-gray-50 dark:bg-gray-800">
+              <tr>
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                  Voucher ID
+                </th>
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                  Value
+                </th>
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                  Created On
+                </th>
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                  Used On
+                </th>
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                  Package
+                </th>
+              </tr>
+            </thead>
+            <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
+              {usedVouchers.length > 0 ? (
+                usedVouchers.map((voucher, index) => (
+                  <tr key={index}>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <div className="flex items-center">
+                        <RiTicketLine className="text-green-500 mr-2" />
+                        <span className="text-gray-900 dark:text-white">{voucher.voucher_id}</span>
+                      </div>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <span className="text-gray-900 dark:text-white font-medium">${voucher.amount}</span>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <span className="text-gray-900 dark:text-white">{moment(voucher.created_at).format("MMM DD, YYYY")}</span>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <span className="text-gray-900 dark:text-white">{moment(voucher.used_at).format("MMM DD, YYYY")}</span>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <div className="flex items-center">
+                        <FaBox className="text-green-500 mr-2" />
+                        <span className="text-gray-900 dark:text-white">{voucher.package_name || "Unknown Package"}</span>
+                      </div>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="5" className="px-6 py-4 text-center text-gray-500 dark:text-gray-400">
+                    No used vouchers found
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 }

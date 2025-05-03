@@ -1,12 +1,20 @@
 import countryList from "react-select-country-list";
-import { Select, Table } from "../..";
+import { Select, Table } from "../../index";
 import { genealogyColumns } from "../../../constants/Column";
 import { useMemo, useState } from "react";
 
 export default function Referral({ data }) {
   const [submitClicked, setSubmitClicked] = useState(false);
 
+  // Current filter values that change as user updates inputs
   const [allFilters, setAllFilters] = useState({
+    userCountry: null,
+    userId: "",
+    userEmailVerification: null,
+  });
+
+  // Applied filters that only update when Submit is clicked
+  const [appliedFilters, setAppliedFilters] = useState({
     userCountry: null,
     userId: "",
     userEmailVerification: null,
@@ -33,25 +41,40 @@ export default function Referral({ data }) {
 
   const filteredData = formattedData?.filter((el) => {
     const countryMatch =
-      !allFilters.userCountry ||
-      el?.userData?.country === allFilters.userCountry.label;
+      !appliedFilters.userCountry ||
+      el?.userData?.country === appliedFilters.userCountry.label;
 
     const emailVerificationMatch =
-      !allFilters.userEmailVerification ||
+      !appliedFilters.userEmailVerification ||
       parseInt(el?.userData?.verified) ==
-        parseInt(allFilters.userEmailVerification?.value);
+        parseInt(appliedFilters.userEmailVerification?.value);
 
     const userIdMatch =
-      !allFilters.userId ||
+      !appliedFilters.userId ||
       el?.userData?.userId
         ?.toLowerCase()
-        ?.includes(allFilters?.userId?.toLowerCase());
+        ?.includes(appliedFilters?.userId?.toLowerCase());
 
     return countryMatch && emailVerificationMatch && userIdMatch;
   });
 
   const handleSubmit = () => {
+    // Copy current filter values to applied filters
+    setAppliedFilters({...allFilters});
     setSubmitClicked(true);
+  };
+
+  const handleReset = () => {
+    // Reset both current filters and applied filters
+    const emptyFilters = {
+      userCountry: null,
+      userId: "",
+      userEmailVerification: null,
+    };
+    
+    setAllFilters(emptyFilters);
+    setAppliedFilters(emptyFilters);
+    setSubmitClicked(false);
   };
 
   return (
@@ -158,14 +181,7 @@ export default function Referral({ data }) {
           Submit
         </button>
         <button
-          onClick={() => {
-            setSubmitClicked(false);
-            setAllFilters({
-              userCountry: null,
-              userId: "",
-              userEmailVerification: null,
-            });
-          }}
+          onClick={handleReset}
           className="flex-1 px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 transition-colors"
         >
           Reset

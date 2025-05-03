@@ -23,6 +23,12 @@ import useJOSAnimation from "./hooks/useJOSAnimation";
 import Layout from "./components/layout/Layout";
 import Faq_01 from "./pages/common/faq/faq_01/Faq_01";
 import BusinessPlan from "./pages/busines-plan/business-plan";
+// Service Pages
+import EvInvestments from "./pages/services/EvInvestments";
+import WealthManagement from "./pages/services/WealthManagement";
+import CryptoBlockchain from "./pages/services/CryptoBlockchain";
+import SolarEnergy from "./pages/services/SolarEnergy";
+import AiFinance from "./pages/services/AiFinance";
 // Dashboard Pages
 import {
   Home,
@@ -51,6 +57,7 @@ import TradingReport from "./components/dashboard/reports/TradingReport";
 import SolarDoc from "./components/sections/home_01/SolarDoc";
 import Smoothscrolls from "./components/Smoothscrolls";
 import PDFDownloads from "./pages/common/PDFDownloads";
+import Deposit from "./pages/dashboard/Deposit";
 
 function App() {
   // Init JOS Animation
@@ -128,6 +135,48 @@ function App() {
               </Smoothscrolls>
             }
           />
+          {/* Services sub-pages */}
+          <Route
+            path="services/ev-investments"
+            element={
+              <Smoothscrolls>
+                <EvInvestments />
+              </Smoothscrolls>
+            }
+          />
+          <Route
+            path="services/wealth-management"
+            element={
+              <Smoothscrolls>
+                <WealthManagement />
+              </Smoothscrolls>
+            }
+          />
+          <Route
+            path="services/crypto-blockchain"
+            element={
+              <Smoothscrolls>
+                <CryptoBlockchain />
+              </Smoothscrolls>
+            }
+          />
+          <Route
+            path="services/solar-energy"
+            element={
+              <Smoothscrolls>
+                <SolarEnergy />
+              </Smoothscrolls>
+            }
+          />
+          <Route
+            path="services/ai-finance"
+            element={
+              <Smoothscrolls>
+                <AiFinance />
+              </Smoothscrolls>
+            }
+          />
+          
           <Route path="service-details" element={<Services_Details />} />
           <Route path="/TermsandCondition" element={<TermsandCondition />} />
           <Route path="verify/:token" element={<Verify />} />
@@ -139,6 +188,7 @@ function App() {
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<Home />} />
           <Route path="investments/:selectedRoute" element={<Investment />} />
+          <Route path="deposit" element={<Deposit />} />
           <Route path="nowtry" element={<NowPayment />} />
           <Route path="one" element={<Dashboard />} />
           <Route path="settings/:selectedRoute" element={<Settings />} />

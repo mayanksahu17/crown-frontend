@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FaTicketAlt, FaPlus, FaSearch } from "react-icons/fa";
+import { FaTicketAlt, FaPlus } from "react-icons/fa";
 import { useAuth } from "../../hooks/useAuth";
 import vouchersService from "../../services/vouchersService";
 import toast from "react-hot-toast";
@@ -70,23 +70,12 @@ export default function Vouchers() {
       {/* Page Header */}
       <div className="mb-6">
         <h1 className="text-2xl font-semibold text-gray-900 dark:text-white">Voucher</h1>
-        <p className="text-gray-600 dark:text-gray-400">Let's check your update today</p>
+        <p className="text-gray-600 dark:text-gray-400">Manage your vouchers</p>
       </div>
 
       {/* Tabs */}
       <div className="bg-white dark:bg-[#1E293B] rounded-t-lg">
         <div className="flex">
-          <button
-            onClick={() => setActiveTab("list")}
-            className={`py-3 px-4 flex items-center transition duration-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-t-md ${
-              activeTab === "list"
-                ? "border-b-2 border-green-400 text-gray-900 dark:text-white"
-                : "text-gray-500 dark:text-gray-400"
-            }`}
-          >
-            <FaTicketAlt className="mr-2" /> Vouchers List
-          </button>
-
           <button
             onClick={() => setActiveTab("create")}
             className={`py-3 px-4 flex items-center transition duration-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-t-md ${
@@ -96,6 +85,17 @@ export default function Vouchers() {
             }`}
           >
             <FaPlus className="mr-2" /> Create Voucher
+          </button>
+
+          <button
+            onClick={() => setActiveTab("list")}
+            className={`py-3 px-4 flex items-center transition duration-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-t-md ${
+              activeTab === "list"
+                ? "border-b-2 border-green-400 text-gray-900 dark:text-white"
+                : "text-gray-500 dark:text-gray-400"
+            }`}
+          >
+            <FaTicketAlt className="mr-2" /> Vouchers List
           </button>
         </div>
       </div>

@@ -26,25 +26,34 @@ export default function ProfileSettings() {
     email: user?.user?.email,
   });
   const customStyles = {
-    control: (provided) => ({
+    control: (provided, state) => ({
       ...provided,
       backgroundColor: "transparent",
-      border: "1px solid #000",
+      border: "1px solid #6b7280",
       borderRadius: "8px",
       padding: "1px",
+      boxShadow: state.isFocused ? "0 0 0 1px #4f46e5" : null,
     }),
     input: (provided) => ({
       ...provided,
-      color: "#000 !important",
+      color: "var(--text-color)",
     }),
     singleValue: (provided) => ({
       ...provided,
-      color: "#000",
+      color: "var(--text-color)",
     }),
-    option: (provided) => ({
+    option: (provided, state) => ({
       ...provided,
-      backgroundColor: "#fff",
-      color: "#000",
+      backgroundColor: state.isSelected ? "#4f46e5" : "var(--bg-color)",
+      color: state.isSelected ? "white" : "var(--text-color)",
+      "&:hover": {
+        backgroundColor: state.isSelected ? "#4f46e5" : "#e5e7eb",
+      },
+    }),
+    menu: (provided) => ({
+      ...provided,
+      backgroundColor: "var(--bg-color)",
+      border: "1px solid #6b7280",
     }),
   };
   const [isLoading, setIsLoading] = useState(false);
@@ -82,12 +91,12 @@ export default function ProfileSettings() {
     handleDataChange("country", selectedCountry.label);
 
   return (
-    <div className="mt-4 space-y-4 text-black">
-      <h1 className="text-2xl ">Profile Settings</h1>
-      <div className="grid grid-cols-1  gap-4 w-full items-center">
+    <div className="mt-4 space-y-4 text-gray-800 dark:text-gray-200">
+      <h1 className="text-2xl font-semibold text-gray-900 dark:text-white">Profile Settings</h1>
+      <div className="grid grid-cols-1 gap-4 w-full items-center">
         {inputData.map(({ label, name, readOnly }) => (
           <div key={name} className="w-full">
-            <label className="block text-black font-normal mb-1">{label}</label>
+            <label className="block text-gray-700 dark:text-gray-300 font-medium mb-1">{label}</label>
             {name === "country" ? (
               <Select
                 options={options}
@@ -102,7 +111,9 @@ export default function ProfileSettings() {
                 readOnly={readOnly}
                 value={allData[name]}
                 onChange={(e) => handleDataChange(name, e.target.value)}
-                className="w-full  text-black px-2.5 py-[7px] border rounded-md border-solid border-slate-200 outline-none !ml-0"
+                className="w-full px-2.5 py-2 border rounded-md border-gray-300 dark:border-gray-600 
+                bg-white dark:bg-gray-800 text-gray-900 dark:text-white outline-none focus:ring-2 
+                focus:ring-blue-500 focus:border-transparent transition-colors !ml-0"
               />
             )}
           </div>

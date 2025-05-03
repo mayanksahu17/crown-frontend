@@ -51,36 +51,36 @@ export default function BinaryTree({ data }) {
 
       {data?.length > 0 ? (
         <div
-          className="overflow-x-auto py-10 w-full border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-800"
+          className="overflow-x-auto py-5 w-full border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-800"
           ref={containerRef}
         >
-          <div className="mx-auto max-w-[100vw] px-[800px] lg:px-0">
-            <div className="flex flex-col items-center justify-center">
+          <div className="mx-auto max-w-[100vw] px-[300px] lg:px-0">
+            <div className="flex flex-col items-center justify-center scale-[0.85] transform-origin-top">
               <BinaryNode data={getNodeById(1)} first />
               <div className="flex items-center justify-center">
-                <div className="h-[2px] bg-gray-300 dark:bg-gray-600 w-[528px]" />
+                <div className="h-[2px] bg-gray-300 dark:bg-gray-600 w-[400px]" />
               </div>
-              <div className="flex gap-[406px]">
+              <div className="flex gap-[300px]">
                 <BinaryNode data={getNodeById(2)} />
                 <BinaryNode data={getNodeById(3)} />
               </div>
-              <div className="flex relative" style={{ gap: 338, marginTop: 0 }}>
-                <div className="h-[2px] bg-gray-300 dark:bg-gray-600 absolute w-[270px] right-[135px]" />
-                <div className="h-[2px] bg-gray-300 dark:bg-gray-600 absolute w-[272px] left-[135px]" />
+              <div className="flex relative" style={{ gap: 250, marginTop: 0 }}>
+                <div className="h-[2px] bg-gray-300 dark:bg-gray-600 absolute w-[210px] right-[95px]" />
+                <div className="h-[2px] bg-gray-300 dark:bg-gray-600 absolute w-[210px] left-[95px]" />
               </div>
-              <div className="flex gap-[151px]">
+              <div className="flex gap-[100px]">
                 <BinaryNode data={getNodeById(4)} side />
                 <BinaryNode data={getNodeById(5)} />
                 <BinaryNode data={getNodeById(6)} />
                 <BinaryNode data={getNodeById(7)} />
               </div>
-              <div className="flex relative gap-[157px]">
-                <div className="h-[2px] bg-gray-300 dark:bg-gray-600 absolute w-[143px] right-[360px]" />
-                <div className="h-[2px] bg-gray-300 dark:bg-gray-600 absolute w-[145px] right-[71px]" />
-                <div className="h-[2px] bg-gray-300 dark:bg-gray-600 absolute w-[142px] left-[73px]" />
-                <div className="h-[2px] bg-gray-300 dark:bg-gray-600 absolute w-[145px] left-[360px]" />
+              <div className="flex relative gap-[110px]">
+                <div className="h-[2px] bg-gray-300 dark:bg-gray-600 absolute w-[100px] right-[260px]" />
+                <div className="h-[2px] bg-gray-300 dark:bg-gray-600 absolute w-[100px] right-[50px]" />
+                <div className="h-[2px] bg-gray-300 dark:bg-gray-600 absolute w-[100px] left-[50px]" />
+                <div className="h-[2px] bg-gray-300 dark:bg-gray-600 absolute w-[100px] left-[260px]" />
               </div>
-              <div className="flex gap-6 px-0">
+              <div className="flex gap-5 px-0">
                 <BinaryNode last data={getNodeById(8)} side />
                 <BinaryNode last data={getNodeById(9)} />
                 <BinaryNode last data={getNodeById(10)} />

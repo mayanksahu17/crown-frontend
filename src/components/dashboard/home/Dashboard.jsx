@@ -1,5 +1,5 @@
 import React from "react";
-import CrownCard from "./CrownCard";
+import CardSelector from "./CardSelector";
 
 export default function Dashboard() {
   return (
@@ -8,10 +8,10 @@ export default function Dashboard() {
         <div className="container mx-auto flex flex-col w-full">
           {/* My Card Section */}
           <div className="lg:col-span-1 bg-white rounded-lg shadow p-6">
-            <div className="bg-blue-500 p-4 rounded-lg mb-4">
-              <CrownCard />
+            <div className="rounded-lg mb-4">
+              <CardSelector />
             </div>
-            <div className="space-y-2">
+            <div className="space-y-2 mt-6">
               <div className="flex justify-between items-center">
                 <span className="text-gray-500">Your Balance</span>
                 <span className="text-2xl font-bold">$128,320</span>
