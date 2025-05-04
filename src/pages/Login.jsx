@@ -101,6 +101,8 @@ const Login = () => {
         });
 
         if (response?.data?.success) {
+          console.log(response);
+          
           changeLoadingStates("isSignInLoading", false);
           updateUser({
             user: response?.data?.data,

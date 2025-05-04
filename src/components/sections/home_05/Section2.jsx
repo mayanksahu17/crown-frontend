@@ -5,51 +5,52 @@ import { useEffect, useRef } from "react";
 
 const services = [
   {
-    title: "EV Investments & <br/>Infrastructure GrowthStrategic",
+    title: "EV Infrastructure & Mobility Innovation",
     description:
-      "Investment opportunities in the booming EV sector, including charging networks, battery technology, and smart mobility…",
-    icon: "https://cdn-icons-png.flaticon.com/512/3097/3097180.png", // Electric car icon
+      "Explore advancements in electric vehicle technology, smart mobility systems, and sustainable transportation infrastructure shaping the future of mobility.",
+    icon: "https://cdn-icons-png.flaticon.com/512/3097/3097180.png",
     alt: "Electric Vehicle Icon",
     link: "/services/ev-investments",
     attribution: "https://www.flaticon.com/free-icons/electric-car",
   },
   {
-    title: "Investment & Wealth Management",
+    title: "Strategic Wealth Structuring",
     description:
-      "Comprehensive wealth management services that help clients maximize returns...",
-    icon: "https://cdn-icons-png.flaticon.com/512/2300/2300424.png", // Wealth management icon
+      "Tailored financial structuring and advisory services designed to support long-term goals, estate planning, and portfolio alignment with evolving needs.",
+    icon: "https://cdn-icons-png.flaticon.com/512/2300/2300424.png",
     alt: "Wealth Management Icon",
     link: "/services/wealth-management",
     attribution: "https://www.flaticon.com/free-icons/wealth-management",
   },
   {
-    title: "Crypto & Blockchain Solutions",
+    title: "Crypto & Blockchain Innovation",
     description:
-      "Blockchain-powered financial systems that ensure secure transactions, smart...",
-    icon: "https://cdn-icons-png.flaticon.com/512/2152/2152349.png", // Blockchain icon
+      "Discover secure and transparent blockchain frameworks and explore digital asset strategies for navigating the evolving landscape of decentralized finance.",
+    icon: "https://cdn-icons-png.flaticon.com/512/2152/2152349.png",
     alt: "Blockchain Icon",
     link: "/services/crypto-blockchain",
     attribution: "https://www.flaticon.com/free-icons/blockchain",
   },
   {
-    title: "Solar Energy Investments <br/> & Green Returns",
+    title: "Solar & Clean Energy Solutions",
     description:
-      "Profitable investment avenues in solar energy, from large-scale solar farms to innovative renewable tech solutions…",
-    icon: "https://cdn-icons-png.flaticon.com/512/5341/5341450.png", // Solar panel icon
+      "Engage with cutting-edge developments in solar energy systems and technologies driving the transition to a cleaner, more resilient energy future.",
+    icon: "https://cdn-icons-png.flaticon.com/512/5341/5341450.png",
     alt: "Solar Energy Icon",
     link: "/services/solar-energy",
     attribution: "https://www.flaticon.com/free-icons/solar-panel",
   },
   {
-    title: "AI in Finance & Automation",
+    title: "AI-Driven Financial Transformation",
     description:
-      "Transforming financial operations with AI-driven analytics, fraud detection, and intelligent automation solutions...",
-    icon: "https://cdn-icons-png.flaticon.com/512/3081/3081478.png", // AI robot icon
+      "Leverage artificial intelligence to enhance financial workflows, streamline operations, and enable data-driven decision-making across financial services.",
+    icon: "https://cdn-icons-png.flaticon.com/512/3081/3081478.png",
     alt: "AI Robot Icon",
     link: "/services/ai-finance",
     attribution: "https://www.flaticon.com/free-icons/artificial-intelligence",
   },
 ];
+
 
 // Clone the services list to simulate an infinite loop
 const loopedServices = [...services, ...services];
