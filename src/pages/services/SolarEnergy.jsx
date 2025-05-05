@@ -9,8 +9,8 @@ gsap.registerPlugin(ScrollTrigger);
 const SolarEnergy = () => {
   const heroRef = useRef(null);
   const whyInvestRef = useRef(null);
-  const investmentTypesRef = useRef(null);
-  const performanceRef = useRef(null);
+  const opportunitiesRef = useRef(null);
+  const marketRef = useRef(null);
   const ctaRef = useRef(null);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const SolarEnergy = () => {
       );
     }
 
-    // Why Invest section animation
+    // Why Choose section animation
     if (whyInvestRef.current) {
       gsap.fromTo(
         whyInvestRef.current.children,
@@ -49,10 +49,10 @@ const SolarEnergy = () => {
       );
     }
 
-    // Investment Types section animation
-    if (investmentTypesRef.current) {
+    // Opportunities section animation
+    if (opportunitiesRef.current) {
       gsap.fromTo(
-        investmentTypesRef.current.children,
+        opportunitiesRef.current.children,
         { opacity: 0, y: 60 },
         {
           opacity: 1,
@@ -60,7 +60,7 @@ const SolarEnergy = () => {
           ...defaults,
           stagger: 0.25,
           scrollTrigger: {
-            trigger: investmentTypesRef.current,
+            trigger: opportunitiesRef.current,
             start: "top 85%",
             end: "bottom 30%",
             scrub: 0.5,
@@ -69,17 +69,17 @@ const SolarEnergy = () => {
       );
     }
 
-    // Performance section animation
-    if (performanceRef.current) {
+    // Market section animation
+    if (marketRef.current) {
       gsap.fromTo(
-        performanceRef.current,
+        marketRef.current,
         { opacity: 0, y: 60 },
         {
           opacity: 1,
           y: 0,
           ...defaults,
           scrollTrigger: {
-            trigger: performanceRef.current,
+            trigger: marketRef.current,
             start: "top 85%",
             end: "bottom 30%",
             scrub: 0.5,
@@ -127,37 +127,37 @@ const SolarEnergy = () => {
         <div className="relative max-w-6xl px-4 mx-auto md:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="mb-6 text-4xl text-white sm:text-5xl lg:text-6xl font-bold">
-              Solar Energy Investments & Green Returns
+              Solar Energy Solutions & Green Futures
             </h1>
             <p className="mx-auto text-base leading-relaxed text-white sm:text-lg lg:text-xl">
-              Profitable investment avenues in solar energy, from large-scale solar farms to 
-              innovative renewable tech solutions for sustainable growth and returns.
+              Explore strategic opportunities in solar energy, from utility-scale solar farms to 
+              innovative renewable technologies for sustainable growth and environmental impact.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Why Invest Section */}
+      {/* Why Choose Solar Section */}
       <section ref={whyInvestRef} className="py-12 sm:py-16 lg:py-20">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 md:mx-24">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-center mb-12 text-[#4CAF50]">
-            Why Invest in Solar Energy
+            Why Choose Solar Energy
           </h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             <div className="p-6 bg-white rounded-lg shadow-md border-b-4 border-[#4CAF50]">
               <div className="mb-4 text-3xl text-[#4CAF50]">☀️</div>
               <h3 className="mb-3 text-xl font-bold text-gray-800">Exceptional Growth</h3>
               <p className="text-gray-600">
-                The global solar energy market is projected to reach $1.5 trillion by 2028, 
-                growing at a CAGR of 25.9% from 2021 to 2028.
+                The global solar energy market is experiencing unprecedented expansion, with capacity 
+                installations breaking records year after year across developed and emerging markets.
               </p>
             </div>
             <div className="p-6 bg-white rounded-lg shadow-md border-b-4 border-[#4CAF50]">
               <div className="mb-4 text-3xl text-[#4CAF50]">📈</div>
-              <h3 className="mb-3 text-xl font-bold text-gray-800">Stable Returns</h3>
+              <h3 className="mb-3 text-xl font-bold text-gray-800">Long-Term Stability</h3>
               <p className="text-gray-600">
-                Solar investments typically offer predictable income streams and ROI rates 
-                between 8-12%, outperforming many traditional investment vehicles.
+                Solar energy provides decades of stable operation with minimal maintenance requirements 
+                and predictable performance throughout the asset's lifetime.
               </p>
             </div>
             <div className="p-6 bg-white rounded-lg shadow-md border-b-4 border-[#4CAF50]">
@@ -165,7 +165,7 @@ const SolarEnergy = () => {
               <h3 className="mb-3 text-xl font-bold text-gray-800">ESG Impact</h3>
               <p className="text-gray-600">
                 Align your portfolio with environmental and social governance goals while 
-                benefiting from the transition to a low-carbon economy.
+                contributing meaningfully to the transition to a low-carbon economy.
               </p>
             </div>
             <div className="p-6 bg-white rounded-lg shadow-md border-b-4 border-[#4CAF50]">
@@ -173,7 +173,7 @@ const SolarEnergy = () => {
               <h3 className="mb-3 text-xl font-bold text-gray-800">Technological Advancements</h3>
               <p className="text-gray-600">
                 Ongoing innovations in efficiency, storage solutions, and materials science 
-                continue to drive down costs and increase returns.
+                continue to enhance the performance and economics of solar technology.
               </p>
             </div>
             <div className="p-6 bg-white rounded-lg shadow-md border-b-4 border-[#4CAF50]">
@@ -181,15 +181,15 @@ const SolarEnergy = () => {
               <h3 className="mb-3 text-xl font-bold text-gray-800">Policy Support</h3>
               <p className="text-gray-600">
                 Government incentives, tax benefits, and renewable energy mandates create a 
-                favorable environment for solar investments worldwide.
+                favorable environment for solar development worldwide.
               </p>
             </div>
             <div className="p-6 bg-white rounded-lg shadow-md border-b-4 border-[#4CAF50]">
               <div className="mb-4 text-3xl text-[#4CAF50]">🧩</div>
               <h3 className="mb-3 text-xl font-bold text-gray-800">Portfolio Diversification</h3>
               <p className="text-gray-600">
-                Solar energy investments offer low correlation with traditional market assets, 
-                providing valuable diversification for your investment portfolio.
+                Solar energy assets offer low correlation with traditional market assets, 
+                providing valuable diversification benefits for your portfolio.
               </p>
             </div>
           </div>
@@ -198,6 +198,7 @@ const SolarEnergy = () => {
 
       {/* Market Trends Section */}
       <section 
+        ref={marketRef}
         className="py-16 text-white"
         style={{
           backgroundImage: "linear-gradient(to right, #3a8c3c, #4CAF50)",
@@ -205,7 +206,7 @@ const SolarEnergy = () => {
       >
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <h2 className="mb-12 text-3xl font-bold text-center sm:text-4xl">
-            Solar Energy Market Trends
+            Solar Energy Market Insights
           </h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             <div className="p-6 bg-white/10 backdrop-blur-sm rounded-lg shadow-md text-center">
@@ -222,17 +223,17 @@ const SolarEnergy = () => {
             </div>
             <div className="p-6 bg-white/10 backdrop-blur-sm rounded-lg shadow-md text-center">
               <div className="text-6xl font-bold">20+</div>
-              <p className="mt-4 text-lg">Years of Reliable Investment Returns</p>
+              <p className="mt-4 text-lg">Years of Reliable Operation</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Investment Types Section */}
-      <section ref={investmentTypesRef} className="py-12 sm:py-16 lg:py-20">
+      {/* Opportunities Section */}
+      <section ref={opportunitiesRef} className="py-12 sm:py-16 lg:py-20">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 md:mx-24">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-center mb-12 text-[#4CAF50]">
-            Solar Investment Opportunities
+            Solar Energy Opportunities
           </h2>
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
             <div className="overflow-hidden transition-all duration-300 bg-white rounded-lg shadow-lg hover:shadow-xl">
@@ -244,8 +245,8 @@ const SolarEnergy = () => {
               <div className="p-6">
                 <h3 className="mb-3 text-2xl font-bold text-gray-800">Utility-Scale Solar Farms</h3>
                 <p className="mb-4 text-gray-600">
-                  Invest in large-scale solar installations that generate power for utilities and 
-                  the electric grid. These projects typically involve:
+                  Strategic opportunities in large-scale solar installations that generate power for utilities and 
+                  the electric grid. These projects typically feature:
                 </p>
                 <ul className="mb-6 space-y-2 text-gray-600">
                   <li className="flex items-center">
@@ -254,7 +255,7 @@ const SolarEnergy = () => {
                   </li>
                   <li className="flex items-center">
                     <span className="mr-2 text-[#4CAF50]">✓</span>
-                    Stable, predictable cash flows
+                    Stable, predictable operational performance
                   </li>
                   <li className="flex items-center">
                     <span className="mr-2 text-[#4CAF50]">✓</span>
@@ -262,10 +263,10 @@ const SolarEnergy = () => {
                   </li>
                   <li className="flex items-center">
                     <span className="mr-2 text-[#4CAF50]">✓</span>
-                    Minimum investment thresholds starting at $50,000
+                    Customizable participation options
                   </li>
                 </ul>
-                <div className="font-semibold text-[#4CAF50]">Expected Annual Returns: 8-10%</div>
+                <div className="font-semibold text-[#4CAF50]">Consultation Required</div>
               </div>
             </div>
             <div className="overflow-hidden transition-all duration-300 bg-white rounded-lg shadow-lg hover:shadow-xl">
@@ -275,15 +276,15 @@ const SolarEnergy = () => {
                 className="object-cover w-full h-64"
               />
               <div className="p-6">
-                <h3 className="mb-3 text-2xl font-bold text-gray-800">Solar Technology Companies</h3>
+                <h3 className="mb-3 text-2xl font-bold text-gray-800">Solar Technology Ventures</h3>
                 <p className="mb-4 text-gray-600">
-                  Invest in innovative companies driving technological advancements in the solar industry,
+                  Opportunities in innovative enterprises driving technological advancements in the solar industry,
                   from panel manufacturers to energy storage solutions:
                 </p>
                 <ul className="mb-6 space-y-2 text-gray-600">
                   <li className="flex items-center">
                     <span className="mr-2 text-[#4CAF50]">✓</span>
-                    Equity investments in high-growth potential companies
+                    Access to high-growth potential companies
                   </li>
                   <li className="flex items-center">
                     <span className="mr-2 text-[#4CAF50]">✓</span>
@@ -295,10 +296,10 @@ const SolarEnergy = () => {
                   </li>
                   <li className="flex items-center">
                     <span className="mr-2 text-[#4CAF50]">✓</span>
-                    Flexible investment options starting at $25,000
+                    Tailored strategies based on client goals
                   </li>
                 </ul>
-                <div className="font-semibold text-[#4CAF50]">Expected Annual Returns: 12-18%</div>
+                <div className="font-semibold text-[#4CAF50]">Consultation Required</div>
               </div>
             </div>
             <div className="overflow-hidden transition-all duration-300 bg-white rounded-lg shadow-lg hover:shadow-xl">
@@ -316,7 +317,7 @@ const SolarEnergy = () => {
                 <ul className="mb-6 space-y-2 text-gray-600">
                   <li className="flex items-center">
                     <span className="mr-2 text-[#4CAF50]">✓</span>
-                    Lower entry point for solar investments
+                    Accessible entry points for solar participation
                   </li>
                   <li className="flex items-center">
                     <span className="mr-2 text-[#4CAF50]">✓</span>
@@ -324,14 +325,14 @@ const SolarEnergy = () => {
                   </li>
                   <li className="flex items-center">
                     <span className="mr-2 text-[#4CAF50]">✓</span>
-                    Monthly income from energy sales
+                    Regular income from energy production
                   </li>
                   <li className="flex items-center">
                     <span className="mr-2 text-[#4CAF50]">✓</span>
-                    Investments starting at just $10,000
+                    Flexible participation options
                   </li>
                 </ul>
-                <div className="font-semibold text-[#4CAF50]">Expected Annual Returns: 6-8%</div>
+                <div className="font-semibold text-[#4CAF50]">Consultation Required</div>
               </div>
             </div>
             <div className="overflow-hidden transition-all duration-300 bg-white rounded-lg shadow-lg hover:shadow-xl">
@@ -341,19 +342,19 @@ const SolarEnergy = () => {
                 className="object-cover w-full h-64"
               />
               <div className="p-6">
-                <h3 className="mb-3 text-2xl font-bold text-gray-800">Solar Green Bonds</h3>
+                <h3 className="mb-3 text-2xl font-bold text-gray-800">Solar Financing Solutions</h3>
                 <p className="mb-4 text-gray-600">
-                  Fixed-income securities that fund solar energy projects and installations,
+                  Fixed-income opportunities that fund solar energy projects and installations,
                   providing:
                 </p>
                 <ul className="mb-6 space-y-2 text-gray-600">
                   <li className="flex items-center">
                     <span className="mr-2 text-[#4CAF50]">✓</span>
-                    Predictable interest payments
+                    Predictable payment schedules
                   </li>
                   <li className="flex items-center">
                     <span className="mr-2 text-[#4CAF50]">✓</span>
-                    Lower risk profile than equity investments
+                    Lower risk profile than equity opportunities
                   </li>
                   <li className="flex items-center">
                     <span className="mr-2 text-[#4CAF50]">✓</span>
@@ -361,69 +362,68 @@ const SolarEnergy = () => {
                   </li>
                   <li className="flex items-center">
                     <span className="mr-2 text-[#4CAF50]">✓</span>
-                    Minimum investment of $20,000
+                    Custom-structured participation options
                   </li>
                 </ul>
-                <div className="font-semibold text-[#4CAF50]">Expected Annual Returns: 5-7%</div>
+                <div className="font-semibold text-[#4CAF50]">Consultation Required</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Performance Section */}
+      {/* Expert Guidance Section */}
       <section 
-        ref={performanceRef}
         className="py-16 bg-gray-100"
       >
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="grid items-center grid-cols-1 gap-12 md:grid-cols-2">
             <div>
               <h2 className="mb-6 text-3xl font-bold text-[#4CAF50] sm:text-4xl">
-                Proven Track Record of Performance
+                Expert Guidance & Personalized Solutions
               </h2>
               <p className="mb-8 text-gray-600">
-                At Crown Bankers, our solar energy investment portfolios have consistently 
-                outperformed market benchmarks. Our meticulous selection process and expert 
-                management ensure optimal returns while contributing to a sustainable future.
+                At Crown Bankers, our solar energy specialists bring decades of industry experience 
+                to help you navigate the complexities of renewable energy opportunities. Our approach 
+                combines thorough market analysis with your specific goals to create customized strategies.
               </p>
               <div className="p-6 mb-6 bg-white rounded-lg shadow-md">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-gray-700">Solar Farm Portfolio</span>
-                  <span className="font-semibold text-[#4CAF50]">+9.7% avg. annual return</span>
+                <div className="flex items-center mb-4">
+                  <div className="mr-4 text-3xl text-[#4CAF50]">🔍</div>
+                  <h3 className="text-xl font-bold text-gray-800">Thorough Due Diligence</h3>
                 </div>
-                <div className="w-full h-2 bg-gray-200 rounded-full">
-                  <div className="w-[75%] h-2 bg-[#4CAF50] rounded-full"></div>
-                </div>
+                <p className="text-gray-600">
+                  We conduct comprehensive assessment of each opportunity, evaluating technical specifications, 
+                  regulatory compliance, and long-term viability factors.
+                </p>
               </div>
               <div className="p-6 mb-6 bg-white rounded-lg shadow-md">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-gray-700">Solar Tech Equity Fund</span>
-                  <span className="font-semibold text-[#4CAF50]">+15.3% avg. annual return</span>
+                <div className="flex items-center mb-4">
+                  <div className="mr-4 text-3xl text-[#4CAF50]">🛠️</div>
+                  <h3 className="text-xl font-bold text-gray-800">Customized Strategy Development</h3>
                 </div>
-                <div className="w-full h-2 bg-gray-200 rounded-full">
-                  <div className="w-[85%] h-2 bg-[#4CAF50] rounded-full"></div>
-                </div>
+                <p className="text-gray-600">
+                  We work closely with you to develop a tailored approach that aligns with your goals, 
+                  timeline, and sustainability objectives.
+                </p>
               </div>
               <div className="p-6 bg-white rounded-lg shadow-md">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-gray-700">Green Energy Bond Portfolio</span>
-                  <span className="font-semibold text-[#4CAF50]">+6.8% avg. annual return</span>
+                <div className="flex items-center mb-4">
+                  <div className="mr-4 text-3xl text-[#4CAF50]">📊</div>
+                  <h3 className="text-xl font-bold text-gray-800">Ongoing Performance Monitoring</h3>
                 </div>
-                <div className="w-full h-2 bg-gray-200 rounded-full">
-                  <div className="w-[65%] h-2 bg-[#4CAF50] rounded-full"></div>
-                </div>
+                <p className="text-gray-600">
+                  Our team provides continuous oversight and regular reporting to ensure your 
+                  solar assets perform as expected throughout their lifecycle.
+                </p>
               </div>
             </div>
             <div>
               <img
                 src="https://images.unsplash.com/photo-1595437193398-f24279553f4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
-                alt="Solar Energy Performance"
+                alt="Solar Energy Specialists"
                 className="w-full rounded-lg shadow-lg"
               />
-              <p className="mt-4 text-sm text-gray-500 italic">
-                * Performance data based on 5-year trailing returns. Past performance is not a guarantee of future results.
-              </p>
             </div>
           </div>
         </div>
@@ -436,15 +436,15 @@ const SolarEnergy = () => {
       >
         <div className="px-4 mx-auto text-center max-w-5xl">
           <h2 className="mb-6 text-3xl font-bold sm:text-4xl">
-            Ready to Invest in a Brighter, More Sustainable Future?
+            Ready to Explore Solar Energy Opportunities?
           </h2>
           <p className="mb-8 text-lg">
-            Join Crown Bankers in capitalizing on the solar energy revolution. Our expert team
-            will guide you through investment opportunities that align with your financial goals
+            Join Crown Bankers in participating in the solar energy revolution. Our expert team
+            will guide you through opportunities that align with your financial goals
             and values.
           </p>
           <button className="px-8 py-3 text-lg font-semibold text-[#4CAF50] bg-white rounded-md hover:bg-gray-100 transition duration-300">
-            Start Your Solar Investment Journey
+            Schedule a Consultation Today
           </button>
         </div>
       </section>
@@ -454,4 +454,4 @@ const SolarEnergy = () => {
   );
 };
 
-export default SolarEnergy; 
+export default SolarEnergy;

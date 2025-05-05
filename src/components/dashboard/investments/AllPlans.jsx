@@ -7,9 +7,8 @@ import toast from "react-hot-toast";
 import vouchersService from "../../../services/vouchersService";
 import { useAuth } from "../../../hooks/useAuth";
 import moment from "moment/moment";
-import { tokens } from "../../../constants/tokens";
-import investmentService from "../../../services/investmentService";
 import { customStyles, packageData } from "./data";
+import investmentService from "../../../services/investmentService";
 import axios from "axios";
 
 export default function Investment({ data }) {
@@ -22,7 +21,6 @@ export default function Investment({ data }) {
     deposit_amount: 0,
     voucher_amount: 0,
     isVoucherClicked: false,
-    isDepositWalletClicked: false,
     isPreviewModalOpen: false,
     packageType: {
       label: "Self",
@@ -32,27 +30,11 @@ export default function Investment({ data }) {
     selectedVoucher: null,
     downlineId: "",
     isInvestmentSubmitting: false,
-    selectedToken: null,
     deposit_wallet: 0,
   });
 
   const handleDataChange = (name, value) =>
     setAllData((prev) => ({ ...prev, [name]: value }));
-
-  const createInvestment = (user, data) => {
-    return axios.post(
-      `https://crownbankers.com/api/payment/create_transaction`,
-      {
-        ...data,
-        email: user?.user?.email,
-      },
-      {
-        headers: {
-          Authorization: user?.token,
-        },
-      }
-    );
-  };
 
   // Fetch deposit wallet balance
   useEffect(() => {
@@ -92,96 +74,43 @@ export default function Investment({ data }) {
   }, []);
 
   const handleCreateInvestment = async () => {
-    let custom = [];
-    custom[0] = allData.downlineId ? allData.downlineId : user?.user?.userId;
-    custom[1] = allData.packageType.value;
-    custom[2] = user?.user?.userId;
-    custom[3] = allData.selectedModalPackage?.id;
-    custom[4] = parseFloat(allData.amount);
-    custom[5] = parseFloat(allData.deposit_amount);
-    custom[6] = parseFloat(allData.voucher_amount);
-    custom[7] = allData.selectedVoucher ? allData.selectedVoucher?.value : "NA";
-    custom[8] = allData.isDepositWalletClicked ? "1" : "0"; // Flag to indicate deposit wallet usage
-
     try {
-      // If using deposit wallet funds
-      if (allData.isDepositWalletClicked) {
-        handleDataChange("isInvestmentSubmitting", true);
-        
-        // Call API endpoint to activate package using deposit wallet
-        const activateResponse = await investmentService.activatePackageFromDepositWallet({
-          user_id: user?.user?.userId,
-          package_id: allData.selectedModalPackage?.id,
-          amount: parseFloat(allData.amount),
-          deposit_amount: parseFloat(allData.deposit_amount),
-          voucher_amount: parseFloat(allData.voucher_amount),
-          voucher_id: allData.selectedVoucher ? allData.selectedVoucher?.value : "NA",
-          package_type: allData.packageType.value,
-          downline_id: allData.downlineId ? allData.downlineId : user?.user?.userId,
+      handleDataChange("isInvestmentSubmitting", true);
+      
+      // Call API endpoint to activate package using deposit wallet
+      const activateResponse = await investmentService.activatePackageFromDepositWallet({
+        user_id: user?.user?.userId,
+        package_id: allData.selectedModalPackage?.id,
+        amount: parseFloat(allData.amount),
+        deposit_amount: parseFloat(allData.deposit_amount),
+        voucher_amount: parseFloat(allData.voucher_amount),
+        voucher_id: allData.selectedVoucher ? allData.selectedVoucher?.value : "NA",
+        package_type: allData.packageType.value,
+        downline_id: allData.downlineId ? allData.downlineId : user?.user?.userId,
+      });
+      
+      if (activateResponse?.data?.success) {
+        toast.success("Package activated successfully!");
+        setAllData({
+          amount: 0,
+          isOpenModal: false,
+          deposit_amount: 0,
+          voucher_amount: 0,
+          selectedModalPackage: null,
+          isVoucherClicked: false,
+          isPreviewModalOpen: false,
+          packageType: {
+            label: "Self",
+            value: "self",
+          },
+          allVouchers: [],
+          selectedVoucher: null,
+          downlineId: "",
+          isInvestmentSubmitting: false,
+          deposit_wallet: allData.deposit_wallet,
         });
-        
-        if (activateResponse?.data?.success) {
-          toast.success("Package activated successfully!");
-          setAllData({
-            amount: 0,
-            isOpenModal: false,
-            deposit_amount: 0,
-            voucher_amount: 0,
-            selectedModalPackage: null,
-            isVoucherClicked: false,
-            isDepositWalletClicked: false,
-            isPreviewModalOpen: false,
-            packageType: {
-              label: "Self",
-              value: "self",
-            },
-            allVouchers: [],
-            selectedVoucher: null,
-            downlineId: "",
-            isInvestmentSubmitting: false,
-            selectedToken: null,
-            deposit_wallet: allData.deposit_wallet,
-          });
-        } else {
-          toast.error(activateResponse?.data?.message || "Failed to activate package");
-        }
       } else {
-        // Regular crypto payment flow
-        const data = {
-          to_currency: allData.selectedToken?.value,
-          amount: parseFloat(allData.deposit_amount),
-          buyer_name: user?.user?.name,
-          buyer_email: user?.user?.email,
-          custom: JSON.stringify(custom),
-        };
-        
-        const res = await createInvestment(user, data);
-        if (res.status === 200) {
-          const checkoutUrl = res?.data?.data.checkout_url;
-          setAllData({
-            amount: 0,
-            isOpenModal: false,
-            deposit_amount: 0,
-            voucher_amount: 0,
-            selectedModalPackage: null,
-            isVoucherClicked: false,
-            isDepositWalletClicked: false,
-            isPreviewModalOpen: false,
-            packageType: {
-              label: "Self",
-              value: "self",
-            },
-            allVouchers: [],
-            selectedVoucher: null,
-            downlineId: "",
-            isInvestmentSubmitting: false,
-            selectedToken: null,
-            deposit_wallet: allData.deposit_wallet,
-          });
-          if (checkoutUrl) {
-            window.open(checkoutUrl, "_blank");
-          }
-        }
+        toast.error(activateResponse?.data?.message || "Failed to activate package");
       }
     } catch (error) {
       toast.error(error?.response?.data?.message || "Something went wrong");
@@ -202,7 +131,6 @@ export default function Investment({ data }) {
             isOpenModal: false,
             selectedModalPackage: null,
             isVoucherClicked: false,
-            isDepositWalletClicked: false,
             isPreviewModalOpen: false,
             packageType: {
               label: "Self",
@@ -212,7 +140,6 @@ export default function Investment({ data }) {
             selectedVoucher: null,
             downlineId: "",
             isInvestmentSubmitting: false,
-            selectedToken: null,
             deposit_wallet: allData.deposit_wallet,
           });
         }}
@@ -247,18 +174,6 @@ export default function Investment({ data }) {
               onChange={(value) => handleDataChange("packageType", value)}
             />
           </div>
-
-          {!allData.isDepositWalletClicked && (
-            <div className="mt-4">
-              <label className="block text-gray-700 dark:text-gray-300 font-medium mb-1">Select Cryptocurrency</label>
-              <Select
-                options={tokens}
-                customStyles={customStyles}
-                value={allData.selectedToken}
-                onChange={(value) => handleDataChange("selectedToken", value)}
-              />
-            </div>
-          )}
 
           {allData.packageType?.value === "downline" && (
             <div className="mt-4">
@@ -302,76 +217,60 @@ export default function Investment({ data }) {
             />
           </div>
 
-          {/* Deposit Wallet Option */}
+          {/* Deposit Wallet Info Display */}
+          <div className="mt-4 p-3 bg-gray-100 dark:bg-gray-800 rounded-md">
+            <p className="text-gray-700 dark:text-gray-300 flex justify-between">
+              <span>Deposit Wallet Balance:</span>
+              <span className="font-semibold">${parseFloat(allData.deposit_wallet).toFixed(2)}</span>
+            </p>
+          </div>
+
           <div className="flex items-center mt-4 space-x-2">
             <input
               type="checkbox"
-              id="useDepositWallet"
+              id="useVoucher"
               className="w-4 h-4 rounded border-gray-300 dark:border-gray-600 text-blue-600 focus:ring-blue-500"
-              checked={allData.isDepositWalletClicked}
+              checked={allData.isVoucherClicked}
               onChange={() => {
-                const newValue = !allData.isDepositWalletClicked;
-                handleDataChange("isDepositWalletClicked", newValue);
+                const newValue = !allData.isVoucherClicked;
+                handleDataChange("isVoucherClicked", newValue);
                 if (newValue) {
-                  // When enabling deposit wallet, disable voucher and crypto options
-                  handleDataChange("isVoucherClicked", false);
-                  handleDataChange("deposit_amount", allData.amount);
+                  const voucherAmount = parseFloat(allData.amount) * 0.5;
+                  handleDataChange("deposit_amount", voucherAmount);
+                  handleDataChange("voucher_amount", voucherAmount);
+                  handleDataChange("selectedVoucher", null);
+                } else {
+                  handleDataChange("deposit_amount", parseFloat(allData.amount));
                   handleDataChange("voucher_amount", 0);
-                  handleDataChange("selectedToken", null);
+                  handleDataChange("selectedVoucher", { value: "NA" });
                 }
               }}
             />
-            <label htmlFor="useDepositWallet" className="text-gray-700 dark:text-gray-300">
-              Use Deposit Wallet (Balance: ${parseFloat(allData.deposit_wallet).toFixed(2)})
-            </label>
+            <label htmlFor="useVoucher" className="text-gray-700 dark:text-gray-300">Use Voucher (50% off)</label>
           </div>
-
-          {!allData.isDepositWalletClicked && (
-            <div className="flex items-center mt-4 space-x-2">
-              <input
-                type="checkbox"
-                id="useVoucher"
-                className="w-4 h-4 rounded border-gray-300 dark:border-gray-600 text-blue-600 focus:ring-blue-500"
-                checked={allData.isVoucherClicked}
-                onChange={() => {
-                  const newValue = !allData.isVoucherClicked;
-                  handleDataChange("isVoucherClicked", newValue);
-                  if (newValue) {
-                    const voucherAmount = parseFloat(allData.amount) * 0.5;
-                    handleDataChange("deposit_amount", voucherAmount);
-                    handleDataChange("voucher_amount", voucherAmount);
-                    handleDataChange("selectedVoucher", null);
-                  } else {
-                    handleDataChange("deposit_amount", parseFloat(allData.amount));
-                    handleDataChange("voucher_amount", 0);
-                    handleDataChange("selectedVoucher", { value: "NA" });
-                  }
-                }}
-              />
-              <label htmlFor="useVoucher" className="text-gray-700 dark:text-gray-300">Use Voucher</label>
-            </div>
-          )}
 
           {allData.isVoucherClicked && (
             <>
-              <div className="mt-4">
-                <label className="block text-gray-700 dark:text-gray-300 font-medium mb-1">Deposit Amount</label>
-                <input
-                  readOnly
-                  value={allData?.deposit_amount}
-                  className="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-600 
-                            bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white"
-                />
-              </div>
+              <div className="mt-4 grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-gray-700 dark:text-gray-300 font-medium mb-1">From Deposit Wallet</label>
+                  <input
+                    readOnly
+                    value={allData?.deposit_amount}
+                    className="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-600 
+                              bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white"
+                  />
+                </div>
 
-              <div className="mt-4">
-                <label className="block text-gray-700 dark:text-gray-300 font-medium mb-1">Voucher Amount</label>
-                <input
-                  readOnly
-                  value={allData?.voucher_amount}
-                  className="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-600 
-                            bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white"
-                />
+                <div>
+                  <label className="block text-gray-700 dark:text-gray-300 font-medium mb-1">From Voucher</label>
+                  <input
+                    readOnly
+                    value={allData?.voucher_amount}
+                    className="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-600 
+                              bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white"
+                  />
+                </div>
               </div>
 
               <div className="mt-4">
@@ -400,20 +299,17 @@ export default function Investment({ data }) {
             onClick={handleCreateInvestment}
             disabled={
               !allData.amount || 
-              (!allData.selectedToken && !allData.isDepositWalletClicked) ||
-              (allData.isDepositWalletClicked && parseFloat(allData.amount) > parseFloat(allData.deposit_wallet)) ||
+              parseFloat(allData.amount) <= 0 ||
+              parseFloat(allData.deposit_amount) > parseFloat(allData.deposit_wallet) ||
               (allData.isVoucherClicked && !allData.selectedVoucher)
             }
           >
-            {allData.isDepositWalletClicked 
-              ? "Activate Package" 
-              : "Submit"
-            }
+            Activate Package
           </Button>
           
-          {allData.isDepositWalletClicked && parseFloat(allData.amount) > parseFloat(allData.deposit_wallet) && (
+          {parseFloat(allData.deposit_amount) > parseFloat(allData.deposit_wallet) && (
             <p className="text-red-500 dark:text-red-400 text-sm mt-2">
-              Insufficient balance in deposit wallet. Please deposit more funds or use cryptocurrency payment.
+              Insufficient balance in deposit wallet. Please add more funds to your deposit wallet.
             </p>
           )}
         </div>

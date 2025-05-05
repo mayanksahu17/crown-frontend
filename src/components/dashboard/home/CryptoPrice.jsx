@@ -15,26 +15,26 @@ export default function CryptoPrice() {
     try {
       const response = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd&include_24hr_change=true");
       if (!response.ok) throw new Error("Failed to fetch crypto prices");
-      
+
       const data = await response.json();
       setCryptoData({
-        bitcoin: { 
-          price: data.bitcoin.usd, 
-          change24h: data.bitcoin.usd_24h_change 
+        bitcoin: {
+          price: data.bitcoin.usd,
+          change24h: data.bitcoin.usd_24h_change
         },
-        ethereum: { 
-          price: data.ethereum.usd, 
-          change24h: data.ethereum.usd_24h_change 
+        ethereum: {
+          price: data.ethereum.usd,
+          change24h: data.ethereum.usd_24h_change
         },
         loading: false,
         error: null
       });
       setLastUpdated(new Date());
     } catch (error) {
-      setCryptoData(prev => ({ 
-        ...prev, 
-        loading: false, 
-        error: error.message || "Failed to fetch crypto prices" 
+      setCryptoData(prev => ({
+        ...prev,
+        loading: false,
+        error: error.message || "Failed to fetch crypto prices"
       }));
     }
   };
@@ -46,12 +46,25 @@ export default function CryptoPrice() {
   }, []);
 
   const formatNumber = (num) => {
-    return new Intl.NumberFormat('en-US', { 
-      style: 'currency', 
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
       currency: 'USD',
       minimumFractionDigits: 2,
       maximumFractionDigits: 2
     }).format(num);
+  };
+
+  const formatUKTime = (date) => {
+    return date.toLocaleString('en-GB', {
+      timeZone: 'Europe/London',
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true
+    });
   };
 
   return (
@@ -65,7 +78,7 @@ export default function CryptoPrice() {
             Crypto Prices
           </h3>
         </div>
-        <button 
+        <button
           onClick={fetchCryptoPrices}
           className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
           title="Refresh prices"
@@ -88,29 +101,29 @@ export default function CryptoPrice() {
             <div className="flex items-center justify-between">
               <p className="text-sm font-medium text-gray-600 dark:text-gray-400">Bitcoin (BTC)</p>
               <p className={`text-sm font-medium ${cryptoData.bitcoin.change24h >= 0 ? 'text-green-500' : 'text-red-500'}`}>
-                {cryptoData.bitcoin.change24h >= 0 ? '↑' : '↓'} 
+                {cryptoData.bitcoin.change24h >= 0 ? '↑' : '↓'}
                 {Math.abs(cryptoData.bitcoin.change24h).toFixed(2)}%
               </p>
             </div>
             <p className="text-2xl font-bold mt-1">{formatNumber(cryptoData.bitcoin.price)}</p>
           </div>
-          
+
           <div>
             <div className="flex items-center justify-between">
               <p className="text-sm font-medium text-gray-600 dark:text-gray-400">Ethereum (ETH)</p>
               <p className={`text-sm font-medium ${cryptoData.ethereum.change24h >= 0 ? 'text-green-500' : 'text-red-500'}`}>
-                {cryptoData.ethereum.change24h >= 0 ? '↑' : '↓'} 
+                {cryptoData.ethereum.change24h >= 0 ? '↑' : '↓'}
                 {Math.abs(cryptoData.ethereum.change24h).toFixed(2)}%
               </p>
             </div>
             <p className="text-2xl font-bold mt-1">{formatNumber(cryptoData.ethereum.price)}</p>
           </div>
-          
+
           <div className="pt-2 text-xs text-gray-500 dark:text-gray-400">
-            Last updated: {lastUpdated.toLocaleTimeString()}
+            Last updated: {formatUKTime(lastUpdated)} (UK time)
           </div>
         </div>
       )}
     </div>
   );
-} 
+}
