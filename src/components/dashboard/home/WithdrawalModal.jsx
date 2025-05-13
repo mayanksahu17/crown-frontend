@@ -88,6 +88,15 @@ const WithdrawalModal = ({
       return;
     }
 
+    // Extra Income Wallet restriction
+    if (
+      withdrawalData.fromWallet?.value === "Interest" &&
+      new Date().getDate() !== 1
+    ) {
+      alert("Withdrawals from Extra Income Wallet are only allowed on the 1st of every month.");
+      return;
+    }
+
     const amountUserCanWithdrawal = {
       "R&B": parseFloat(allData.referral_binary_wallet),
       ROI: parseFloat(allData.roi_wallet),

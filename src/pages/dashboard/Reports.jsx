@@ -83,7 +83,11 @@ export default function Reports() {
                   <td className="py-2 px-4">{index + 1}</td>
                   <td className="py-2 px-4">{item.date}</td>
                   <td className="py-2 px-4">${parseFloat(item.amount).toFixed(2)}</td>
-                  <td className="py-2 px-4">{item.charges}%</td>
+                  <td className="py-2 px-4">
+                    {(item.wallet_source === "R&B" || item.wallet_source === "Interest")
+                      ? "0%"
+                      : `${item.charges}%`}
+                  </td>
                   <td className="py-2 px-4">{item.withdrawal_method}</td>
                   <td className="py-2 px-4">
                     {/* Display the correct wallet source */}
