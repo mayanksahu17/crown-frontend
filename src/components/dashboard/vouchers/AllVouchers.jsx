@@ -94,7 +94,20 @@ export default function AllVouchers({ vouchers = [], fetchVouchers }) {
                     <div className="text-gray-500 dark:text-gray-400">Created on</div>
                     <div className="flex items-center">
                       <FaClock className="mr-2 text-gray-400" />
-                      {moment(voucher.created_at).format("MMM DD, YYYY")}
+                      {moment(voucher.created_on || voucher.issued_on || voucher.created_at).format("MMM DD, YYYY")}
+                    </div>
+                  </div>
+
+                  <div className="mb-3">
+                    <div className="text-gray-500 dark:text-gray-400">Created From</div>
+                    <div className="font-medium">
+                      {voucher.created_from_wallet === "R&B"
+                        ? "R&B Wallet"
+                        : voucher.created_from_wallet === "ROI"
+                        ? "ROI Wallet"
+                        : voucher.created_from_wallet === "Interest"
+                        ? "Extra Income Wallet"
+                        : "Unknown"}
                     </div>
                   </div>
 
@@ -156,7 +169,7 @@ export default function AllVouchers({ vouchers = [], fetchVouchers }) {
                       <span className="text-gray-900 dark:text-white font-medium">${voucher.amount}</span>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <span className="text-gray-900 dark:text-white">{moment(voucher.created_at).format("MMM DD, YYYY")}</span>
+                      <span className="text-gray-900 dark:text-white">{moment(voucher.created_on || voucher.issued_on || voucher.created_at).format("MMM DD, YYYY")}</span>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span className="text-gray-900 dark:text-white">{moment(voucher.used_at).format("MMM DD, YYYY")}</span>
