@@ -187,6 +187,24 @@ function TermsAndPrivacy() {
                   </p>
                 </div>
 
+
+
+                {/* Withdrawal Terms */}
+                <p className="mb-4 text-2xl font-semibold text-gray-900">Withdrawal Terms</p>
+                <div className="mb-6">
+                  <p className="mb-2 text-xl font-bold text-gray-800">Withdrawal Rules</p>
+                  <ul className="list-disc pl-8 mt-2 text-base leading-relaxed text-gray-700 sm:text-lg">
+                    <li>ROI and R&B wallet withdrawals can be placed 24/7 without restrictions.</li>
+                    <li>
+                      Extra Income wallet withdrawals are only allowed on the <strong>1st of every month</strong>. Any attempts on other dates will result in a system message indicating this restriction.
+                    </li>
+                    <li>
+                      In the reports section, charges should <strong>not be displayed</strong> for R&B and Extra Income wallets, as Crown Bankers does not levy any fees on them (0% charge).
+                    </li>
+                  </ul>
+                </div>
+
+
                 {/* Charges */}
                 <p className="mb-4 text-2xl font-semibold text-gray-900">Charges</p>
                 <div className="mb-6">

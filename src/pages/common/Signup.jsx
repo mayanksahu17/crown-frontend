@@ -619,7 +619,7 @@ function Signup() {
         <div className="hidden md:flex md:w-1/2 bg-white">
           <div className="w-full h-full flex items-center justify-center">
             <img
-              src="https://imgs.search.brave.com/G9Kif04I3Rr-UuTWYeQ9QIE4HJIbqvIDff65uEDdz5I/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuZnJlZWltYWdl/cy5jb20vaW1hZ2Vz/L2xhcmdlLXByZXZp/ZXdzL2YwOS9zb2xh/ci1wb3dlcmVkLWZh/Y3RvcnktaWxsdXN0/cmF0aW9uLTA0MTAt/NTcwMDI0MS5qcGc_/Zm10"
+              src="./assets/sbg.jpg"
               alt="Secure Banking"
               className="w-full h-full object-cover"
             />
