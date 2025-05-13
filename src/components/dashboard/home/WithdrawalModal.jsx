@@ -35,8 +35,8 @@ const WithdrawalModal = ({
           : "Interest",
     },
     withdrawalMethod: {
-      label: "Virtual Card",
-      value: "card",
+      label: "Withdrawal Wallet",
+      value: "regular",
     },
     securityPin: "",
     currency: {
@@ -46,6 +46,7 @@ const WithdrawalModal = ({
     otp: "",
     isLoading: false,
   });
+
   const handleWithdrawalDataChange = (name, value) =>
     setWithdrawalData((prev) => ({ ...prev, [name]: value }));
 
@@ -73,22 +74,35 @@ const WithdrawalModal = ({
       cursor: "pointer",
     }),
   };
+
   const handleWithdrawalSubmit = async () => {
     if (parseFloat(withdrawalData?.amount) < 20) {
       toast.error("Withdrawal amount has to be greater than $20");
       return;
     }
+
     if (
       Number(user?.user?.security_pin) !== Number(withdrawalData?.securityPin)
     ) {
       toast.error("Invalid security pin");
       return;
     }
+
+    // Extra Income Wallet restriction
+    if (
+      withdrawalData.fromWallet?.value === "Interest" &&
+      new Date().getDate() !== 1
+    ) {
+      alert("Withdrawals from Extra Income Wallet are only allowed on the 1st of every month.");
+      return;
+    }
+
     const amountUserCanWithdrawal = {
       "R&B": parseFloat(allData.referral_binary_wallet),
       ROI: parseFloat(allData.roi_wallet),
       Interest: parseFloat(allData.interest_wallet),
     };
+
     if (
       parseFloat(withdrawalData.amount) >
       amountUserCanWithdrawal[withdrawalData.fromWallet?.value]
@@ -134,8 +148,8 @@ const WithdrawalModal = ({
               value: "R&B",
             },
             withdrawalMethod: {
-              label: "Virtual Card",
-              value: "card",
+              label: "Withdrawal Wallet",
+              value: "regular",
             },
             securityPin: "",
             currency: {
@@ -152,9 +166,9 @@ const WithdrawalModal = ({
     } catch (error) {
       handleWithdrawalDataChange("isLoading", false);
       toast.error(error?.response?.data?.message || "Something went wrong");
-    } finally {
     }
   };
+
   return (
     <Modal
       isOpen={isWithdrawalModalOpen}
@@ -178,8 +192,8 @@ const WithdrawalModal = ({
                 value: "R&B",
               },
               withdrawalMethod: {
-                label: "Virtual Card",
-                value: "card",
+                label: "Withdrawal Wallet",
+                value: "regular",
               },
               securityPin: "",
               currency: {
@@ -193,12 +207,14 @@ const WithdrawalModal = ({
           }}
         />
       </div>
+
       <div className="w-full">
         <p className="text-base">
           Enter the amount you wish to withdraw from your account. Please note
           that the withdrawal request will be approved within 0 to 8 hours
         </p>
       </div>
+
       <div className="w-full mt-6">
         <label className="block font-normal text-black">Select Wallet</label>
         <Select
@@ -221,28 +237,16 @@ const WithdrawalModal = ({
           value={withdrawalData.fromWallet}
         />
       </div>
+
       <div className="w-full mt-6">
         <label className="block font-normal text-black">
           Withdrawal Method
         </label>
-        <Select
-          options={[
-            {
-              label: "Virtual Card",
-              value: "card",
-            },
-            {
-              label: "Withdrawal Wallet",
-              value: "regular",
-            },
-          ]}
-          customStyles={customStyles}
-          onChange={(val) =>
-            handleWithdrawalDataChange("withdrawalMethod", val)
-          }
-          value={withdrawalData.withdrawalMethod}
-        />
+        <div className="bg-gray-100 border border-gray-300 rounded-md px-3 py-2 mt-1 text-black">
+          Withdrawal Wallet
+        </div>
       </div>
+
       <div className="w-full mt-6">
         <label className="block font-normal text-black">Enter Amount</label>
         <input
@@ -253,17 +257,7 @@ const WithdrawalModal = ({
           value={withdrawalData.amount}
         />
       </div>
-      {/* <div className="w-full mt-4">
-        <label className="block font-normal text-black">
-          Select Crypto Currency
-        </label>
-        <Select
-          options={tokens}
-          customStyles={customStyles}
-          onChange={(val) => handleWithdrawalDataChange("currency", val)}
-          value={withdrawalData.currency}
-        />
-      </div> */}
+
       <div className="w-full mt-6">
         <label className="block font-normal text-black">
           Enter Your Security Pin
@@ -291,6 +285,7 @@ const WithdrawalModal = ({
           />
         </div>
       )}
+
       <Button
         className="mt-3"
         onClick={handleWithdrawalSubmit}

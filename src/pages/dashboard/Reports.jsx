@@ -75,7 +75,48 @@ export default function Reports() {
       case "extra":
         return <ExtraIncomeReport data={allData.allExtraIncomeData} />;
       case "withdrawal":
-        return <WithdrawalReport data={allData.allWithdrawalData} />;
+        return (
+          <WithdrawalReport data={allData.allWithdrawalData}>
+            <tbody>
+              {allData.allWithdrawalData.map((item, index) => (
+                <tr key={index} className="text-center">
+                  <td className="py-2 px-4">{index + 1}</td>
+                  <td className="py-2 px-4">{item.date}</td>
+                  <td className="py-2 px-4">${parseFloat(item.amount).toFixed(2)}</td>
+                  <td className="py-2 px-4">
+                    {(item.wallet_source === "R&B" || item.wallet_source === "Interest")
+                      ? "0%"
+                      : `${item.charges}%`}
+                  </td>
+                  <td className="py-2 px-4">{item.withdrawal_method}</td>
+                  <td className="py-2 px-4">
+                    {/* Display the correct wallet source */}
+                    {item.wallet_source === "R&B"
+                      ? "R&B Wallet"
+                      : item.wallet_source === "ROI"
+                      ? "ROI Wallet"
+                      : "Unknown Wallet"}
+                  </td>
+                  <td className="py-2 px-4">{item.crypto_type}</td>
+                  <td className="py-2 px-4">${parseFloat(item.final_amount).toFixed(2)}</td>
+                  <td className="py-2 px-4">
+                    <span
+                      className={`${
+                        item.status === "APPROVED"
+                          ? "text-green-500"
+                          : item.status === "PENDING"
+                          ? "text-yellow-500"
+                          : "text-red-500"
+                      }`}
+                    >
+                      {item.status}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </WithdrawalReport>
+        );
       default:
         return <ROIReport data={allData.allROIData} />;
     }

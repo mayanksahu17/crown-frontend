@@ -96,8 +96,8 @@ export default function Home() {
               deposit_wallet: data?.deposit_wallet || 0,
               toal_voucher_generated: data?.toal_voucher_generated,
               isWithdrawalWalletUpdated: data?.isWithdrawalWalletUpdated,
-              binary_current_level_name: data?.binary_current_level_name || getLevelName(data?.binary_career_level || 0),
-              binary_next_level_name: data?.binary_next_level_name || getLevelName((data?.binary_career_level || 0) + 1),
+              binary_current_level_name: getLevelName(data?.binary_career_level || 0),
+              binary_next_level_name: getLevelName((data?.binary_career_level || 0) + 1),
               // Total business values
               totalLeftBusiness: parseFloat(data?.left_business || 0)?.toFixed(2),
               totalRightBusiness: parseFloat(data?.right_business || 0)?.toFixed(2),
@@ -107,7 +107,7 @@ export default function Home() {
               leftWidth: lWidth,
               rightWidth: rWidth,
               target: data?.binary_next_level_business,
-              binary_career_level: data?.binary_career_level,
+              binary_career_level: data?.binary_career_level || 0,
               sponsor_email: data?.sponsor_email,
               sponsor_name: data?.sponsor_name,
             }));
@@ -160,8 +160,8 @@ export default function Home() {
       withdrawal: `$${parseFloat(allData?.totalWithdrawal || 0).toFixed(2)}`,
     },
     career: {
-      currentLevel: allData?.binary_current_level_name || "Sunstone",
-      nextLevel: allData?.binary_next_level_name || "Moonstone",
+      currentLevel: allData?.binary_career_level || 0,
+      nextLevel: allData?.binary_career_level + 1 || 1,
       // Total business across all levels
       totalLeftBusiness: `$${parseFloat(allData?.totalLeftBusiness || 0).toFixed(2)}`,
       totalRightBusiness: `$${parseFloat(allData?.totalRightBusiness || 0).toFixed(2)}`,
@@ -339,7 +339,7 @@ export default function Home() {
                   Current Level
                 </p>
                 <p className="text-lg font-semibold">
-                  {userData.career.currentLevel}
+                  {getLevelName(userData.career.currentLevel)}
                 </p>
               </div>
               <div>
@@ -347,7 +347,7 @@ export default function Home() {
                   Next Level
                 </p>
                 <p className="text-lg font-semibold">
-                  {userData.career.nextLevel}
+                  {getLevelName(userData.career.currentLevel + 1)}
                 </p>
               </div>
             </div>
@@ -517,19 +517,20 @@ const StatCard = ({ title, value, change, period, icon }) => {
 // Helper function to get level name from level number
 const getLevelName = (level) => {
   const levelNames = [
-    "Celestial",
-    "Starstone",
-    "Moonstone",
     "Sunstone",
-    "Meteorite",
-    "Comet",
-    "Nebula",
-    "Galaxy",
-    "Supernova",
-    "Quasar"
+    "Solar Flare",
+    "Radiant",
+    "Luminous",
+    "Photon",
+    "Helios",
+    "Aurora",
+    "Eclipse",
+    "Nova",
+    "Solaris",
+    "Celestial",
   ];
-  
-  return level >= 0 && level < levelNames.length 
-    ? levelNames[level] 
+
+  return level >= 0 && level < levelNames.length
+    ? levelNames[level]
     : `Level ${level}`;
 };
