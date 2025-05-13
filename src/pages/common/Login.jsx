@@ -127,13 +127,14 @@ const Login = () => {
         <div
           className="w-full items-center justify-center md:w-1/2 flex flex-col p-8 md:p-16"
         >
-          <div className="mb-8">
+          <div className="mb-8 ml-2">
             <div className="flex items-center">
-              <img
-                className="h-24 w-auto"
-                src="/assets/logo1.png"
-                alt="Crown Bankers Logo"
-              />
+                <img
+              className="h-24 sm:h-28 md:h-32 lg:h-36 w-auto"
+              src="/assets/logo1.png"
+              alt="Crown Bankers Logo"
+            />
+
               {/* <span className="ml-2 text-2xl font-bold text-white">BankCo</span> */}
             </div>
           </div>
