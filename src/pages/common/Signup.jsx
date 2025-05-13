@@ -619,7 +619,7 @@ function Signup() {
         <div className="hidden md:flex md:w-1/2 bg-white">
           <div className="w-full h-full flex items-center justify-center">
             <img
-              src="./assets/sbg.jpg"
+              src="https://res.cloudinary.com/dcqnkr06e/image/upload/v1747167193/sbg_mb8isz.jpg"
               alt="Secure Banking"
               className="w-full h-full object-cover"
             />
