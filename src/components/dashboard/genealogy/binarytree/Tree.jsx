@@ -42,22 +42,6 @@ export default function Tree({ data }) {
             highlighted={true}
           />
           
-          {/* Level Business - progress toward current level */}
-          <TreeNode
-            name="Level Business"
-            leftCount={
-              data && data.left_level_business
-                ? parseFloat(data.left_level_business).toFixed(2)
-                : "0.00"
-            }
-            rightCount={
-              data && data.right_level_business
-                ? parseFloat(data.right_level_business).toFixed(2)
-                : "0.00"
-            }
-            highlighted={true}
-          />
-          
           <TreeNode
             name="Carry"
             leftCount={

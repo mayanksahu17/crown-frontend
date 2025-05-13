@@ -160,8 +160,8 @@ export default function Home() {
       withdrawal: `$${parseFloat(allData?.totalWithdrawal || 0).toFixed(2)}`,
     },
     career: {
-      currentLevel: allData?.binary_current_level_name || "Celestial",
-      nextLevel: allData?.binary_next_level_name || "Sunstone",
+      currentLevel: allData?.binary_career_level || 0,
+      nextLevel: allData?.binary_career_level + 1 || 1,
       // Total business across all levels
       totalLeftBusiness: `$${parseFloat(allData?.totalLeftBusiness || 0).toFixed(2)}`,
       totalRightBusiness: `$${parseFloat(allData?.totalRightBusiness || 0).toFixed(2)}`,
@@ -339,7 +339,7 @@ export default function Home() {
                   Current Level
                 </p>
                 <p className="text-lg font-semibold">
-                  {userData.career.currentLevel}
+                  {getLevelName(userData.career.currentLevel)}
                 </p>
               </div>
               <div>
@@ -347,7 +347,7 @@ export default function Home() {
                   Next Level
                 </p>
                 <p className="text-lg font-semibold">
-                  {userData.career.nextLevel}
+                  {getLevelName(userData.career.currentLevel + 1)}
                 </p>
               </div>
             </div>
@@ -517,19 +517,20 @@ const StatCard = ({ title, value, change, period, icon }) => {
 // Helper function to get level name from level number
 const getLevelName = (level) => {
   const levelNames = [
-    "Celestial",
     "Sunstone",
-    "Moonstone",
-    "Starstone",
-    "Meteorite",
-    "Comet",
-    "Nebula",
-    "Galaxy",
-    "Supernova",
-    "Quasar"
+    "Solar Flare",
+    "Radiant",
+    "Luminous",
+    "Photon",
+    "Helios",
+    "Aurora",
+    "Eclipse",
+    "Nova",
+    "Solaris",
+    "Celestial",
   ];
-  
-  return level >= 0 && level < levelNames.length 
-    ? levelNames[level] 
+
+  return level >= 0 && level < levelNames.length
+    ? levelNames[level]
     : `Level ${level}`;
 };

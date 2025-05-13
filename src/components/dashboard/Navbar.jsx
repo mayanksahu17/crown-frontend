@@ -121,7 +121,7 @@ const Navbar = ({ pageTitle, toggleSidebar }) => {
             </button>
 
             {isProfileOpen && (
-              <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg z-10 border border-gray-200 dark:border-gray-700">
+              <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg z-50 border border-gray-200 dark:border-gray-700">
                 <div className="py-1">
                   <Link
                     to="/dashboard/settings/profile"
