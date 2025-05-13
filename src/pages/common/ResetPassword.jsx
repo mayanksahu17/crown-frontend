@@ -78,17 +78,23 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="w-full flex flex-col md:flex-row h-full bg-custom-eclipse">
+    <div className="w-full flex flex-col md:flex-row h-full  bg-gray-900">
       <div className="mx-auto w-full md:w-1/2 text-center flex flex-col justify-center px-4 md:px-32 mt-4 md:mt-0">
         <div className=" text-center flex flex-row justify-center gap-6 mb-12 items-center ">
           <a href="/">
-            <img src="/assets/logo1.png" className="w-30 h-20" />
+            {/* <img src="/assets/logo1.png" className="w-30 h-20" /> */}
+            
+              <img
+              className="h-24 sm:h-28 md:h-32 lg:h-36 w-auto"
+              src="/assets/logo1.png"
+              alt="Crown Bankers Logo"
+            />
           </a>
           <a href="/">
-            <div className="font-bold text-4xl">Crown Bankers</div>
+            <div className="font-bold text-white text-4xl">Crown Bankers</div>
           </a>
         </div>
-        <div className="block rounded-lg bg-white px-[30px] py-[50px] text-left sm:px-10">
+        <div className="block rounded-lg bg-gray-900 px-[30px] py-[50px] text-left sm:px-10">
           {/* Login Form */}
           {/* Form Group */}
           <div className="grid grid-cols-1 gap-6">
@@ -96,7 +102,7 @@ const ResetPassword = () => {
             <div className="flex flex-col gap-y-[10px]">
               <label
                 htmlFor="login-email"
-                className="text-lg font-bold leading-[1.6]"
+                className="text-lg font-bold leading-[1.6] text-white"
               >
                 User ID
               </label>
@@ -223,7 +229,7 @@ const ResetPassword = () => {
 
         {/* Overlayed Login Image */}
         <img
-          src="/assets/img/th-1/14.png"
+          src="/assets/img/solar.jpg"
           className="absolute top-[6%] left-[10%] w-[80%] h-[88%]"
           alt="Login"
         />
