@@ -20,6 +20,11 @@ import TransferModal from "../../components/dashboard/home/TransferSection";
 import { allowedTransferId, disbledUserIds } from "../../constants/tokens";
 import CryptoPrice from "../../components/dashboard/home/CryptoPrice";
 
+import bgOfcard from "../../assets/imgs/bgOfcard.jpeg";
+import bgOfcard2 from "../../assets/imgs/bgOfcard2.jpeg";
+import bgOfcard3 from "../../assets/imgs/bgOfcard3.jpg";
+
+
 export default function Home() {
   const { user, updateUserDetails } = useAuth();
   const [isWithdrawalModalOpen, setIsWithdrawalModalOpen] = useState(false);
@@ -487,21 +492,22 @@ export default function Home() {
   );
 }
 
+
 const StatCard = ({ title, value, change, period, icon }) => {
   let backgroundImage = '';
 
   if (title === 'Your Balance') {
-    backgroundImage = "url('src/assets/imgs/bgOfcard.jpeg')";
+    backgroundImage = bgOfcard;
   } else if (title === 'Total Investment') {
-    backgroundImage = "url('src/assets/imgs/bgOfcard2.jpeg')";
+    backgroundImage = bgOfcard2;
   } else if (title === 'Total Withdrawal') {
-    backgroundImage = "url('src/assets/imgs/bgOfcard3.jpg')";
+    backgroundImage = bgOfcard3;
   }
 
   return (
     <div
       className="rounded-lg shadow p-6 backdrop-blur-sm bg-opacity-95 dark:bg-opacity-95 bg-cover bg-center"
-      style={{ backgroundImage }}
+      style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className="flex items-center mb-4">
         <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-3">
@@ -527,6 +533,7 @@ const StatCard = ({ title, value, change, period, icon }) => {
     </div>
   );
 };
+
 
 
 // Helper function to get level name from level number
