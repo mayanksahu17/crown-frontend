@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { reportsBIColumns } from "../../../constants/Column";
 import Table from "../global/Table";
+import * as XLSX from "xlsx";
 
 export default function BIReport({ data }) {
   const [filteredData, setFilteredData] = useState([]);
@@ -24,6 +25,41 @@ export default function BIReport({ data }) {
   };
 
   const formattedData = filteredData?.map((el, index) => ({ ...el, id: index + 1 }));
+
+  // Function to download data as Excel file
+  const downloadExcel = () => {
+    // Create a worksheet with formatted data for Excel export
+    const worksheet = XLSX.utils.json_to_sheet(
+      formattedData.map(item => ({
+        ID: item.id,
+        Date: item.date,
+        Amount: `$${item.amount}`,
+        Percentage: `${item.percentage}%`,
+        Status: item.status
+      }))
+    );
+    
+    // Set column widths for better readability
+    const columnWidths = [
+      { wch: 5 },  // ID
+      { wch: 12 }, // Date
+      { wch: 12 }, // Amount
+      { wch: 12 }, // Percentage
+      { wch: 15 }  // Status
+    ];
+    worksheet["!cols"] = columnWidths;
+    
+    // Create workbook and append the worksheet
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "BI Report");
+    
+    // Generate filename with current date
+    const date = new Date();
+    const fileName = `BI_Report_${date.toISOString().split('T')[0]}.xlsx`;
+    
+    // Trigger the download
+    XLSX.writeFile(workbook, fileName);
+  };
 
   const customColumns = [
     {
@@ -92,6 +128,18 @@ export default function BIReport({ data }) {
             Last 30 Days
           </button>
         </div>
+        
+        {/* Download Button */}
+        <button
+          onClick={downloadExcel}
+          disabled={!formattedData || formattedData.length === 0}
+          className="flex items-center px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        >
+          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+          Download Excel
+        </button>
       </div>
       
       <div className="overflow-x-auto">
