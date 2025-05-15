@@ -171,7 +171,7 @@ export default function WithdrawalReport({ data }) {
     id: index + 1,
     cryptoType: el?.crypto_type,
     walletType: el?.wallet_type,
-    walletSource: el?.wallet_source || "ROI Wallet", // Default to ROI Wallet if not specified
+    walletSource: el?.wallet_source ,
     finalAmount: el?.final_amount
       ? parseFloat(el?.final_amount).toFixed(2)
       : parseFloat(0)?.toFixed(2),

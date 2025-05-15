@@ -10,7 +10,7 @@ const PDFDownloads = () => {
   
   // Multiple language options
   const languages = [
-    { code: "en", name: "English", url: "/pdfs/company-brochure-en.pdf" },
+    { code: "en", name: "English", url: "/public/crown_bankers.pdf" }, // corrected URL but html page is downloadin 
     { code: "es", name: "Spanish", url: "/pdfs/company-brochure-es.pdf" },
     { code: "fr", name: "French", url: "/pdfs/company-brochure-fr.pdf" },
     { code: "de", name: "German", url: "/pdfs/company-brochure-de.pdf" },
