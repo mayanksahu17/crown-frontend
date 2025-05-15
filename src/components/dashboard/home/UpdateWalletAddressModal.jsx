@@ -58,7 +58,7 @@ export default function UpdateWalletAddressModal({ isOpen, handleClose }) {
     <div className="mt-4 px-6 text-black dark:text-white">
       <div className="w-full">
         <p className="text-xl font-semibold leading-tight">Update Wallet Address</p>
-        <div className="w-full font-light text-sm mt-1 text-gray-600 dark:text-gray-300">
+        <div className="w-full font-light text-xl mt-1 text-gray-600 dark:text-gray-300">
           Please enter your Withdrawal Wallet Address (Tether-TRC20(USDT.TRC20))
         </div>
       </div>
@@ -78,7 +78,7 @@ export default function UpdateWalletAddressModal({ isOpen, handleClose }) {
           </>
         ) : (
           <>
-            <label className="block font-normal text-black dark:text-white">Wallet Address</label>
+            <label className="block text-xl font-normal text-black dark:text-white">Wallet Address</label>
             <input
               type="text"
               name="walletAddress"

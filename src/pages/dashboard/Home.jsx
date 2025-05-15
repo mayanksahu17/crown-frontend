@@ -121,6 +121,14 @@ export default function Home() {
     })();
   }, [render]);
 
+  const handleWithdrawSubmit = (e) => {
+    e.preventDefault();
+    setIsWithdrawalModalOpen(false);
+  };
+
+  if (!isDataLoaded) {
+    return <Loader />;
+  }
 
   // Format user data for UI
   const userData = {
@@ -169,69 +177,6 @@ export default function Home() {
     },
   };
 
-useEffect(() => {
-  const now = new Date().toISOString().split("T")[0]; // 'YYYY-MM-DD'
-
-  const stored = JSON.parse(localStorage.getItem("crown_user_metrics")) || {};
-  const todayData = {
-    date: now,
-    balance: parseFloat(userData.balance.replace("$", "")),
-    investment: parseFloat(userData.totals.investment.replace("$", "")),
-    withdrawal: parseFloat(userData.totals.withdrawal.replace("$", "")),
-  };
-
-  // Save today’s data
-  stored[now] = todayData;
-
-  // Clean older than 30 days (optional)
-  const MAX_AGE_DAYS = 30;
-  const cutoff = new Date();
-  cutoff.setDate(cutoff.getDate() - MAX_AGE_DAYS);
-  for (let date in stored) {
-    if (new Date(date) < cutoff) delete stored[date];
-  }
-
-  localStorage.setItem("crown_user_metrics", JSON.stringify(stored));
-}, [userData]);
-
-
-
-  const handleWithdrawSubmit = (e) => {
-    e.preventDefault();
-    setIsWithdrawalModalOpen(false);
-  };
-
-  if (!isDataLoaded) {
-    return <Loader />;
-  }
-
-
-  const calculateChange = (current, previous) => {
-  if (previous === 0 || isNaN(previous)) return "0%";
-  const change = ((current - previous) / previous) * 100;
-  return `${change >= 0 ? "+" : ""}${change.toFixed(1)}%`;
-};
-
-
-const getHistoricalValue = (field) => {
-  const data = JSON.parse(localStorage.getItem("crown_user_metrics")) || {};
-  const allDates = Object.keys(data).sort();
-  if (allDates.length < 2) return 0;
-
-  // Compare with the earliest recorded value
-  const previous = data[allDates[0]][field] || 0;
-  return previous;
-};
-
-const currentBalance = parseFloat(userData.balance.replace("$", ""));
-const currentInvestment = parseFloat(userData.totals.investment.replace("$", ""));
-const currentWithdrawal = parseFloat(userData.totals.withdrawal.replace("$", ""));
-
-const balanceChange = calculateChange(currentBalance, getHistoricalValue("balance"));
-const investmentChange = calculateChange(currentInvestment, getHistoricalValue("investment"));
-const withdrawalChange = calculateChange(currentWithdrawal, getHistoricalValue("withdrawal"));
-
-
   return (
     <div className="space-y-6 relative">
       {/* Background design elements */}
@@ -248,110 +193,76 @@ const withdrawalChange = calculateChange(currentWithdrawal, getHistoricalValue("
         </div>
       </div>
 
-  {/* Stats cards */}
-  <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative z-10">
-    <div className="md:col-span-1">
-      {/* this is not fine do  change it as others */}
-      <CryptoPrice />
-    </div>
-
-    <div className="md:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6">
-      {/* Your Balance Card */}
-      <div className="rounded-xl p-5 bg-gradient-to-br from-green-100 to-white dark:from-green-900 dark:to-gray-800 shadow-lg border border-green-200 dark:border-green-700">
-        <div className="flex items-center justify-between mb-2">
-          <span className="text-sm font-medium text-gray-600 dark:text-gray-300">Your Balance</span>
-          <DollarSign className="text-green-600 dark:text-green-400" />
+      {/* Stats cards */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative z-10">
+        <div className="md:col-span-1">
+          <CryptoPrice />
         </div>
-        <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">{userData.balance}</h3>
-        <div className="flex items-center justify-between text-sm">
-          <span className={`font-medium ${balanceChange.startsWith("-") ? "text-red-500" : "text-green-500"}`}>
-            {balanceChange} this week
-          </span>
-          <span className="text-gray-500 dark:text-gray-400">Current</span>
-        </div>
-        <div className="w-full bg-gray-200 dark:bg-gray-700 h-2 rounded-full mt-3">
-          <div className="bg-green-500 h-2 rounded-full" style={{ width: '65%' }}></div>
-        </div>
-      </div>
-
-      {/* Total Investment Card */}
-      <div className="rounded-xl p-5 bg-gradient-to-br from-yellow-50 to-white dark:from-yellow-900 dark:to-gray-800 shadow-lg border border-yellow-200 dark:border-yellow-700">
-        <div className="flex items-center justify-between mb-2">
-          <span className="text-sm font-medium text-gray-600 dark:text-gray-300">Total Investment</span>
-          <Wallet className="text-yellow-600 dark:text-yellow-400" />
-        </div>
-        <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">{userData.totals.investment}</h3>
-        <div className="flex items-center justify-between text-sm">
-          <span className={`font-medium ${investmentChange.startsWith("-") ? "text-red-500" : "text-yellow-600 dark:text-yellow-400"}`}>
-            {investmentChange} this month
-          </span>
-          <span className="text-gray-500 dark:text-gray-400">All Time</span>
-        </div>
-        <div className="w-full bg-gray-200 dark:bg-gray-700 h-2 rounded-full mt-3">
-          <div className="bg-yellow-500 h-2 rounded-full" style={{ width: '80%' }}></div>
+        <div className="md:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6 text-4xl">
+          <StatCard
+            title="Your Balance"
+            value={userData.balance}
+            // change="0%"
+            // period="Current"
+            
+            icon={<BarChart className="text-green-500" />}
+          />
+           
+          <StatCard
+            title="Total Investment"
+            value={userData.totals.investment}
+            // change="0%"
+            // period="All time"
+            icon={<Wallet className="text-green-500" />}
+          />
+          <StatCard
+            title="Total Withdrawal"
+            value={userData.totals.withdrawal}
+            // change="0%"
+            // period="All time"
+            icon={<TrendingUp className="text-green-500" />}
+          />
         </div>
       </div>
-
-      {/* Total Withdrawal Card */}
-      <div className="rounded-xl p-5 bg-gradient-to-br from-red-50 to-white dark:from-red-900 dark:to-gray-800 shadow-lg border border-red-200 dark:border-red-700">
-        <div className="flex items-center justify-between mb-2">
-          <span className="text-sm font-medium text-gray-600 dark:text-gray-300">Total Withdrawal</span>
-          <TrendingUp className="text-red-600 dark:text-red-400" />
-        </div>
-        <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">{userData.totals.withdrawal}</h3>
-        <div className="flex items-center justify-between text-sm">
-          <span className={`font-medium ${withdrawalChange.startsWith("-") ? "text-red-500" : "text-green-500"}`}>
-            {withdrawalChange} this month
-          </span>
-          <span className="text-gray-500 dark:text-gray-400">All Time</span>
-        </div>
-        <div className="w-full bg-gray-200 dark:bg-gray-700 h-2 rounded-full mt-3">
-          <div className="bg-red-500 h-2 rounded-full" style={{ width: '40%' }}></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
       
       {/* Wallets section */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 relative z-10">
         <div className="lg:col-span-2 bg-white dark:bg-gray-800 rounded-lg shadow p-6 backdrop-blur-sm bg-opacity-95 dark:bg-opacity-95">
-          <h3 className="text-lg font-semibold tracking-wide text-gray-800 dark:text-white mb-4">
+          <h3 className=" font-semibold tracking-wide text-gray-800 dark:text-white mb-4 text-2xl">
             Wallet Overview
           </h3>
           <div className="grid grid-cols-2 gap-4">
             <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded">
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+              <p className="text-xl text-gray-600 dark:text-gray-400">
                 Deposit Wallet
               </p>
-              <p className="text-lg font-semibold">${parseFloat(allData?.deposit_wallet || 0).toFixed(2)}</p>
+              <p className="text-2xl font-semibold">${parseFloat(allData?.deposit_wallet || 0).toFixed(2)}</p>
             </div>
             <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded">
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+              <p className="text-xl text-gray-600 dark:text-gray-400">
                 ROI Wallet
               </p>
-              <p className="text-lg font-semibold">{userData.wallets.roi}</p>
+              <p className="text-2xl font-semibold">{userData.wallets.roi}</p>
             </div>
             <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded">
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+              <p className="text-xl text-gray-600 dark:text-gray-400">
                 R&B Wallet
               </p>
-              <p className="text-lg font-semibold">{userData.wallets.rb}</p>
+              <p className="text-2xl font-semibold">{userData.wallets.rb}</p>
             </div>
             <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded">
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+              <p className="text-xl text-gray-600 dark:text-gray-400">
                 Extra Income Wallet
               </p>
-              <p className="text-lg font-semibold">
+              <p className="text-2xl font-semibold">
                 {userData.wallets.extraIncome}
               </p>
             </div>
             <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded">
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+              <p className="text-xl text-gray-600 dark:text-gray-400">
                 Voucher
               </p>
-              <p className="text-lg font-semibold">
+              <p className="text-2xl font-semibold">
                 {userData.wallets.coupons}
               </p>
             </div>
@@ -392,22 +303,22 @@ const withdrawalChange = calculateChange(currentWithdrawal, getHistoricalValue("
         </div>
 
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 backdrop-blur-sm bg-opacity-95 dark:bg-opacity-95">
-          <h3 className="text-lg font-semibold text-gray-800 tracking-wide dark:text-white mb-4">
+          <h3 className="text-2xl font-semibold text-gray-800 tracking-wide dark:text-white mb-4 ml-6">
             Wallet Settings
           </h3>
           <div className="space-y-4">
             <div>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+              <p className="text-xl text-gray-600 dark:text-gray-400 ml-6 ">
                 User ID: {userData.userId}
               </p>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+              <p className="text-xl text-gray-600 dark:text-gray-400 ml-6">
                 Name: {userData.name}
               </p>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+              <p className="text-xl text-gray-600 dark:text-gray-400 ml-6">
                 Status: {userData.status}
               </p>
             </div>
-            <UpdateWalletAddressModal />
+            <UpdateWalletAddressModal  />
           </div>
         </div>
       </div>
@@ -431,7 +342,6 @@ const withdrawalChange = calculateChange(currentWithdrawal, getHistoricalValue("
                 </p>
                 <p className="text-lg font-semibold">
                   {getLevelName(userData.career.currentLevel)}
-                  {/* {userData.career.currentLevel} */}
                 </p>
               </div>
               <div>
@@ -440,7 +350,6 @@ const withdrawalChange = calculateChange(currentWithdrawal, getHistoricalValue("
                 </p>
                 <p className="text-lg font-semibold">
                   {getLevelName(userData.career.currentLevel + 1)}
-                  {/* {userData.career.nextLevel} */}
                 </p>
               </div>
             </div>
@@ -517,15 +426,15 @@ const withdrawalChange = calculateChange(currentWithdrawal, getHistoricalValue("
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
+                <p className="text-base text-gray-600 dark:text-gray-400">
                   Left Link
                 </p>
-                <p className="text-sm text-gray-700 dark:text-gray-300 break-all border border-gray-200 dark:border-gray-700 rounded-xl p-4">
+                <p className="text-base text-gray-700 dark:text-gray-300 break-all border border-gray-200 dark:border-gray-700 rounded-xl p-4 ">
                   {userData.referralLinks.left}
                 </p>
               </div>
               <button
-                className="bg-green-600 hover:bg-green-700 text-white px-4 py-1 ml-4 rounded-md text-sm h-10 w-20"
+                className="w-32 mr-14 bg-primary h-12 p-2 rounded-lg font-normal text-white hover:bg-colorBlue relative cursor-pointer rounded-xl  disabled:cursor-not-allowed"
                 onClick={() =>
                   navigator.clipboard.writeText(userData.referralLinks.left)
                 }
@@ -535,15 +444,15 @@ const withdrawalChange = calculateChange(currentWithdrawal, getHistoricalValue("
             </div>
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
+                <p className="text-base text-gray-600 dark:text-gray-400">
                   Right Link
                 </p>
-                <p className="text-sm text-gray-700 dark:text-gray-300 break-all border border-gray-200 dark:border-gray-700 rounded-xl p-4">
+                <p className="text-base text-gray-700 dark:text-gray-300 break-all border border-gray-200 dark:border-gray-700 rounded-xl p-4">
                   {userData.referralLinks.right}
                 </p>
               </div>
               <button
-                className="bg-green-600 hover:bg-green-700 text-white px-4 py-1 ml-2 rounded-md text-sm h-10 w-20"
+                className="w-32 mr-14 bg-primary h-12 p-2 rounded-lg font-normal text-white hover:bg-colorBlue relative cursor-pointer rounded-xl  disabled:cursor-not-allowed"
                 onClick={() =>
                   navigator.clipboard.writeText(userData.referralLinks.right)
                 }
@@ -578,21 +487,33 @@ const withdrawalChange = calculateChange(currentWithdrawal, getHistoricalValue("
   );
 }
 
-// Stat Card Component
 const StatCard = ({ title, value, change, period, icon }) => {
+  let backgroundImage = '';
+
+  if (title === 'Your Balance') {
+    backgroundImage = "url('src/assets/imgs/bgOfcard.jpeg')";
+  } else if (title === 'Total Investment') {
+    backgroundImage = "url('src/assets/imgs/bgOfcard2.jpeg')";
+  } else if (title === 'Total Withdrawal') {
+    backgroundImage = "url('src/assets/imgs/bgOfcard3.jpg')";
+  }
+
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 backdrop-blur-sm bg-opacity-95 dark:bg-opacity-95">
+    <div
+      className="rounded-lg shadow p-6 backdrop-blur-sm bg-opacity-95 dark:bg-opacity-95 bg-cover bg-center"
+      style={{ backgroundImage }}
+    >
       <div className="flex items-center mb-4">
         <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-3">
           {icon}
         </div>
-        <h3 className="text-lg font-medium text-gray-700 tracking-wide dark:text-gray-300">
+        <h3 className="text-2xl font-medium text-gray-700 tracking-wide dark:text-gray-500">
           {title}
         </h3>
       </div>
       <div className="flex items-end justify-between">
         <div>
-          <div className="text-2xl font-bold text-gray-800 dark:text-white">
+          <div className="text-6xl font-bold text-gray-800 dark:text-gray-500">
             {value}
           </div>
           <div className="flex items-center mt-1">
@@ -606,6 +527,7 @@ const StatCard = ({ title, value, change, period, icon }) => {
     </div>
   );
 };
+
 
 // Helper function to get level name from level number
 const getLevelName = (level) => {
