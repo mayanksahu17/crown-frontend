@@ -206,7 +206,7 @@ export default function WithdrawalReport({ data }) {
     },
     {
       Header: "WALLET SOURCE",
-      accessor: "walletSource",
+      accessor: "wallet_type",
     },
     {
       Header: "CRYPTO TYPE",

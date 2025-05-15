@@ -12,22 +12,22 @@ const BinaryIcons = () => {
     { src: "/assets/img/th-1/18.png", alt: "Package 3", label: "Elite Energy" },
     {
       src: "/assets/img/th-1/verified.png",
-      alt: "Package 3",
+      alt: "Verified User",
       label: "Verified User",
     },
     {
       src: "/assets/img/th-1/unverified.png",
-      alt: "Package 3",
+      alt: "Unverified User",
       label: "Unverified User",
     },
     {
       src: "/assets/img/th-1/empty.png",
-      alt: "Package 3",
+      alt: "Empty Position",
       label: "Empty Position",
     },
   ];
 
-  // Business metrics explanations
+  // Updated business metrics
   const businessMetrics = [
     {
       label: "Total Business",
@@ -35,13 +35,8 @@ const BinaryIcons = () => {
       color: "bg-gray-50",
     },
     {
-      label: "Level Business",
-      description: "Progress toward current level (resets for each level)",
-      color: "bg-blue-50",
-    },
-    {
       label: "Carry",
-      description: "Carried business from weaker leg",
+      description: "Excess business carried forward from the stronger leg",
       color: "bg-white",
     },
   ];
@@ -65,7 +60,10 @@ const BinaryIcons = () => {
         <div className="flex flex-wrap gap-4 p-4 rounded-xl border border-gray-300 items-center justify-center max-w-[600px]">
           <h4 className="w-full text-center text-sm font-medium mb-2">Business Metrics Explained</h4>
           {businessMetrics.map((metric, index) => (
-            <div key={index} className={`flex items-center gap-2 w-full sm:w-[180px] p-2 rounded-md ${metric.color}`}>
+            <div
+              key={index}
+              className={`flex items-center gap-2 w-full sm:w-[250px] p-2 rounded-md ${metric.color}`}
+            >
               <div className="flex flex-col">
                 <span className="text-xs font-semibold">{metric.label}</span>
                 <span className="text-xs text-gray-600">{metric.description}</span>

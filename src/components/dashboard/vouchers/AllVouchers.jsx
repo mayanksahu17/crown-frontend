@@ -101,20 +101,26 @@ export default function AllVouchers({ vouchers = [], fetchVouchers }) {
                   <div className="mb-3">
                     <div className="text-gray-500 dark:text-gray-400">Created From</div>
                     <div className="font-medium">
-                      {voucher.created_from_wallet === "R&B"
+                      {voucher.from_wallet === "R&B" || voucher.from_wallet === "r&b"
                         ? "R&B Wallet"
-                        : voucher.created_from_wallet === "ROI"
+                        : voucher.from_wallet === "ROI" || voucher.from_wallet === "roi"
                         ? "ROI Wallet"
-                        : voucher.created_from_wallet === "Interest"
+                        : voucher.from_wallet === "Interest" || voucher.from_wallet === "interest"
                         ? "Extra Income Wallet"
                         : "Unknown"}
                     </div>
                   </div>
+                   <div className="mb-3">
+                    <div className="text-gray-500 dark:text-gray-400">Created By</div>
+                    <div className="font-medium">
+                      {voucher.created_by}
+                    </div>
+                  </div>
 
-                  <div className="mb-4">
+                  {/* <div className="mb-4">
                     <div className="text-gray-500 dark:text-gray-400">Usage</div>
                     <div>{getVoucherUsageInfo(voucher)}</div>
-                  </div>
+                  </div> */}
 
                   <button 
                     className="w-full py-2 text-center rounded-md transition bg-gray-100 dark:bg-[#374151] hover:bg-gray-200 dark:hover:bg-[#4B5563] text-gray-900 dark:text-white"

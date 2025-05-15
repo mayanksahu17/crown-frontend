@@ -9,7 +9,7 @@ const dummyReviews = [
     text: "Crown Bankers has redefined how I approach energy-backed assets. The platform is reliable, transparent, and future-focused.",
     facebook: "https://www.facebook.com/AlexRoss.M",
     whatsapp: "https://wa.me/17869363977",
-  },
+countryFlag: "https://imgs.search.brave.com/xusJ7dKYIutUylPh-31Vy1GQ0pP_372wH3tgDFOLpeQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/YnJpdGFubmljYS5j/b20vMzMvNDgzMy0w/NTAtRjZFNDE1RkUv/RmxhZy1Vbml0ZWQt/U3RhdGVzLW9mLUFt/ZXJpY2EuanBn"   },
   {
     id: 2,
     name: "Chaoxiang Bingwen",
@@ -17,6 +17,8 @@ const dummyReviews = [
     text: "Outstanding service and expert financial guidance. Crown Bankers is a trusted partner for all our investment needs!",
     facebook: "https://www.facebook.com/profile.php?id=100095266980352",
     whatsapp: "",
+    countryFlag : "https://imgs.search.brave.com/IEC7al-JS3ZoBnoniH8mnnhBFjPSn2LRGKW5HkjUWVo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/d29ybGRhdGxhcy5j/b20vci93MTIwMC9p/bWcvZmxhZy9ubC1m/bGFnLmpwZw"
+
   },
   {
     id: 3,
@@ -25,6 +27,8 @@ const dummyReviews = [
     text: "Crown Bankers delivers exceptional financial services with professionalism and reliability. Highly recommended for anyone seeking trustworthy banking solutions!",
     facebook: "https://www.facebook.com/profile.php?id=100086681566730",
     whatsapp: "https://wa.me/31637180219",
+    countryFlag : "https://imgs.search.brave.com/IZeHBd_tzVK_ezF45fq8TNi3qb0Mcz2yzh4W8k8ol2w/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/YnJpdGFubmljYS5j/b20vMDcvODAwNy0w/NTAtRDQxNzA4NDMv/RmxhZy1EZW5tYXJr/LmpwZw"
+
   },
   // {
   //   id: 4,
@@ -54,6 +58,11 @@ const ReviewSection = () => {
               alt={review.name}
               className="w-20 h-20 rounded-full mb-4"
             />
+            <div className="flex items-center justify-center space-x-2 mb-2">
+  <img src={review.countryFlag} alt="flag" className="w-6 h-4 rounded-sm" />
+  <h3 className="text-xl font-semibold text-gray-800">{review.name}</h3>
+</div>
+
             <p className="text-gray-700 mb-4">"{review.text}"</p>
             <div className="flex space-x-4">
               {review.facebook && (
