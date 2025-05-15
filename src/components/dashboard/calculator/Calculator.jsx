@@ -17,7 +17,7 @@ const Calculator = ({ navigate, isCalculator = false }) => {
     <div className="w-full mt-33 pt-10 text-center flex flex-col md:flex-row items-center">
       <div className="w-full md:w-1/2">
         <h1 className="px-6 text-5xl font-medium mb-4 ">
-          Calculate Your Earnings
+          Calculate Your Earning
         </h1>
       </div>
 
