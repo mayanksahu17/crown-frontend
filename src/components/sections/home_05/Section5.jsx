@@ -6,8 +6,9 @@ const QuoteRequestSection = () => {
     name: "",
     duration: "",
     dailyRoi: "",
-    returnRange: { min: 0, max: 0 },
-    principalReturns: 0
+    roiReturns: { min: 0, max: 0 },
+    principalReturns: 0,
+    totalReturns: { min: 0, max: 0 }
   });
   const [showResults, setShowResults] = useState(false);
   const [isValidAmount, setIsValidAmount] = useState(true);
@@ -17,38 +18,29 @@ const QuoteRequestSection = () => {
     { 
       name: "Solar Starter", 
       minAmount: 25, 
-      maxAmount: 2000, 
+      maxAmount: 2499, 
       duration: 150, 
-      returnMultiplierMin: 2.25, 
-      returnMultiplierMax: 2.7,
+      roiMin: 1.5, 
+      roiMax: 1.8,
       principalReturnPercentage: 50
     },
     { 
-      name: "Solar Growth", 
-      minAmount: 2001, 
-      maxAmount: 5000, 
-      duration: 180, 
-      returnMultiplierMin: 2.5, 
-      returnMultiplierMax: 3.0,
+      name: "Power Growth", 
+      minAmount: 2500, 
+      maxAmount: 19999, 
+      duration: 140, 
+      roiMin: 1.8, 
+      roiMax: 2.1,
       principalReturnPercentage: 60
     },
     { 
       name: "Power Growth", 
-      minAmount: 5001, 
-      maxAmount: 10000, 
-      duration: 210, 
-      returnMultiplierMin: 2.8, 
-      returnMultiplierMax: 3.3,
-      principalReturnPercentage: 75
-    },
-    { 
-      name: "Solar Premium", 
-      minAmount: 10001, 
+      minAmount: 20000, 
       maxAmount: 50000, 
-      duration: 210, 
-      returnMultiplierMin: 2.8, 
-      returnMultiplierMax: 3.3,
-      principalReturnPercentage: 75
+      duration: 130, 
+      roiMin: 2.1, 
+      roiMax: 2.4,
+      principalReturnPercentage: 80
     }
   ];
 
@@ -70,47 +62,55 @@ const QuoteRequestSection = () => {
   // Calculate returns when button is clicked
   const calculateReturns = (e) => {
     e.preventDefault();
-    
-    if (!investmentAmount || isNaN(investmentAmount) || investmentAmount < 25 || investmentAmount > 50000) {
+
+    const amount = Number(investmentAmount);
+    if (!amount || isNaN(amount) || amount < 25 || amount > 50000) {
       setIsValidAmount(false);
       setShowResults(false);
       return;
     }
-    
+
     setIsValidAmount(true);
-    const amount = Number(investmentAmount);
-    
+
     const matchedPackage = investmentPackages.find(
       pkg => amount >= pkg.minAmount && amount <= pkg.maxAmount
     );
 
     if (matchedPackage) {
-      const minReturn = amount * matchedPackage.returnMultiplierMin;
-      const maxReturn = amount * matchedPackage.returnMultiplierMax;
+      const roiMin = matchedPackage.roiMin / 100;
+      const roiMax = matchedPackage.roiMax / 100;
+      const duration = matchedPackage.duration;
+
+      const roiReturnMin = amount * roiMin * duration;
+      const roiReturnMax = amount * roiMax * duration;
       const principalReturns = amount * (matchedPackage.principalReturnPercentage / 100);
-      const dailyRoiMin = ((matchedPackage.returnMultiplierMin - 1) / matchedPackage.duration) * 100;
-      const dailyRoiMax = ((matchedPackage.returnMultiplierMax - 1) / matchedPackage.duration) * 100;
+      const totalReturnMin = roiReturnMin + principalReturns;
+      const totalReturnMax = roiReturnMax + principalReturns;
 
       setPackageDetails({
         name: matchedPackage.name,
         duration: `${matchedPackage.duration} days`,
-        dailyRoi: `${dailyRoiMin.toFixed(2)}% - ${dailyRoiMax.toFixed(2)}%`,
-        returnRange: { 
-          min: minReturn.toFixed(2), 
-          max: maxReturn.toFixed(2) 
+        dailyRoi: `${matchedPackage.roiMin.toFixed(1)}% - ${matchedPackage.roiMax.toFixed(1)}%`,
+        roiReturns: {
+          min: roiReturnMin.toFixed(2),
+          max: roiReturnMax.toFixed(2)
         },
-        principalReturns: principalReturns.toFixed(2)
+        principalReturns: principalReturns.toFixed(2),
+        totalReturns: {
+          min: totalReturnMin.toFixed(2),
+          max: totalReturnMax.toFixed(2)
+        }
       });
-      
+
       setShowResults(true);
     } else {
-      // This should not happen with our validation, but just in case
       setPackageDetails({
         name: "Invalid Package",
         duration: "",
         dailyRoi: "",
-        returnRange: { min: 0, max: 0 },
-        principalReturns: 0
+        roiReturns: { min: 0, max: 0 },
+        principalReturns: 0,
+        totalReturns: { min: 0, max: 0 }
       });
       setShowResults(false);
     }
@@ -200,8 +200,8 @@ const QuoteRequestSection = () => {
                 <div className="flex justify-between items-center">
                   <span className="text-gray-600 font-medium">ROI Returns:</span>
                   <span className="text-[#4CAF50] font-semibold">
-                    {packageDetails.returnRange.min > 0 
-                      ? `${formatCurrency(packageDetails.returnRange.min - Number(investmentAmount))} - ${formatCurrency(packageDetails.returnRange.max - Number(investmentAmount))}`
+                    {packageDetails.roiReturns
+                      ? `${formatCurrency(packageDetails.roiReturns.min)} - ${formatCurrency(packageDetails.roiReturns.max)}`
                       : "$0.00"}
                   </span>
                 </div>
@@ -216,8 +216,8 @@ const QuoteRequestSection = () => {
                 <div className="flex justify-between items-center">
                   <span className="text-gray-600 font-medium">Total Returns:</span>
                   <span className="text-[#4CAF50] font-semibold">
-                    {packageDetails.returnRange.min > 0 
-                      ? `${formatCurrency(Number(packageDetails.returnRange.min - Number(investmentAmount)) + Number(packageDetails.principalReturns))} - ${formatCurrency(Number(packageDetails.returnRange.max - Number(investmentAmount)) + Number(packageDetails.principalReturns))}`
+                    {packageDetails.totalReturns
+                      ? `${formatCurrency(packageDetails.totalReturns.min)} - ${formatCurrency(packageDetails.totalReturns.max)}`
                       : "$0.00"}
                   </span>
                 </div>
