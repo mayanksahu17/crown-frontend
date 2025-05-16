@@ -20,14 +20,14 @@ export default function Hero() {
         "We are laying the foundation to supply world-class solar components globally by 2026. Our mission is to accelerate access to sustainable energy everywhere.",
       image: "/home.mp4", // Cloud video from public folder
     },
-    {
-      id: 2,
-      tagline: "Towards a Brighter Tomorrow – Preparing for Global Solar Reach",
-      title: "Energize Society By Reliable Energy!",
-      description:
-        "With a strong roadmap for 2026, we are working towards becoming a global provider of solar solutions, empowering industries and communities worldwide.",
-      image: "/home.mp4", // Cloud video from public folder
-    }
+    // {
+    //   id: 2,
+    //   tagline: "Towards a Brighter Tomorrow – Preparing for Global Solar Reach",
+    //   title: "Energize Society By Reliable Energy!",
+    //   description:
+    //     "With a strong roadmap for 2026, we are working towards becoming a global provider of solar solutions, empowering industries and communities worldwide.",
+    //   image: "/home.mp4", // Cloud video from public folder
+    // }
     // {
     //   id: 2,
     //   tagline: "Towards a Brighter Tomorrow – Preparing for Global Solar Reach",
