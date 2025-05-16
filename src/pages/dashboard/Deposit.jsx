@@ -73,46 +73,61 @@ export default function Deposit() {
     }));
   };
 
-  const handleSubmit = async () => {
-    if (!formData.amount || !formData.selectedCurrency) {
-      toast.error("Please fill all fields");
-      return;
-    }
+const handleSubmit = async () => {
+  if (!formData.amount || !formData.selectedCurrency) {
+    toast.error("Please fill all fields");
+    return;
+  }
 
-    if (isNaN(formData.amount) || parseFloat(formData.amount) <= 0) {
-      toast.error("Please enter a valid amount");
-      return;
-    }
+  if (isNaN(formData.amount) || parseFloat(formData.amount) <= 0) {
+    toast.error("Please enter a valid amount");
+    return;
+  }
 
-    try {
-      handleChange("isLoading", true);
-      const depositResponse = await depositService.makeDeposit({
-        from_currency: "USD",
-        to_currency: formData.selectedCurrency?.value,
-        amount: parseFloat(formData.amount),
-        buyer_name: user?.user?.name,
-        buyer_email: user?.user?.email,
-        custom: JSON.stringify([user?.user?.userId, formData.selectedCurrency?.value]),
-        ipn_endpoint: "/api/payment/deposit/ipn",
-        email: user?.user?.email,
+  try {
+    function generateInvestmentId() {
+  const randomNumber = Math.floor(1000 + Math.random() * 9000); // random 4-digit number
+  return `${randomNumber}`;
+}
+
+    handleChange("isLoading", true);
+    const depositResponse = await depositService.makeDeposit({
+      from_currency: "USD",
+      to_currency: formData.selectedCurrency?.value,
+      amount: parseFloat(formData.amount),
+      buyer_name: user?.user?.name,
+      buyer_email: user?.user?.email,
+      custom: JSON.stringify([
+        user?.user?.userId,        // user_id
+        "self",                    // type: self or downline
+        "NA",                      // sponsor: NA for self
+        generateInvestmentId(),                      // package_id (use real ID if needed)
+        formData.amount,           // invested_amount
+        formData.amount,           // deposit_amount
+        "0",                       // voucher_amount
+        "NA"                       // voucher_id
+      ]),
+      ipn_endpoint: "/api/payment/deposit/ipn",
+      email: user?.user?.email,
+    });
+
+    if (depositResponse.data.success) {
+      toast.success("Redirecting to payment gateway");
+      window.open(depositResponse.data.data.checkout_url, "_blank");
+      setFormData({
+        amount: "",
+        selectedCurrency: null,
+        isLoading: false,
       });
-
-      if (depositResponse.data.success) {
-        toast.success("Redirecting to payment gateway");
-        window.open(depositResponse.data.data.checkout_url, "_blank");
-        setFormData({
-          amount: "",
-          selectedCurrency: null,
-          isLoading: false,
-        });
-      }
-    } catch (error) {
-      console.error(error);
-      toast.error(error?.response?.data?.message || "Something went wrong");
-    } finally {
-      handleChange("isLoading", false);
     }
-  };
+  } catch (error) {
+    console.error(error);
+    toast.error(error?.response?.data?.message || "Something went wrong");
+  } finally {
+    handleChange("isLoading", false);
+  }
+};
+
 
   return (
     <div className="max-w-3xl mx-auto">
