@@ -639,7 +639,7 @@ const Services = () => {
                 {/* Main illustration */}
                 <div className="relative z-10 p-2 bg-white sm:p-4">
                   <img
-                    src="/public/1.png"
+                    src="https://res.cloudinary.com/dcqnkr06e/image/upload/v1747394214/1_nkixwd.png"
                     width={400}
                     height={450}
                     alt="Referral bonus illustration"
