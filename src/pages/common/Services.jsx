@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import greenBackground from "../../assets/images/backgrounds/greenBackground.jpg";
 import Footer_05 from "../../components/footer/Footer_05";
+import Roadmap from "../../components/sections/home_04/Roadmap";
 
 // Register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
@@ -756,8 +757,12 @@ const Services = () => {
           </section>
         </div>
       </section>
-      {/* Cards Section */}
-      <section className="py-12 sm:py-16 lg:py-20 ">
+
+          <section>
+        <Roadmap />
+      </section>
+            {/* Cards Section */}
+      <section className="py-12 sm:py-16 lg:py-20 ml-72">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 md:mx-24">
           <img
             src="\assets\img\CASH.png"
@@ -894,6 +899,7 @@ const Services = () => {
           </div>
         </div>
       </section>
+  
       <Footer_05 />
     </div>
   );
