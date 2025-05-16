@@ -335,7 +335,7 @@ const Services = () => {
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-center mb-12 text-[#4CAF50]">
           Why Invest in the Best with Crown Bankers
         </h2>
-        <div className="mx-auto max-w-7xl md:mx-24">
+        <div className="mx-auto  max-w-7xl md:mx-24 ">
           <div className="flex flex-col lg:flex-row lg:items-left lg:gap-12 ">
             <div className="mb-8 lg:w-1/2 lg:mb-0">
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -639,7 +639,7 @@ const Services = () => {
                 {/* Main illustration */}
                 <div className="relative z-10 p-2 bg-white sm:p-4">
                   <img
-                    src="/assets/img/bonus.png"
+                    src="/public/1.png"
                     width={400}
                     height={450}
                     alt="Referral bonus illustration"
@@ -757,12 +757,11 @@ const Services = () => {
           </section>
         </div>
       </section>
-
           <section>
         <Roadmap />
       </section>
             {/* Cards Section */}
-      <section className="py-12 sm:py-16 lg:py-20 ml-72">
+      {/* <section className="py-12 sm:py-16 lg:py-20 ml-72">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 md:mx-24">
           <img
             src="\assets\img\CASH.png"
@@ -770,7 +769,7 @@ const Services = () => {
             className="object-contain w-full h-auto"
           />
         </div>
-      </section>
+      </section> */}
 
       {/* Connect Section */}
       <section
