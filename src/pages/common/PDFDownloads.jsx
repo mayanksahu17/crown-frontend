@@ -1,31 +1,31 @@
 import { useState } from "react";
 import { Download } from "lucide-react";
-
 const PDFDownloads = () => {
   const [searchTerm, setSearchTerm] = useState("");
   
   // Simplified - just one document in multiple languages
   const documentTitle = "Company Brochure 2025";
-  const documentDescription = "Our comprehensive company brochure with details about our mission, services, and global presence.";
+const documentDescription = "Download our company brochure (currently available in English only).";
   
   // Multiple language options
   const languages = [
-    { code: "en", name: "English", url: "/public/crown_bankers.pdf" }, // corrected URL but html page is downloadin 
-    { code: "es", name: "Spanish", url: "/pdfs/company-brochure-es.pdf" },
-    { code: "fr", name: "French", url: "/pdfs/company-brochure-fr.pdf" },
-    { code: "de", name: "German", url: "/pdfs/company-brochure-de.pdf" },
-    { code: "it", name: "Italian", url: "/pdfs/company-brochure-it.pdf" },
-    { code: "pt", name: "Portuguese", url: "/pdfs/company-brochure-pt.pdf" },
-    { code: "zh", name: "Chinese", url: "/pdfs/company-brochure-zh.pdf" },
-    { code: "ja", name: "Japanese", url: "/pdfs/company-brochure-ja.pdf" },
-    { code: "ko", name: "Korean", url: "/pdfs/company-brochure-ko.pdf" },
-    { code: "hi", name: "Hindi", url: "/pdfs/company-brochure-hi.pdf" },
-    { code: "ar", name: "Arabic", url: "/pdfs/company-brochure-ar.pdf" },
-    { code: "ru", name: "Russian", url: "/pdfs/company-brochure-ru.pdf" },
-    { code: "tr", name: "Turkish", url: "/pdfs/company-brochure-tr.pdf" },
-    { code: "nl", name: "Dutch", url: "/pdfs/company-brochure-nl.pdf" },
-    { code: "sv", name: "Swedish", url: "/pdfs/company-brochure-sv.pdf" }
-  ];
+  { code: "en", name: "English", url: "/crown_bankers.pdf" },
+  { code: "es", name: "Spanish", url: "/crown_bankers.pdf" },
+  { code: "fr", name: "French", url: "/crown_bankers.pdf" },
+  { code: "de", name: "German", url: "/crown_bankers.pdf" },
+  { code: "it", name: "Italian", url: "/crown_bankers.pdf" },
+  { code: "pt", name: "Portuguese", url: "/crown_bankers.pdf" },
+  { code: "zh", name: "Chinese", url: "/crown_bankers.pdf" },
+  { code: "ja", name: "Japanese", url: "/crown_bankers.pdf" },
+  { code: "ko", name: "Korean", url: "/crown_bankers.pdf" },
+  { code: "hi", name: "Hindi", url: "/crown_bankers.pdf" },
+  { code: "ar", name: "Arabic", url: "/crown_bankers.pdf" },
+  { code: "ru", name: "Russian", url: "/crown_bankers.pdf" },
+  { code: "tr", name: "Turkish", url: "/crown_bankers.pdf" },
+  { code: "nl", name: "Dutch", url: "/crown_bankers.pdf" },
+  { code: "sv", name: "Swedish", url: "/crown_bankers.pdf" }
+];
+
 
   // Filter languages based on search term
   const filteredLanguages = languages.filter(lang => 
