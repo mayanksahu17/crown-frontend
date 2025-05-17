@@ -98,7 +98,7 @@ export default function Home() {
               roi_wallet: data?.roi_wallet,
               referral_binary_wallet: data?.referral_binary_wallet,
               interest_wallet: data?.interest_wallet,
-              deposit_wallet: data?.deposit_wallet || 0,
+              deposit_wallet: data?.total_deposit || 0,
               toal_voucher_generated: data?.toal_voucher_generated,
               isWithdrawalWalletUpdated: data?.isWithdrawalWalletUpdated,
               binary_current_level_name: getLevelName(data?.binary_career_level || 0),
